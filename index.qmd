@@ -1,7 +1,19 @@
 ---
-title: "statprob1"
+title: Course 101
+subtitle: My University
+listing:
+  - id: schedule-listing
+    contents: 'scheduled-docs_files/schedule.yml'
+    template: '_extensions/qmd-lab/course-website-ejs/schedule-wall-calendar/schedule.ejs'
+  # - id: this-week
+  #   contents: scheduled-docs_files/this-week.yml
+  #   template: '_extensions/qmd-lab/course-website-ejs/schedule-this-week/schedule.ejs'
 ---
 
-This is a Quarto website.
+:::{#this-week}
+:::
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+### Schedule
+
+:::{#schedule-listing}
+:::

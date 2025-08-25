@@ -1,0 +1,21 @@
+---
+listing:
+  - id: Slides-listing
+    contents: 
+      - scheduled-docs_files/slides-listing.yml
+    sort: "date desc"
+    type: grid
+    fields: 
+      - title
+      - subtitle
+      - image
+    categories: false
+page-layout: full
+toc: false
+---
+
+# Slides
+
+:::{#Slides-listing}
+:::
+

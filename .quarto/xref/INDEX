@@ -1,8 +1,47 @@
 {
   "index.qmd": {
-    "index.html": "dfd4ddb3"
+    "index.html": "83174858"
   },
-  "about.qmd": {
-    "about.html": "21f6a55d"
+  "1-probability/1-random-variables/notes.qmd": {
+    "notes.html": "950b584d"
+  },
+  "1-probability/1-random-variables/slides.qmd": {
+    "slides.html": "9ae7a128"
+  },
+  "1-probability/2-binomial/notes.qmd": {
+    "notes.html": "cec03e1a"
+  },
+  "1-probability/2-binomial/slides.qmd": {
+    "slides.html": "4e6590cc"
+  },
+  "1-probability/3-conditional-probability/notes.qmd": {
+    "notes.html": "0b0ed84f"
+  },
+  "1-probability/3-conditional-probability/ps.qmd": {
+    "ps.html": "b6df20ed"
+  },
+  "1-probability/3-conditional-probability/slides.qmd": {
+    "slides.html": "3ca26676"
+  },
+  "2-eda/1-data-viz/notes.qmd": {
+    "notes.html": "d3c17042"
+  },
+  "2-eda/1-data-viz/slides.qmd": {
+    "slides.html": "7f917093"
+  },
+  "notes.qmd": {
+    "notes.html": "eedda483"
+  },
+  "office-hours.qmd": {
+    "office-hours.html": "f4315f7e"
+  },
+  "problem-sets.qmd": {
+    "problem-sets.html": "e9ce7905"
+  },
+  "slides.qmd": {
+    "slides.html": "c2f2b6cc"
+  },
+  "syllabus.qmd": {
+    "syllabus.html": "43f9562a"
   }
 }

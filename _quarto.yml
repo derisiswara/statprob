@@ -2,20 +2,19 @@ project:
   type: website
 
 website:
-  title: "statprob1"
-  navbar:
-    left:
+  sidebar:
+    logo: assets/stat_bear.png
+    contents:
       - href: index.qmd
         text: Home
-      - about.qmd
-
-format:
-  html:
-    theme:
-      - cosmo
-      - brand
-    css: styles.css
-    toc: true
-
-
+      - href: syllabus.qmd
+        text: Syllabus
+      - href: office-hours.qmd
+        text: Office Hours
+      - href: notes.qmd
+        text: Notes 
+      - href: slides.qmd
+        text: Slides 
+      - href: problem-sets.qmd
+        text: Problem Sets
 
