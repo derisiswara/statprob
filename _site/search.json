@@ -21,55 +21,6 @@
     "text": "Schedule\n\n\n\n\nDate and Time\nVenue\nTopic & Slides\nQuiz\n\n\n\n\nSat, 3 Sep 2025\nOnline\nPengantar Statistika dan Probabilitas\ntba\n\n\nSat, 19 Sep 2025\nSoon\ntba\ntba\n\n\nSat, 17 Sep 2025\nSoon\ntba\ntba\n\n\nSat, 24 Oct 2025\nSoon\ntba\ntba"
   },
   {
-    "objectID": "01-basics.html#preamble",
-    "href": "01-basics.html#preamble",
-    "title": "Understanding the World with Data",
-    "section": "Preamble",
-    "text": "Preamble\nz"
-  },
-  {
-    "objectID": "for-tas/02-numpy-notes.html",
-    "href": "for-tas/02-numpy-notes.html",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "",
-    "text": "Create .ipynb in VS Code\nDifference between markdown cells and code cells\nMarkdown (very briefly)"
-  },
-  {
-    "objectID": "for-tas/02-numpy-notes.html#section-1-jupyter-notebook",
-    "href": "for-tas/02-numpy-notes.html#section-1-jupyter-notebook",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "",
-    "text": "Create .ipynb in VS Code\nDifference between markdown cells and code cells\nMarkdown (very briefly)"
-  },
-  {
-    "objectID": "for-tas/02-numpy-notes.html#section-2-numpy-arrays",
-    "href": "for-tas/02-numpy-notes.html#section-2-numpy-arrays",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Section 2: Numpy arrays",
-    "text": "Section 2: Numpy arrays\nInstalling Numpy (can run in the code cells)\npip install numpy\nImporting numpy\nimport numpy as np\nNumpy creation and operations\nnp.arange creates evenly spaced values within a given interval:\nrange_array = np.arange(0, 10, 0.5)\nprint(\"Range array:\", range_array)\nFrom list to array:\nlist_array = np.array([1, 2, 3, 4, 5])\nprint(\"NumPy array:\", list_array)\nIndexing and slicing\nprint(\"Original array:\", range_array)\nprint(\"First element:\", range_array[0])\nprint(\"Last element:\", range_array[-1])\nprint(\"Slicing (elements 3 to 7):\", range_array[2:7])\nrange_array[0] = 99\nprint(\"Update value of first element:\", range_array[0])\nCopies vs Views\n\nChanges in original will be reflected in view and vice versa\nChanges in original will NOT be reflected in copy\n\n# original array\noriginal = np.array([1, 2, 3, 4, 5])\nprint(\"Original array:\", original)\n\n# view of the original array\nview = original.view()\nprint(\"View:\", view)\n\n# copy of the original array\ncopy = original.copy()\nprint(\"Copy:\", copy)\n\n# Modify the original array\noriginal[0] = 99\nprint(\"\\nAfter modifying the original array:\")\nprint(\"Original array:\", original)\nprint(\"View now:\", view)  # reflects the changes\nprint(\"Copy now:\", copy)  # remains unchanged\n\n# Modify the view\nview[1] = 100\nprint(\"\\nAfter modifying the view:\")\nprint(\"Original array:\", original)  # affected\nprint(\"View now:\", view)\nprint(\"Copy now:\", copy)  # remains unchanged\n\n# Modify the copy\ncopy[2] = 200\nprint(\"\\nAfter modifying the copy:\")\nprint(\"Original array:\", original)  # not affected\nprint(\"View now:\", view)  # not affected\nprint(\"Copy now:\", copy)"
-  },
-  {
-    "objectID": "for-tas/02-numpy-notes.html#section-3-two-dimensional-arrays",
-    "href": "for-tas/02-numpy-notes.html#section-3-two-dimensional-arrays",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Section 3: Two-dimensional arrays",
-    "text": "Section 3: Two-dimensional arrays\narray_2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])\nprint(array_2d)\nprint(\"Shape of the array:\", array_2d.shape)\nprint(\"Size of the array:\", array_2d.size)\nIndices in a 2D array:\narray_2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])\nprint(array_2d[0,0])\nLoading a CSV file to 2D array.\nIn this CSV, the rows represent 7 different sectors and the columns represent the quarters from 2023 Q4, dating back all the way to 2019 Q1.\nEach cell contains the GDP growth of that sector for that quarter, compared to previous year’s quarters.\ngdp_data = np.loadtxt('data/sg-gdp.csv', delimiter=',', dtype=\"float16\")\nnp.set_printoptions(suppress=True)\n\nprint(\"GDP data\")\nprint(gdp_data)\nprint(\"GDP data shape:\", gdp_data.shape)\n\nFind out the mean, standard deviation, max, and mean values.\n\nprint(\"Mean of GDP data:\", np.mean(gdp_data))\nprint(\"Standard deviation of GDP data:\", np.std(gdp_data))\nprint(\"Maximum value in GDP data:\", np.amax(gdp_data))\nprint(\"Minimum value in GDP data:\", np.amin(gdp_data))\n\nFind the mean for each quarter (column-wise operation)\nFind the mean for each sector (row-wise operation)\n\nprint(\"Mean of each quarter:\", np.mean(gdp_data, axis=0))\nprint(\"Mean of each sector:\", np.mean(gdp_data, axis=1))\n\nTranspose the array\n\ntransposed_gdp = np.transpose(gdp_data)\nprint(\"Transposed GDP data shape:\", transposed_gdp.shape)\n\nRetrieve all the negative values.\n\nnegative_growth = gdp_data &lt; 0  \nprint(\"Sectors with negative growth:\\n\", gdp_data[negative_growth])\n\nCalculate the changes every quarter for Sector 1.\n\nThe gdp_data is longitudinal, with each row representing observations for a specific sector over time. This makes growth and contraction trends meaningful to analyze. To calculate changes in the data using NumPy, we can use the numpy.diff() function, which computes the differences between successive values in an array.\nsector1_array = gdp_data[0, :] # first row, all columns\nprint(\"sector1_array:\", sector1_array)\n\nsector1_changes = np.diff(sector1_array)\nprint(\"\\nsector1_changes:\", sector1_changes)\nprint(\"\\nsector1_changes absolute change:\", np.absolute(sector1_changes))\nNumPy financial functions\nCalculate the future value of $1000 invested for 3 years at a 5.0% average annual rate of return.\nnp.fv(rate=0.05, nper=3, pmt=0, pv=-1000)\nBy convention, the negative sign represents cash flow out (i.e. money not available today).\nExample 2:\nYou have a loan of 10,000 SGD at 9% annual interest. How long would it take to pay-off the load if your monthly payment is at 750?\nnp.round(npf.nper(0.09/12, -750, 10000), 5)\n# divided by 12, because the interest is annual but the payment is monthly"
-  },
-  {
-    "objectID": "for-tas/02-numpy-notes.html#section-4-visualizing-array-contents-matplotlib",
-    "href": "for-tas/02-numpy-notes.html#section-4-visualizing-array-contents-matplotlib",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Section 4: Visualizing Array contents (Matplotlib)",
-    "text": "Section 4: Visualizing Array contents (Matplotlib)\nSimple Lineplot\nplt.plot(gdp_data)\nplt.xlabel('Values')\nplt.ylabel('Sectors')\nplt.title('Values Over Quarters')\nplt.legend()\nplt.grid()\nplt.show()\nLineplot for each sector\ntransposed = gdp_data.T\nfor sector in range(7):\n    plt.plot(transposed[:, sector], label=f'Sector {sector + 1}')\n\nplt.legend()\nplt.grid()\nplt.show()\nBoxplot\ntransposed = gdp_data.T\n\nplt.boxplot(transposed)\nplt.grid()\nplt.show()"
-  },
-  {
-    "objectID": "coc.html",
-    "href": "coc.html",
-    "title": "Code of conduct",
-    "section": "",
-    "text": "In order to foster a positive and professional learning environment we encourage the following kinds of behaviours:\n\nUse welcoming and inclusive language\nBe respectful of different viewpoints and experiences\nGracefully accept constructive criticism\nFocus on what is best for the community\nShow courtesy and respect towards other community members\n\n(Adapted from The Carpentries’ Code of Conduct)"
-  },
-  {
     "objectID": "for-tas/01-basics-notes.html",
     "href": "for-tas/01-basics-notes.html",
     "title": "Introduction to Python",
@@ -147,32 +98,11 @@
     "text": "Semua tentang mata kuliah ini\nCapaian Pembelajaran Mata Kuliah (CPMK)\n\nDapat mengenali dan menyebutkan pengertian statistika dan probabilitas dengan benar.\nDapat mengaitkan statistika dan probabilitas/teori peluang dengan benar.\nDapat menjelaskan dan melakukan perhitungan probabilitas dengan menggunakan definisi yang sudah dipelajari.\nDapat menganalisa kaitan karakteristik, parameter dari beberapa distribusi peubah acak diskret maupun peubah acak kontinu.\nDapat melakukan pengujian hipotesis terhadap mean (rataan), variansi, dan proporsi dari suatu populasi.\nDapat melakukan publikasi dari hasil pengujian hipotesis menggunakan perhitungan statistika dari data nyata."
   },
   {
-    "objectID": "01-basics.html#semua-tentang-mata-kuliah-ini-1",
-    "href": "01-basics.html#semua-tentang-mata-kuliah-ini-1",
-    "title": "Understanding the World with Data",
-    "section": "Semua tentang mata kuliah ini",
-    "text": "Semua tentang mata kuliah ini\n\n\n\n\n\nQuiz\nTugas Mandiri\nUTS\nUAS\nTotal Bobot Penilaian\n\n\n\n\nCPMK 1\n5%\n\n5%\n\n10%\n\n\nCPMK 2\n5%\n\n5%\n\n10%\n\n\nCPMK 3\n7%\n\n8%\n\n15%\n\n\nCPMK 4\n\n10%\n5%\n\n15%\n\n\nCPMK 5\n\n10%\n\n10%\n20%\n\n\nCPMK 6\n\n10%\n\n20%\n30%\n\n\nTotal\n17%\n30%\n23%\n30%\n100%\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\nSyarat Lulus MK:\n\nNilai setiap CPMK &gt;= 55\nNilai Akhir &gt;= 55"
-  },
-  {
-    "objectID": "01-basics.html",
-    "href": "01-basics.html",
-    "title": "STATPROB (SI243040)",
-    "section": "",
-    "text": "Presensi\nQuiz\nTugas Mandiri\nTugas Kelompok\nPresentasi\nPraktikum\nUTS\nUAS\nTotal Bobot Penilaian\n\n\n\n\nSub-CPMK 1\n\n5%\n\n\n\n\n5%\n\n10%\n\n\nSub-CPMK 2\n\n5%\n\n\n\n\n5%\n\n10%\n\n\nSub-CPMK 3\n\n7%\n\n\n\n\n8%\n\n15%\n\n\nSub-CPMK 4\n\n\n10%\n\n\n\n5%\n\n15%\n\n\nSub-CPMK 5\n\n\n10%\n\n\n\n\n10%\n20%\n\n\nSub-CPMK 6\n\n\n10%\n\n\n\n\n20%\n30%\n\n\nTotal Per Penilaian\n\n17%\n30%\n0%\n0%\n0%\n23%\n30%\n100%"
-  },
-  {
     "objectID": "01-basics.html#nilai",
     "href": "01-basics.html#nilai",
     "title": "Understanding the World with Data",
     "section": "Nilai",
     "text": "Nilai\n\n\n\n\n\nQuiz\nTugas Mandiri\nUTS\nUAS\nTotal Bobot Penilaian\n\n\n\n\nCPMK 1\n5%\n\n5%\n\n10%\n\n\nCPMK 2\n5%\n\n5%\n\n10%\n\n\nCPMK 3\n7%\n\n8%\n\n15%\n\n\nCPMK 4\n\n10%\n5%\n\n15%\n\n\nCPMK 5\n\n10%\n\n10%\n20%\n\n\nCPMK 6\n\n10%\n\n20%\n30%\n\n\nTotal\n17%\n30%\n23%\n30%\n100%\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\nSyarat Lulus MK:\n\nNilai setiap CPMK &gt;= 55\nNilai Akhir &gt;= 55\nTidak Lulus: Remedial!"
-  },
-  {
-    "objectID": "01-basics.html#quick-survey",
-    "href": "01-basics.html#quick-survey",
-    "title": "Understanding the World with Data",
-    "section": "Quick Survey!",
-    "text": "Quick Survey!\nVote Now"
   },
   {
     "objectID": "01-basics.html#buku-pegangan",
@@ -182,46 +112,11 @@
     "text": "Buku Pegangan\n\nAgresti, A., Franklin, C., Klingenberg, B. 2018. Statistics: The Art and Science of Learning from Data. Pearson.\nMendenhall, W., Beaver, R. J., Beaver, B. M. 2013. Introduction to Probability and Statistics (14th edition). Brooks/Cole.\nOtt, R. L. and Longnecker, M. 2010. An Introduction to Statistical Methods and Data Analysis (6th edition). Brooks/Cole.\nLohr, S.L. 2010. Sampling: Design and Analysis (2nd edition). Brooks/Cole.\nScheaffer, R.L., Mendenhall, W., Ott, L., Gerow, K.G. 2012. Elementary Survey Sampling (7th edition). Brooks/Cole."
   },
   {
-    "objectID": "01-basics.html#section",
-    "href": "01-basics.html#section",
+    "objectID": "01-basics.html#quick-survey",
+    "href": "01-basics.html#quick-survey",
     "title": "Understanding the World with Data",
-    "section": "",
-    "text": "Banyak insight: mean, bar, max, highest, dll"
-  },
-  {
-    "objectID": "01-basics.html#section-1",
-    "href": "01-basics.html#section-1",
-    "title": "Understanding the World with Data",
-    "section": "",
-    "text": "Apa itu Statistika? Apa itu Probabilitas?"
-  },
-  {
-    "objectID": "01-basics.html#jelaskan-gambar",
-    "href": "01-basics.html#jelaskan-gambar",
-    "title": "Understanding the World with Data",
-    "section": "Jelaskan Gambar!",
-    "text": "Jelaskan Gambar!\n\n\nMahasiswa menjelaskan gambar dan alasan kenapa tahu SD paling tinggi?"
-  },
-  {
-    "objectID": "01-basics.html#jelaskan-gambar-1",
-    "href": "01-basics.html#jelaskan-gambar-1",
-    "title": "Understanding the World with Data",
-    "section": "Jelaskan Gambar!",
-    "text": "Jelaskan Gambar!\n\nMenyakiti atau Menolong?"
-  },
-  {
-    "objectID": "01-basics.html#data",
-    "href": "01-basics.html#data",
-    "title": "Understanding the World with Data",
-    "section": "Data",
-    "text": "Data\nData adalah informasi yang dikumpulkan tentang individu, objek, atau unit observasi, biasanya dalam bentuk angka, teks, gambar, yang kemudian dianalisis untuk menjawab pertanyaan atau menarik kesimpulan.\n\n\n\n\n\n\n\nNote\n\n\n📌 Definisi menurut Agresti (penulis buku Statistics: The Art and Science of Learning from Data dan Statistical Methods for the Social Sciences)"
-  },
-  {
-    "objectID": "01-basics.html#jelaskan-gambar-2",
-    "href": "01-basics.html#jelaskan-gambar-2",
-    "title": "Understanding the World with Data",
-    "section": "Jelaskan Gambar!",
-    "text": "Jelaskan Gambar!\n\n\nMahasiswa menjelaskan gambar dan alasan kenapa tahu SD paling tinggi?\n\nApa itu Statistika? Apa itu Probabilitas?"
+    "section": "Quick Survey!",
+    "text": "Quick Survey!\nVote Now"
   },
   {
     "objectID": "01-basics.html#apakah-ini-data",
@@ -245,11 +140,11 @@
     "text": "Tipe Data\n\nsaidatascience.com"
   },
   {
-    "objectID": "01-basics.html#apa-itu-probabilitas",
-    "href": "01-basics.html#apa-itu-probabilitas",
+    "objectID": "01-basics.html#tipe-data-1",
+    "href": "01-basics.html#tipe-data-1",
     "title": "Understanding the World with Data",
-    "section": "Apa itu probabilitas?",
-    "text": "Apa itu probabilitas?\nProbabilitas adalah ilmu tentang ketidakpastian\n\nMenyediakan kerangka matematis untuk menganalisis ketidaktahuan\nMembantu membuat keputusan berdasarkan informasi terbatas\nMemungkinkan kita mengukur tingkat keyakinan terhadap kejadian yang belum terjadi"
+    "section": "Tipe Data",
+    "text": "Tipe Data\n\n\n\nData Interval: Suhu, Temperatur\nData Rasio: Tinggi Badan, Berat Badan\n\n\nInterval → bisa tambah/kurang, tapi tidak bisa bandingkan kelipatan. IQ, DLL\nRasio → bisa tambah/kurang dan bisa bandingkan kelipatan (dua kali lipat, separuh, dll)."
   },
   {
     "objectID": "01-basics.html#unstructured-data",
@@ -259,11 +154,18 @@
     "text": "Unstructured Data"
   },
   {
-    "objectID": "01-basics.html#tipe-data-1",
-    "href": "01-basics.html#tipe-data-1",
+    "objectID": "01-basics.html#jelaskan-gambar",
+    "href": "01-basics.html#jelaskan-gambar",
     "title": "Understanding the World with Data",
-    "section": "Tipe Data",
-    "text": "Tipe Data\n\n\n\nData Interval: Suhu, Temperatur\nData Rasio: Tinggi Badan, Berat Badan\n\n\nInterval → bisa tambah/kurang, tapi tidak bisa bandingkan kelipatan. IQ, DLL\nRasio → bisa tambah/kurang dan bisa bandingkan kelipatan (dua kali lipat, separuh, dll)."
+    "section": "Jelaskan Gambar!",
+    "text": "Jelaskan Gambar!\n\n\nMahasiswa menjelaskan gambar dan alasan kenapa tahu SD paling tinggi?"
+  },
+  {
+    "objectID": "01-basics.html#section",
+    "href": "01-basics.html#section",
+    "title": "Understanding the World with Data",
+    "section": "",
+    "text": "Banyak insight: mean, bar, max, highest, dll"
   },
   {
     "objectID": "01-basics.html#statistika-dan-tipe-tipenya",
@@ -273,46 +175,11 @@
     "text": "Statistika dan Tipe-tipenya\n\n\nStatistika Deskriptif: Menggambarkan data dengan ringkasan numerik dan visual\nStatistika Inferensial: Menarik kesimpulan tentang populasi dari sampel"
   },
   {
-    "objectID": "01-basics.html#mengapa-probabilitas-penting",
-    "href": "01-basics.html#mengapa-probabilitas-penting",
-    "title": "Understanding the World with Data",
-    "section": "Mengapa Probabilitas Penting?",
-    "text": "Mengapa Probabilitas Penting?\n\n\nProbabilitas membantu kita:\n\nMembuat prediksi\nMengambil keputusan yang lebih baik\nMenilai risiko\nMemahami data secara sistematis"
-  },
-  {
-    "objectID": "01-basics.html#komponen-model-probabilitas",
-    "href": "01-basics.html#komponen-model-probabilitas",
-    "title": "Understanding the World with Data",
-    "section": "Komponen Model Probabilitas",
-    "text": "Komponen Model Probabilitas\n\nRuang Sampel (S): Himpunan semua hasil yang mungkin terjadi\nKejadian (Events): Subset dari ruang sampel\nUkuran Probabilitas (P): Fungsi yang menetapkan nilai probabilitas untuk setiap kejadian"
-  },
-  {
-    "objectID": "01-basics.html#sifat-sifat-ukuran-probabilitas",
-    "href": "01-basics.html#sifat-sifat-ukuran-probabilitas",
-    "title": "Understanding the World with Data",
-    "section": "Sifat-sifat Ukuran Probabilitas",
-    "text": "Sifat-sifat Ukuran Probabilitas\n\n\n\n\n\n\nImportant\n\n\nUntuk setiap ukuran probabilitas P dan kejadian A:\n\n\n\n\n\\(0 \\leq P(A) \\leq 1\\)\n\\(P(\\emptyset) = 0\\) (probabilitas kejadian mustahil)\n\\(P(S) = 1\\) (probabilitas kejadian pasti)\nJika A dan B saling lepas, maka \\(P(A \\cup B) = P(A) + P(B)\\)"
-  },
-  {
-    "objectID": "01-basics.html#contoh-sederhana",
-    "href": "01-basics.html#contoh-sederhana",
-    "title": "Understanding the World with Data",
-    "section": "Contoh Sederhana",
-    "text": "Contoh Sederhana\n\n\nPelemparan dadu:\n\nRuang sampel S = {1, 2, 3, 4, 5, 6}\nKejadian “angka genap” = {2, 4, 6}\nP(angka genap) = 3/6 = 1/2"
-  },
-  {
     "objectID": "01-basics.html#probabilitas-dalam-kehidupan-sehari-hari",
     "href": "01-basics.html#probabilitas-dalam-kehidupan-sehari-hari",
     "title": "Understanding the World with Data",
     "section": "Probabilitas dalam Kehidupan Sehari-hari",
     "text": "Probabilitas dalam Kehidupan Sehari-hari\n\nRamalan cuaca: “60% kemungkinan hujan besok”\nKeputusan medis: Probabilitas sembuh dengan pengobatan tertentu\nKeuangan: Probabilitas investasi menghasilkan keuntungan\nAsuransi: Perhitungan risiko berbagai kejadian"
-  },
-  {
-    "objectID": "01-basics.html#jenis-probabilitas",
-    "href": "01-basics.html#jenis-probabilitas",
-    "title": "Understanding the World with Data",
-    "section": "Jenis Probabilitas",
-    "text": "Jenis Probabilitas\n\nProbabilitas Klasik: Berdasarkan jumlah hasil yang mungkin (\\(\\frac{\\text{jumlah hasil yang diinginkan}}{\\text{jumlah total hasil yang mungkin}}\\))\nProbabilitas Frekuentis: Berdasarkan frekuensi relatif kejadian dalam percobaan berulang\nProbabilitas Subjektif: Berdasarkan tingkat keyakinan atau penilaian pribadi"
   },
   {
     "objectID": "01-basics.html#defnisi-probabilitas",
@@ -327,5 +194,47 @@
     "title": "Understanding the World with Data",
     "section": "Keterkaitan Probabilitas dengan Statistika",
     "text": "Keterkaitan Probabilitas dengan Statistika\n\nStatistika menggunakan hasil pengolahan data untuk membuat kesimpulan atau keputusan\nKlaim statistik selalu berbasis peluang, bukan kepastian mutlak\n\nContoh: Dari survei 1.000 orang, 65% menyukai produk A → kita dapat menyatakan “mayoritas responden menyukai produk tersebut”\n\nPentingnya probabilitas:\n\nDalam uji hipotesis, kita menyatakan “dengan tingkat keyakinan 95%, klaim ini didukung data”\nStatistika menyediakan dasar untuk inferensi yang terukur dan transparan\nSetiap kesimpulan statistik mengandung unsur ketidakpastian"
+  },
+  {
+    "objectID": "coc.html",
+    "href": "coc.html",
+    "title": "Code of conduct",
+    "section": "",
+    "text": "In order to foster a positive and professional learning environment we encourage the following kinds of behaviours:\n\nUse welcoming and inclusive language\nBe respectful of different viewpoints and experiences\nGracefully accept constructive criticism\nFocus on what is best for the community\nShow courtesy and respect towards other community members\n\n(Adapted from The Carpentries’ Code of Conduct)"
+  },
+  {
+    "objectID": "for-tas/02-numpy-notes.html",
+    "href": "for-tas/02-numpy-notes.html",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "",
+    "text": "Create .ipynb in VS Code\nDifference between markdown cells and code cells\nMarkdown (very briefly)"
+  },
+  {
+    "objectID": "for-tas/02-numpy-notes.html#section-1-jupyter-notebook",
+    "href": "for-tas/02-numpy-notes.html#section-1-jupyter-notebook",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "",
+    "text": "Create .ipynb in VS Code\nDifference between markdown cells and code cells\nMarkdown (very briefly)"
+  },
+  {
+    "objectID": "for-tas/02-numpy-notes.html#section-2-numpy-arrays",
+    "href": "for-tas/02-numpy-notes.html#section-2-numpy-arrays",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Section 2: Numpy arrays",
+    "text": "Section 2: Numpy arrays\nInstalling Numpy (can run in the code cells)\npip install numpy\nImporting numpy\nimport numpy as np\nNumpy creation and operations\nnp.arange creates evenly spaced values within a given interval:\nrange_array = np.arange(0, 10, 0.5)\nprint(\"Range array:\", range_array)\nFrom list to array:\nlist_array = np.array([1, 2, 3, 4, 5])\nprint(\"NumPy array:\", list_array)\nIndexing and slicing\nprint(\"Original array:\", range_array)\nprint(\"First element:\", range_array[0])\nprint(\"Last element:\", range_array[-1])\nprint(\"Slicing (elements 3 to 7):\", range_array[2:7])\nrange_array[0] = 99\nprint(\"Update value of first element:\", range_array[0])\nCopies vs Views\n\nChanges in original will be reflected in view and vice versa\nChanges in original will NOT be reflected in copy\n\n# original array\noriginal = np.array([1, 2, 3, 4, 5])\nprint(\"Original array:\", original)\n\n# view of the original array\nview = original.view()\nprint(\"View:\", view)\n\n# copy of the original array\ncopy = original.copy()\nprint(\"Copy:\", copy)\n\n# Modify the original array\noriginal[0] = 99\nprint(\"\\nAfter modifying the original array:\")\nprint(\"Original array:\", original)\nprint(\"View now:\", view)  # reflects the changes\nprint(\"Copy now:\", copy)  # remains unchanged\n\n# Modify the view\nview[1] = 100\nprint(\"\\nAfter modifying the view:\")\nprint(\"Original array:\", original)  # affected\nprint(\"View now:\", view)\nprint(\"Copy now:\", copy)  # remains unchanged\n\n# Modify the copy\ncopy[2] = 200\nprint(\"\\nAfter modifying the copy:\")\nprint(\"Original array:\", original)  # not affected\nprint(\"View now:\", view)  # not affected\nprint(\"Copy now:\", copy)"
+  },
+  {
+    "objectID": "for-tas/02-numpy-notes.html#section-3-two-dimensional-arrays",
+    "href": "for-tas/02-numpy-notes.html#section-3-two-dimensional-arrays",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Section 3: Two-dimensional arrays",
+    "text": "Section 3: Two-dimensional arrays\narray_2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])\nprint(array_2d)\nprint(\"Shape of the array:\", array_2d.shape)\nprint(\"Size of the array:\", array_2d.size)\nIndices in a 2D array:\narray_2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])\nprint(array_2d[0,0])\nLoading a CSV file to 2D array.\nIn this CSV, the rows represent 7 different sectors and the columns represent the quarters from 2023 Q4, dating back all the way to 2019 Q1.\nEach cell contains the GDP growth of that sector for that quarter, compared to previous year’s quarters.\ngdp_data = np.loadtxt('data/sg-gdp.csv', delimiter=',', dtype=\"float16\")\nnp.set_printoptions(suppress=True)\n\nprint(\"GDP data\")\nprint(gdp_data)\nprint(\"GDP data shape:\", gdp_data.shape)\n\nFind out the mean, standard deviation, max, and mean values.\n\nprint(\"Mean of GDP data:\", np.mean(gdp_data))\nprint(\"Standard deviation of GDP data:\", np.std(gdp_data))\nprint(\"Maximum value in GDP data:\", np.amax(gdp_data))\nprint(\"Minimum value in GDP data:\", np.amin(gdp_data))\n\nFind the mean for each quarter (column-wise operation)\nFind the mean for each sector (row-wise operation)\n\nprint(\"Mean of each quarter:\", np.mean(gdp_data, axis=0))\nprint(\"Mean of each sector:\", np.mean(gdp_data, axis=1))\n\nTranspose the array\n\ntransposed_gdp = np.transpose(gdp_data)\nprint(\"Transposed GDP data shape:\", transposed_gdp.shape)\n\nRetrieve all the negative values.\n\nnegative_growth = gdp_data &lt; 0  \nprint(\"Sectors with negative growth:\\n\", gdp_data[negative_growth])\n\nCalculate the changes every quarter for Sector 1.\n\nThe gdp_data is longitudinal, with each row representing observations for a specific sector over time. This makes growth and contraction trends meaningful to analyze. To calculate changes in the data using NumPy, we can use the numpy.diff() function, which computes the differences between successive values in an array.\nsector1_array = gdp_data[0, :] # first row, all columns\nprint(\"sector1_array:\", sector1_array)\n\nsector1_changes = np.diff(sector1_array)\nprint(\"\\nsector1_changes:\", sector1_changes)\nprint(\"\\nsector1_changes absolute change:\", np.absolute(sector1_changes))\nNumPy financial functions\nCalculate the future value of $1000 invested for 3 years at a 5.0% average annual rate of return.\nnp.fv(rate=0.05, nper=3, pmt=0, pv=-1000)\nBy convention, the negative sign represents cash flow out (i.e. money not available today).\nExample 2:\nYou have a loan of 10,000 SGD at 9% annual interest. How long would it take to pay-off the load if your monthly payment is at 750?\nnp.round(npf.nper(0.09/12, -750, 10000), 5)\n# divided by 12, because the interest is annual but the payment is monthly"
+  },
+  {
+    "objectID": "for-tas/02-numpy-notes.html#section-4-visualizing-array-contents-matplotlib",
+    "href": "for-tas/02-numpy-notes.html#section-4-visualizing-array-contents-matplotlib",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Section 4: Visualizing Array contents (Matplotlib)",
+    "text": "Section 4: Visualizing Array contents (Matplotlib)\nSimple Lineplot\nplt.plot(gdp_data)\nplt.xlabel('Values')\nplt.ylabel('Sectors')\nplt.title('Values Over Quarters')\nplt.legend()\nplt.grid()\nplt.show()\nLineplot for each sector\ntransposed = gdp_data.T\nfor sector in range(7):\n    plt.plot(transposed[:, sector], label=f'Sector {sector + 1}')\n\nplt.legend()\nplt.grid()\nplt.show()\nBoxplot\ntransposed = gdp_data.T\n\nplt.boxplot(transposed)\nplt.grid()\nplt.show()"
   }
 ]
