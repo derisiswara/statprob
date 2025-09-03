@@ -21,6 +21,48 @@
     "text": "Schedule\n\n\n\n\nDate and Time\nVenue\nTopic & Slides\nQuiz\n\n\n\n\nSat, 3 Sep 2025\nOnline\nPengantar Statistika dan Probabilitas\ntba\n\n\nSat, 19 Sep 2025\nSoon\ntba\ntba\n\n\nSat, 17 Sep 2025\nSoon\ntba\ntba\n\n\nSat, 24 Oct 2025\nSoon\ntba\ntba"
   },
   {
+    "objectID": "for-tas/02-numpy-notes.html",
+    "href": "for-tas/02-numpy-notes.html",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "",
+    "text": "Create .ipynb in VS Code\nDifference between markdown cells and code cells\nMarkdown (very briefly)"
+  },
+  {
+    "objectID": "for-tas/02-numpy-notes.html#section-1-jupyter-notebook",
+    "href": "for-tas/02-numpy-notes.html#section-1-jupyter-notebook",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "",
+    "text": "Create .ipynb in VS Code\nDifference between markdown cells and code cells\nMarkdown (very briefly)"
+  },
+  {
+    "objectID": "for-tas/02-numpy-notes.html#section-2-numpy-arrays",
+    "href": "for-tas/02-numpy-notes.html#section-2-numpy-arrays",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Section 2: Numpy arrays",
+    "text": "Section 2: Numpy arrays\nInstalling Numpy (can run in the code cells)\npip install numpy\nImporting numpy\nimport numpy as np\nNumpy creation and operations\nnp.arange creates evenly spaced values within a given interval:\nrange_array = np.arange(0, 10, 0.5)\nprint(\"Range array:\", range_array)\nFrom list to array:\nlist_array = np.array([1, 2, 3, 4, 5])\nprint(\"NumPy array:\", list_array)\nIndexing and slicing\nprint(\"Original array:\", range_array)\nprint(\"First element:\", range_array[0])\nprint(\"Last element:\", range_array[-1])\nprint(\"Slicing (elements 3 to 7):\", range_array[2:7])\nrange_array[0] = 99\nprint(\"Update value of first element:\", range_array[0])\nCopies vs Views\n\nChanges in original will be reflected in view and vice versa\nChanges in original will NOT be reflected in copy\n\n# original array\noriginal = np.array([1, 2, 3, 4, 5])\nprint(\"Original array:\", original)\n\n# view of the original array\nview = original.view()\nprint(\"View:\", view)\n\n# copy of the original array\ncopy = original.copy()\nprint(\"Copy:\", copy)\n\n# Modify the original array\noriginal[0] = 99\nprint(\"\\nAfter modifying the original array:\")\nprint(\"Original array:\", original)\nprint(\"View now:\", view)  # reflects the changes\nprint(\"Copy now:\", copy)  # remains unchanged\n\n# Modify the view\nview[1] = 100\nprint(\"\\nAfter modifying the view:\")\nprint(\"Original array:\", original)  # affected\nprint(\"View now:\", view)\nprint(\"Copy now:\", copy)  # remains unchanged\n\n# Modify the copy\ncopy[2] = 200\nprint(\"\\nAfter modifying the copy:\")\nprint(\"Original array:\", original)  # not affected\nprint(\"View now:\", view)  # not affected\nprint(\"Copy now:\", copy)"
+  },
+  {
+    "objectID": "for-tas/02-numpy-notes.html#section-3-two-dimensional-arrays",
+    "href": "for-tas/02-numpy-notes.html#section-3-two-dimensional-arrays",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Section 3: Two-dimensional arrays",
+    "text": "Section 3: Two-dimensional arrays\narray_2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])\nprint(array_2d)\nprint(\"Shape of the array:\", array_2d.shape)\nprint(\"Size of the array:\", array_2d.size)\nIndices in a 2D array:\narray_2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])\nprint(array_2d[0,0])\nLoading a CSV file to 2D array.\nIn this CSV, the rows represent 7 different sectors and the columns represent the quarters from 2023 Q4, dating back all the way to 2019 Q1.\nEach cell contains the GDP growth of that sector for that quarter, compared to previous year’s quarters.\ngdp_data = np.loadtxt('data/sg-gdp.csv', delimiter=',', dtype=\"float16\")\nnp.set_printoptions(suppress=True)\n\nprint(\"GDP data\")\nprint(gdp_data)\nprint(\"GDP data shape:\", gdp_data.shape)\n\nFind out the mean, standard deviation, max, and mean values.\n\nprint(\"Mean of GDP data:\", np.mean(gdp_data))\nprint(\"Standard deviation of GDP data:\", np.std(gdp_data))\nprint(\"Maximum value in GDP data:\", np.amax(gdp_data))\nprint(\"Minimum value in GDP data:\", np.amin(gdp_data))\n\nFind the mean for each quarter (column-wise operation)\nFind the mean for each sector (row-wise operation)\n\nprint(\"Mean of each quarter:\", np.mean(gdp_data, axis=0))\nprint(\"Mean of each sector:\", np.mean(gdp_data, axis=1))\n\nTranspose the array\n\ntransposed_gdp = np.transpose(gdp_data)\nprint(\"Transposed GDP data shape:\", transposed_gdp.shape)\n\nRetrieve all the negative values.\n\nnegative_growth = gdp_data &lt; 0  \nprint(\"Sectors with negative growth:\\n\", gdp_data[negative_growth])\n\nCalculate the changes every quarter for Sector 1.\n\nThe gdp_data is longitudinal, with each row representing observations for a specific sector over time. This makes growth and contraction trends meaningful to analyze. To calculate changes in the data using NumPy, we can use the numpy.diff() function, which computes the differences between successive values in an array.\nsector1_array = gdp_data[0, :] # first row, all columns\nprint(\"sector1_array:\", sector1_array)\n\nsector1_changes = np.diff(sector1_array)\nprint(\"\\nsector1_changes:\", sector1_changes)\nprint(\"\\nsector1_changes absolute change:\", np.absolute(sector1_changes))\nNumPy financial functions\nCalculate the future value of $1000 invested for 3 years at a 5.0% average annual rate of return.\nnp.fv(rate=0.05, nper=3, pmt=0, pv=-1000)\nBy convention, the negative sign represents cash flow out (i.e. money not available today).\nExample 2:\nYou have a loan of 10,000 SGD at 9% annual interest. How long would it take to pay-off the load if your monthly payment is at 750?\nnp.round(npf.nper(0.09/12, -750, 10000), 5)\n# divided by 12, because the interest is annual but the payment is monthly"
+  },
+  {
+    "objectID": "for-tas/02-numpy-notes.html#section-4-visualizing-array-contents-matplotlib",
+    "href": "for-tas/02-numpy-notes.html#section-4-visualizing-array-contents-matplotlib",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Section 4: Visualizing Array contents (Matplotlib)",
+    "text": "Section 4: Visualizing Array contents (Matplotlib)\nSimple Lineplot\nplt.plot(gdp_data)\nplt.xlabel('Values')\nplt.ylabel('Sectors')\nplt.title('Values Over Quarters')\nplt.legend()\nplt.grid()\nplt.show()\nLineplot for each sector\ntransposed = gdp_data.T\nfor sector in range(7):\n    plt.plot(transposed[:, sector], label=f'Sector {sector + 1}')\n\nplt.legend()\nplt.grid()\nplt.show()\nBoxplot\ntransposed = gdp_data.T\n\nplt.boxplot(transposed)\nplt.grid()\nplt.show()"
+  },
+  {
+    "objectID": "coc.html",
+    "href": "coc.html",
+    "title": "Code of conduct",
+    "section": "",
+    "text": "In order to foster a positive and professional learning environment we encourage the following kinds of behaviours:\n\nUse welcoming and inclusive language\nBe respectful of different viewpoints and experiences\nGracefully accept constructive criticism\nFocus on what is best for the community\nShow courtesy and respect towards other community members\n\n(Adapted from The Carpentries’ Code of Conduct)"
+  },
+  {
     "objectID": "for-tas/01-basics-notes.html",
     "href": "for-tas/01-basics-notes.html",
     "title": "Introduction to Python",
@@ -194,47 +236,5 @@
     "title": "Understanding the World with Data",
     "section": "Keterkaitan Probabilitas dengan Statistika",
     "text": "Keterkaitan Probabilitas dengan Statistika\n\nStatistika menggunakan hasil pengolahan data untuk membuat kesimpulan atau keputusan\nKlaim statistik selalu berbasis peluang, bukan kepastian mutlak\n\nContoh: Dari survei 1.000 orang, 65% menyukai produk A → kita dapat menyatakan “mayoritas responden menyukai produk tersebut”\n\nPentingnya probabilitas:\n\nDalam uji hipotesis, kita menyatakan “dengan tingkat keyakinan 95%, klaim ini didukung data”\nStatistika menyediakan dasar untuk inferensi yang terukur dan transparan\nSetiap kesimpulan statistik mengandung unsur ketidakpastian"
-  },
-  {
-    "objectID": "coc.html",
-    "href": "coc.html",
-    "title": "Code of conduct",
-    "section": "",
-    "text": "In order to foster a positive and professional learning environment we encourage the following kinds of behaviours:\n\nUse welcoming and inclusive language\nBe respectful of different viewpoints and experiences\nGracefully accept constructive criticism\nFocus on what is best for the community\nShow courtesy and respect towards other community members\n\n(Adapted from The Carpentries’ Code of Conduct)"
-  },
-  {
-    "objectID": "for-tas/02-numpy-notes.html",
-    "href": "for-tas/02-numpy-notes.html",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "",
-    "text": "Create .ipynb in VS Code\nDifference between markdown cells and code cells\nMarkdown (very briefly)"
-  },
-  {
-    "objectID": "for-tas/02-numpy-notes.html#section-1-jupyter-notebook",
-    "href": "for-tas/02-numpy-notes.html#section-1-jupyter-notebook",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "",
-    "text": "Create .ipynb in VS Code\nDifference between markdown cells and code cells\nMarkdown (very briefly)"
-  },
-  {
-    "objectID": "for-tas/02-numpy-notes.html#section-2-numpy-arrays",
-    "href": "for-tas/02-numpy-notes.html#section-2-numpy-arrays",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Section 2: Numpy arrays",
-    "text": "Section 2: Numpy arrays\nInstalling Numpy (can run in the code cells)\npip install numpy\nImporting numpy\nimport numpy as np\nNumpy creation and operations\nnp.arange creates evenly spaced values within a given interval:\nrange_array = np.arange(0, 10, 0.5)\nprint(\"Range array:\", range_array)\nFrom list to array:\nlist_array = np.array([1, 2, 3, 4, 5])\nprint(\"NumPy array:\", list_array)\nIndexing and slicing\nprint(\"Original array:\", range_array)\nprint(\"First element:\", range_array[0])\nprint(\"Last element:\", range_array[-1])\nprint(\"Slicing (elements 3 to 7):\", range_array[2:7])\nrange_array[0] = 99\nprint(\"Update value of first element:\", range_array[0])\nCopies vs Views\n\nChanges in original will be reflected in view and vice versa\nChanges in original will NOT be reflected in copy\n\n# original array\noriginal = np.array([1, 2, 3, 4, 5])\nprint(\"Original array:\", original)\n\n# view of the original array\nview = original.view()\nprint(\"View:\", view)\n\n# copy of the original array\ncopy = original.copy()\nprint(\"Copy:\", copy)\n\n# Modify the original array\noriginal[0] = 99\nprint(\"\\nAfter modifying the original array:\")\nprint(\"Original array:\", original)\nprint(\"View now:\", view)  # reflects the changes\nprint(\"Copy now:\", copy)  # remains unchanged\n\n# Modify the view\nview[1] = 100\nprint(\"\\nAfter modifying the view:\")\nprint(\"Original array:\", original)  # affected\nprint(\"View now:\", view)\nprint(\"Copy now:\", copy)  # remains unchanged\n\n# Modify the copy\ncopy[2] = 200\nprint(\"\\nAfter modifying the copy:\")\nprint(\"Original array:\", original)  # not affected\nprint(\"View now:\", view)  # not affected\nprint(\"Copy now:\", copy)"
-  },
-  {
-    "objectID": "for-tas/02-numpy-notes.html#section-3-two-dimensional-arrays",
-    "href": "for-tas/02-numpy-notes.html#section-3-two-dimensional-arrays",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Section 3: Two-dimensional arrays",
-    "text": "Section 3: Two-dimensional arrays\narray_2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])\nprint(array_2d)\nprint(\"Shape of the array:\", array_2d.shape)\nprint(\"Size of the array:\", array_2d.size)\nIndices in a 2D array:\narray_2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])\nprint(array_2d[0,0])\nLoading a CSV file to 2D array.\nIn this CSV, the rows represent 7 different sectors and the columns represent the quarters from 2023 Q4, dating back all the way to 2019 Q1.\nEach cell contains the GDP growth of that sector for that quarter, compared to previous year’s quarters.\ngdp_data = np.loadtxt('data/sg-gdp.csv', delimiter=',', dtype=\"float16\")\nnp.set_printoptions(suppress=True)\n\nprint(\"GDP data\")\nprint(gdp_data)\nprint(\"GDP data shape:\", gdp_data.shape)\n\nFind out the mean, standard deviation, max, and mean values.\n\nprint(\"Mean of GDP data:\", np.mean(gdp_data))\nprint(\"Standard deviation of GDP data:\", np.std(gdp_data))\nprint(\"Maximum value in GDP data:\", np.amax(gdp_data))\nprint(\"Minimum value in GDP data:\", np.amin(gdp_data))\n\nFind the mean for each quarter (column-wise operation)\nFind the mean for each sector (row-wise operation)\n\nprint(\"Mean of each quarter:\", np.mean(gdp_data, axis=0))\nprint(\"Mean of each sector:\", np.mean(gdp_data, axis=1))\n\nTranspose the array\n\ntransposed_gdp = np.transpose(gdp_data)\nprint(\"Transposed GDP data shape:\", transposed_gdp.shape)\n\nRetrieve all the negative values.\n\nnegative_growth = gdp_data &lt; 0  \nprint(\"Sectors with negative growth:\\n\", gdp_data[negative_growth])\n\nCalculate the changes every quarter for Sector 1.\n\nThe gdp_data is longitudinal, with each row representing observations for a specific sector over time. This makes growth and contraction trends meaningful to analyze. To calculate changes in the data using NumPy, we can use the numpy.diff() function, which computes the differences between successive values in an array.\nsector1_array = gdp_data[0, :] # first row, all columns\nprint(\"sector1_array:\", sector1_array)\n\nsector1_changes = np.diff(sector1_array)\nprint(\"\\nsector1_changes:\", sector1_changes)\nprint(\"\\nsector1_changes absolute change:\", np.absolute(sector1_changes))\nNumPy financial functions\nCalculate the future value of $1000 invested for 3 years at a 5.0% average annual rate of return.\nnp.fv(rate=0.05, nper=3, pmt=0, pv=-1000)\nBy convention, the negative sign represents cash flow out (i.e. money not available today).\nExample 2:\nYou have a loan of 10,000 SGD at 9% annual interest. How long would it take to pay-off the load if your monthly payment is at 750?\nnp.round(npf.nper(0.09/12, -750, 10000), 5)\n# divided by 12, because the interest is annual but the payment is monthly"
-  },
-  {
-    "objectID": "for-tas/02-numpy-notes.html#section-4-visualizing-array-contents-matplotlib",
-    "href": "for-tas/02-numpy-notes.html#section-4-visualizing-array-contents-matplotlib",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Section 4: Visualizing Array contents (Matplotlib)",
-    "text": "Section 4: Visualizing Array contents (Matplotlib)\nSimple Lineplot\nplt.plot(gdp_data)\nplt.xlabel('Values')\nplt.ylabel('Sectors')\nplt.title('Values Over Quarters')\nplt.legend()\nplt.grid()\nplt.show()\nLineplot for each sector\ntransposed = gdp_data.T\nfor sector in range(7):\n    plt.plot(transposed[:, sector], label=f'Sector {sector + 1}')\n\nplt.legend()\nplt.grid()\nplt.show()\nBoxplot\ntransposed = gdp_data.T\n\nplt.boxplot(transposed)\nplt.grid()\nplt.show()"
   }
 ]
