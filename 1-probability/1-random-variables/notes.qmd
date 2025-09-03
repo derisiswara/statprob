@@ -1,5 +1,0 @@
----
-title: "Random Variables"
----
-
-Here is some background on Random Variables.

@@ -1,13 +1,4 @@
 /.quarto/
-*.DS_Store
-
-*.Rproj
-.Rproj.user
-.Rhistory
-
-_site
-_partial-site
-_full-site
-
-scheduled-docs_files
-/.luarc.json
+/_site/
+2024-python-macroecons.code-workspace
+api_key.txt

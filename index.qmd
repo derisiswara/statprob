@@ -1,19 +1,28 @@
 ---
-title: Course 101
-subtitle: My University
-listing:
-  - id: schedule-listing
-    contents: 'scheduled-docs_files/schedule.yml'
-    template: '_extensions/qmd-lab/course-website-ejs/schedule-wall-calendar/schedule.ejs'
-  # - id: this-week
-  #   contents: scheduled-docs_files/this-week.yml
-  #   template: '_extensions/qmd-lab/course-website-ejs/schedule-this-week/schedule.ejs'
+title: "Statistika dan Probabilitas"
+subtitle: "Perbanas Institute"
+format: html
 ---
 
-:::{#this-week}
+## SI243040 (3 SKS)
+
+Repositori ini berisi materi perkuliahan Statistika dan Probabilitas untuk mahasiswa Perbanas Institute.
+
+## Schedule
+
+::: table-schedule
+| Date and Time | Venue | Topic & Slides | Quiz |
+|-----------------|-----------------|---------------------|-----------------|
+| Sat, 3 Sep 2025 | Online | [Pengantar Statistika dan Probabilitas](01-basics.qmd) | tba |
+| Sat, 19 Sep 2025| Soon | [tba](q.html) | tba |
+| Sat, 17 Sep 2025| Soon | [tba](q.html) | tba |
+| Sat, 24 Oct 2025| Soon | [tba](q.html) | tba |
 :::
 
-### Schedule
-
-:::{#schedule-listing}
-:::
+<style type="text/css">
+    .table-schedule table thead tr {width: 100%;}
+    .table-schedule table thead tr th:nth-child(1) { width: 22%; }
+    .table-schedule table thead tr th:nth-child(2) { width: 23%; }
+    .table-schedule table thead tr th:nth-child(3) { width: 30%; }
+    .table-schedule table thead tr th:nth-child(4) { width: 20%; }
+</style>

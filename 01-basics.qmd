@@ -1,0 +1,233 @@
+---
+title: "Understanding the World with Data"
+subtitle: "Sebuah Pengantar Statistika dan Probabilitas"
+author: "Deri Siswara"
+format: revealjs
+---
+
+## Kenalan dulu
+
+::: columns
+::: {.column width="45%"}
+
+![](images/deri.png){width=800px style="border-radius:1em;margin-top:auto"}
+
+### Deri Siswara
+
+:::
+
+::: {.column width="55%"}
+
+{{< fa solid briefcase size=xl >}} Dosen di **Perbanas Institute, Dept. Sains Data**
+
+{{< fa link size=xl >}} [derisiswara.art](https://derisiswara.art/)
+
+{{< fa brands linkedin size=xl >}} [linkedin.com/in/derisiswara](https://www.linkedin.com/in/derisiswara/)
+
+{{< fa brands github size=xl >}} [github.com/derisiswara](https://github.com/derisiswara/)
+
+::: {.nonincremental}
+<br>
+**Riwayat Pendidikan**
+
+- S1 Ekonomi Syariah, IPB University (2020)
+- S2 Statistika dan Sains Data, IPB University (2024)
+:::
+
+:::
+:::
+
+## Sekarang giliran kamu
+
+![](https://community.nethserver.org/uploads/db8506/original/1X/1b046a2b8167cef933e36a2280827f855a456cac.png){fig-align="center"}
+
+## Semua tentang mata kuliah ini
+
+**Capaian Pembelajaran Mata Kuliah (CPMK)**
+
+1. Dapat mengenali dan menyebutkan pengertian statistika dan probabilitas dengan benar.
+2. Dapat mengaitkan statistika dan probabilitas/teori peluang dengan benar.
+3. Dapat menjelaskan dan melakukan perhitungan probabilitas dengan menggunakan definisi yang sudah dipelajari.
+4. Dapat menganalisa kaitan karakteristik, parameter dari beberapa distribusi peubah acak diskret maupun peubah acak kontinu.
+5. Dapat melakukan pengujian hipotesis terhadap mean (rataan), variansi, dan proporsi dari suatu populasi.
+6. Dapat melakukan publikasi dari hasil pengujian hipotesis menggunakan perhitungan statistika dari data nyata.
+
+## Nilai
+
+::: {.table-responsive}
+| | Quiz | Tugas Mandiri | UTS | UAS | Total Bobot Penilaian |
+|:---|:---:|:---:|:---:|:---:|:---:|
+| CPMK 1 | 5% | | 5% | | 10% |
+| CPMK 2 | 5% | | 5% | | 10% |
+| CPMK 3 | 7% | | 8% | | 15% |
+| CPMK 4 | | 10% | 5% | | 15% |
+| CPMK 5 | | 10% | | 10% | 20% |
+| CPMK 6 | | 10% | | 20% | 30% |
+| Total | 17% | 30% | 23% | 30% | 100% |
+:::
+
+<style>
+.table-responsive table {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+</style>
+
+:::{.callout-note}
+**Syarat Lulus MK**: 
+
+- Nilai setiap CPMK >= 55
+- Nilai Akhir >= 55
+- Tidak Lulus: **Remedial!**
+:::
+
+## Buku Pegangan
+1. Agresti, A., Franklin, C., Klingenberg, B. 2018. *Statistics: The Art and Science of Learning from Data*. Pearson.
+
+2. Mendenhall, W., Beaver, R. J., Beaver, B. M. 2013. *Introduction to Probability and Statistics (14th edition)*. Brooks/Cole.
+
+3. Ott, R. L. and Longnecker, M. 2010. *An Introduction to Statistical Methods and Data Analysis (6th edition)*. Brooks/Cole.
+
+4. Lohr, S.L. 2010. *Sampling: Design and Analysis (2nd edition)*. Brooks/Cole.
+
+5. Scheaffer, R.L., Mendenhall, W., Ott, L., Gerow, K.G. 2012. *Elementary Survey Sampling (7th edition)*. Brooks/Cole.
+
+## Quick Survey!
+
+<a href="https://www.menti.com/aldbdohb8jxj" target="_blank" class="btn btn-primary">Vote Now</a>
+
+<div style='position: relative; padding-bottom: 56.25%; padding-top: 35px; height: 0; overflow: hidden;'><iframe sandbox='allow-scripts allow-same-origin allow-presentation' allowfullscreen='true' allowtransparency='true' frameborder='0' height='315' src='https://www.mentimeter.com/app/presentation/alehxt4w18b76kj2hp5ssp3uet43sty2/embed' style='position: absolute; top: 0; left: 0; width: 100%; height: 100%;' width='420'></iframe></div>
+
+# Yuk Belajar!
+**Pernah Belajar Statistika?**
+
+# Apa itu Data?
+
+## Apakah ini data?
+
+![](https://www.gastonsanchez.com/matrix4sl/images/tables/table-mixed.png){fig-align="center"}
+
+## Menyakiti atau Menolong?
+
+![](https://www.stat20.org/1-questions-and-data/01-understanding-the-world/images/shoebill-1.png)
+
+<br>
+- Apakah ini data?
+
+::: {.notes}
+Mahasiswa menjelaskan semua yang terjadi di gambar?
+:::
+
+# Jadi, apa itu Data?
+
+# Data
+
+<br>
+
+Data adalah **informasi** yang dikumpulkan tentang individu, objek, atau unit observasi, biasanya dalam bentuk angka, teks, gambar, yang kemudian dianalisis untuk menjawab pertanyaan atau menarik kesimpulan.
+
+<br>
+
+:::{.callout-note}
+📌 Definisi menurut Agresti (penulis buku *Statistics: The Art and Science of Learning from Data dan Statistical Methods for the Social Sciences*)
+:::
+
+## Tipe Data
+
+![](images/data.webp)
+
+[saidatascience.com](https://saidatascience.com/what-is-data-collection-of-data/)
+
+## Tipe Data
+
+![](https://lalitphyedu.wordpress.com/wp-content/uploads/2019/03/lalit1.png)
+
+<br>
+
+- **Data Interval**: Suhu, Temperatur
+- **Data Rasio**: Tinggi Badan, Berat Badan
+
+::: {.notes}
+Interval → bisa tambah/kurang, tapi tidak bisa bandingkan kelipatan. IQ, DLL
+
+Rasio → bisa tambah/kurang dan bisa bandingkan kelipatan (dua kali lipat, separuh, dll).
+:::
+
+## Unstructured Data
+
+![](https://i0.wp.com/spotintelligence.com/wp-content/uploads/2023/12/data2vec-1024x576.webp?resize=1024%2C576&ssl=1)
+
+
+# Sekarang apa itu Statistika ?
+
+## Jelaskan Gambar!
+
+![](https://rasioo.id/wp-content/uploads/2023/04/6591-1679893539-230324_IPP_Berapa-Jumlah-Sekolah-di-Indonesia_DV-e1680959189851.jpg.webp){fig-align="center"}
+
+::: {.notes}
+Mahasiswa menjelaskan gambar dan alasan kenapa tahu SD paling tinggi?
+:::
+
+## 
+![](images/rate1%20(2).png){width=60%}
+![](images/rate1%20(1).png){width=60%}
+
+
+::: {.notes}
+Banyak insight: mean, bar, max, highest, dll
+:::
+
+# Statistika
+
+*Statistics is the art and science of learning from data.* (Agresti)
+
+**Klasik:**
+Statiska adalah ilmu yang mempelajari cara mengumpulkan, menganalisis, menyajikan, dan menginterpretasikan data.
+
+## Statistika dan Tipe-tipenya
+
+![](https://media.geeksforgeeks.org/wp-content/uploads/20250222144920592095/stat.webp)
+
+- **Statistika Deskriptif**: Menggambarkan data dengan ringkasan numerik dan visual
+- **Statistika Inferensial**: Menarik kesimpulan tentang populasi dari sampel
+
+# Apa itu probabilitas?
+
+## Probabilitas dalam Kehidupan Sehari-hari
+
+- Ramalan cuaca: "60% kemungkinan hujan besok"
+- Keputusan medis: Probabilitas sembuh dengan pengobatan tertentu
+- Keuangan: Probabilitas investasi menghasilkan keuntungan
+- Asuransi: Perhitungan risiko berbagai kejadian
+
+## Defnisi Probabilitas 
+
+Probabilitas **ilmu tentang ketidakpastian**
+
+- Menyediakan kerangka matematis untuk menganalisis ketidaktahuan
+- Membantu membuat keputusan berdasarkan informasi terbatas
+- Memungkinkan kita mengukur tingkat keyakinan terhadap kejadian yang belum terjadi
+
+## Keterkaitan Probabilitas dengan Statistika
+
+- Statistika menggunakan hasil pengolahan data untuk membuat kesimpulan atau keputusan
+- Klaim statistik selalu berbasis peluang, bukan kepastian mutlak
+  
+**Contoh:** Dari survei 1.000 orang, 65% menyukai produk A → kita dapat menyatakan "mayoritas responden menyukai produk tersebut"
+
+<br>
+
+**Pentingnya probabilitas:**
+
+- Dalam uji hipotesis, kita menyatakan "dengan tingkat keyakinan 95%, klaim ini didukung data"
+- Statistika menyediakan dasar untuk inferensi yang terukur dan transparan
+- Setiap kesimpulan statistik mengandung unsur ketidakpastian
+
+# Diskusi
+
+::: {.notes}
+Software
+:::
+
+# Terimakasih

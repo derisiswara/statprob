@@ -2,19 +2,30 @@ project:
   type: website
 
 website:
-  sidebar:
-    logo: assets/stat_bear.png
-    contents:
+  title: "STATPROB (SI243040)"
+  page-footer: "Made with love and [Quarto](https://quarto.org/) by [Deri Siswara](https://derisiswara.art/) - [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)."
+  navbar:
+    left:
       - href: index.qmd
         text: Home
-      - href: syllabus.qmd
-        text: Syllabus
-      - href: office-hours.qmd
-        text: Office Hours
-      - href: notes.qmd
-        text: Notes 
-      - href: slides.qmd
-        text: Slides 
-      - href: problem-sets.qmd
-        text: Problem Sets
+      - href: coc.qmd
+        text: Code of Conduct
+
+format:
+  html:
+    theme: zephyr
+    css: styles.css
+    toc: true
+
+  revealjs: 
+    theme: [default, custom.scss]
+    width: 1600
+    height: 900
+    slide-number: true
+    logo: "images/Logo-Horizontal.png"
+    fig-height: 8
+    fig-width: 15
+    footer: "[STATPROB (SI243040)](https://derisiswara.art/statprob/)"
+
+
 

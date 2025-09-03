@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Course 101</title>
+<title>Statistika dan Probabilitas – STATPROB (SI243040)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,24 +30,22 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-991b1886d3c685c7aa2b62b80640c7af.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-0695b75e8d502f7d4bb4f249b367eeb5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -69,151 +67,64 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-schedule-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-week','listing-days','listing-resources',{ data: ['index'] },{ data: ['categories'] }],
-      
-      searchColumns: ["listing-week","listing-days","listing-resources"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-schedule-listing'] = new List('listing-schedule-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
+<link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar floating fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Home</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">STATPROB (SI243040)</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./coc.html"> 
+<span class="menu-text">Code of Conduct</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-      <a href="./index.html" class="sidebar-logo-link">
-      <img src="./assets/stat_bear.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
-      </a>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Home</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./syllabus.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Syllabus</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./office-hours.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Office Hours</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./notes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Notes</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./slides.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Slides</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./problem-sets.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Problem Sets</span></a>
-  </div>
-</li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#si243040-3-sks" id="toc-si243040-3-sks" class="nav-link active" data-scroll-target="#si243040-3-sks">SI243040 (3 SKS)</a></li>
+  <li><a href="#schedule" id="toc-schedule" class="nav-link" data-scroll-target="#schedule">Schedule</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Course 101</h1>
-<p class="subtitle lead">My University</p>
+<h1 class="title">Statistika dan Probabilitas</h1>
+<p class="subtitle lead">Perbanas Institute</p>
 </div>
 
 
@@ -230,271 +141,57 @@ window.Quarto = {
 </header>
 
 
-<div id="this-week">
-
+<section id="si243040-3-sks" class="level2">
+<h2 class="anchored" data-anchor-id="si243040-3-sks">SI243040 (3 SKS)</h2>
+<p>Repositori ini berisi materi perkuliahan Statistika dan Probabilitas untuk mahasiswa Perbanas Institute.</p>
+</section>
+<section id="schedule" class="level2">
+<h2 class="anchored" data-anchor-id="schedule">Schedule</h2>
+<div class="table-schedule">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Date and Time</th>
+<th>Venue</th>
+<th>Topic &amp; Slides</th>
+<th>Quiz</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Sat, 3 Sep 2025</td>
+<td>Online</td>
+<td><a href="./01-basics.html">Pengantar Statistika dan Probabilitas</a></td>
+<td>tba</td>
+</tr>
+<tr class="even">
+<td>Sat, 19 Sep 2025</td>
+<td>Soon</td>
+<td><a href="q.html">tba</a></td>
+<td>tba</td>
+</tr>
+<tr class="odd">
+<td>Sat, 17 Sep 2025</td>
+<td>Soon</td>
+<td><a href="q.html">tba</a></td>
+<td>tba</td>
+</tr>
+<tr class="even">
+<td>Sat, 24 Oct 2025</td>
+<td>Soon</td>
+<td><a href="q.html">tba</a></td>
+<td>tba</td>
+</tr>
+</tbody>
+</table>
 </div>
-<section id="schedule" class="level3">
-<h3 class="anchored" data-anchor-id="schedule">Schedule</h3>
-<div id="listing-schedule-listing" class="quarto-listing quarto-listing-container-custom">
-<style>
-.calendar, .this-week {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-.calendar .week-x-box, .this-week .week-x-box {
-  display: grid;
-  grid-auto-flow: column;
-  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
-  border-radius: 3px;
-  box-shadow: 0 0 0.5rem #dfd7ca;
-  min-height: 200px;
-}
-.calendar .week-x-box .daily-sched, .this-week .week-x-box .daily-sched {
-  border-bottom: 1px solid #dfd7ca;
-  border-right: 1px solid #dfd7ca;
-  padding: 3px 8px 17px 8px;
-}
-.calendar .week-x-box .daily-sched .date-cell, .this-week .week-x-box .daily-sched .date-cell {
-  text-align: center;
-  font-variant: small-caps;
-  font-size: 0.8em;
-}
-.calendar .week-x-box .daily-sched .daily-topic-cell, .this-week .week-x-box .daily-sched .daily-topic-cell {
-  padding-bottom: 2px;
-}
-.calendar .week-x-box .daily-sched .daily-topic-cell .daily-topic, .this-week .week-x-box .daily-sched .daily-topic-cell .daily-topic {
-  font-size: 1.1em;
-}
-.calendar .week-x-box .daily-sched .items-cell, .this-week .week-x-box .daily-sched .items-cell {
-  padding-left: 12px;
-}
-.calendar .week-x-box .daily-sched .items-cell .before-in-class, .this-week .week-x-box .daily-sched .items-cell .before-in-class {
-  font-size: 0.8em;
-}
-.calendar .week-x-box .daily-sched .items-cell .badge, .this-week .week-x-box .daily-sched .items-cell .badge {
-  background-color: #93c54b;
-  text-decoration: none;
-  transition: background-color 0.2s ease;
-}
-.calendar .week-x-box .daily-sched .items-cell .badge:hover, .this-week .week-x-box .daily-sched .items-cell .badge:hover {
-  background-color: #74a134;
-}
-.calendar .week-x-box .daily-sched .items-cell .badge.unpublished, .this-week .week-x-box .daily-sched .items-cell .badge.unpublished {
-  background-color: #dfd7ca;
-}
-.calendar .week-x-box .daily-sched .items-cell .assignment-list, .this-week .week-x-box .daily-sched .items-cell .assignment-list {
-  font-size: 0.8em;
-}
-@media (max-width: 768px) {
-  .calendar .week-x-box, .this-week .week-x-box {
-    grid-auto-flow: row; /* Ensures it flows in one column */
-    grid-template-columns: 1fr;
-  }
-}
+<style type="text/css">
+    .table-schedule table thead tr {width: 100%;}
+    .table-schedule table thead tr th:nth-child(1) { width: 22%; }
+    .table-schedule table thead tr th:nth-child(2) { width: 23%; }
+    .table-schedule table thead tr th:nth-child(3) { width: 30%; }
+    .table-schedule table thead tr th:nth-child(4) { width: 20%; }
 </style>
-<div class="calendar">
-
-  <!-- Create each week -->
-  <h4 class="anchored">Week 1</h4>
-  <div class="week-x-box">
-
-  
-    <!-- Create each day -->
-    <div class="daily-sched">
-    <div class="date-cell">
-    <span>Jan 16</span>
-    </div>
-    <div class="daily-topic-cell">
-    <span class="daily-topic">Random Variables</span>
-    </div>
-
-    <div class="items-cell">
-    <!-- Create badges for docs -->
-    <!-- ...docs listed under before-class key -->
-    
-    <!-- ...docs listed under in-class key -->
-    
-    <!-- ...docs listed directly under day item -->
-    
-      <div>
-      
-        
-          
-          
-          
-            <a href="./1-probability/1-random-variables/notes.html" class="badge Notes-badge">Notes</a>
-          
-        
-      
-        
-          
-          
-          
-            <a href="./1-probability/1-random-variables/slides.html" class="badge Slides-badge">Slides</a>
-          
-        
-      
-      </div>
-    
-    <!-- ...things that are due tomorrow -->
-    
-    </div>
-    </div>
-    
-  
-    <!-- Create each day -->
-    <div class="daily-sched">
-    <div class="date-cell">
-    <span>Jan 18</span>
-    </div>
-    <div class="daily-topic-cell">
-    <span class="daily-topic">The Binomial Distribution</span>
-    </div>
-
-    <div class="items-cell">
-    <!-- Create badges for docs -->
-    <!-- ...docs listed under before-class key -->
-    
-    <!-- ...docs listed under in-class key -->
-    
-    <!-- ...docs listed directly under day item -->
-    
-      <div>
-      
-        
-          
-          
-          
-            <a href="./1-probability/2-binomial/notes.html" class="badge Notes-badge">Notes</a>
-          
-        
-      
-        
-          
-          
-          
-            <a href="./1-probability/2-binomial/slides.html" class="badge Slides-badge">Slides</a>
-          
-        
-      
-      </div>
-    
-    <!-- ...things that are due tomorrow -->
-    
-    </div>
-    </div>
-    
-  
-  
-  </div>
-
-  <!-- Create each week -->
-  <h4 class="anchored">Week 2</h4>
-  <div class="week-x-box">
-
-  
-    <!-- Create each day -->
-    <div class="daily-sched">
-    <div class="date-cell">
-    <span>Jan 23</span>
-    </div>
-    <div class="daily-topic-cell">
-    <span class="daily-topic">Conditional Probability</span>
-    </div>
-
-    <div class="items-cell">
-    <!-- Create badges for docs -->
-    <!-- ...docs listed under before-class key -->
-    
-    <!-- ...docs listed under in-class key -->
-    
-    <!-- ...docs listed directly under day item -->
-    
-      <div>
-      
-        
-          
-          
-          
-            <a href="./1-probability/3-conditional-probability/notes.html" class="badge Notes-badge">Notes</a>
-          
-        
-      
-        
-          
-          
-          
-            <a href="./1-probability/3-conditional-probability/slides.html" class="badge Slides-badge">Slides</a>
-          
-        
-      
-        
-          
-          
-          
-            <a href="./1-probability/3-conditional-probability/ps.html" class="badge PS-badge">PS</a>
-          
-        
-      
-      </div>
-    
-    <!-- ...things that are due tomorrow -->
-    
-    </div>
-    </div>
-    
-  
-    <!-- Create each day -->
-    <div class="daily-sched">
-    <div class="date-cell">
-    <span>Jan 25</span>
-    </div>
-    <div class="daily-topic-cell">
-    <span class="daily-topic">Data Visualization</span>
-    </div>
-
-    <div class="items-cell">
-    <!-- Create badges for docs -->
-    <!-- ...docs listed under before-class key -->
-    
-    <!-- ...docs listed under in-class key -->
-    
-    <!-- ...docs listed directly under day item -->
-    
-      <div>
-      
-        
-          
-          
-          
-            <span class="badge unpublished">Notes</span>
-          
-        
-      
-        
-          
-          
-          
-            <span class="badge unpublished">Slides</span>
-          
-        
-      
-      </div>
-    
-    <!-- ...things that are due tomorrow -->
-    
-    </div>
-    </div>
-    
-  
-  
-  </div>
-
-</div>
-
-<div class="listing-no-matching d-none">No matching items</div>
-</div>
-
 
 
 </section>
@@ -900,6 +597,19 @@ window.Quarto = {
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Made with love and <a href="https://quarto.org/">Quarto</a> by <a href="https://derisiswara.art/">Deri Siswara</a> - <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
 
 
 
