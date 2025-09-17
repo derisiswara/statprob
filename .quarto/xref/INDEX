@@ -13,5 +13,17 @@
   },
   "for-tas/02-numpy-notes.qmd": {
     "02-numpy-notes.html": "9d1b4a47"
+  },
+  "marp.md": {
+    "marp.html": "6e9e8ab9"
+  },
+  "week1.qmd": {
+    "week1.html": "738d6d58"
+  },
+  "week2.qmd": {
+    "week2.html": "937384b6"
+  },
+  "week3.qmd": {
+    "week3.html": "3c523ec5"
   }
 }

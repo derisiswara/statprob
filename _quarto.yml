@@ -1,31 +1,20 @@
 project:
-  type: website
+  type: book
+  output-dir: docs
 
-website:
-  title: "STATPROB (SI243040)"
+book:
+  title: "Statistika dan Probabilitas"
+  author: "Deri Siswara"
   page-footer: "Made with love and [Quarto](https://quarto.org/) by [Deri Siswara](https://derisiswara.art/) - [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)."
-  navbar:
-    left:
-      - href: index.qmd
-        text: Home
-      - href: coc.qmd
-        text: Code of Conduct
+  chapters:
+    - index.qmd
+    - week1.qmd
+    - week2.qmd
+    - week3.qmd
 
 format:
   html:
     theme: zephyr
     css: styles.css
     toc: true
-
-  revealjs: 
-    theme: [default, custom.scss]
-    width: 1600
-    height: 900
-    slide-number: true
-    logo: "images/Logo-Horizontal.png"
-    fig-height: 8
-    fig-width: 15
-    footer: "[STATPROB (SI243040)](https://derisiswara.art/statprob/)"
-
-
-
+    code-link: true

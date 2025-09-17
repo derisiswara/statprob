@@ -1,0 +1,212 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Statistika dan Probabilitas",
+    "section": "",
+    "text": "Pengantar\nBuku ini ringkas dan praktis untuk mata kuliah Statistika dan Probabilitas (SI243040). Target: mengenali peran data, statistika, dan probabilitas untuk penalaran berbasis bukti.",
+    "crumbs": [
+      "Pengantar"
+    ]
+  },
+  {
+    "objectID": "index.html#informasi-mata-kuliah",
+    "href": "index.html#informasi-mata-kuliah",
+    "title": "Statistika dan Probabilitas",
+    "section": "Informasi Mata Kuliah",
+    "text": "Informasi Mata Kuliah\n\n\n\n\nQuiz\nTugas\nUTS\nUAS\nTotal\n\n\n\n\nCPMK 1\n5%\n\n5%\n\n10%\n\n\nCPMK 2\n5%\n\n5%\n\n10%\n\n\nCPMK 3\n7%\n\n8%\n\n15%\n\n\nCPMK 4\n\n10%\n5%\n\n15%\n\n\nCPMK 5\n\n10%\n\n10%\n20%\n\n\nCPMK 6\n\n10%\n\n20%\n30%\n\n\nTotal\n17%\n30%\n23%\n30%\n100%\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nSyarat lulus: setiap CPMK ≥ 55 dan nilai akhir ≥ 55.\nTidak lulus → remedial.",
+    "crumbs": [
+      "Pengantar"
+    ]
+  },
+  {
+    "objectID": "week1.html",
+    "href": "week1.html",
+    "title": "1  Understanding the World with Data",
+    "section": "",
+    "text": "1.1 Apa itu Data?\nData adalah informasi tentang individu/objek/unit observasi dalam bentuk angka, teks, gambar, atau sinyal yang dianalisis untuk menjawab pertanyaan penelitian atau bisnis.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Understanding the World with Data</span>"
+    ]
+  },
+  {
+    "objectID": "week1.html#apa-itu-data",
+    "href": "week1.html#apa-itu-data",
+    "title": "1  Understanding the World with Data",
+    "section": "",
+    "text": "Note\n\n\n\nDefinisi merujuk Agresti Statistics: The Art and Science of Learning from Data.\n\n\n\n1.1.1 Contoh Data dalam Kehidupan Sehari-hari\n1. Data Tabel (Structured Data) \nContoh tabel di atas menunjukkan data mahasiswa dengan variabel:\n\nName: data nominal (kategori tanpa urutan)\nGender: data nominal (Male/Female)\nHeight: data kontinu (dapat diukur dengan presisi tinggi)\nWeight: data kontinu (berat badan dalam kg)\nReligion: data nominal (kategori kepercayaan)\nAge: data diskret (usia dalam tahun penuh)\n\n2. Data Visual/Gambar (Unstructured Data) \nGambar burung ini adalah data unstructured yang bisa dianalisis untuk:\n\nKlasifikasi spesies menggunakan machine learning\nAnalisis perilaku hewan\nPenelitian biodiversitas\n\n\n\n1.1.2 Klasifikasi Tipe Data\n\n\n1.1.2.1 Data Kualitatif (Categorical)\n1. Nominal: Kategori tanpa urutan natural\n\nContoh: Warna (merah, biru, hijau), Jenis kelamin (L/P), Agama\nTidak bisa diurutkan atau diberi ranking\nHanya bisa dihitung frekuensinya\n\n2. Ordinal: Kategori yang bisa diurutkan\n\nContoh: Tingkat pendidikan (SD &lt; SMP &lt; SMA &lt; S1), Rating kepuasan (tidak puas &lt; cukup &lt; puas &lt; sangat puas)\nBisa diurutkan tapi jarak antar kategori tidak sama\nDapat menggunakan median sebagai ukuran tengah\n\n\n\n1.1.2.2 Data Kuantitatif (Numerical)\n3. Diskret: Hitungan bilangan bulat\n\nContoh: Jumlah anak (0, 1, 2, 3, …), Jumlah karyawan, Jumlah produk terjual\nTidak bisa berupa pecahan\nHasil dari menghitung (counting)\n\n4. Kontinu: Bilangan riil pada rentang tertentu\n\nContoh: Tinggi badan (170.5 cm), Berat (65.7 kg), Suhu (25.3°C)\nBisa berupa pecahan dengan presisi tak terbatas\nHasil dari mengukur (measuring)\n\n\n\n\n1.1.3 Skala Pengukuran\n\n\n1.1.3.1 Skala Interval\n\nSelisih antar nilai bermakna dan konsisten\nTitik nol tidak absolut (arbitrary zero point)\nContoh: Suhu Celsius (0°C tidak berarti “tidak ada suhu”)\nOperasi: penjumlahan dan pengurangan valid\nTidak bisa menghitung rasio (20°C bukan 2x lebih panas dari 10°C)\n\n\n\n1.1.3.2 Skala Rasio\n\nSelisih dan rasio antar nilai bermakna\nMemiliki titik nol absolut (true zero point)\nContoh: Tinggi badan, berat, pendapatan, jarak\nOperasi: semua operasi matematika valid\nBisa menghitung rasio (berat 60kg adalah 2x dari 30kg)\n\n\n\n\n1.1.4 Data Tidak Terstruktur (Unstructured Data)\n\nKarakteristik:\n\nTidak mengikuti format tabel yang terorganisir\nMemerlukan teknik khusus untuk analisis\nVolume sangat besar (big data)\n\nContoh dan Aplikasi:\n\nTeks: Review produk, media sosial, dokumen → Sentiment analysis, topic modeling\nAudio: Rekaman suara, musik → Speech recognition, music classification\n\nVideo: Film, surveillance → Object detection, behavior analysis\nGambar: Foto produk, medical imaging → Image classification, medical diagnosis",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Understanding the World with Data</span>"
+    ]
+  },
+  {
+    "objectID": "week1.html#apa-itu-statistika",
+    "href": "week1.html#apa-itu-statistika",
+    "title": "1  Understanding the World with Data",
+    "section": "1.2 Apa itu Statistika?",
+    "text": "1.2 Apa itu Statistika?\n“Statistics is the art and science of learning from data.” — Agresti\nStatistika adalah ilmu yang mencakup pengumpulan, peringkasan, pemodelan, dan inferensi dari data untuk membuat keputusan yang berdasar bukti.\n\n1.2.1 Interpretasi Visual Data\nContoh 1: Rating Produk E-commerce \nDari grafik ulasan pembeli di atas:\n\n4.8/5.0: Rating rata-rata sangat tinggi\n100% pembeli merasa puas: Indikator kualitas produk excellent\n12 rating, 10 ulasan: Sample size cukup untuk validitas\nDistribusi rating: Mayoritas 5 bintang (10), sedikit 4 bintang (2)\nInterpretasi bisnis: Produk berkualitas tinggi, customer satisfaction excellent\n\nContoh 2: Data Demografi iPhone \nData spesifikasi produk teknologi:\n\nProcessor: Apple A18 Chip (data nominal - jenis processor)\nStorage: 128GB (data diskret - kapasitas penyimpanan)\n\nBattery: 3561mAh (data kontinu - kapasitas baterai)\nCamera: 48MP main, 12MP front (data diskret - resolusi kamera)\nScreen: 6.1” Super Retina XDR OLED (data kontinu - ukuran layar)\n\n\n\n1.2.2 Cabang Utama Statistika\n\n1.2.2.1 1. Statistika Deskriptif\nTujuan: Meringkas dan menampilkan data Metode:\n\nTabel: Distribusi frekuensi, crosstab\nGrafik: Histogram, boxplot, scatter plot, pie chart\nUkuran numerik: Mean, median, modus, standar deviasi, range\n\nContoh Aplikasi:\n\nDashboard penjualan bulanan\nProfil demografis pelanggan\nRangkuman kinerja karyawan\n\n\n\n1.2.2.2 2. Statistika Inferensial\nTujuan: Membuat kesimpulan tentang populasi berdasarkan sampel Metode:\n\nEstimasi: Point estimate, confidence interval\nUji Hipotesis: t-test, chi-square test, ANOVA\nRegresi: Memprediksi hubungan antar variabel\n\nContoh Aplikasi:\n\nSurvei politik: Prediksi hasil pemilu dari sample\nQuality control: Menentukan produk memenuhi standar\nA/B Testing: Membandingkan efektivitas dua strategi marketing\n\n\n\n\n1.2.3 Contoh Penerapan dalam Konteks Pendidikan\n\n\n\n\n\nAnalisis Statistik pada Data Pendidikan:\nStatistika Deskriptif:\n\nJumlah sekolah per provinsi (data diskret)\nDistribusi jenjang pendidikan (data ordinal: SD &lt; SMP &lt; SMA)\nRasio guru-siswa per daerah (data rasio)\n\nStatistika Inferensial:\n\nEstimasi kebutuhan guru nasional dari data sampel daerah\nUji hipotesis: Apakah rasio guru-siswa berbeda signifikan antar provinsi?\nPrediksi pertumbuhan jumlah sekolah 5 tahun ke depan",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Understanding the World with Data</span>"
+    ]
+  },
+  {
+    "objectID": "week1.html#probabilitas-kerangka-mengukur-ketidakpastian",
+    "href": "week1.html#probabilitas-kerangka-mengukur-ketidakpastian",
+    "title": "1  Understanding the World with Data",
+    "section": "1.3 Probabilitas: Kerangka Mengukur Ketidakpastian",
+    "text": "1.3 Probabilitas: Kerangka Mengukur Ketidakpastian\nProbabilitas adalah sistem matematis untuk mengkuantifikasi dan menganalisis ketidakpastian dalam berbagai fenomena.\n\n1.3.1 Aplikasi dalam Kehidupan Sehari-hari\n1. Prediksi Cuaca\n\n“60% kemungkinan hujan” = P(Hujan) = 0.6\nBerdasarkan data historis pola cuaca serupa\nMembantu perencanaan aktivitas outdoor\n\n2. Diagnosa Medis\n\n“Terapi ini memiliki 80% tingkat kesembuhan”\nBerdasarkan data klinis dari pasien sebelumnya\n\nMembantu dokter dan pasien membuat keputusan treatment\n\n3. Investasi Keuangan\n\n“Portfolio ini memiliki risiko 15% mengalami kerugian”\nBerdasarkan analisis historis pergerakan pasar\nMembantu investor mengelola risiko\n\n4. Industri Asuransi\n\nMenghitung premi berdasarkan probabilitas klaim\nData historis kecelakaan, kesehatan, bencana\nMenentukan tarif yang profitable namun kompetitif\n\n\n\n1.3.2 Peran Krusial dalam Statistika\n\n1.3.2.1 1. Dasar Teoritis Inferensi\n\nSampling distribution: Bagaimana statistik sampel terdistribusi\nCentral Limit Theorem: Distribusi mean sampel mendekati normal\nConfidence interval: Rentang nilai parameter populasi yang mungkin\n\n\n\n1.3.2.2 2. Uji Hipotesis\n\nP-value: Probabilitas mendapat hasil ekstrem jika H₀ benar\nType I error: Probabilitas menolak H₀ padahal benar (α)\nType II error: Probabilitas menerima H₀ padahal salah (β)\nPower: Probabilitas menolak H₀ padahal salah (1-β)\n\n\n\n1.3.2.3 3. Kuantifikasi Ketidakpastian\n\nStandard error: Ukuran variabilitas estimasi\nMargin of error: Rentang ketidakpastian dalam estimasi\nPrediction interval: Rentang nilai prediksi individual\n\n\n\n\n\n\n\nTip\n\n\n\nContoh Lengkap - Survei Preferensi Produk:\nData: Survei 1.000 responden, 650 orang (65%) menyukai produk A\nStatistika Deskriptif:\n\nProporsi sampel = 650/1000 = 0.65 (65%)\n\nStatistika Inferensial dengan Probabilitas:\n\nEstimasi proporsi populasi = 65%\nStandard error = √[0.65(1-0.65)/1000] = 0.015\n95% Confidence Interval = 65% ± 1.96(1.5%) = (62.1%, 67.9%)\n\nInterpretasi: “Dengan tingkat kepercayaan 95%, proporsi populasi yang menyukai produk A berada antara 62.1% hingga 67.9%”\n\n\n\n\n1.3.2.4 4. Pengambilan Keputusan Berbasis Data\n\nDecision theory: Memilih tindakan optimal dengan ketidakpastian\nExpected value: Nilai harapan dari berbagai skenario\nRisk assessment: Evaluasi probabilitas dan dampak risiko\n\nContoh Aplikasi Bisnis:\n\nMarketing: A/B testing dengan confidence interval\nFinance: Value at Risk (VaR) menggunakan probabilitas kerugian\nOperations: Quality control dengan sampling inspection\nHR: Prediksi turnover karyawan berdasarkan data historis",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Understanding the World with Data</span>"
+    ]
+  },
+  {
+    "objectID": "week1.html#referensi",
+    "href": "week1.html#referensi",
+    "title": "1  Understanding the World with Data",
+    "section": "1.4 Referensi",
+    "text": "1.4 Referensi\n\nAgresti, A., Franklin, C., Klingenberg, B. (2018). Statistics: The Art and Science of Learning from Data. Pearson.\n\nMendenhall, W., Beaver, R. J., Beaver, B. M. (2013). Introduction to Probability and Statistics (14th ed.). Brooks/Cole.\n\nOtt, R. L., Longnecker, M. (2010). An Introduction to Statistical Methods and Data Analysis (6th ed.). Brooks/Cole.\n\nLohr, S. L. (2010). Sampling: Design and Analysis (2nd ed.). Brooks/Cole.\n\nScheaffer, R. L., Mendenhall, W., Ott, L., Gerow, K. G. (2012). Elementary Survey Sampling (7th ed.). Brooks/Cole.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Understanding the World with Data</span>"
+    ]
+  },
+  {
+    "objectID": "week2.html",
+    "href": "week2.html",
+    "title": "\n2  Statistika Deskriptif\n",
+    "section": "",
+    "text": "2.1 Ukuran Pemusatan (Measures of Central Tendency)\nStatistika deskriptif adalah cabang statistika yang berfokus pada peringkasan, penyajian, dan interpretasi data tanpa membuat generalisasi ke populasi yang lebih besar.\nDefinisi Intuitif:\nUkuran pemusatan menunjukkan “nilai tipikal” atau “nilai representatif” yang menggambarkan di mana data cenderung berkumpul atau terpusat. Bayangkan seperti mencari titik keseimbangan dari sekumpulan data.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Statistika Deskriptif</span>"
+    ]
+  },
+  {
+    "objectID": "week2.html#ukuran-pemusatan-measures-of-central-tendency",
+    "href": "week2.html#ukuran-pemusatan-measures-of-central-tendency",
+    "title": "\n2  Statistika Deskriptif\n",
+    "section": "",
+    "text": "2.1.1 1. Mean (Rata-rata)\nDefinisi Intuitif:\nMean adalah titik keseimbangan matematis dari semua data. Jika kita bayangkan data sebagai beban di atas papan timbangan, mean adalah titik dimana papan akan seimbang sempurna.\nDefinisi Formal:\nJumlah semua nilai dibagi dengan banyaknya data.\n\n2.1.1.1 Formula untuk Data Tunggal\n\n\\[\\bar{x} = \\frac{\\sum_{i=1}^{n} x_i}{n} = \\frac{x_1 + x_2 + ... + x_n}{n}\\]\ndimana:\n\n\n\\(\\bar{x}\\) = mean sampel\n\n\\(x_i\\) = nilai data ke-i\n\n\\(n\\) = jumlah data\n\n2.1.1.2 Formula untuk Data Berkelompok\n\n\\[\\bar{x} = \\frac{\\sum_{i=1}^{k} f_i \\cdot m_i}{\\sum_{i=1}^{k} f_i} = \\frac{\\sum_{i=1}^{k} f_i \\cdot m_i}{n}\\]\ndimana:\n\n\n\\(f_i\\) = frekuensi kelas ke-i\n\n\\(m_i\\) = nilai tengah kelas ke-i\n\n\\(k\\) = banyak kelas\n\n2.1.1.3 Contoh Perhitungan\n\nData Tunggal:\nNilai ujian 5 mahasiswa: 75, 82, 68, 90, 85\n\\[\\bar{x} = \\frac{75 + 82 + 68 + 90 + 85}{5} = \\frac{400}{5} = 80\\]\nData Berkelompok:\n\n\nKelas Nilai\nFrekuensi (f)\nTitik Tengah (m)\nf × m\n\n\n\n60-69\n3\n64.5\n193.5\n\n\n70-79\n8\n74.5\n596\n\n\n80-89\n12\n84.5\n1014\n\n\n90-99\n7\n94.5\n661.5\n\n\nTotal\n30\n\n2465\n\n\n\n\\[\\bar{x} = \\frac{2465}{30} = 82.17\\]\n\n2.1.2 2. Median\nDefinisi Intuitif:\nMedian adalah nilai tengah yang membagi data menjadi dua kelompok sama besar. Bayangkan mengurutkan semua orang berdasarkan tinggi badan, median adalah tinggi orang yang berada tepat di tengah barisan.\nDefinisi Formal:\nNilai tengah yang membagi data menjadi dua bagian sama besar setelah diurutkan.\n\n2.1.2.1 Formula untuk Data Tunggal\n\nJika n ganjil:\n\\[Me = x_{\\frac{n+1}{2}}\\]\nJika n genap:\n\\[Me = \\frac{x_{\\frac{n}{2}} + x_{\\frac{n}{2}+1}}{2}\\]\n\n2.1.2.2 Formula untuk Data Berkelompok\n\n\\[Me = L + \\left(\\frac{\\frac{n}{2} - CF}{f}\\right) \\times h\\]\ndimana:\n\n\n\\(L\\) = batas bawah kelas median\n\n\\(n\\) = jumlah data\n\n\\(CF\\) = frekuensi kumulatif sebelum kelas median\n\n\\(f\\) = frekuensi kelas median\n\n\\(h\\) = panjang interval kelas\n\n2.1.2.3 Contoh Perhitungan\n\nData Tunggal:\n68, 75, 82, 85, 90 (sudah terurut, n=5)\n\\[Me = x_{\\frac{5+1}{2}} = x_3 = 82\\]\nData Berkelompok (menggunakan tabel sebelumnya):\n\n\n\\(n = 30\\), sehingga \\(\\frac{n}{2} = 15\\)\n\nKelas median: 80-89 (karena frekuensi kumulatif mencapai 15)\n\n\\(L = 79.5\\), \\(CF = 11\\), \\(f = 12\\), \\(h = 10\\)\n\n\n\\[Me = 79.5 + \\left(\\frac{15 - 11}{12}\\right) \\times 10 = 79.5 + 3.33 = 82.83\\]\n\n2.1.3 3. Modus\nDefinisi Intuitif:\nModus adalah nilai yang paling “populer” atau paling sering muncul dalam data. Seperti mencari jawaban yang paling banyak dipilih dalam survei atau warna baju yang paling banyak dipakai di kelas.\nDefinisi Formal:\nNilai yang paling sering muncul dalam data.\n\n2.1.3.1 Formula untuk Data Berkelompok\n\n\\[Mo = L + \\left(\\frac{d_1}{d_1 + d_2}\\right) \\times h\\]\ndimana:\n\n\n\\(L\\) = batas bawah kelas modus\n\n\\(d_1\\) = selisih frekuensi kelas modus dengan kelas sebelumnya\n\n\\(d_2\\) = selisih frekuensi kelas modus dengan kelas sesudahnya\n\n\\(h\\) = panjang interval kelas\n\n2.1.3.2 Contoh Perhitungan\n\nData Tunggal:\n2, 3, 3, 4, 5, 5, 5, 6\nModus = 5 (muncul 3 kali)\nData Berkelompok (menggunakan tabel sebelumnya):\n\nKelas modus: 80-89 (frekuensi tertinggi = 12)\n\n\\(L = 79.5\\), \\(d_1 = 12-8 = 4\\), \\(d_2 = 12-7 = 5\\), \\(h = 10\\)\n\n\n\\[Mo = 79.5 + \\left(\\frac{4}{4 + 5}\\right) \\times 10 = 79.5 + 4.44 = 83.94\\]",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Statistika Deskriptif</span>"
+    ]
+  },
+  {
+    "objectID": "week2.html#ukuran-penyebaran-measures-of-dispersion",
+    "href": "week2.html#ukuran-penyebaran-measures-of-dispersion",
+    "title": "\n2  Statistika Deskriptif\n",
+    "section": "\n2.2 Ukuran Penyebaran (Measures of Dispersion)",
+    "text": "2.2 Ukuran Penyebaran (Measures of Dispersion)\nDefinisi Intuitif:\nUkuran penyebaran menunjukkan seberapa “tersebar” atau “bervariasi” data dari pusat distribusi. Bayangkan dua kelas dengan nilai rata-rata sama (80), tetapi:\n\n\nKelas A: nilai berkisar 78-82 (data mengumpul di sekitar mean)\n\nKelas B: nilai berkisar 60-100 (data tersebar jauh dari mean)\n\nKelas B memiliki penyebaran yang lebih besar meski mean-nya sama.\n\n2.2.1 1. Range (Jangkauan)\nDefinisi Intuitif:\nRange menunjukkan rentang keseluruhan data, dari nilai terkecil hingga terbesar. Seperti selisih antara suhu tertinggi dan terendah dalam sehari.\nFormula:\n\\[R = x_{max} - x_{min}\\]\nContoh:\nData 68, 75, 82, 85, 90\n\\[R = 90 - 68 = 22\\]\n\n2.2.2 2. Varians\nDefinisi Intuitif:\nVarians mengukur rata-rata kuadrat jarak setiap data dari mean. Semakin besar varians, semakin tersebar data dari pusatnya. Seperti mengukur seberapa jauh rata-rata rumah-rumah dari pusat kota.\nDefinisi Formal:\nRata-rata kuadrat selisih setiap nilai dengan mean.\n\n2.2.2.1 Formula untuk Data Tunggal\n\nVarians Populasi:\n\\[\\sigma^2 = \\frac{\\sum_{i=1}^{N} (x_i - \\mu)^2}{N}\\]\nVarians Sampel:\n\\[s^2 = \\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}{n-1}\\]\n\n2.2.2.2 Formula untuk Data Berkelompok\n\n\\[s^2 = \\frac{\\sum_{i=1}^{k} f_i(m_i - \\bar{x})^2}{n-1}\\]\ndimana:\n\n\n\\(f_i\\) = frekuensi kelas ke-i\n\n\\(m_i\\) = nilai tengah kelas ke-i\n\n\\(n\\) = jumlah data\n\n2.2.2.3 Contoh Perhitungan\n\nData: 75, 82, 68, 90, 85 dengan \\(\\bar{x} = 80\\)\n\n\n\\(x_i\\)\n\\(x_i - \\bar{x}\\)\n\\((x_i - \\bar{x})^2\\)\n\n\n\n75\n-5\n25\n\n\n82\n2\n4\n\n\n68\n-12\n144\n\n\n90\n10\n100\n\n\n85\n5\n25\n\n\nTotal\n\n298\n\n\n\n\\[s^2 = \\frac{298}{5-1} = \\frac{298}{4} = 74.5\\]\n\n2.2.3 3. Simpangan Baku (Standard Deviation)\nDefinisi Intuitif:\nSimpangan baku adalah akar kuadrat varians yang memberikan ukuran penyebaran dalam satuan yang sama dengan data asli. Lebih mudah diinterpretasi karena satuannya sama dengan data.\nFormula:\n\\[s = \\sqrt{s^2} = \\sqrt{\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}{n-1}}\\]\nContoh:\n\\[s = \\sqrt{74.5} = 8.63\\]\n\n2.2.4 4. Koefisien Variasi\nDefinisi Intuitif:\nKoefisien variasi mengukur variabilitas relatif terhadap mean, berguna untuk membandingkan variabilitas antar dataset dengan skala berbeda. Seperti membandingkan variabilitas gaji (dalam jutaan) dengan variabilitas umur (dalam tahun).\nFormula:\n\\[CV = \\frac{s}{\\bar{x}} \\times 100\\%\\]\nContoh:\n\\[CV = \\frac{8.63}{80} \\times 100\\% = 10.79\\%\\]",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Statistika Deskriptif</span>"
+    ]
+  },
+  {
+    "objectID": "week2.html#visualisasi-data-dengan-r",
+    "href": "week2.html#visualisasi-data-dengan-r",
+    "title": "\n2  Statistika Deskriptif\n",
+    "section": "\n2.3 Visualisasi Data dengan R",
+    "text": "2.3 Visualisasi Data dengan R\n\n2.3.1 1. Tabel Distribusi Frekuensi\nDefinisi:\nTabel yang menunjukkan berapa kali setiap nilai atau kelompok nilai muncul dalam dataset.\nKegunaan:\n\nMelihat pola distribusi data secara numerik\nIdentifikasi nilai yang paling sering/jarang muncul\nDasar untuk membuat histogram dan visualisasi lainnya\n\nInterpretasi:\nFrekuensi tinggi menunjukkan nilai yang umum, frekuensi rendah menunjukkan nilai yang jarang.\n\n# Data contoh\nnilai &lt;- c(75, 82, 68, 90, 85, 78, 92, 65, 88, 79, \n           73, 86, 81, 94, 77, 89, 71, 83, 95, 76)\n\n# Membuat tabel frekuensi untuk data kategorik\nnilai_grade &lt;- cut(nilai, breaks = c(0, 60, 70, 80, 90, 100), \n                   labels = c(\"E\", \"D\", \"C\", \"B\", \"A\"))\ntabel_frekuensi &lt;- table(nilai_grade)\nprint(tabel_frekuensi)\n\nnilai_grade\nE D C B A \n0 2 7 8 3 \n\n# Tabel frekuensi dengan proporsi\nprop.table(tabel_frekuensi)\n\nnilai_grade\n   E    D    C    B    A \n0.00 0.10 0.35 0.40 0.15 \n\n\n\n2.3.2 2. Histogram\nDefinisi:\nGrafik yang menunjukkan distribusi data kontinu dengan membagi data ke dalam interval (bins) dan menampilkan frekuensi setiap interval sebagai batang.\nKegunaan:\n\nMelihat bentuk distribusi data (simetris, miring kiri/kanan)\nIdentifikasi outlier dan pola dalam data\nEstimasi visual mean, median, dan modus\n\nInterpretasi:\n\n\nTinggi batang = frekuensi data dalam interval tersebut\n\nBentuk kurva = karakteristik distribusi (normal, skewed, bimodal)\n\n\n# Histogram sederhana\nhist(nilai, \n     main = \"Distribusi Nilai Ujian Mahasiswa\",\n     xlab = \"Nilai\",\n     ylab = \"Frekuensi\",\n     breaks = 8)\n\n# Menambahkan garis mean dan median\nabline(v = mean(nilai), lty = 2)\nabline(v = median(nilai), lty = 3)\nlegend(\"topright\", \n       legend = c(\"Mean\", \"Median\"), \n       lty = c(2, 3))\n\n\n\n\n\n\n\n\n2.3.3 3. Diagram Batang (Bar Chart)\nDefinisi:\nGrafik yang menampilkan data kategorik menggunakan batang dengan tinggi proporsional terhadap nilai/frekuensi kategori.\nKegunaan:\n\nMembandingkan frekuensi atau nilai antar kategori\nMenampilkan ranking atau urutan kategori\nVisualisasi data nominal dan ordinal\n\nInterpretasi:\n\n\nTinggi batang = nilai/frekuensi kategori\n\nPerbandingan tinggi = perbandingan antar kategori\n\n\n# Data kategorik\njurusan &lt;- c(\"Teknik\", \"Ekonomi\", \"MIPA\", \"Sosial\", \"Hukum\")\njumlah_mahasiswa &lt;- c(250, 180, 120, 90, 60)\n\n# Bar chart sederhana\nbarplot(jumlah_mahasiswa,\n        names.arg = jurusan,\n        main = \"Jumlah Mahasiswa per Jurusan\",\n        xlab = \"Jurusan\",\n        ylab = \"Jumlah Mahasiswa\")\n\n# Menambahkan nilai di atas batang\ntext(x = seq_along(jumlah_mahasiswa), \n     y = jumlah_mahasiswa + 10, \n     labels = jumlah_mahasiswa)\n\n\n\n\n\n\n\n\n2.3.4 4. Diagram Lingkaran (Pie Chart)\nDefinisi:\nGrafik berbentuk lingkaran yang menunjukkan proporsi setiap kategori terhadap keseluruhan data.\nKegunaan:\n\nMenampilkan komposisi atau proporsi data kategorik\nMelihat kontribusi relatif setiap kategori\nEfektif untuk data dengan kategori tidak terlalu banyak (≤7)\n\nInterpretasi:\n\n\nUkuran potongan = proporsi kategori terhadap total\n\nTotal semua potongan = 100% dari data\n\n\n# Pie chart sederhana\npie(jumlah_mahasiswa,\n    labels = paste(jurusan, \"\\n\", \n                   round(jumlah_mahasiswa/sum(jumlah_mahasiswa)*100, 1), \"%\"),\n    main = \"Distribusi Mahasiswa per Jurusan\")\n\n\n\n\n\n\n\n\n2.3.5 5. Box Plot (Diagram Kotak)\nDefinisi:\nGrafik yang menampilkan ringkasan lima angka (minimum, Q1, median, Q3, maksimum) dan outlier dalam bentuk kotak dan garis.\nKegunaan:\n\nIdentifikasi outlier dengan mudah\nMembandingkan distribusi antar kelompok\nMelihat simetri dan skewness distribusi\n\nInterpretasi:\n\n\nGaris tengah kotak = median\n\nKotak = rentang interkuartil (IQR = Q3-Q1)\n\nWhiskers = rentang data normal (bukan outlier)\n\n\nWhisker atas = Q3 + 1.5×IQR\n\nWhisker bawah = Q1 - 1.5×IQR\n\n\n\nTitik terpisah = outlier (data di luar whiskers)\n\n\n# Box plot untuk satu variabel\nboxplot(nilai,\n        main = \"Box Plot Nilai Ujian\",\n        ylab = \"Nilai\")\n\n\n\n\n\n\n# Box plot perbandingan antar grup\nnilai_A &lt;- c(85, 88, 92, 89, 87, 90, 93, 86, 91, 88)\nnilai_B &lt;- c(78, 82, 79, 85, 81, 83, 80, 84, 82, 86)\nnilai_C &lt;- c(72, 75, 73, 78, 76, 74, 77, 79, 75, 73)\n\nboxplot(nilai_A, nilai_B, nilai_C,\n        names = c(\"Kelas A\", \"Kelas B\", \"Kelas C\"),\n        main = \"Perbandingan Nilai Antar Kelas\",\n        ylab = \"Nilai\")\n\n\n\n\n\n\n\n\n2.3.6 6. Scatter Plot (Diagram Pencar)\nDefinisi:\nGrafik yang menampilkan hubungan antara dua variabel kontinu dengan setiap observasi direpresentasikan sebagai titik.\nKegunaan:\n\nMengidentifikasi pola hubungan antar variabel\nMendeteksi korelasi positif, negatif, atau tidak ada korelasi\nIdentifikasi outlier dalam hubungan bivariat\n\nInterpretasi:\n\n\nPola naik = korelasi positif\n\nPola turun = korelasi negatif\n\n\nTitik tersebar acak = tidak ada korelasi\n\nTitik jauh dari pola = outlier\n\n\n# Data untuk scatter plot\njam_belajar &lt;- c(2, 4, 3, 6, 5, 7, 4, 8, 5, 6, 3, 7, 4, 9, 6)\nnilai_ujian &lt;- c(65, 75, 70, 85, 78, 88, 72, 92, 80, 85, 68, 90, 74, 95, 82)\n\nplot(jam_belajar, nilai_ujian,\n     main = \"Hubungan Jam Belajar dengan Nilai Ujian\",\n     xlab = \"Jam Belajar per Hari\",\n     ylab = \"Nilai Ujian\")\n\n# Menambahkan garis regresi\nabline(lm(nilai_ujian ~ jam_belajar))",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Statistika Deskriptif</span>"
+    ]
+  },
+  {
+    "objectID": "week2.html#interpretasi-dan-pemilihan-ukuran",
+    "href": "week2.html#interpretasi-dan-pemilihan-ukuran",
+    "title": "\n2  Statistika Deskriptif\n",
+    "section": "\n2.4 Interpretasi dan Pemilihan Ukuran",
+    "text": "2.4 Interpretasi dan Pemilihan Ukuran\n\n2.4.1 Kapan Menggunakan Mean, Median, atau Modus?\nMean (Rata-rata):\n\n✅ Gunakan: Data numerik, distribusi simetris, tidak ada outlier ekstrem\n❌ Hindari: Data dengan outlier, distribusi sangat miring (skewed)\n\nContoh: Nilai ujian, tinggi badan, suhu harian\n\nMedian:\n\n✅ Gunakan: Data dengan outlier, distribusi miring, data ordinal\n✅ Kelebihan: Robust terhadap outlier\n\nContoh: Pendapatan (karena ada yang sangat tinggi), harga rumah\n\nModus:\n\n✅ Gunakan: Data nominal, mencari nilai paling populer\n\nContoh: Warna favorit, merek yang paling laku, jenis kelamin\n\n2.4.2 Hubungan Mean, Median, Modus\n\n# Simulasi distribusi berbeda\npar(mfrow = c(1, 3))\n\n# Distribusi simetris\nset.seed(123)\ndata_simetris &lt;- rnorm(1000, 50, 10)\nhist(data_simetris, main = \"Distribusi Simetris\\nMean ≈ Median ≈ Modus\", \n     col = \"lightblue\", xlab = \"Nilai\")\nabline(v = mean(data_simetris), col = \"red\", lwd = 2)\nabline(v = median(data_simetris), col = \"blue\", lwd = 2)\n\n# Distribusi miring kanan\ndata_kanan &lt;- rgamma(1000, 2, 1)\nhist(data_kanan, main = \"Distribusi Miring Kanan\\nMean &gt; Median &gt; Modus\", \n     col = \"lightgreen\", xlab = \"Nilai\")\nabline(v = mean(data_kanan), col = \"red\", lwd = 2)\nabline(v = median(data_kanan), col = \"blue\", lwd = 2)\n\n# Distribusi miring kiri  \ndata_kiri &lt;- 10 - rgamma(1000, 2, 1)\nhist(data_kiri, main = \"Distribusi Miring Kiri\\nMean &lt; Median &lt; Modus\", \n     col = \"lightcoral\", xlab = \"Nilai\")\nabline(v = mean(data_kiri), col = \"red\", lwd = 2)\nabline(v = median(data_kiri), col = \"blue\", lwd = 2)",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Statistika Deskriptif</span>"
+    ]
+  },
+  {
+    "objectID": "week2.html#ringkasan-rumus-penting",
+    "href": "week2.html#ringkasan-rumus-penting",
+    "title": "\n2  Statistika Deskriptif\n",
+    "section": "\n2.5 Ringkasan Rumus Penting",
+    "text": "2.5 Ringkasan Rumus Penting\n\n\n\n\n\n\n\nUkuran\nFormula\nKeterangan\n\n\n\nMean\n\\(\\bar{x} = \\frac{\\sum x_i}{n}\\)\nRata-rata aritmatik\n\n\nMedian\n\n\\(Me = x_{\\frac{n+1}{2}}\\) (n ganjil)\nNilai tengah\n\n\nVarians\n\\(s^2 = \\frac{\\sum(x_i - \\bar{x})^2}{n-1}\\)\nUkuran penyebaran kuadratik\n\n\nStd Dev\n\\(s = \\sqrt{s^2}\\)\nAkar kuadrat varians\n\n\nRange\n\\(R = x_{max} - x_{min}\\)\nSelisih nilai tertinggi dan terendah\n\n\nCV\n\\(CV = \\frac{s}{\\bar{x}} \\times 100\\%\\)\nVariabilitas relatif\n\n\n\n\n\n\n\n\n\nImportant\n\n\n\nTips Praktis:\n\nSelalu visualisasikan data terlebih dahulu\nPeriksa adanya outlier sebelum menghitung mean\nGunakan median untuk data dengan outlier\nLaporkan ukuran pemusatan dan penyebaran bersama-sama\nInterpretasikan hasil dalam konteks domain aplikasi",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Statistika Deskriptif</span>"
+    ]
+  },
+  {
+    "objectID": "week3.html",
+    "href": "week3.html",
+    "title": "\n3  Eksperimen Acak, Ruang Sampel, dan Kejadian\n",
+    "section": "",
+    "text": "3.1 Eksperimen Acak (Random Experiment)",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Eksperimen Acak, Ruang Sampel, dan Kejadian</span>"
+    ]
+  },
+  {
+    "objectID": "week3.html#eksperimen-acak-random-experiment",
+    "href": "week3.html#eksperimen-acak-random-experiment",
+    "title": "\n3  Eksperimen Acak, Ruang Sampel, dan Kejadian\n",
+    "section": "",
+    "text": "3.1.1 Definisi Intuitif\nEksperimen acak adalah kegiatan atau proses yang hasilnya tidak dapat diprediksi dengan pasti sebelum dilakukan, meski kondisi awalnya sama. Bayangkan seperti melempar koin - meskipun kondisinya identik, hasilnya bisa berbeda setiap kali.\n\n3.1.2 Definisi Formal\nEksperimen acak adalah suatu percobaan yang memiliki karakteristik:\n\n\nSemua hasil yang mungkin dapat diidentifikasi sebelum percobaan\n\nHasil spesifik tidak dapat diprediksi dengan pasti\n\nDapat diulang dalam kondisi yang sama\n\nHasil bervariasi dari satu pengulangan ke pengulangan lain\n\n3.1.3 Contoh Eksperimen Acak\n\n3.1.3.1 Contoh Sederhana\n\n\n\nMelempar koin: Hasil bisa Angka (A) atau Gambar (G)\n\nMelempar dadu: Hasil bisa 1, 2, 3, 4, 5, atau 6\n\nMengambil kartu: Dari 52 kartu, bisa dapat kartu apa saja\n\nMengukur tinggi mahasiswa: Hasilnya bervariasi antar individu\n\n3.1.3.2 Contoh Kompleks\n\n\n\nJumlah pelanggan yang datang ke bank dalam 1 jam\n\nWaktu tunggu bus di halte\n\nJumlah produk cacat dalam produksi harian\n\nCurah hujan dalam satu hari\n\n3.1.4 Contoh Bukan Eksperimen Acak\n\nMenghitung 2 + 3 (hasilnya pasti 5)\nMengukur titik didih air pada tekanan 1 atm (pasti 100°C)\nMenentukan jumlah hari dalam seminggu (pasti 7)",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Eksperimen Acak, Ruang Sampel, dan Kejadian</span>"
+    ]
+  },
+  {
+    "objectID": "week3.html#ruang-sampel-sample-space",
+    "href": "week3.html#ruang-sampel-sample-space",
+    "title": "\n3  Eksperimen Acak, Ruang Sampel, dan Kejadian\n",
+    "section": "\n3.2 Ruang Sampel (Sample Space)",
+    "text": "3.2 Ruang Sampel (Sample Space)\n\n3.2.1 Definisi Intuitif\nRuang sampel adalah kumpulan semua hasil yang mungkin dari suatu eksperimen acak. Seperti daftar lengkap semua kemungkinan yang bisa terjadi.\n\n3.2.2 Definisi Formal\nRuang sampel, dilambangkan S atau Ω (omega), adalah himpunan semua hasil elementer (elementary outcomes) yang mungkin dari suatu eksperimen acak.\n\n3.2.3 Karakteristik Ruang Sampel\n\n\nLengkap: Mencakup semua kemungkinan hasil\n\nSaling terpisah: Tidak ada hasil yang tumpang tindih\n\nPasti terjadi satu: Dalam setiap eksperimen, pasti ada satu hasil yang terjadi\n\n3.2.4 Contoh Ruang Sampel\n\n3.2.4.1 Eksperimen Diskret (Hasil Terhingga)\n\n1. Melempar 1 koin: \\[S = \\{A, G\\}\\]\n2. Melempar 1 dadu: \\[S = \\{1, 2, 3, 4, 5, 6\\}\\]\n3. Melempar 2 koin: \\[S = \\{AA, AG, GA, GG\\}\\]\n4. Memilih 1 mahasiswa dari 3 mahasiswa (Ali, Budi, Citra): \\[S = \\{Ali, Budi, Citra\\}\\]\n\n3.2.4.2 Eksperimen Kontinu (Hasil Tak Terhingga)\n\n1. Mengukur tinggi mahasiswa (dalam cm): \\[S = \\{x : 140 \\leq x \\leq 200\\}\\]\n2. Waktu tunggu bus (dalam menit): \\[S = \\{t : t \\geq 0\\}\\]\n3. Suhu udara (dalam °C): \\[S = \\{T : -10 \\leq T \\leq 40\\}\\]\n\n3.2.5 Representasi Ruang Sampel\n\n3.2.5.1 Metode Enumerasi\n\nMendaftar semua kemungkinan hasil secara eksplisit.\nContoh: Melempar 2 dadu\nS = {(1,1), (1,2), (1,3), (1,4), (1,5), (1,6),\n     (2,1), (2,2), (2,3), (2,4), (2,5), (2,6),\n     (3,1), (3,2), (3,3), (3,4), (3,5), (3,6),\n     (4,1), (4,2), (4,3), (4,4), (4,5), (4,6),\n     (5,1), (5,2), (5,3), (5,4), (5,5), (5,6),\n     (6,1), (6,2), (6,3), (6,4), (6,5), (6,6)}\n\n3.2.5.2 Diagram Pohon (Tree Diagram)\n\nContoh: Melempar 2 koin\n\n# Visualisasi dengan R (sederhana)\n# Koin 1: A atau G\n# Koin 2: A atau G\nhasil_2_koin &lt;- expand.grid(Koin1 = c(\"A\", \"G\"), \n                            Koin2 = c(\"A\", \"G\"))\nprint(hasil_2_koin)\n\n  Koin1 Koin2\n1     A     A\n2     G     A\n3     A     G\n4     G     G\n\n\n\n3.2.5.3 Diagram Venn\n\nBerguna untuk menunjukkan hubungan antar kejadian dalam ruang sampel.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Eksperimen Acak, Ruang Sampel, dan Kejadian</span>"
+    ]
+  },
+  {
+    "objectID": "week3.html#kejadian-event",
+    "href": "week3.html#kejadian-event",
+    "title": "\n3  Eksperimen Acak, Ruang Sampel, dan Kejadian\n",
+    "section": "\n3.3 Kejadian (Event)",
+    "text": "3.3 Kejadian (Event)\n\n3.3.1 Definisi Intuitif\nKejadian adalah himpunan bagian dari ruang sampel yang menjadi fokus perhatian kita. Seperti memilih hasil-hasil tertentu yang kita minati dari semua kemungkinan hasil.\n\n3.3.2 Definisi Formal\nKejadian (event) adalah subset dari ruang sampel S. Suatu kejadian dikatakan terjadi jika hasil eksperimen termasuk dalam himpunan kejadian tersebut.\n\n3.3.3 Notasi dan Terminologi\n\n\nKejadian: Dilambangkan dengan huruf kapital A, B, C, …\n\nHasil elementer: Anggota tunggal dari ruang sampel\n\nKejadian sederhana: Kejadian yang hanya mengandung satu hasil elementer\n\nKejadian majemuk: Kejadian yang mengandung lebih dari satu hasil elementer\n\n3.3.4 Contoh Kejadian\nEksperimen: Melempar 1 dadu, S = {1, 2, 3, 4, 5, 6}\nKejadian A: “Muncul bilangan genap” \\[A = \\{2, 4, 6\\}\\]\nKejadian B: “Muncul bilangan prima” \\[B = \\{2, 3, 5\\}\\]\nKejadian C: “Muncul angka 3” \\[C = \\{3\\}\\] (kejadian sederhana)\nKejadian D: “Muncul angka lebih dari 4” \\[D = \\{5, 6\\}\\]",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Eksperimen Acak, Ruang Sampel, dan Kejadian</span>"
+    ]
+  },
+  {
+    "objectID": "week3.html#klasifikasi-kejadian",
+    "href": "week3.html#klasifikasi-kejadian",
+    "title": "\n3  Eksperimen Acak, Ruang Sampel, dan Kejadian\n",
+    "section": "\n3.4 Klasifikasi Kejadian",
+    "text": "3.4 Klasifikasi Kejadian\n\n3.4.1 1. Berdasarkan Jumlah Elemen\n\n3.4.1.1 Kejadian Sederhana (Simple Event)\n\nDefinisi: Kejadian yang hanya mengandung satu hasil elementer.\nContoh: - A = “Muncul angka 5 pada dadu” = {5} - B = “Terpilih mahasiswa Ali” = {Ali}\n\n3.4.1.2 Kejadian Majemuk (Compound Event)\n\nDefinisi: Kejadian yang mengandung lebih dari satu hasil elementer.\nContoh: - A = “Muncul bilangan ganjil pada dadu” = {1, 3, 5} - B = “Muncul kartu merah” = {semua kartu ♥ dan ♦}\n\n3.4.2 2. Berdasarkan Kemungkinan Terjadinya\n\n3.4.2.1 Kejadian Pasti (Certain Event)\n\nDefinisi: Kejadian yang pasti terjadi dalam setiap eksperimen.\nKarakteristik: Sama dengan ruang sampel (A = S)\nContoh: - “Muncul angka 1-6 pada dadu” = {1, 2, 3, 4, 5, 6} = S - “Tinggi mahasiswa positif” = S (dalam konteks pengukuran tinggi)\n\n3.4.2.2 Kejadian Mustahil (Impossible Event)\n\nDefinisi: Kejadian yang tidak mungkin terjadi.\nKarakteristik: Himpunan kosong (A = ∅)\nContoh: - “Muncul angka 7 pada dadu” = ∅ - “Tinggi mahasiswa negatif” = ∅\n\n3.4.3 3. Berdasarkan Hubungan Antar Kejadian\n\n3.4.3.1 Kejadian Saling Lepas (Mutually Exclusive)\n\nDefinisi: Dua kejadian yang tidak dapat terjadi bersamaan.\nKarakteristik: A ∩ B = ∅\nContoh: - A = “Muncul bilangan genap” = {2, 4, 6} - B = “Muncul bilangan ganjil” = {1, 3, 5} - A ∩ B = ∅\n\n3.4.3.2 Kejadian Saling Bebas (Independent)\n\nDefinisi: Terjadinya satu kejadian tidak mempengaruhi probabilitas kejadian lain.\nContoh: - Hasil lempar koin pertama tidak mempengaruhi hasil lempar koin kedua - Nilai ujian matematika tidak mempengaruhi cuaca hari ini\n\n3.4.3.3 Kejadian Komplemen (Complement)\n\nDefinisi: Kejadian yang berisi semua hasil yang tidak termasuk dalam kejadian asli.\nNotasi: A’ atau A^c atau Ā\nKarakteristik: - A ∪ A’ = S - A ∩ A’ = ∅\nContoh: - Jika A = “Muncul bilangan genap” = {2, 4, 6} - Maka A’ = “Muncul bilangan ganjil” = {1, 3, 5}\n\n3.4.4 Operasi pada Kejadian\n\n3.4.4.1 Gabungan (Union)\n\nDefinisi: A ∪ B adalah kejadian yang terjadi jika A atau B (atau keduanya) terjadi.\nContoh: - A = {2, 4, 6}, B = {1, 2, 3} - A ∪ B = {1, 2, 3, 4, 6}\n\n3.4.4.2 Irisan (Intersection)\n\nDefinisi: A ∩ B adalah kejadian yang terjadi jika A dan B terjadi bersamaan.\nContoh: - A = {2, 4, 6}, B = {1, 2, 3} - A ∩ B = {2}\n\n3.4.4.3 Selisih (Difference)\n\nDefinisi: A - B adalah kejadian yang terjadi jika A terjadi tetapi B tidak terjadi.\nContoh: - A = {2, 4, 6}, B = {1, 2, 3} - A - B = {4, 6}",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Eksperimen Acak, Ruang Sampel, dan Kejadian</span>"
+    ]
+  },
+  {
+    "objectID": "week3.html#implementasi-dengan-r",
+    "href": "week3.html#implementasi-dengan-r",
+    "title": "\n3  Eksperimen Acak, Ruang Sampel, dan Kejadian\n",
+    "section": "\n3.5 Implementasi dengan R",
+    "text": "3.5 Implementasi dengan R\n\n3.5.1 Menampilkan Ruang Sampel\n\n# Eksperimen: Melempar 2 dadu\ndadu1 &lt;- 1:6\ndadu2 &lt;- 1:6\nruang_sampel &lt;- expand.grid(Dadu1 = dadu1, Dadu2 = dadu2)\nprint(ruang_sampel)\n\n   Dadu1 Dadu2\n1      1     1\n2      2     1\n3      3     1\n4      4     1\n5      5     1\n6      6     1\n7      1     2\n8      2     2\n9      3     2\n10     4     2\n11     5     2\n12     6     2\n13     1     3\n14     2     3\n15     3     3\n16     4     3\n17     5     3\n18     6     3\n19     1     4\n20     2     4\n21     3     4\n22     4     4\n23     5     4\n24     6     4\n25     1     5\n26     2     5\n27     3     5\n28     4     5\n29     5     5\n30     6     5\n31     1     6\n32     2     6\n33     3     6\n34     4     6\n35     5     6\n36     6     6\n\ncat(\"Jumlah hasil elementer:\", nrow(ruang_sampel))\n\nJumlah hasil elementer: 36\n\n\n\n3.5.2 Mendefinisikan Kejadian\n\n# Kejadian A: Jumlah mata dadu = 7\nA &lt;- ruang_sampel[ruang_sampel$Dadu1 + ruang_sampel$Dadu2 == 7, ]\nprint(\"Kejadian A (jumlah = 7):\")\n\n[1] \"Kejadian A (jumlah = 7):\"\n\nprint(A)\n\n   Dadu1 Dadu2\n6      6     1\n11     5     2\n16     4     3\n21     3     4\n26     2     5\n31     1     6\n\n# Kejadian B: Kedua dadu menunjukkan angka sama\nB &lt;- ruang_sampel[ruang_sampel$Dadu1 == ruang_sampel$Dadu2, ]\nprint(\"Kejadian B (angka sama):\")\n\n[1] \"Kejadian B (angka sama):\"\n\nprint(B)\n\n   Dadu1 Dadu2\n1      1     1\n8      2     2\n15     3     3\n22     4     4\n29     5     5\n36     6     6\n\n\n\n3.5.3 Operasi Kejadian\n\n# Gabungan kejadian A dan B\nA_index &lt;- which(ruang_sampel$Dadu1 + ruang_sampel$Dadu2 == 7)\nB_index &lt;- which(ruang_sampel$Dadu1 == ruang_sampel$Dadu2)\n\n# Union\nAB_union_index &lt;- union(A_index, B_index)\nAB_union &lt;- ruang_sampel[AB_union_index, ]\nprint(\"A ∪ B:\")\n\n[1] \"A ∪ B:\"\n\nprint(AB_union)\n\n   Dadu1 Dadu2\n6      6     1\n11     5     2\n16     4     3\n21     3     4\n26     2     5\n31     1     6\n1      1     1\n8      2     2\n15     3     3\n22     4     4\n29     5     5\n36     6     6\n\n# Intersection\nAB_intersect_index &lt;- intersect(A_index, B_index)\nAB_intersect &lt;- ruang_sampel[AB_intersect_index, ]\nprint(\"A ∩ B:\")\n\n[1] \"A ∩ B:\"\n\nprint(AB_intersect)\n\n[1] Dadu1 Dadu2\n&lt;0 rows&gt; (or 0-length row.names)",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Eksperimen Acak, Ruang Sampel, dan Kejadian</span>"
+    ]
+  },
+  {
+    "objectID": "week3.html#contoh-penerapan-lengkap",
+    "href": "week3.html#contoh-penerapan-lengkap",
+    "title": "\n3  Eksperimen Acak, Ruang Sampel, dan Kejadian\n",
+    "section": "\n3.6 Contoh Penerapan Lengkap",
+    "text": "3.6 Contoh Penerapan Lengkap\n\n3.6.1 Kasus: Survei Kepuasan Mahasiswa\nEksperimen: Mengambil secara acak 1 mahasiswa dan menanyakan kepuasan terhadap layanan kampus.\nRuang Sampel: S = {Sangat Puas, Puas, Cukup, Tidak Puas}\nDefinisi Kejadian: - A = “Mahasiswa merasa puas” = {Sangat Puas, Puas} - B = “Mahasiswa tidak complain” = {Sangat Puas, Puas, Cukup} - C = “Mahasiswa memberikan rating tinggi” = {Sangat Puas}\nAnalisis: - A ∩ B = {Sangat Puas, Puas} - A ∪ B = {Sangat Puas, Puas, Cukup} - A’ = {Cukup, Tidak Puas} - Apakah A dan C saling lepas? Tidak, karena A ∩ C = {Sangat Puas} ≠ ∅\n\n# Implementasi dalam R\nS &lt;- c(\"Sangat Puas\", \"Puas\", \"Cukup\", \"Tidak Puas\")\nA &lt;- c(\"Sangat Puas\", \"Puas\")\nB &lt;- c(\"Sangat Puas\", \"Puas\", \"Cukup\")\nC &lt;- c(\"Sangat Puas\")\n\n# Operasi himpunan\nA_intersect_B &lt;- intersect(A, B)\nA_union_B &lt;- union(A, B)\nA_complement &lt;- setdiff(S, A)\n\nprint(paste(\"A ∩ B:\", paste(A_intersect_B, collapse = \", \")))\n\n[1] \"A ∩ B: Sangat Puas, Puas\"\n\nprint(paste(\"A ∪ B:\", paste(A_union_B, collapse = \", \")))\n\n[1] \"A ∪ B: Sangat Puas, Puas, Cukup\"\n\nprint(paste(\"A':\", paste(A_complement, collapse = \", \")))\n\n[1] \"A': Cukup, Tidak Puas\"",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Eksperimen Acak, Ruang Sampel, dan Kejadian</span>"
+    ]
+  },
+  {
+    "objectID": "week3.html#ringkasan-konsep-penting",
+    "href": "week3.html#ringkasan-konsep-penting",
+    "title": "\n3  Eksperimen Acak, Ruang Sampel, dan Kejadian\n",
+    "section": "\n3.7 Ringkasan Konsep Penting",
+    "text": "3.7 Ringkasan Konsep Penting\n\n\n\n\n\n\n\nKonsep\nDefinisi\nContoh\n\n\n\nEksperimen Acak\nPercobaan dengan hasil tidak pasti\nLempar koin, ambil kartu\n\n\nRuang Sampel\nHimpunan semua hasil yang mungkin\nS = {A, G} untuk lempar koin\n\n\nKejadian\nSubset dari ruang sampel\nA = {A} = “muncul angka”\n\n\nKejadian Pasti\nA = S\n“Muncul angka 1-6” pada dadu\n\n\nKejadian Mustahil\nA = ∅\n“Muncul angka 7” pada dadu\n\n\nSaling Lepas\nA ∩ B = ∅\nGenap vs ganjil pada dadu\n\n\nKomplemen\nA’ = S - A\nA = genap, A’ = ganjil\n\n\n\n\n\n\n\n\n\nImportant\n\n\n\nTips Praktis:\n\n\nDefinisikan ruang sampel dengan jelas sebelum menentukan kejadian\n\nPeriksa kelengkapan ruang sampel - apakah semua kemungkinan sudah tercakup?\n\nGunakan diagram Venn untuk visualisasi hubungan antar kejadian\n\nVerifikasi operasi himpunan dengan contoh konkret\n\nPastikan konsistensi antara konteks masalah dan definisi matematika",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Eksperimen Acak, Ruang Sampel, dan Kejadian</span>"
+    ]
+  }
+]

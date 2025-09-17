@@ -1,0 +1,366 @@
+# Eksperimen Acak, Ruang Sampel, dan Kejadian
+
+## Eksperimen Acak (Random Experiment)
+
+### Definisi Intuitif
+
+**Eksperimen acak** adalah kegiatan atau proses yang hasilnya **tidak dapat diprediksi dengan pasti** sebelum dilakukan, meski kondisi awalnya sama. Bayangkan seperti melempar koin - meskipun kondisinya identik, hasilnya bisa berbeda setiap kali.
+
+### Definisi Formal
+
+Eksperimen acak adalah suatu percobaan yang memiliki karakteristik:
+
+1. **Semua hasil yang mungkin** dapat diidentifikasi sebelum percobaan
+2. **Hasil spesifik** tidak dapat diprediksi dengan pasti
+3. **Dapat diulang** dalam kondisi yang sama
+4. **Hasil bervariasi** dari satu pengulangan ke pengulangan lain
+
+### Contoh Eksperimen Acak
+
+#### **Contoh Sederhana**
+
+1. **Melempar koin**: Hasil bisa Angka (A) atau Gambar (G)
+2. **Melempar dadu**: Hasil bisa 1, 2, 3, 4, 5, atau 6
+3. **Mengambil kartu**: Dari 52 kartu, bisa dapat kartu apa saja
+4. **Mengukur tinggi mahasiswa**: Hasilnya bervariasi antar individu
+
+#### **Contoh Kompleks**
+
+1. **Jumlah pelanggan** yang datang ke bank dalam 1 jam
+2. **Waktu tunggu** bus di halte
+3. **Jumlah produk cacat** dalam produksi harian
+4. **Curah hujan** dalam satu hari
+
+### Contoh Bukan Eksperimen Acak
+
+- Menghitung 2 + 3 (hasilnya pasti 5)
+- Mengukur titik didih air pada tekanan 1 atm (pasti 100°C)
+- Menentukan jumlah hari dalam seminggu (pasti 7)
+
+---
+
+## Ruang Sampel (Sample Space)
+
+### Definisi Intuitif
+
+**Ruang sampel** adalah **kumpulan semua hasil yang mungkin** dari suatu eksperimen acak. Seperti daftar lengkap semua kemungkinan yang bisa terjadi.
+
+### Definisi Formal
+
+Ruang sampel, dilambangkan **S** atau **Ω** (omega), adalah himpunan semua hasil elementer (elementary outcomes) yang mungkin dari suatu eksperimen acak.
+
+### Karakteristik Ruang Sampel
+
+1. **Lengkap**: Mencakup semua kemungkinan hasil
+2. **Saling terpisah**: Tidak ada hasil yang tumpang tindih
+3. **Pasti terjadi satu**: Dalam setiap eksperimen, pasti ada satu hasil yang terjadi
+
+### Contoh Ruang Sampel
+
+#### **Eksperimen Diskret (Hasil Terhingga)**
+
+**1. Melempar 1 koin**:
+$$S = \{A, G\}$$
+
+**2. Melempar 1 dadu**:
+$$S = \{1, 2, 3, 4, 5, 6\}$$
+
+**3. Melempar 2 koin**:
+$$S = \{AA, AG, GA, GG\}$$
+
+**4. Memilih 1 mahasiswa dari 3 mahasiswa (Ali, Budi, Citra)**:
+$$S = \{Ali, Budi, Citra\}$$
+
+#### **Eksperimen Kontinu (Hasil Tak Terhingga)**
+
+**1. Mengukur tinggi mahasiswa (dalam cm)**:
+$$S = \{x : 140 \leq x \leq 200\}$$
+
+**2. Waktu tunggu bus (dalam menit)**:
+$$S = \{t : t \geq 0\}$$
+
+**3. Suhu udara (dalam °C)**:
+$$S = \{T : -10 \leq T \leq 40\}$$
+
+### Representasi Ruang Sampel
+
+#### **Metode Enumerasi**
+Mendaftar semua kemungkinan hasil secara eksplisit.
+
+**Contoh**: Melempar 2 dadu
+```
+S = {(1,1), (1,2), (1,3), (1,4), (1,5), (1,6),
+     (2,1), (2,2), (2,3), (2,4), (2,5), (2,6),
+     (3,1), (3,2), (3,3), (3,4), (3,5), (3,6),
+     (4,1), (4,2), (4,3), (4,4), (4,5), (4,6),
+     (5,1), (5,2), (5,3), (5,4), (5,5), (5,6),
+     (6,1), (6,2), (6,3), (6,4), (6,5), (6,6)}
+```
+
+#### **Diagram Pohon (Tree Diagram)**
+
+**Contoh**: Melempar 2 koin
+
+```{r}
+# Visualisasi dengan R (sederhana)
+# Koin 1: A atau G
+# Koin 2: A atau G
+hasil_2_koin <- expand.grid(Koin1 = c("A", "G"), 
+                            Koin2 = c("A", "G"))
+print(hasil_2_koin)
+```
+
+#### **Diagram Venn**
+
+Berguna untuk menunjukkan hubungan antar kejadian dalam ruang sampel.
+
+---
+
+## Kejadian (Event)
+
+### Definisi Intuitif
+
+**Kejadian** adalah **himpunan bagian dari ruang sampel** yang menjadi fokus perhatian kita. Seperti memilih hasil-hasil tertentu yang kita minati dari semua kemungkinan hasil.
+
+### Definisi Formal
+
+Kejadian (event) adalah subset dari ruang sampel S. Suatu kejadian dikatakan **terjadi** jika hasil eksperimen termasuk dalam himpunan kejadian tersebut.
+
+### Notasi dan Terminologi
+
+- **Kejadian**: Dilambangkan dengan huruf kapital A, B, C, ...
+- **Hasil elementer**: Anggota tunggal dari ruang sampel
+- **Kejadian sederhana**: Kejadian yang hanya mengandung satu hasil elementer
+- **Kejadian majemuk**: Kejadian yang mengandung lebih dari satu hasil elementer
+
+### Contoh Kejadian
+
+**Eksperimen**: Melempar 1 dadu, S = {1, 2, 3, 4, 5, 6}
+
+**Kejadian A**: "Muncul bilangan genap"
+$$A = \{2, 4, 6\}$$
+
+**Kejadian B**: "Muncul bilangan prima"
+$$B = \{2, 3, 5\}$$
+
+**Kejadian C**: "Muncul angka 3"
+$$C = \{3\}$$ (kejadian sederhana)
+
+**Kejadian D**: "Muncul angka lebih dari 4"
+$$D = \{5, 6\}$$
+
+---
+
+## Klasifikasi Kejadian
+
+### 1. Berdasarkan Jumlah Elemen
+
+#### **Kejadian Sederhana (Simple Event)**
+
+**Definisi**: Kejadian yang hanya mengandung satu hasil elementer.
+
+**Contoh**:
+- A = "Muncul angka 5 pada dadu" = {5}
+- B = "Terpilih mahasiswa Ali" = {Ali}
+
+#### **Kejadian Majemuk (Compound Event)**
+
+**Definisi**: Kejadian yang mengandung lebih dari satu hasil elementer.
+
+**Contoh**:
+- A = "Muncul bilangan ganjil pada dadu" = {1, 3, 5}
+- B = "Muncul kartu merah" = {semua kartu ♥ dan ♦}
+
+### 2. Berdasarkan Kemungkinan Terjadinya
+
+#### **Kejadian Pasti (Certain Event)**
+
+**Definisi**: Kejadian yang pasti terjadi dalam setiap eksperimen.
+
+**Karakteristik**: Sama dengan ruang sampel (A = S)
+
+**Contoh**:
+- "Muncul angka 1-6 pada dadu" = {1, 2, 3, 4, 5, 6} = S
+- "Tinggi mahasiswa positif" = S (dalam konteks pengukuran tinggi)
+
+#### **Kejadian Mustahil (Impossible Event)**
+
+**Definisi**: Kejadian yang tidak mungkin terjadi.
+
+**Karakteristik**: Himpunan kosong (A = ∅)
+
+**Contoh**:
+- "Muncul angka 7 pada dadu" = ∅
+- "Tinggi mahasiswa negatif" = ∅
+
+### 3. Berdasarkan Hubungan Antar Kejadian
+
+#### **Kejadian Saling Lepas (Mutually Exclusive)**
+
+**Definisi**: Dua kejadian yang tidak dapat terjadi bersamaan.
+
+**Karakteristik**: A ∩ B = ∅
+
+**Contoh**:
+- A = "Muncul bilangan genap" = {2, 4, 6}
+- B = "Muncul bilangan ganjil" = {1, 3, 5}
+- A ∩ B = ∅
+
+#### **Kejadian Saling Bebas (Independent)**
+
+**Definisi**: Terjadinya satu kejadian tidak mempengaruhi probabilitas kejadian lain.
+
+**Contoh**:
+- Hasil lempar koin pertama tidak mempengaruhi hasil lempar koin kedua
+- Nilai ujian matematika tidak mempengaruhi cuaca hari ini
+
+#### **Kejadian Komplemen (Complement)**
+
+**Definisi**: Kejadian yang berisi semua hasil yang tidak termasuk dalam kejadian asli.
+
+**Notasi**: A' atau A^c atau Ā
+
+**Karakteristik**: 
+- A ∪ A' = S
+- A ∩ A' = ∅
+
+**Contoh**:
+- Jika A = "Muncul bilangan genap" = {2, 4, 6}
+- Maka A' = "Muncul bilangan ganjil" = {1, 3, 5}
+
+### Operasi pada Kejadian
+
+#### **Gabungan (Union)**
+
+**Definisi**: A ∪ B adalah kejadian yang terjadi jika A atau B (atau keduanya) terjadi.
+
+**Contoh**:
+- A = {2, 4, 6}, B = {1, 2, 3}
+- A ∪ B = {1, 2, 3, 4, 6}
+
+#### **Irisan (Intersection)**
+
+**Definisi**: A ∩ B adalah kejadian yang terjadi jika A dan B terjadi bersamaan.
+
+**Contoh**:
+- A = {2, 4, 6}, B = {1, 2, 3}
+- A ∩ B = {2}
+
+#### **Selisih (Difference)**
+
+**Definisi**: A - B adalah kejadian yang terjadi jika A terjadi tetapi B tidak terjadi.
+
+**Contoh**:
+- A = {2, 4, 6}, B = {1, 2, 3}
+- A - B = {4, 6}
+
+---
+
+## Implementasi dengan R
+
+### Menampilkan Ruang Sampel
+
+```{r}
+# Eksperimen: Melempar 2 dadu
+dadu1 <- 1:6
+dadu2 <- 1:6
+ruang_sampel <- expand.grid(Dadu1 = dadu1, Dadu2 = dadu2)
+print(ruang_sampel)
+cat("Jumlah hasil elementer:", nrow(ruang_sampel))
+```
+
+### Mendefinisikan Kejadian
+
+```{r}
+# Kejadian A: Jumlah mata dadu = 7
+A <- ruang_sampel[ruang_sampel$Dadu1 + ruang_sampel$Dadu2 == 7, ]
+print("Kejadian A (jumlah = 7):")
+print(A)
+
+# Kejadian B: Kedua dadu menunjukkan angka sama
+B <- ruang_sampel[ruang_sampel$Dadu1 == ruang_sampel$Dadu2, ]
+print("Kejadian B (angka sama):")
+print(B)
+```
+
+### Operasi Kejadian
+
+```{r}
+# Gabungan kejadian A dan B
+A_index <- which(ruang_sampel$Dadu1 + ruang_sampel$Dadu2 == 7)
+B_index <- which(ruang_sampel$Dadu1 == ruang_sampel$Dadu2)
+
+# Union
+AB_union_index <- union(A_index, B_index)
+AB_union <- ruang_sampel[AB_union_index, ]
+print("A ∪ B:")
+print(AB_union)
+
+# Intersection
+AB_intersect_index <- intersect(A_index, B_index)
+AB_intersect <- ruang_sampel[AB_intersect_index, ]
+print("A ∩ B:")
+print(AB_intersect)
+```
+
+---
+
+## Contoh Penerapan Lengkap
+
+### Kasus: Survei Kepuasan Mahasiswa
+
+**Eksperimen**: Mengambil secara acak 1 mahasiswa dan menanyakan kepuasan terhadap layanan kampus.
+
+**Ruang Sampel**: S = {Sangat Puas, Puas, Cukup, Tidak Puas}
+
+**Definisi Kejadian**:
+- A = "Mahasiswa merasa puas" = {Sangat Puas, Puas}
+- B = "Mahasiswa tidak complain" = {Sangat Puas, Puas, Cukup}
+- C = "Mahasiswa memberikan rating tinggi" = {Sangat Puas}
+
+**Analisis**:
+- A ∩ B = {Sangat Puas, Puas}
+- A ∪ B = {Sangat Puas, Puas, Cukup}
+- A' = {Cukup, Tidak Puas}
+- Apakah A dan C saling lepas? Tidak, karena A ∩ C = {Sangat Puas} ≠ ∅
+
+```{r}
+# Implementasi dalam R
+S <- c("Sangat Puas", "Puas", "Cukup", "Tidak Puas")
+A <- c("Sangat Puas", "Puas")
+B <- c("Sangat Puas", "Puas", "Cukup")
+C <- c("Sangat Puas")
+
+# Operasi himpunan
+A_intersect_B <- intersect(A, B)
+A_union_B <- union(A, B)
+A_complement <- setdiff(S, A)
+
+print(paste("A ∩ B:", paste(A_intersect_B, collapse = ", ")))
+print(paste("A ∪ B:", paste(A_union_B, collapse = ", ")))
+print(paste("A':", paste(A_complement, collapse = ", ")))
+```
+
+---
+
+## Ringkasan Konsep Penting
+
+| Konsep | Definisi | Contoh |
+|--------|----------|---------|
+| **Eksperimen Acak** | Percobaan dengan hasil tidak pasti | Lempar koin, ambil kartu |
+| **Ruang Sampel** | Himpunan semua hasil yang mungkin | S = {A, G} untuk lempar koin |
+| **Kejadian** | Subset dari ruang sampel | A = {A} = "muncul angka" |
+| **Kejadian Pasti** | A = S | "Muncul angka 1-6" pada dadu |
+| **Kejadian Mustahil** | A = ∅ | "Muncul angka 7" pada dadu |
+| **Saling Lepas** | A ∩ B = ∅ | Genap vs ganjil pada dadu |
+| **Komplemen** | A' = S - A | A = genap, A' = ganjil |
+
+::: callout-important
+**Tips Praktis**:
+
+1. **Definisikan ruang sampel** dengan jelas sebelum menentukan kejadian
+2. **Periksa kelengkapan** ruang sampel - apakah semua kemungkinan sudah tercakup?
+3. **Gunakan diagram Venn** untuk visualisasi hubungan antar kejadian
+4. **Verifikasi operasi** himpunan dengan contoh konkret
+5. **Pastikan konsistensi** antara konteks masalah dan definisi matematika
+:::

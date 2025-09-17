@@ -1,28 +1,30 @@
----
-title: "Statistika dan Probabilitas"
-subtitle: "Perbanas Institute"
-format: html
----
+# Pengantar {.unnumbered}
 
-## SI243040 (3 SKS)
+Buku ini ringkas dan praktis untuk mata kuliah Statistika dan Probabilitas (SI243040). Target: mengenali peran data, statistika, dan probabilitas untuk penalaran berbasis bukti.
 
-Repositori ini berisi materi perkuliahan Statistika dan Probabilitas untuk mahasiswa Perbanas Institute.
-
-## Schedule
-
-::: table-schedule
-| Date and Time | Venue | Topic & Slides | Quiz |
-|-----------------|-----------------|---------------------|-----------------|
-| Sat, 3 Sep 2025 | Online | [Pengantar Statistika dan Probabilitas](01-basics.qmd) | tba |
-| Sat, 19 Sep 2025| Soon | [tba](q.html) | tba |
-| Sat, 17 Sep 2025| Soon | [tba](q.html) | tba |
-| Sat, 24 Oct 2025| Soon | [tba](q.html) | tba |
+::: callout-note
+**Capaian Pembelajaran (CPMK)**  
+1) Menjelaskan statistika & probabilitas.  
+2) Mengaitkan konsep keduanya.  
+3) Menghitung peluang dasar.  
+4) Mengenali karakteristik distribusi diskret & kontinu.  
+5) Melakukan uji hipotesis dasar.  
+6) Menulis ringkas hasil analisis.
 :::
 
-<style type="text/css">
-    .table-schedule table thead tr {width: 100%;}
-    .table-schedule table thead tr th:nth-child(1) { width: 22%; }
-    .table-schedule table thead tr th:nth-child(2) { width: 23%; }
-    .table-schedule table thead tr th:nth-child(3) { width: 30%; }
-    .table-schedule table thead tr th:nth-child(4) { width: 20%; }
-</style>
+## Informasi Mata Kuliah
+
+| | Quiz | Tugas | UTS | UAS | Total |
+|:--|:--:|:--:|:--:|:--:|:--:|
+| CPMK 1 | 5% |  | 5% |  | 10% |
+| CPMK 2 | 5% |  | 5% |  | 10% |
+| CPMK 3 | 7% |  | 8% |  | 15% |
+| CPMK 4 |  | 10% | 5% |  | 15% |
+| CPMK 5 |  | 10% |  | 10% | 20% |
+| CPMK 6 |  | 10% |  | 20% | 30% |
+| **Total** | **17%** | **30%** | **23%** | **30%** | **100%** |
+
+::: callout-note
+**Syarat lulus**: setiap CPMK ≥ 55 dan nilai akhir ≥ 55.  
+Tidak lulus → remedial.
+:::

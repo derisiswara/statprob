@@ -1,0 +1,514 @@
+# Statistika Deskriptif
+
+Statistika deskriptif adalah cabang statistika yang berfokus pada **peringkasan**, **penyajian**, dan **interpretasi** data tanpa membuat generalisasi ke populasi yang lebih besar.
+
+## Ukuran Pemusatan (Measures of Central Tendency)
+
+**Definisi Intuitif**: 
+
+Ukuran pemusatan menunjukkan **"nilai tipikal"** atau **"nilai representatif"** yang menggambarkan di mana data cenderung berkumpul atau terpusat. Bayangkan seperti mencari titik keseimbangan dari sekumpulan data.
+
+### 1. Mean (Rata-rata)
+
+**Definisi Intuitif**: 
+
+Mean adalah **titik keseimbangan matematis** dari semua data. Jika kita bayangkan data sebagai beban di atas papan timbangan, mean adalah titik dimana papan akan seimbang sempurna.
+
+**Definisi Formal**: 
+
+Jumlah semua nilai dibagi dengan banyaknya data.
+
+#### **Formula untuk Data Tunggal**
+$$\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n} = \frac{x_1 + x_2 + ... + x_n}{n}$$
+
+dimana:
+
+- $\bar{x}$ = mean sampel
+- $x_i$ = nilai data ke-i
+- $n$ = jumlah data
+
+#### **Formula untuk Data Berkelompok**
+$$\bar{x} = \frac{\sum_{i=1}^{k} f_i \cdot m_i}{\sum_{i=1}^{k} f_i} = \frac{\sum_{i=1}^{k} f_i \cdot m_i}{n}$$
+
+dimana:
+
+- $f_i$ = frekuensi kelas ke-i
+- $m_i$ = nilai tengah kelas ke-i
+- $k$ = banyak kelas
+
+#### **Contoh Perhitungan**
+
+**Data Tunggal**: 
+
+Nilai ujian 5 mahasiswa: 75, 82, 68, 90, 85
+
+$$\bar{x} = \frac{75 + 82 + 68 + 90 + 85}{5} = \frac{400}{5} = 80$$
+
+**Data Berkelompok**: 
+
+| Kelas Nilai | Frekuensi (f) | Titik Tengah (m) | f × m |
+|-------------|---------------|------------------|--------|
+| 60-69       | 3             | 64.5             | 193.5  |
+| 70-79       | 8             | 74.5             | 596    |
+| 80-89       | 12            | 84.5             | 1014   |
+| 90-99       | 7             | 94.5             | 661.5  |
+| **Total**   | **30**        |                  | **2465** |
+
+$$\bar{x} = \frac{2465}{30} = 82.17$$
+
+### 2. Median
+
+**Definisi Intuitif**: 
+
+Median adalah **nilai tengah** yang membagi data menjadi dua kelompok sama besar. Bayangkan mengurutkan semua orang berdasarkan tinggi badan, median adalah tinggi orang yang berada tepat di tengah barisan.
+
+**Definisi Formal**: 
+
+Nilai tengah yang membagi data menjadi dua bagian sama besar setelah diurutkan.
+
+#### **Formula untuk Data Tunggal**
+
+**Jika n ganjil**:
+
+$$Me = x_{\frac{n+1}{2}}$$
+
+**Jika n genap**:
+
+$$Me = \frac{x_{\frac{n}{2}} + x_{\frac{n}{2}+1}}{2}$$
+
+#### **Formula untuk Data Berkelompok**
+$$Me = L + \left(\frac{\frac{n}{2} - CF}{f}\right) \times h$$
+
+dimana:
+
+- $L$ = batas bawah kelas median
+- $n$ = jumlah data
+- $CF$ = frekuensi kumulatif sebelum kelas median
+- $f$ = frekuensi kelas median
+- $h$ = panjang interval kelas
+
+#### **Contoh Perhitungan**
+
+**Data Tunggal**: 
+
+68, 75, 82, 85, 90 (sudah terurut, n=5)
+
+$$Me = x_{\frac{5+1}{2}} = x_3 = 82$$
+
+**Data Berkelompok** (menggunakan tabel sebelumnya):
+
+- $n = 30$, sehingga $\frac{n}{2} = 15$
+- Kelas median: 80-89 (karena frekuensi kumulatif mencapai 15)
+- $L = 79.5$, $CF = 11$, $f = 12$, $h = 10$
+
+$$Me = 79.5 + \left(\frac{15 - 11}{12}\right) \times 10 = 79.5 + 3.33 = 82.83$$
+
+### 3. Modus
+
+**Definisi Intuitif**: 
+
+Modus adalah **nilai yang paling "populer"** atau paling sering muncul dalam data. Seperti mencari jawaban yang paling banyak dipilih dalam survei atau warna baju yang paling banyak dipakai di kelas.
+
+**Definisi Formal**: 
+
+Nilai yang paling sering muncul dalam data.
+
+#### **Formula untuk Data Berkelompok**
+$$Mo = L + \left(\frac{d_1}{d_1 + d_2}\right) \times h$$
+
+dimana:
+
+- $L$ = batas bawah kelas modus
+- $d_1$ = selisih frekuensi kelas modus dengan kelas sebelumnya
+- $d_2$ = selisih frekuensi kelas modus dengan kelas sesudahnya
+- $h$ = panjang interval kelas
+
+#### **Contoh Perhitungan**
+
+**Data Tunggal**: 
+
+2, 3, 3, 4, 5, 5, 5, 6
+
+Modus = 5 (muncul 3 kali)
+
+**Data Berkelompok** (menggunakan tabel sebelumnya):
+
+- Kelas modus: 80-89 (frekuensi tertinggi = 12)
+- $L = 79.5$, $d_1 = 12-8 = 4$, $d_2 = 12-7 = 5$, $h = 10$
+
+$$Mo = 79.5 + \left(\frac{4}{4 + 5}\right) \times 10 = 79.5 + 4.44 = 83.94$$
+
+---
+
+## Ukuran Penyebaran (Measures of Dispersion)
+
+**Definisi Intuitif**: 
+
+Ukuran penyebaran menunjukkan **seberapa "tersebar"** atau **"bervariasi"** data dari pusat distribusi. Bayangkan dua kelas dengan nilai rata-rata sama (80), tetapi:
+
+- **Kelas A**: nilai berkisar 78-82 (data mengumpul di sekitar mean)
+- **Kelas B**: nilai berkisar 60-100 (data tersebar jauh dari mean)
+
+Kelas B memiliki penyebaran yang lebih besar meski mean-nya sama.
+
+### 1. Range (Jangkauan)
+
+**Definisi Intuitif**: 
+
+Range menunjukkan **rentang keseluruhan** data, dari nilai terkecil hingga terbesar. Seperti selisih antara suhu tertinggi dan terendah dalam sehari.
+
+**Formula**:
+
+$$R = x_{max} - x_{min}$$
+
+**Contoh**: 
+
+Data 68, 75, 82, 85, 90
+
+$$R = 90 - 68 = 22$$
+
+### 2. Varians
+
+**Definisi Intuitif**: 
+
+Varians mengukur **rata-rata kuadrat jarak** setiap data dari mean. Semakin besar varians, semakin tersebar data dari pusatnya. Seperti mengukur seberapa jauh rata-rata rumah-rumah dari pusat kota.
+
+**Definisi Formal**: 
+
+Rata-rata kuadrat selisih setiap nilai dengan mean.
+
+#### **Formula untuk Data Tunggal**
+
+**Varians Populasi**:
+
+$$\sigma^2 = \frac{\sum_{i=1}^{N} (x_i - \mu)^2}{N}$$
+
+**Varians Sampel**:
+
+$$s^2 = \frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n-1}$$
+
+#### **Formula untuk Data Berkelompok**
+$$s^2 = \frac{\sum_{i=1}^{k} f_i(m_i - \bar{x})^2}{n-1}$$
+
+dimana:
+
+- $f_i$ = frekuensi kelas ke-i
+- $m_i$ = nilai tengah kelas ke-i
+- $n$ = jumlah data
+
+#### **Contoh Perhitungan**
+
+Data: 75, 82, 68, 90, 85 dengan $\bar{x} = 80$
+
+| $x_i$ | $x_i - \bar{x}$ | $(x_i - \bar{x})^2$ |
+|-------|------------------|---------------------|
+| 75    | -5              | 25                  |
+| 82    | 2               | 4                   |
+| 68    | -12             | 144                 |
+| 90    | 10              | 100                 |
+| 85    | 5               | 25                  |
+| **Total** |             | **298**             |
+
+$$s^2 = \frac{298}{5-1} = \frac{298}{4} = 74.5$$
+
+### 3. Simpangan Baku (Standard Deviation)
+
+**Definisi Intuitif**: 
+
+Simpangan baku adalah **akar kuadrat varians** yang memberikan ukuran penyebaran dalam satuan yang sama dengan data asli. Lebih mudah diinterpretasi karena satuannya sama dengan data.
+
+**Formula**:
+
+$$s = \sqrt{s^2} = \sqrt{\frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n-1}}$$
+
+**Contoh**:
+
+$$s = \sqrt{74.5} = 8.63$$
+
+### 4. Koefisien Variasi
+
+**Definisi Intuitif**: 
+
+Koefisien variasi mengukur **variabilitas relatif** terhadap mean, berguna untuk membandingkan variabilitas antar dataset dengan skala berbeda. Seperti membandingkan variabilitas gaji (dalam jutaan) dengan variabilitas umur (dalam tahun).
+
+**Formula**:
+
+$$CV = \frac{s}{\bar{x}} \times 100\%$$
+
+**Contoh**:
+
+$$CV = \frac{8.63}{80} \times 100\% = 10.79\%$$
+
+---
+
+## Visualisasi Data dengan R
+
+### 1. Tabel Distribusi Frekuensi
+
+**Definisi**: 
+
+Tabel yang menunjukkan berapa kali setiap nilai atau kelompok nilai muncul dalam dataset.
+
+**Kegunaan**:
+
+- Melihat pola distribusi data secara numerik
+- Identifikasi nilai yang paling sering/jarang muncul
+- Dasar untuk membuat histogram dan visualisasi lainnya
+
+**Interpretasi**: 
+
+Frekuensi tinggi menunjukkan nilai yang umum, frekuensi rendah menunjukkan nilai yang jarang.
+
+```{r}
+# Data contoh
+nilai <- c(75, 82, 68, 90, 85, 78, 92, 65, 88, 79, 
+           73, 86, 81, 94, 77, 89, 71, 83, 95, 76)
+
+# Membuat tabel frekuensi untuk data kategorik
+nilai_grade <- cut(nilai, breaks = c(0, 60, 70, 80, 90, 100), 
+                   labels = c("E", "D", "C", "B", "A"))
+tabel_frekuensi <- table(nilai_grade)
+print(tabel_frekuensi)
+
+# Tabel frekuensi dengan proporsi
+prop.table(tabel_frekuensi)
+```
+
+### 2. Histogram
+
+**Definisi**: 
+
+Grafik yang menunjukkan distribusi data kontinu dengan membagi data ke dalam interval (bins) dan menampilkan frekuensi setiap interval sebagai batang.
+
+**Kegunaan**:
+
+- Melihat bentuk distribusi data (simetris, miring kiri/kanan)
+- Identifikasi outlier dan pola dalam data
+- Estimasi visual mean, median, dan modus
+
+**Interpretasi**:
+
+- **Tinggi batang** = frekuensi data dalam interval tersebut
+- **Bentuk kurva** = karakteristik distribusi (normal, skewed, bimodal)
+
+```{r}
+# Histogram sederhana
+hist(nilai, 
+     main = "Distribusi Nilai Ujian Mahasiswa",
+     xlab = "Nilai",
+     ylab = "Frekuensi",
+     breaks = 8)
+
+# Menambahkan garis mean dan median
+abline(v = mean(nilai), lty = 2)
+abline(v = median(nilai), lty = 3)
+legend("topright", 
+       legend = c("Mean", "Median"), 
+       lty = c(2, 3))
+```
+
+### 3. Diagram Batang (Bar Chart)
+
+**Definisi**: 
+
+Grafik yang menampilkan data kategorik menggunakan batang dengan tinggi proporsional terhadap nilai/frekuensi kategori.
+
+**Kegunaan**:
+
+- Membandingkan frekuensi atau nilai antar kategori
+- Menampilkan ranking atau urutan kategori
+- Visualisasi data nominal dan ordinal
+
+**Interpretasi**:
+
+- **Tinggi batang** = nilai/frekuensi kategori
+- **Perbandingan tinggi** = perbandingan antar kategori
+
+```{r}
+# Data kategorik
+jurusan <- c("Teknik", "Ekonomi", "MIPA", "Sosial", "Hukum")
+jumlah_mahasiswa <- c(250, 180, 120, 90, 60)
+
+# Bar chart sederhana
+barplot(jumlah_mahasiswa,
+        names.arg = jurusan,
+        main = "Jumlah Mahasiswa per Jurusan",
+        xlab = "Jurusan",
+        ylab = "Jumlah Mahasiswa")
+
+# Menambahkan nilai di atas batang
+text(x = seq_along(jumlah_mahasiswa), 
+     y = jumlah_mahasiswa + 10, 
+     labels = jumlah_mahasiswa)
+```
+
+### 4. Diagram Lingkaran (Pie Chart)
+
+**Definisi**: 
+
+Grafik berbentuk lingkaran yang menunjukkan proporsi setiap kategori terhadap keseluruhan data.
+
+**Kegunaan**:
+
+- Menampilkan komposisi atau proporsi data kategorik
+- Melihat kontribusi relatif setiap kategori
+- Efektif untuk data dengan kategori tidak terlalu banyak (≤7)
+
+**Interpretasi**:
+
+- **Ukuran potongan** = proporsi kategori terhadap total
+- **Total semua potongan** = 100% dari data
+
+```{r}
+# Pie chart sederhana
+pie(jumlah_mahasiswa,
+    labels = paste(jurusan, "\n", 
+                   round(jumlah_mahasiswa/sum(jumlah_mahasiswa)*100, 1), "%"),
+    main = "Distribusi Mahasiswa per Jurusan")
+```
+
+### 5. Box Plot (Diagram Kotak)
+
+**Definisi**: 
+
+Grafik yang menampilkan ringkasan lima angka (minimum, Q1, median, Q3, maksimum) dan outlier dalam bentuk kotak dan garis.
+
+**Kegunaan**:
+
+- Identifikasi outlier dengan mudah
+- Membandingkan distribusi antar kelompok
+- Melihat simetri dan skewness distribusi
+
+**Interpretasi**:
+
+- **Garis tengah kotak** = median
+- **Kotak** = rentang interkuartil (IQR = Q3-Q1)
+- **Whiskers** = rentang data normal (bukan outlier)
+    - **Whisker atas** = Q3 + 1.5×IQR
+    - **Whisker bawah** = Q1 - 1.5×IQR
+- **Titik terpisah** = outlier (data di luar whiskers)
+
+```{r}
+# Box plot untuk satu variabel
+boxplot(nilai,
+        main = "Box Plot Nilai Ujian",
+        ylab = "Nilai")
+
+# Box plot perbandingan antar grup
+nilai_A <- c(85, 88, 92, 89, 87, 90, 93, 86, 91, 88)
+nilai_B <- c(78, 82, 79, 85, 81, 83, 80, 84, 82, 86)
+nilai_C <- c(72, 75, 73, 78, 76, 74, 77, 79, 75, 73)
+
+boxplot(nilai_A, nilai_B, nilai_C,
+        names = c("Kelas A", "Kelas B", "Kelas C"),
+        main = "Perbandingan Nilai Antar Kelas",
+        ylab = "Nilai")
+```
+
+### 6. Scatter Plot (Diagram Pencar)
+
+**Definisi**: 
+
+Grafik yang menampilkan hubungan antara dua variabel kontinu dengan setiap observasi direpresentasikan sebagai titik.
+
+**Kegunaan**:
+
+- Mengidentifikasi pola hubungan antar variabel
+- Mendeteksi korelasi positif, negatif, atau tidak ada korelasi
+- Identifikasi outlier dalam hubungan bivariat
+
+**Interpretasi**:
+
+- **Pola naik** = korelasi positif
+- **Pola turun** = korelasi negatif  
+- **Titik tersebar acak** = tidak ada korelasi
+- **Titik jauh dari pola** = outlier
+
+```{r}
+# Data untuk scatter plot
+jam_belajar <- c(2, 4, 3, 6, 5, 7, 4, 8, 5, 6, 3, 7, 4, 9, 6)
+nilai_ujian <- c(65, 75, 70, 85, 78, 88, 72, 92, 80, 85, 68, 90, 74, 95, 82)
+
+plot(jam_belajar, nilai_ujian,
+     main = "Hubungan Jam Belajar dengan Nilai Ujian",
+     xlab = "Jam Belajar per Hari",
+     ylab = "Nilai Ujian")
+
+# Menambahkan garis regresi
+abline(lm(nilai_ujian ~ jam_belajar))
+```
+
+---
+
+## Interpretasi dan Pemilihan Ukuran
+
+### Kapan Menggunakan Mean, Median, atau Modus?
+
+**Mean (Rata-rata)**:
+
+- ✅ **Gunakan**: Data numerik, distribusi simetris, tidak ada outlier ekstrem
+- ❌ **Hindari**: Data dengan outlier, distribusi sangat miring (skewed)
+- **Contoh**: Nilai ujian, tinggi badan, suhu harian
+
+**Median**:
+
+- ✅ **Gunakan**: Data dengan outlier, distribusi miring, data ordinal
+- ✅ **Kelebihan**: Robust terhadap outlier
+- **Contoh**: Pendapatan (karena ada yang sangat tinggi), harga rumah
+
+**Modus**:
+
+- ✅ **Gunakan**: Data nominal, mencari nilai paling populer
+- **Contoh**: Warna favorit, merek yang paling laku, jenis kelamin
+
+### Hubungan Mean, Median, Modus
+
+```{r}
+# Simulasi distribusi berbeda
+par(mfrow = c(1, 3))
+
+# Distribusi simetris
+set.seed(123)
+data_simetris <- rnorm(1000, 50, 10)
+hist(data_simetris, main = "Distribusi Simetris\nMean ≈ Median ≈ Modus", 
+     col = "lightblue", xlab = "Nilai")
+abline(v = mean(data_simetris), col = "red", lwd = 2)
+abline(v = median(data_simetris), col = "blue", lwd = 2)
+
+# Distribusi miring kanan
+data_kanan <- rgamma(1000, 2, 1)
+hist(data_kanan, main = "Distribusi Miring Kanan\nMean > Median > Modus", 
+     col = "lightgreen", xlab = "Nilai")
+abline(v = mean(data_kanan), col = "red", lwd = 2)
+abline(v = median(data_kanan), col = "blue", lwd = 2)
+
+# Distribusi miring kiri  
+data_kiri <- 10 - rgamma(1000, 2, 1)
+hist(data_kiri, main = "Distribusi Miring Kiri\nMean < Median < Modus", 
+     col = "lightcoral", xlab = "Nilai")
+abline(v = mean(data_kiri), col = "red", lwd = 2)
+abline(v = median(data_kiri), col = "blue", lwd = 2)
+```
+
+---
+
+## Ringkasan Rumus Penting
+
+| Ukuran | Formula | Keterangan |
+|--------|---------|------------|
+| **Mean** | $\bar{x} = \frac{\sum x_i}{n}$ | Rata-rata aritmatik |
+| **Median** | $Me = x_{\frac{n+1}{2}}$ (n ganjil) | Nilai tengah |
+| **Varians** | $s^2 = \frac{\sum(x_i - \bar{x})^2}{n-1}$ | Ukuran penyebaran kuadratik |
+| **Std Dev** | $s = \sqrt{s^2}$ | Akar kuadrat varians |
+| **Range** | $R = x_{max} - x_{min}$ | Selisih nilai tertinggi dan terendah |
+| **CV** | $CV = \frac{s}{\bar{x}} \times 100\%$ | Variabilitas relatif |
+
+::: callout-important
+**Tips Praktis**:
+
+1. Selalu visualisasikan data terlebih dahulu
+2. Periksa adanya outlier sebelum menghitung mean
+3. Gunakan median untuk data dengan outlier
+4. Laporkan ukuran pemusatan dan penyebaran bersama-sama
+5. Interpretasikan hasil dalam konteks domain aplikasi
+:::

@@ -236,5 +236,26 @@
     "title": "Introduction to Numpy & Matplotlib",
     "section": "Section 4: Visualizing Array contents (Matplotlib)",
     "text": "Section 4: Visualizing Array contents (Matplotlib)\nSimple Lineplot\nplt.plot(gdp_data)\nplt.xlabel('Values')\nplt.ylabel('Sectors')\nplt.title('Values Over Quarters')\nplt.legend()\nplt.grid()\nplt.show()\nLineplot for each sector\ntransposed = gdp_data.T\nfor sector in range(7):\n    plt.plot(transposed[:, sector], label=f'Sector {sector + 1}')\n\nplt.legend()\nplt.grid()\nplt.show()\nBoxplot\ntransposed = gdp_data.T\n\nplt.boxplot(transposed)\nplt.grid()\nplt.show()"
+  },
+  {
+    "objectID": "marp.html",
+    "href": "marp.html",
+    "title": "Judul Presentasi",
+    "section": "",
+    "text": "Poin pertama\nPoin kedua\nPoin ketiga\n\n\n\n\n\n\nKutipan atau catatan penting di sini."
+  },
+  {
+    "objectID": "marp.html#slide-kedua",
+    "href": "marp.html#slide-kedua",
+    "title": "Judul Presentasi",
+    "section": "",
+    "text": "Poin pertama\nPoin kedua\nPoin ketiga"
+  },
+  {
+    "objectID": "marp.html#slide-ketiga",
+    "href": "marp.html#slide-ketiga",
+    "title": "Judul Presentasi",
+    "section": "",
+    "text": "Kutipan atau catatan penting di sini."
   }
 ]

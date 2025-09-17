@@ -1,0 +1,15 @@
+
+```{r}
+# data berart bedan
+berat <- c(50, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 100)
+hist(berat)
+boxplot(berat)
+# density plot
+plot(density(berat))
+```
+
+
+```{r}
+mean(berat)
+median(berat)
+```
