@@ -233,28 +233,12 @@ window.Quarto = {
   </ul>
 </li>
   <li>
-<a href="#implementasi-dengan-r" id="toc-implementasi-dengan-r" class="nav-link" data-scroll-target="#implementasi-dengan-r"><span class="header-section-number">3.6</span> Implementasi dengan R</a>
+<a href="#contoh-soal-sederhana" id="toc-contoh-soal-sederhana" class="nav-link" data-scroll-target="#contoh-soal-sederhana"><span class="header-section-number">3.6</span> Contoh Soal Sederhana</a>
   <ul class="collapse">
-<li><a href="#menampilkan-ruang-sampel" id="toc-menampilkan-ruang-sampel" class="nav-link" data-scroll-target="#menampilkan-ruang-sampel"><span class="header-section-number">3.6.1</span> Menampilkan Ruang Sampel</a></li>
-  <li><a href="#mendefinisikan-kejadian" id="toc-mendefinisikan-kejadian" class="nav-link" data-scroll-target="#mendefinisikan-kejadian"><span class="header-section-number">3.6.2</span> Mendefinisikan Kejadian</a></li>
-  <li><a href="#operasi-kejadian" id="toc-operasi-kejadian" class="nav-link" data-scroll-target="#operasi-kejadian"><span class="header-section-number">3.6.3</span> Operasi Kejadian</a></li>
+<li><a href="#soal-jawaban" id="toc-soal-jawaban" class="nav-link" data-scroll-target="#soal-jawaban"><span class="header-section-number">3.6.1</span> Soal &amp; Jawaban</a></li>
   </ul>
 </li>
-  <li><a href="#visualisasi-dengan-diagram-venn" id="toc-visualisasi-dengan-diagram-venn" class="nav-link" data-scroll-target="#visualisasi-dengan-diagram-venn"><span class="header-section-number">3.7</span> Visualisasi dengan Diagram Venn</a></li>
-  <li>
-<a href="#aplikasi-dalam-kehidupan-nyata" id="toc-aplikasi-dalam-kehidupan-nyata" class="nav-link" data-scroll-target="#aplikasi-dalam-kehidupan-nyata"><span class="header-section-number">3.8</span> Aplikasi dalam Kehidupan Nyata</a>
-  <ul class="collapse">
-<li><a href="#quality-control-in-manufacturing" id="toc-quality-control-in-manufacturing" class="nav-link" data-scroll-target="#quality-control-in-manufacturing"><span class="header-section-number">3.8.1</span> Quality Control in Manufacturing</a></li>
-  <li><a href="#ab-testing-in-marketing" id="toc-ab-testing-in-marketing" class="nav-link" data-scroll-target="#ab-testing-in-marketing"><span class="header-section-number">3.8.2</span> A/B Testing in Marketing</a></li>
-  </ul>
-</li>
-  <li>
-<a href="#contoh-penerapan-lengkap" id="toc-contoh-penerapan-lengkap" class="nav-link" data-scroll-target="#contoh-penerapan-lengkap"><span class="header-section-number">3.9</span> Contoh Penerapan Lengkap</a>
-  <ul class="collapse">
-<li><a href="#kasus-survei-kepuasan-mahasiswa" id="toc-kasus-survei-kepuasan-mahasiswa" class="nav-link" data-scroll-target="#kasus-survei-kepuasan-mahasiswa"><span class="header-section-number">3.9.1</span> Kasus: Survei Kepuasan Mahasiswa</a></li>
-  </ul>
-</li>
-  <li><a href="#ringkasan-konsep-penting" id="toc-ringkasan-konsep-penting" class="nav-link" data-scroll-target="#ringkasan-konsep-penting"><span class="header-section-number">3.10</span> Ringkasan Konsep Penting</a></li>
+  <li><a href="#ringkasan-konsep-penting" id="toc-ringkasan-konsep-penting" class="nav-link" data-scroll-target="#ringkasan-konsep-penting"><span class="header-section-number">3.7</span> Ringkasan Konsep Penting</a></li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -525,8 +509,7 @@ window.Quarto = {
 <span class="header-section-number">3.3.7.3</span> <strong>Diagram Venn</strong>
 </h4>
 <p>Berguna untuk menunjukkan hubungan antar kejadian dalam ruang sampel.</p>
-<p><img src="https://images.nagwa.com/figures/explainers/258159043062/7.svg" class="img-fluid"></p>
-<p><img src="https://images.nagwa.com/figures/explainers/258159043062/5.svg" class="img-fluid"></p>
+<p><img src="https://images.nagwa.com/figures/explainers/258159043062/7.svg" class="img-fluid"><img src="https://images.nagwa.com/figures/explainers/258159043062/5.svg" class="img-fluid"></p>
 <hr></section></section></section><section id="kejadian-event" class="level2" data-number="3.4"><h2 data-number="3.4" class="anchored" data-anchor-id="kejadian-event">
 <span class="header-section-number">3.4</span> Kejadian (Event)</h2>
 <section id="definisi-intuitif-1" class="level3" data-number="3.4.1"><h3 data-number="3.4.1" class="anchored" data-anchor-id="definisi-intuitif-1">
@@ -795,1140 +778,146 @@ window.Quarto = {
 <pre><code>[1] "Equal? TRUE"</code></pre>
 </div>
 </div>
-<hr></section></section></section><section id="implementasi-dengan-r" class="level2" data-number="3.6"><h2 data-number="3.6" class="anchored" data-anchor-id="implementasi-dengan-r">
-<span class="header-section-number">3.6</span> Implementasi dengan R</h2>
-<section id="menampilkan-ruang-sampel" class="level3" data-number="3.6.1"><h3 data-number="3.6.1" class="anchored" data-anchor-id="menampilkan-ruang-sampel">
-<span class="header-section-number">3.6.1</span> Menampilkan Ruang Sampel</h3>
-<div class="cell">
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Eksperimen: Melempar 2 dadu</span></span>
-<span><span class="va">dadu1</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">6</span></span>
-<span><span class="va">dadu2</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">6</span></span>
-<span><span class="va">ruang_sampel</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/expand.grid.html">expand.grid</a></span><span class="op">(</span>Dadu1 <span class="op">=</span> <span class="va">dadu1</span>, Dadu2 <span class="op">=</span> <span class="va">dadu2</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">ruang_sampel</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   Dadu1 Dadu2
-1      1     1
-2      2     1
-3      3     1
-4      4     1
-5      5     1
-6      6     1
-7      1     2
-8      2     2
-9      3     2
-10     4     2
-11     5     2
-12     6     2
-13     1     3
-14     2     3
-15     3     3
-16     4     3
-17     5     3
-18     6     3
-19     1     4
-20     2     4
-21     3     4
-22     4     4
-23     5     4
-24     6     4
-25     1     5
-26     2     5
-27     3     5
-28     4     5
-29     5     5
-30     6     5
-31     1     6
-32     2     6
-33     3     6
-34     4     6
-35     5     6
-36     6     6</code></pre>
-</div>
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Jumlah hasil elementer:"</span>, <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">ruang_sampel</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Jumlah hasil elementer: 36</code></pre>
-</div>
-</div>
-</section><section id="mendefinisikan-kejadian" class="level3" data-number="3.6.2"><h3 data-number="3.6.2" class="anchored" data-anchor-id="mendefinisikan-kejadian">
-<span class="header-section-number">3.6.2</span> Mendefinisikan Kejadian</h3>
-<div class="cell">
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Kejadian A: Jumlah mata dadu = 7</span></span>
-<span><span class="va">A</span> <span class="op">&lt;-</span> <span class="va">ruang_sampel</span><span class="op">[</span><span class="va">ruang_sampel</span><span class="op">$</span><span class="va">Dadu1</span> <span class="op">+</span> <span class="va">ruang_sampel</span><span class="op">$</span><span class="va">Dadu2</span> <span class="op">==</span> <span class="fl">7</span>, <span class="op">]</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"Kejadian A (jumlah = 7):"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Kejadian A (jumlah = 7):"</code></pre>
-</div>
-<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   Dadu1 Dadu2
-6      6     1
-11     5     2
-16     4     3
-21     3     4
-26     2     5
-31     1     6</code></pre>
-</div>
-<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Kejadian B: Kedua dadu menunjukkan angka sama</span></span>
-<span><span class="va">B</span> <span class="op">&lt;-</span> <span class="va">ruang_sampel</span><span class="op">[</span><span class="va">ruang_sampel</span><span class="op">$</span><span class="va">Dadu1</span> <span class="op">==</span> <span class="va">ruang_sampel</span><span class="op">$</span><span class="va">Dadu2</span>, <span class="op">]</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"Kejadian B (angka sama):"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Kejadian B (angka sama):"</code></pre>
-</div>
-<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">B</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   Dadu1 Dadu2
-1      1     1
-8      2     2
-15     3     3
-22     4     4
-29     5     5
-36     6     6</code></pre>
-</div>
-</div>
-</section><section id="operasi-kejadian" class="level3" data-number="3.6.3"><h3 data-number="3.6.3" class="anchored" data-anchor-id="operasi-kejadian">
-<span class="header-section-number">3.6.3</span> Operasi Kejadian</h3>
-<div class="cell">
-<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Gabungan kejadian A dan B</span></span>
-<span><span class="va">A_index</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">ruang_sampel</span><span class="op">$</span><span class="va">Dadu1</span> <span class="op">+</span> <span class="va">ruang_sampel</span><span class="op">$</span><span class="va">Dadu2</span> <span class="op">==</span> <span class="fl">7</span><span class="op">)</span></span>
-<span><span class="va">B_index</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">ruang_sampel</span><span class="op">$</span><span class="va">Dadu1</span> <span class="op">==</span> <span class="va">ruang_sampel</span><span class="op">$</span><span class="va">Dadu2</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Union</span></span>
-<span><span class="va">AB_union_index</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sets.html">union</a></span><span class="op">(</span><span class="va">A_index</span>, <span class="va">B_index</span><span class="op">)</span></span>
-<span><span class="va">AB_union</span> <span class="op">&lt;-</span> <span class="va">ruang_sampel</span><span class="op">[</span><span class="va">AB_union_index</span>, <span class="op">]</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"A ∪ B:"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "A ∪ B:"</code></pre>
-</div>
-<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">AB_union</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   Dadu1 Dadu2
-6      6     1
-11     5     2
-16     4     3
-21     3     4
-26     2     5
-31     1     6
-1      1     1
-8      2     2
-15     3     3
-22     4     4
-29     5     5
-36     6     6</code></pre>
-</div>
-<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Intersection</span></span>
-<span><span class="va">AB_intersect_index</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sets.html">intersect</a></span><span class="op">(</span><span class="va">A_index</span>, <span class="va">B_index</span><span class="op">)</span></span>
-<span><span class="va">AB_intersect</span> <span class="op">&lt;-</span> <span class="va">ruang_sampel</span><span class="op">[</span><span class="va">AB_intersect_index</span>, <span class="op">]</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"A ∩ B:"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "A ∩ B:"</code></pre>
-</div>
-<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">AB_intersect</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] Dadu1 Dadu2
-&lt;0 rows&gt; (or 0-length row.names)</code></pre>
-</div>
-</div>
-<hr></section></section><section id="visualisasi-dengan-diagram-venn" class="level2" data-number="3.7"><h2 data-number="3.7" class="anchored" data-anchor-id="visualisasi-dengan-diagram-venn">
-<span class="header-section-number">3.7</span> Visualisasi dengan Diagram Venn</h2>
-<div class="cell">
-<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Fungsi sederhana untuk menunjukkan operasi set</span></span>
-<span><span class="va">show_set_operation</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">A</span>, <span class="va">B</span>, <span class="va">S</span>, <span class="va">operation</span> <span class="op">=</span> <span class="st">"union"</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Sample Space S:"</span>, <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">S</span>, collapse <span class="op">=</span> <span class="st">", "</span><span class="op">)</span>, <span class="st">"\n"</span><span class="op">)</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Set A:"</span>, <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">A</span>, collapse <span class="op">=</span> <span class="st">", "</span><span class="op">)</span>, <span class="st">"\n"</span><span class="op">)</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Set B:"</span>, <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">B</span>, collapse <span class="op">=</span> <span class="st">", "</span><span class="op">)</span>, <span class="st">"\n"</span><span class="op">)</span></span>
-<span>  </span>
-<span>  <span class="kw">if</span> <span class="op">(</span><span class="va">operation</span> <span class="op">==</span> <span class="st">"union"</span><span class="op">)</span> <span class="op">{</span></span>
-<span>    <span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sets.html">union</a></span><span class="op">(</span><span class="va">A</span>, <span class="va">B</span><span class="op">)</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"A ∪ B:"</span>, <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">result</span>, collapse <span class="op">=</span> <span class="st">", "</span><span class="op">)</span>, <span class="st">"\n"</span><span class="op">)</span></span>
-<span>  <span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="va">operation</span> <span class="op">==</span> <span class="st">"intersection"</span><span class="op">)</span> <span class="op">{</span></span>
-<span>    <span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sets.html">intersect</a></span><span class="op">(</span><span class="va">A</span>, <span class="va">B</span><span class="op">)</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"A ∩ B:"</span>, <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">result</span>, collapse <span class="op">=</span> <span class="st">", "</span><span class="op">)</span>, <span class="st">"\n"</span><span class="op">)</span></span>
-<span>  <span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="va">operation</span> <span class="op">==</span> <span class="st">"difference"</span><span class="op">)</span> <span class="op">{</span></span>
-<span>    <span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sets.html">setdiff</a></span><span class="op">(</span><span class="va">A</span>, <span class="va">B</span><span class="op">)</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"A - B:"</span>, <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">result</span>, collapse <span class="op">=</span> <span class="st">", "</span><span class="op">)</span>, <span class="st">"\n"</span><span class="op">)</span></span>
-<span>  <span class="op">}</span></span>
-<span><span class="op">}</span></span>
-<span></span>
-<span><span class="co"># Contoh penggunaan</span></span>
-<span><span class="va">S</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">12</span></span>
-<span><span class="va">A</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">4</span>, <span class="fl">6</span>, <span class="fl">8</span>, <span class="fl">10</span>, <span class="fl">12</span><span class="op">)</span>  <span class="co"># Genap</span></span>
-<span><span class="va">B</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">6</span>, <span class="fl">9</span>, <span class="fl">12</span><span class="op">)</span>         <span class="co"># Kelipatan 3</span></span>
-<span></span>
-<span><span class="fu">show_set_operation</span><span class="op">(</span><span class="va">A</span>, <span class="va">B</span>, <span class="va">S</span>, <span class="st">"union"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Sample Space S: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 
-Set A: 2, 4, 6, 8, 10, 12 
-Set B: 3, 6, 9, 12 
-A ∪ B: 2, 4, 6, 8, 10, 12, 3, 9 </code></pre>
-</div>
-<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">show_set_operation</span><span class="op">(</span><span class="va">A</span>, <span class="va">B</span>, <span class="va">S</span>, <span class="st">"intersection"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Sample Space S: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 
-Set A: 2, 4, 6, 8, 10, 12 
-Set B: 3, 6, 9, 12 
-A ∩ B: 6, 12 </code></pre>
-</div>
-<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">show_set_operation</span><span class="op">(</span><span class="va">A</span>, <span class="va">B</span>, <span class="va">S</span>, <span class="st">"difference"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Sample Space S: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 
-Set A: 2, 4, 6, 8, 10, 12 
-Set B: 3, 6, 9, 12 
-A - B: 2, 4, 8, 10 </code></pre>
-</div>
-</div>
-<hr></section><section id="aplikasi-dalam-kehidupan-nyata" class="level2" data-number="3.8"><h2 data-number="3.8" class="anchored" data-anchor-id="aplikasi-dalam-kehidupan-nyata">
-<span class="header-section-number">3.8</span> Aplikasi dalam Kehidupan Nyata</h2>
-<section id="quality-control-in-manufacturing" class="level3" data-number="3.8.1"><h3 data-number="3.8.1" class="anchored" data-anchor-id="quality-control-in-manufacturing">
-<span class="header-section-number">3.8.1</span> Quality Control in Manufacturing</h3>
-<p><strong>Eksperimen</strong>:</p>
-<p>Mengambil 5 produk secara acak dari lini produksi</p>
-<p><strong>Ruang Sampel</strong>:</p>
-<p>Semua kemungkinan kombinasi produk yang cacat/baik</p>
-<p><strong>Kejadian</strong>:</p>
+<hr></section></section></section><section id="contoh-soal-sederhana" class="level2" data-number="3.6"><h2 data-number="3.6" class="anchored" data-anchor-id="contoh-soal-sederhana">
+<span class="header-section-number">3.6</span> Contoh Soal Sederhana</h2>
+<p><strong>Simbol &amp; Notasi yang Perlu Diingat:</strong></p>
 <ul>
-<li>A = “Semua produk baik”</li>
-<li>B = “Minimal 1 produk cacat”</li>
+<li>
+<span class="math inline">\(S\)</span> = ruang sampel<br>
+</li>
+<li>
+<span class="math inline">\(n(S)\)</span> = banyaknya anggota ruang sampel<br>
+</li>
+<li>
+<span class="math inline">\(A, B, C\)</span> = kejadian<br>
+</li>
+<li>
+<span class="math inline">\(P(A)\)</span> = peluang kejadian A<br>
+</li>
+<li>
+<span class="math inline">\(A \cup B\)</span> = gabungan kejadian A dan B<br>
+</li>
+<li>
+<span class="math inline">\(A \cap B\)</span> = irisan kejadian A dan B<br>
+</li>
+<li>
+<span class="math inline">\(A^c\)</span> = komplemen kejadian A. Contoh: <span class="math inline">\(P(A^c) = 1 - P(A)\)</span><br>
+</li>
+<li>Kurung kurawal { } = menyatakan himpunan</li>
 </ul>
-<p><strong>Analisis</strong>:</p>
+<hr>
+<section id="soal-jawaban" class="level3" data-number="3.6.1"><h3 data-number="3.6.1" class="anchored" data-anchor-id="soal-jawaban">
+<span class="header-section-number">3.6.1</span> Soal &amp; Jawaban</h3>
+<p><strong>1. Sebuah dadu bersisi 6 dilempar sekali. Tentukan ruang sampel dan jumlah ruang sampel dari percobaan ini.</strong></p>
 <ul>
-<li>A = {semua kombinasi tanpa cacat}</li>
-<li>B = {semua kombinasi dengan minimal 1 cacat}</li>
+<li>Ruang sampel: <span class="math inline">\(S = \{1, 2, 3, 4, 5, 6\}\)</span>
+</li>
+<li>Jumlah anggota: <span class="math inline">\(n(S) = 6\)</span>
+</li>
 </ul>
-<div class="cell">
-<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Misalkan total 10 produk, 5 diambil</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">789</span><span class="op">)</span></span>
-<span><span class="va">produk</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Baik"</span>, <span class="st">"Cacat"</span><span class="op">)</span>, <span class="fl">10</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="va">ruang_sampel_produksi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/combn.html">combn</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>, <span class="fl">5</span>, simplify <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Definisi kejadian</span></span>
-<span><span class="va">A_produksi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/funprog.html">Filter</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/all.html">all</a></span><span class="op">(</span><span class="va">produk</span><span class="op">[</span><span class="va">x</span><span class="op">]</span> <span class="op">==</span> <span class="st">"Baik"</span><span class="op">)</span>, <span class="va">ruang_sampel_produksi</span><span class="op">)</span></span>
-<span><span class="va">B_produksi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/funprog.html">Filter</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/any.html">any</a></span><span class="op">(</span><span class="va">produk</span><span class="op">[</span><span class="va">x</span><span class="op">]</span> <span class="op">==</span> <span class="st">"Cacat"</span><span class="op">)</span>, <span class="va">ruang_sampel_produksi</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Tampilkan contoh kejadian</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"Contoh ruang sampel untuk 10 produk, 5 diambil:"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Contoh ruang sampel untuk 10 produk, 5 diambil:"</code></pre>
-</div>
-<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">ruang_sampel_produksi</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[[1]]
-[1] 1 2 3 4 5
-
-[[2]]
-[1] 1 2 3 4 6
-
-[[3]]
-[1] 1 2 3 4 7</code></pre>
-</div>
-<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"Kejadian A (semua baik):"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Kejadian A (semua baik):"</code></pre>
-</div>
-<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">A_produksi</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code><a href="https://rdrr.io/r/base/list.html">list()</a></code></pre>
-</div>
-<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"Kejadian B (minimal 1 cacat):"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Kejadian B (minimal 1 cacat):"</code></pre>
-</div>
-<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">B_produksi</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[[1]]
-[1] 1 2 3 4 5
-
-[[2]]
-[1] 1 2 3 4 6
-
-[[3]]
-[1] 1 2 3 4 7
-
-[[4]]
-[1] 1 2 3 4 8
-
-[[5]]
-[1] 1 2 3 4 9
-
-[[6]]
-[1]  1  2  3  4 10
-
-[[7]]
-[1] 1 2 3 5 6
-
-[[8]]
-[1] 1 2 3 5 7
-
-[[9]]
-[1] 1 2 3 5 8
-
-[[10]]
-[1] 1 2 3 5 9
-
-[[11]]
-[1]  1  2  3  5 10
-
-[[12]]
-[1] 1 2 3 6 7
-
-[[13]]
-[1] 1 2 3 6 8
-
-[[14]]
-[1] 1 2 3 6 9
-
-[[15]]
-[1]  1  2  3  6 10
-
-[[16]]
-[1] 1 2 3 7 8
-
-[[17]]
-[1] 1 2 3 7 9
-
-[[18]]
-[1]  1  2  3  7 10
-
-[[19]]
-[1] 1 2 3 8 9
-
-[[20]]
-[1]  1  2  3  8 10
-
-[[21]]
-[1]  1  2  3  9 10
-
-[[22]]
-[1] 1 2 4 5 6
-
-[[23]]
-[1] 1 2 4 5 7
-
-[[24]]
-[1] 1 2 4 5 8
-
-[[25]]
-[1] 1 2 4 5 9
-
-[[26]]
-[1]  1  2  4  5 10
-
-[[27]]
-[1] 1 2 4 6 7
-
-[[28]]
-[1] 1 2 4 6 8
-
-[[29]]
-[1] 1 2 4 6 9
-
-[[30]]
-[1]  1  2  4  6 10
-
-[[31]]
-[1] 1 2 4 7 8
-
-[[32]]
-[1] 1 2 4 7 9
-
-[[33]]
-[1]  1  2  4  7 10
-
-[[34]]
-[1] 1 2 4 8 9
-
-[[35]]
-[1]  1  2  4  8 10
-
-[[36]]
-[1]  1  2  4  9 10
-
-[[37]]
-[1] 1 2 5 6 7
-
-[[38]]
-[1] 1 2 5 6 8
-
-[[39]]
-[1] 1 2 5 6 9
-
-[[40]]
-[1]  1  2  5  6 10
-
-[[41]]
-[1] 1 2 5 7 8
-
-[[42]]
-[1] 1 2 5 7 9
-
-[[43]]
-[1]  1  2  5  7 10
-
-[[44]]
-[1] 1 2 5 8 9
-
-[[45]]
-[1]  1  2  5  8 10
-
-[[46]]
-[1]  1  2  5  9 10
-
-[[47]]
-[1] 1 2 6 7 8
-
-[[48]]
-[1] 1 2 6 7 9
-
-[[49]]
-[1]  1  2  6  7 10
-
-[[50]]
-[1] 1 2 6 8 9
-
-[[51]]
-[1]  1  2  6  8 10
-
-[[52]]
-[1]  1  2  6  9 10
-
-[[53]]
-[1] 1 2 7 8 9
-
-[[54]]
-[1]  1  2  7  8 10
-
-[[55]]
-[1]  1  2  7  9 10
-
-[[56]]
-[1]  1  2  8  9 10
-
-[[57]]
-[1] 1 3 4 5 6
-
-[[58]]
-[1] 1 3 4 5 7
-
-[[59]]
-[1] 1 3 4 5 8
-
-[[60]]
-[1] 1 3 4 5 9
-
-[[61]]
-[1]  1  3  4  5 10
-
-[[62]]
-[1] 1 3 4 6 7
-
-[[63]]
-[1] 1 3 4 6 8
-
-[[64]]
-[1] 1 3 4 6 9
-
-[[65]]
-[1]  1  3  4  6 10
-
-[[66]]
-[1] 1 3 4 7 8
-
-[[67]]
-[1] 1 3 4 7 9
-
-[[68]]
-[1]  1  3  4  7 10
-
-[[69]]
-[1] 1 3 4 8 9
-
-[[70]]
-[1]  1  3  4  8 10
-
-[[71]]
-[1]  1  3  4  9 10
-
-[[72]]
-[1] 1 3 5 6 7
-
-[[73]]
-[1] 1 3 5 6 8
-
-[[74]]
-[1] 1 3 5 6 9
-
-[[75]]
-[1]  1  3  5  6 10
-
-[[76]]
-[1] 1 3 5 7 8
-
-[[77]]
-[1] 1 3 5 7 9
-
-[[78]]
-[1]  1  3  5  7 10
-
-[[79]]
-[1] 1 3 5 8 9
-
-[[80]]
-[1]  1  3  5  8 10
-
-[[81]]
-[1]  1  3  5  9 10
-
-[[82]]
-[1] 1 3 6 7 8
-
-[[83]]
-[1] 1 3 6 7 9
-
-[[84]]
-[1]  1  3  6  7 10
-
-[[85]]
-[1] 1 3 6 8 9
-
-[[86]]
-[1]  1  3  6  8 10
-
-[[87]]
-[1]  1  3  6  9 10
-
-[[88]]
-[1] 1 3 7 8 9
-
-[[89]]
-[1]  1  3  7  8 10
-
-[[90]]
-[1]  1  3  7  9 10
-
-[[91]]
-[1]  1  3  8  9 10
-
-[[92]]
-[1] 1 4 5 6 7
-
-[[93]]
-[1] 1 4 5 6 8
-
-[[94]]
-[1] 1 4 5 6 9
-
-[[95]]
-[1]  1  4  5  6 10
-
-[[96]]
-[1] 1 4 5 7 8
-
-[[97]]
-[1] 1 4 5 7 9
-
-[[98]]
-[1]  1  4  5  7 10
-
-[[99]]
-[1] 1 4 5 8 9
-
-[[100]]
-[1]  1  4  5  8 10
-
-[[101]]
-[1]  1  4  5  9 10
-
-[[102]]
-[1] 1 4 6 7 8
-
-[[103]]
-[1] 1 4 6 7 9
-
-[[104]]
-[1]  1  4  6  7 10
-
-[[105]]
-[1] 1 4 6 8 9
-
-[[106]]
-[1]  1  4  6  8 10
-
-[[107]]
-[1]  1  4  6  9 10
-
-[[108]]
-[1] 1 4 7 8 9
-
-[[109]]
-[1]  1  4  7  8 10
-
-[[110]]
-[1]  1  4  7  9 10
-
-[[111]]
-[1]  1  4  8  9 10
-
-[[112]]
-[1] 1 5 6 7 8
-
-[[113]]
-[1] 1 5 6 7 9
-
-[[114]]
-[1]  1  5  6  7 10
-
-[[115]]
-[1] 1 5 6 8 9
-
-[[116]]
-[1]  1  5  6  8 10
-
-[[117]]
-[1]  1  5  6  9 10
-
-[[118]]
-[1] 1 5 7 8 9
-
-[[119]]
-[1]  1  5  7  8 10
-
-[[120]]
-[1]  1  5  7  9 10
-
-[[121]]
-[1]  1  5  8  9 10
-
-[[122]]
-[1] 1 6 7 8 9
-
-[[123]]
-[1]  1  6  7  8 10
-
-[[124]]
-[1]  1  6  7  9 10
-
-[[125]]
-[1]  1  6  8  9 10
-
-[[126]]
-[1]  1  7  8  9 10
-
-[[127]]
-[1] 2 3 4 5 6
-
-[[128]]
-[1] 2 3 4 5 7
-
-[[129]]
-[1] 2 3 4 5 8
-
-[[130]]
-[1] 2 3 4 5 9
-
-[[131]]
-[1]  2  3  4  5 10
-
-[[132]]
-[1] 2 3 4 6 7
-
-[[133]]
-[1] 2 3 4 6 8
-
-[[134]]
-[1] 2 3 4 6 9
-
-[[135]]
-[1]  2  3  4  6 10
-
-[[136]]
-[1] 2 3 4 7 8
-
-[[137]]
-[1] 2 3 4 7 9
-
-[[138]]
-[1]  2  3  4  7 10
-
-[[139]]
-[1] 2 3 4 8 9
-
-[[140]]
-[1]  2  3  4  8 10
-
-[[141]]
-[1]  2  3  4  9 10
-
-[[142]]
-[1] 2 3 5 6 7
-
-[[143]]
-[1] 2 3 5 6 8
-
-[[144]]
-[1] 2 3 5 6 9
-
-[[145]]
-[1]  2  3  5  6 10
-
-[[146]]
-[1] 2 3 5 7 8
-
-[[147]]
-[1] 2 3 5 7 9
-
-[[148]]
-[1]  2  3  5  7 10
-
-[[149]]
-[1] 2 3 5 8 9
-
-[[150]]
-[1]  2  3  5  8 10
-
-[[151]]
-[1]  2  3  5  9 10
-
-[[152]]
-[1] 2 3 6 7 8
-
-[[153]]
-[1] 2 3 6 7 9
-
-[[154]]
-[1]  2  3  6  7 10
-
-[[155]]
-[1] 2 3 6 8 9
-
-[[156]]
-[1]  2  3  6  8 10
-
-[[157]]
-[1]  2  3  6  9 10
-
-[[158]]
-[1] 2 3 7 8 9
-
-[[159]]
-[1]  2  3  7  8 10
-
-[[160]]
-[1]  2  3  7  9 10
-
-[[161]]
-[1]  2  3  8  9 10
-
-[[162]]
-[1] 2 4 5 6 7
-
-[[163]]
-[1] 2 4 5 6 8
-
-[[164]]
-[1] 2 4 5 6 9
-
-[[165]]
-[1]  2  4  5  6 10
-
-[[166]]
-[1] 2 4 5 7 8
-
-[[167]]
-[1] 2 4 5 7 9
-
-[[168]]
-[1]  2  4  5  7 10
-
-[[169]]
-[1] 2 4 5 8 9
-
-[[170]]
-[1]  2  4  5  8 10
-
-[[171]]
-[1]  2  4  5  9 10
-
-[[172]]
-[1] 2 4 6 7 8
-
-[[173]]
-[1] 2 4 6 7 9
-
-[[174]]
-[1]  2  4  6  7 10
-
-[[175]]
-[1] 2 4 6 8 9
-
-[[176]]
-[1]  2  4  6  8 10
-
-[[177]]
-[1]  2  4  6  9 10
-
-[[178]]
-[1] 2 4 7 8 9
-
-[[179]]
-[1]  2  4  7  8 10
-
-[[180]]
-[1]  2  4  7  9 10
-
-[[181]]
-[1]  2  4  8  9 10
-
-[[182]]
-[1] 2 5 6 7 8
-
-[[183]]
-[1] 2 5 6 7 9
-
-[[184]]
-[1]  2  5  6  7 10
-
-[[185]]
-[1] 2 5 6 8 9
-
-[[186]]
-[1]  2  5  6  8 10
-
-[[187]]
-[1]  2  5  6  9 10
-
-[[188]]
-[1] 2 5 7 8 9
-
-[[189]]
-[1]  2  5  7  8 10
-
-[[190]]
-[1]  2  5  7  9 10
-
-[[191]]
-[1]  2  5  8  9 10
-
-[[192]]
-[1] 2 6 7 8 9
-
-[[193]]
-[1]  2  6  7  8 10
-
-[[194]]
-[1]  2  6  7  9 10
-
-[[195]]
-[1]  2  6  8  9 10
-
-[[196]]
-[1]  2  7  8  9 10
-
-[[197]]
-[1] 3 4 5 6 7
-
-[[198]]
-[1] 3 4 5 6 8
-
-[[199]]
-[1] 3 4 5 6 9
-
-[[200]]
-[1]  3  4  5  6 10
-
-[[201]]
-[1] 3 4 5 7 8
-
-[[202]]
-[1] 3 4 5 7 9
-
-[[203]]
-[1]  3  4  5  7 10
-
-[[204]]
-[1] 3 4 5 8 9
-
-[[205]]
-[1]  3  4  5  8 10
-
-[[206]]
-[1]  3  4  5  9 10
-
-[[207]]
-[1] 3 4 6 7 8
-
-[[208]]
-[1] 3 4 6 7 9
-
-[[209]]
-[1]  3  4  6  7 10
-
-[[210]]
-[1] 3 4 6 8 9
-
-[[211]]
-[1]  3  4  6  8 10
-
-[[212]]
-[1]  3  4  6  9 10
-
-[[213]]
-[1] 3 4 7 8 9
-
-[[214]]
-[1]  3  4  7  8 10
-
-[[215]]
-[1]  3  4  7  9 10
-
-[[216]]
-[1]  3  4  8  9 10
-
-[[217]]
-[1] 3 5 6 7 8
-
-[[218]]
-[1] 3 5 6 7 9
-
-[[219]]
-[1]  3  5  6  7 10
-
-[[220]]
-[1] 3 5 6 8 9
-
-[[221]]
-[1]  3  5  6  8 10
-
-[[222]]
-[1]  3  5  6  9 10
-
-[[223]]
-[1] 3 5 7 8 9
-
-[[224]]
-[1]  3  5  7  8 10
-
-[[225]]
-[1]  3  5  7  9 10
-
-[[226]]
-[1]  3  5  8  9 10
-
-[[227]]
-[1] 3 6 7 8 9
-
-[[228]]
-[1]  3  6  7  8 10
-
-[[229]]
-[1]  3  6  7  9 10
-
-[[230]]
-[1]  3  6  8  9 10
-
-[[231]]
-[1]  3  7  8  9 10
-
-[[232]]
-[1] 4 5 6 7 8
-
-[[233]]
-[1] 4 5 6 7 9
-
-[[234]]
-[1]  4  5  6  7 10
-
-[[235]]
-[1] 4 5 6 8 9
-
-[[236]]
-[1]  4  5  6  8 10
-
-[[237]]
-[1]  4  5  6  9 10
-
-[[238]]
-[1] 4 5 7 8 9
-
-[[239]]
-[1]  4  5  7  8 10
-
-[[240]]
-[1]  4  5  7  9 10
-
-[[241]]
-[1]  4  5  8  9 10
-
-[[242]]
-[1] 4 6 7 8 9
-
-[[243]]
-[1]  4  6  7  8 10
-
-[[244]]
-[1]  4  6  7  9 10
-
-[[245]]
-[1]  4  6  8  9 10
-
-[[246]]
-[1]  4  7  8  9 10
-
-[[247]]
-[1] 5 6 7 8 9
-
-[[248]]
-[1]  5  6  7  8 10
-
-[[249]]
-[1]  5  6  7  9 10
-
-[[250]]
-[1]  5  6  8  9 10
-
-[[251]]
-[1]  5  7  8  9 10
-
-[[252]]
-[1]  6  7  8  9 10</code></pre>
-</div>
-</div>
-</section><section id="ab-testing-in-marketing" class="level3" data-number="3.8.2"><h3 data-number="3.8.2" class="anchored" data-anchor-id="ab-testing-in-marketing">
-<span class="header-section-number">3.8.2</span> A/B Testing in Marketing</h3>
-<p><strong>Eksperimen</strong>:</p>
-<p>Menguji dua versi website (A vs B) pada pengunjung</p>
-<p><strong>Ruang Sampel</strong>:</p>
-<p>{(Version A, Click), (Version A, No Click), (Version B, Click), (Version B, No Click)}</p>
-<p><strong>Kejadian</strong>:</p>
+<hr>
+<p><strong>2. Dalam pelemparan sebuah dadu, A adalah kejadian yang mungkin untuk angka genap. Tentukan anggota kejadian A, jumlah anggota kejadian A, dan peluang kejadian A.</strong></p>
 <ul>
-<li>A = “Pengunjung klik pada Version A”</li>
-<li>B = “Pengunjung tidak klik pada Version A tapi klik pada Version B”</li>
+<li><span class="math inline">\(A = \{2, 4, 6\}\)</span></li>
+<li><span class="math inline">\(n(A) = 3\)</span></li>
+<li><span class="math inline">\(P(A) = \dfrac{3}{6} = \dfrac{1}{2}\)</span></li>
 </ul>
-<p><strong>Analisis</strong>:</p>
+<hr>
+<p><strong>3. Sebuah koin logam (ada sisi angka &amp; gambar) dilempar dua kali. Berapa banyak anggota ruang sampel? Tuliskan semua elemennya. Berapa peluang munculnya 1 sisi gambar?</strong></p>
 <ul>
-<li>A = {(A, Click)}</li>
-<li>B = {(A, No Click), (B, Click)}</li>
+<li>Ruang sampel: <span class="math inline">\(S = \{\text{AA}, \text{AG}, \text{GA}, \text{GG}\}\)</span><br>
+(A = angka, G = gambar)</li>
+<li>Jumlah anggota: <span class="math inline">\(n(S) = 4\)</span>
+</li>
+<li>Kejadian “tepat 1 sisi gambar”: <span class="math inline">\(\{\text{AG}, \text{GA}\}\)</span>
+</li>
+<li>Peluang: <span class="math inline">\(P = \dfrac{2}{4} = \dfrac{1}{2}\)</span>
+</li>
 </ul>
-<div class="cell">
-<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Misalkan 100 pengunjung, 50% ke A, 50% ke B</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">101</span><span class="op">)</span></span>
-<span><span class="va">pengunjung</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">100</span></span>
-<span><span class="va">assignment</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span><span class="op">)</span>, <span class="fl">100</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Simulasi klik (30% untuk A, 25% untuk B)</span></span>
-<span><span class="va">klik</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">assignment</span> <span class="op">==</span> <span class="st">"A"</span>, <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">rbinom</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">1</span>, <span class="fl">0.3</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">rbinom</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">1</span>, <span class="fl">0.25</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">data_ab</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>Pengunjung <span class="op">=</span> <span class="va">pengunjung</span>, Version <span class="op">=</span> <span class="va">assignment</span>, Click <span class="op">=</span> <span class="va">klik</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Definisi kejadian</span></span>
-<span><span class="va">A_ab</span> <span class="op">&lt;-</span> <span class="va">data_ab</span><span class="op">[</span><span class="va">data_ab</span><span class="op">$</span><span class="va">Version</span> <span class="op">==</span> <span class="st">"A"</span> <span class="op">&amp;</span> <span class="va">data_ab</span><span class="op">$</span><span class="va">Click</span> <span class="op">==</span> <span class="fl">1</span>, <span class="op">]</span></span>
-<span><span class="va">B_ab</span> <span class="op">&lt;-</span> <span class="va">data_ab</span><span class="op">[</span><span class="va">data_ab</span><span class="op">$</span><span class="va">Version</span> <span class="op">==</span> <span class="st">"B"</span> <span class="op">&amp;</span> <span class="va">data_ab</span><span class="op">$</span><span class="va">Click</span> <span class="op">==</span> <span class="fl">1</span>, <span class="op">]</span></span>
-<span></span>
-<span><span class="co"># Tampilkan contoh data</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"Contoh data pengunjung dan klik:"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Contoh data pengunjung dan klik:"</code></pre>
-</div>
-<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data_ab</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  Pengunjung Version Click
-1          1       A     0
-2          2       A     0
-3          3       B     0
-4          4       A     1
-5          5       A     1
-6          6       A     0</code></pre>
-</div>
-<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"Kejadian A (klik pada Version A):"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Kejadian A (klik pada Version A):"</code></pre>
-</div>
-<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">A_ab</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   Pengunjung Version Click
-4           4       A     1
-5           5       A     1
-9           9       A     1
-15         15       A     1
-17         17       A     1
-26         26       A     1
-38         38       A     1
-43         43       A     1
-45         45       A     1
-54         54       A     1
-61         61       A     1
-63         63       A     1
-75         75       A     1
-76         76       A     1</code></pre>
-</div>
-<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"Kejadian B (klik pada Version B setelah tidak klik pada Version A):"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Kejadian B (klik pada Version B setelah tidak klik pada Version A):"</code></pre>
-</div>
-<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">B_ab</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   Pengunjung Version Click
-7           7       B     1
-12         12       B     1
-29         29       B     1
-30         30       B     1
-39         39       B     1
-57         57       B     1
-58         58       B     1
-66         66       B     1
-73         73       B     1
-77         77       B     1
-92         92       B     1
-94         94       B     1
-98         98       B     1</code></pre>
-</div>
-</div>
-<hr></section></section><section id="contoh-penerapan-lengkap" class="level2" data-number="3.9"><h2 data-number="3.9" class="anchored" data-anchor-id="contoh-penerapan-lengkap">
-<span class="header-section-number">3.9</span> Contoh Penerapan Lengkap</h2>
-<section id="kasus-survei-kepuasan-mahasiswa" class="level3" data-number="3.9.1"><h3 data-number="3.9.1" class="anchored" data-anchor-id="kasus-survei-kepuasan-mahasiswa">
-<span class="header-section-number">3.9.1</span> Kasus: Survei Kepuasan Mahasiswa</h3>
-<p><strong>Eksperimen</strong>:</p>
-<p>Mengambil secara acak 1 mahasiswa dan menanyakan kepuasan terhadap layanan kampus.</p>
-<p><strong>Ruang Sampel</strong>:</p>
-<p>S = {Sangat Puas, Puas, Cukup, Tidak Puas}</p>
-<p><strong>Definisi Kejadian</strong>:</p>
+<hr>
+<p><strong>4. Sebuah dadu bersisi 6 dilempar satu kali. Berapa peluang munculnya bilangan prima?</strong></p>
 <ul>
-<li>A = “Mahasiswa merasa puas” = {Sangat Puas, Puas}</li>
-<li>B = “Mahasiswa tidak complain” = {Sangat Puas, Puas, Cukup}</li>
-<li>C = “Mahasiswa memberikan rating tinggi” = {Sangat Puas}</li>
+<li>Bilangan prima pada dadu: <span class="math inline">\(\{2, 3, 5\}\)</span>
+</li>
+<li>Peluang: <span class="math inline">\(P = \dfrac{3}{6} = \dfrac{1}{2}\)</span>
+</li>
 </ul>
-<p><strong>Analisis</strong>:</p>
+<hr>
+<p><strong>5. Sebuah dadu bersisi 6 dilempar satu kali. Z adalah kejadian muncul bilangan ganjil dan Q adalah kejadian muncul bilangan prima.</strong></p>
+<ol type="a">
+<li>Tentukan anggota kejadian Z dan Q.<br>
+</li>
+<li>Tentukan anggota kejadian <span class="math inline">\(Z \cup Q\)</span> dan <span class="math inline">\(Z \cap Q\)</span>.<br>
+</li>
+<li>Tentukan peluang kejadian <span class="math inline">\(Z \cup Q\)</span> dan <span class="math inline">\(Z \cap Q\)</span>.<br>
+</li>
+<li>Tentukan peluang kejadian <span class="math inline">\(Z^c\)</span>.<br>
+</li>
+<li>Tentukan peluang kejadian <span class="math inline">\(Z \cup Q^c\)</span>.<br>
+</li>
+<li>Tentukan peluang kejadian <span class="math inline">\((Z \cup Q)^c\)</span>.</li>
+</ol>
+<p><strong>Jawaban:</strong></p>
+<ol type="a">
+<li>
+</li></ol>
 <ul>
-<li>A ∩ B = {Sangat Puas, Puas}</li>
-<li>A ∪ B = {Sangat Puas, Puas, Cukup}</li>
-<li>A’ = {Cukup, Tidak Puas}</li>
-<li>Apakah A dan C saling lepas? Tidak, karena A ∩ C = {Sangat Puas} ≠ ∅</li>
+<li>
+<span class="math inline">\(Z = \{1, 3, 5\}\)</span> (ganjil)<br>
+</li>
+<li>
+<span class="math inline">\(Q = \{2, 3, 5\}\)</span> (prima)</li>
 </ul>
-<div class="cell">
-<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Implementasi dalam R</span></span>
-<span><span class="va">S</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Sangat Puas"</span>, <span class="st">"Puas"</span>, <span class="st">"Cukup"</span>, <span class="st">"Tidak Puas"</span><span class="op">)</span></span>
-<span><span class="va">A</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Sangat Puas"</span>, <span class="st">"Puas"</span><span class="op">)</span></span>
-<span><span class="va">B</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Sangat Puas"</span>, <span class="st">"Puas"</span>, <span class="st">"Cukup"</span><span class="op">)</span></span>
-<span><span class="va">C</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Sangat Puas"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Operasi himpunan</span></span>
-<span><span class="va">A_intersect_B</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sets.html">intersect</a></span><span class="op">(</span><span class="va">A</span>, <span class="va">B</span><span class="op">)</span></span>
-<span><span class="va">A_union_B</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sets.html">union</a></span><span class="op">(</span><span class="va">A</span>, <span class="va">B</span><span class="op">)</span></span>
-<span><span class="va">A_complement</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sets.html">setdiff</a></span><span class="op">(</span><span class="va">S</span>, <span class="va">A</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"A ∩ B:"</span>, <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">A_intersect_B</span>, collapse <span class="op">=</span> <span class="st">", "</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "A ∩ B: Sangat Puas, Puas"</code></pre>
-</div>
-<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"A ∪ B:"</span>, <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">A_union_B</span>, collapse <span class="op">=</span> <span class="st">", "</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "A ∪ B: Sangat Puas, Puas, Cukup"</code></pre>
-</div>
-<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"A':"</span>, <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">A_complement</span>, collapse <span class="op">=</span> <span class="st">", "</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "A': Cukup, Tidak Puas"</code></pre>
-</div>
-</div>
-<hr></section></section><section id="ringkasan-konsep-penting" class="level2" data-number="3.10"><h2 data-number="3.10" class="anchored" data-anchor-id="ringkasan-konsep-penting">
-<span class="header-section-number">3.10</span> Ringkasan Konsep Penting</h2>
+<ol start="2" type="a">
+<li>
+</li></ol>
+<ul>
+<li>
+<span class="math inline">\(Z \cup Q = \{1, 2, 3, 5\}\)</span><br>
+</li>
+<li><span class="math inline">\(Z \cap Q = \{3, 5\}\)</span></li>
+</ul>
+<ol start="3" type="a">
+<li>
+</li></ol>
+<ul>
+<li>
+<span class="math inline">\(P(Z \cup Q) = \dfrac{4}{6} = \dfrac{2}{3}\)</span><br>
+</li>
+<li><span class="math inline">\(P(Z \cap Q) = \dfrac{2}{6} = \dfrac{1}{3}\)</span></li>
+</ul>
+<ol start="4" type="a">
+<li>
+</li></ol>
+<ul>
+<li>
+<span class="math inline">\(Z^c = \{2, 4, 6\}\)</span><br>
+</li>
+<li><span class="math inline">\(P(Z^c) = \dfrac{3}{6} = \dfrac{1}{2}\)</span></li>
+</ul>
+<ol start="5" type="a">
+<li>
+</li></ol>
+<ul>
+<li>
+<span class="math inline">\(Q^c = \{1, 4, 6\}\)</span><br>
+</li>
+<li>
+<span class="math inline">\(Z \cup Q^c = \{1, 3, 4, 5, 6\}\)</span><br>
+</li>
+<li><span class="math inline">\(P(Z \cup Q^c) = \dfrac{5}{6}\)</span></li>
+</ul>
+<ol start="6" type="a">
+<li>
+</li></ol>
+<ul>
+<li>
+<span class="math inline">\((Z \cup Q)^c = \{4, 6\}\)</span><br>
+</li>
+<li><span class="math inline">\(P((Z \cup Q)^c) = \dfrac{2}{6} = \dfrac{1}{3}\)</span></li>
+</ul>
+<hr></section></section><section id="ringkasan-konsep-penting" class="level2" data-number="3.7"><h2 data-number="3.7" class="anchored" data-anchor-id="ringkasan-konsep-penting">
+<span class="header-section-number">3.7</span> Ringkasan Konsep Penting</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 23%">

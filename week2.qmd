@@ -242,7 +242,6 @@ $$CV = \frac{8.63}{80} \times 100\% = 10.79\%$$
 ---
 
 ## Visualisasi Data dengan R
-
 ### 1. Tabel Distribusi Frekuensi
 
 **Definisi**: 
@@ -387,6 +386,38 @@ Grafik yang menampilkan ringkasan lima angka (minimum, Q1, median, Q3, maksimum)
     - **Whisker atas** = Q3 + 1.5×IQR
     - **Whisker bawah** = Q1 - 1.5×IQR
 - **Titik terpisah** = outlier (data di luar whiskers)
+
+Untuk boxplot, Q1 dan Q3 didapat dari posisi data dalam urutan.
+
+**Definisi:**
+
+* $Q_1$ (kuartil pertama) = nilai pada posisi seperempat data terendah.
+* $Q_3$ (kuartil ketiga) = nilai pada posisi tiga perempat data terendah.
+
+**Rumus umum (data tunggal):**  
+Jika $n$ = banyak data (sudah diurutkan):
+
+$$
+Q_1 = x_{\frac{n+1}{4}}, \quad Q_3 = x_{\frac{3(n+1)}{4}}
+$$
+
+Jika indeks bukan bilangan bulat, gunakan interpolasi (ambil rata-rata dua nilai terdekat).
+
+**Contoh (n = 10 data):**  
+Data terurut: 5, 7, 8, 10, 12, 14, 15, 18, 20, 22
+
+* $Q_1 = x_{\frac{10+1}{4}} = x_{2.75}$ → interpolasi antara $x_2 = 7$ dan $x_3 = 8$:
+
+  $$
+  Q_1 = 7 + 0.75(8-7) = 7.75
+  $$
+
+* $Q_3 = x_{\frac{3(10+1)}{4}} = x_{8.25}$ → interpolasi antara $x_8 = 18$ dan $x_9 = 20$:
+
+  $$
+  Q_3 = 18 + 0.25(20-18) = 18.5
+  $$
+
 
 ```{r}
 # Box plot untuk satu variabel

@@ -1,0 +1,75 @@
+---
+title: "Quiz W3: Ruang Sampel, Kejadian, & Peluang (Dadu & Koin)"
+format: html
+---
+
+**Submit**
+ 
+![width:400px](res/link.png)
+  
+https://zfrmz.com/ihbfrYDBJ374FgPbgE5I
+
+**Simbol & Notasi yang Perlu Diingat:**
+
+- $S$ = ruang sampel
+- $n(S)$ = banyaknya anggota ruang sampel
+- $A, B, C$ = kejadian
+- $P(A)$ = peluang kejadian A
+- $A \cup B$ = gabungan kejadian A dan B
+- $A \cap B$ = irisan kejadian A dan B
+- $A^c$ = komplemen kejadian A. Contoh: $P(A^c) = 1 - P(A)$. Artinya peluang kejadian A tidak terjadi.
+- Kurung kurawal { } = menyatakan himpunan
+
+1. Sebuah dadu bersisi 6 dilempar sekali. Tentukan **ruang sampel** dan **jumlah ruang sampel** dari percobaan ini.
+2. Dalam pelemparan sebuah dadu, **A** adalah **kejadian** yang mungkin untuk angka genap. Tentukan anggota kejadian A, jumlah anggota kejadian A, dan peluang kejadian A.
+
+3. Sebuah koin logam (ada sisi angka & gambar) dilempar dua kali. Berapa banyak anggota ruang sampel? Tuliskan semua elemennya. Berapa peluang munculnya 1 sisi gambar?
+
+4. Sebuah dadu bersisi 6 dilempar satu kali. Berapa peluang munculnya bilangan prima?
+
+5. Sebuah dadu bersisi 6 dilempar satu kali. Z adalah kejadian muncul bilangan ganjil dan Q adalah kejadian muncul bilangan prima. 
+a. Tentukan anggota kejadian Z dan Q.
+b. Tentukan anggota kejadian $Z \cup Q$ dan $Z \cap Q$.
+c. Tentukan peluang kejadian $Z \cup Q$ dan $Z \cap Q$.
+d. Tentukan peluang kejadian $Z^c$.
+e. Tentukan peluang kejadian $Z \cup Q^c$.
+f. Tentukan peluang kejadian $(Z \cup Q)^c$.
+
+
+
+
+
+Jawaban:
+
+1. Dadu 6-sisi, sekali lempar
+   $S=\{1,2,3,4,5,6\}$. Jumlah: $n(S)=6$.
+
+2. Kejadian A = angka genap
+   $A=\{2,4,6\}$. Jumlah: $n(A)=3$. Peluang: $P(A)=\frac{3}{6}=\frac{1}{2}$.
+
+3. Koin dua kali lempar
+   Ruang sampel: $S=\{\text{AA},\text{AG},\text{GA},\text{GG}\}$ dengan A=angka, G=gambar. Jumlah: $n(S)=4$.
+   Peluang tepat “1 sisi gambar” = $\{\text{AG},\text{GA}\}$ → $P=\frac{2}{4}=\frac{1}{2}$.
+
+4. Dadu 6-sisi, bilangan prima $\{2,3,5\}$ → $P=\frac{3}{6}=\frac{1}{2}$.
+
+5. Dadu 6-sisi. $Z=$ ganjil, $Q=$ prima
+   a) $Z=\{1,3,5\}$, $Q=\{2,3,5\}$.
+   b) $Z\cup Q=\{1,2,3,5\}$; $Z\cap Q=\{3,5\}$.
+   c) $P(Z\cup Q)=\frac{4}{6}=\frac{2}{3}$; $P(Z\cap Q)=\frac{2}{6}=\frac{1}{3}$.
+   d) $Z^c=\{2,4,6\}$ → $P(Z^c)=\frac{3}{6}=\frac{1}{2}$.
+   e) $Q^c=\{1,4,6\}$ → $Z\cup Q^c=\{1,3,4,5,6\}$ → $P=\frac{5}{6}$.
+   f) $(Z\cup Q)^c=\{4,6\}$ → $P=\frac{2}{6}=\frac{1}{3}$.
+
+
+
+
+
+
+
+
+
+
+
+
+

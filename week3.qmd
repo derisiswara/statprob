@@ -527,220 +527,90 @@ print(paste("Equal?", identical(complement_union, intersection_complements)))
 
 ---
 
-## Implementasi dengan R
+## Contoh Soal Sederhana
 
-### Menampilkan Ruang Sampel
+**Simbol & Notasi yang Perlu Diingat:**
 
-```{r}
-# Eksperimen: Melempar 2 dadu
-dadu1 <- 1:6
-dadu2 <- 1:6
-ruang_sampel <- expand.grid(Dadu1 = dadu1, Dadu2 = dadu2)
-print(ruang_sampel)
-cat("Jumlah hasil elementer:", nrow(ruang_sampel))
-```
-
-### Mendefinisikan Kejadian
-
-```{r}
-# Kejadian A: Jumlah mata dadu = 7
-A <- ruang_sampel[ruang_sampel$Dadu1 + ruang_sampel$Dadu2 == 7, ]
-print("Kejadian A (jumlah = 7):")
-print(A)
-
-# Kejadian B: Kedua dadu menunjukkan angka sama
-B <- ruang_sampel[ruang_sampel$Dadu1 == ruang_sampel$Dadu2, ]
-print("Kejadian B (angka sama):")
-print(B)
-```
-
-### Operasi Kejadian
-
-```{r}
-# Gabungan kejadian A dan B
-A_index <- which(ruang_sampel$Dadu1 + ruang_sampel$Dadu2 == 7)
-B_index <- which(ruang_sampel$Dadu1 == ruang_sampel$Dadu2)
-
-# Union
-AB_union_index <- union(A_index, B_index)
-AB_union <- ruang_sampel[AB_union_index, ]
-print("A ∪ B:")
-print(AB_union)
-
-# Intersection
-AB_intersect_index <- intersect(A_index, B_index)
-AB_intersect <- ruang_sampel[AB_intersect_index, ]
-print("A ∩ B:")
-print(AB_intersect)
-```
+- $S$ = ruang sampel  
+- $n(S)$ = banyaknya anggota ruang sampel  
+- $A, B, C$ = kejadian  
+- $P(A)$ = peluang kejadian A  
+- $A \cup B$ = gabungan kejadian A dan B  
+- $A \cap B$ = irisan kejadian A dan B  
+- $A^c$ = komplemen kejadian A. Contoh: $P(A^c) = 1 - P(A)$  
+- Kurung kurawal { } = menyatakan himpunan  
 
 ---
 
-## Visualisasi dengan Diagram Venn
+### Soal & Jawaban
 
-```{r}
-# Fungsi sederhana untuk menunjukkan operasi set
-show_set_operation <- function(A, B, S, operation = "union") {
-  cat("Sample Space S:", paste(S, collapse = ", "), "\n")
-  cat("Set A:", paste(A, collapse = ", "), "\n")
-  cat("Set B:", paste(B, collapse = ", "), "\n")
-  
-  if (operation == "union") {
-    result <- union(A, B)
-    cat("A ∪ B:", paste(result, collapse = ", "), "\n")
-  } else if (operation == "intersection") {
-    result <- intersect(A, B)
-    cat("A ∩ B:", paste(result, collapse = ", "), "\n")
-  } else if (operation == "difference") {
-    result <- setdiff(A, B)
-    cat("A - B:", paste(result, collapse = ", "), "\n")
-  }
-}
+**1. Sebuah dadu bersisi 6 dilempar sekali. Tentukan ruang sampel dan jumlah ruang sampel dari percobaan ini.**
 
-# Contoh penggunaan
-S <- 1:12
-A <- c(2, 4, 6, 8, 10, 12)  # Genap
-B <- c(3, 6, 9, 12)         # Kelipatan 3
-
-show_set_operation(A, B, S, "union")
-show_set_operation(A, B, S, "intersection")
-show_set_operation(A, B, S, "difference")
-```
+- Ruang sampel: $S = \{1, 2, 3, 4, 5, 6\}$
+- Jumlah anggota: $n(S) = 6$
 
 ---
 
-## Aplikasi dalam Kehidupan Nyata
+**2. Dalam pelemparan sebuah dadu, A adalah kejadian yang mungkin untuk angka genap. Tentukan anggota kejadian A, jumlah anggota kejadian A, dan peluang kejadian A.**
 
-### Quality Control in Manufacturing
-
-**Eksperimen**: 
-
-Mengambil 5 produk secara acak dari lini produksi
-
-**Ruang Sampel**: 
-
-Semua kemungkinan kombinasi produk yang cacat/baik
-
-**Kejadian**:
-
-- A = "Semua produk baik"
-- B = "Minimal 1 produk cacat"
-
-**Analisis**:
-
-- A = {semua kombinasi tanpa cacat}
-- B = {semua kombinasi dengan minimal 1 cacat}
-
-```{r}
-# Misalkan total 10 produk, 5 diambil
-set.seed(789)
-produk <- sample(c("Baik", "Cacat"), 10, replace = TRUE)
-ruang_sampel_produksi <- combn(1:10, 5, simplify = FALSE)
-
-# Definisi kejadian
-A_produksi <- Filter(function(x) all(produk[x] == "Baik"), ruang_sampel_produksi)
-B_produksi <- Filter(function(x) any(produk[x] == "Cacat"), ruang_sampel_produksi)
-
-# Tampilkan contoh kejadian
-print("Contoh ruang sampel untuk 10 produk, 5 diambil:")
-print(head(ruang_sampel_produksi, 3))
-
-print("Kejadian A (semua baik):")
-print(A_produksi)
-
-print("Kejadian B (minimal 1 cacat):")
-print(B_produksi)
-```
-
-### A/B Testing in Marketing
-
-**Eksperimen**: 
-
-Menguji dua versi website (A vs B) pada pengunjung
-
-**Ruang Sampel**: 
-
-{(Version A, Click), (Version A, No Click), (Version B, Click), (Version B, No Click)}
-
-**Kejadian**:
-
-- A = "Pengunjung klik pada Version A"
-- B = "Pengunjung tidak klik pada Version A tapi klik pada Version B"
-
-**Analisis**:
-
-- A = {(A, Click)}
-- B = {(A, No Click), (B, Click)}
-
-```{r}
-# Misalkan 100 pengunjung, 50% ke A, 50% ke B
-set.seed(101)
-pengunjung <- 1:100
-assignment <- sample(c("A", "B"), 100, replace = TRUE)
-
-# Simulasi klik (30% untuk A, 25% untuk B)
-klik <- ifelse(assignment == "A", rbinom(100, 1, 0.3), rbinom(100, 1, 0.25))
-
-data_ab <- data.frame(Pengunjung = pengunjung, Version = assignment, Click = klik)
-
-# Definisi kejadian
-A_ab <- data_ab[data_ab$Version == "A" & data_ab$Click == 1, ]
-B_ab <- data_ab[data_ab$Version == "B" & data_ab$Click == 1, ]
-
-# Tampilkan contoh data
-print("Contoh data pengunjung dan klik:")
-head(data_ab)
-
-print("Kejadian A (klik pada Version A):")
-print(A_ab)
-
-print("Kejadian B (klik pada Version B setelah tidak klik pada Version A):")
-print(B_ab)
-```
+- $A = \{2, 4, 6\}$
+- $n(A) = 3$
+- $P(A) = \dfrac{3}{6} = \dfrac{1}{2}$
 
 ---
 
-## Contoh Penerapan Lengkap
+**3. Sebuah koin logam (ada sisi angka & gambar) dilempar dua kali. Berapa banyak anggota ruang sampel? Tuliskan semua elemennya. Berapa peluang munculnya 1 sisi gambar?**
 
-### Kasus: Survei Kepuasan Mahasiswa
+- Ruang sampel: $S = \{\text{AA}, \text{AG}, \text{GA}, \text{GG}\}$  
+  (A = angka, G = gambar)
+- Jumlah anggota: $n(S) = 4$
+- Kejadian “tepat 1 sisi gambar”: $\{\text{AG}, \text{GA}\}$
+- Peluang: $P = \dfrac{2}{4} = \dfrac{1}{2}$
 
-**Eksperimen**: 
+---
 
-Mengambil secara acak 1 mahasiswa dan menanyakan kepuasan terhadap layanan kampus.
+**4. Sebuah dadu bersisi 6 dilempar satu kali. Berapa peluang munculnya bilangan prima?**
 
-**Ruang Sampel**: 
+- Bilangan prima pada dadu: $\{2, 3, 5\}$
+- Peluang: $P = \dfrac{3}{6} = \dfrac{1}{2}$
 
-S = {Sangat Puas, Puas, Cukup, Tidak Puas}
+---
 
-**Definisi Kejadian**:
+**5. Sebuah dadu bersisi 6 dilempar satu kali. Z adalah kejadian muncul bilangan ganjil dan Q adalah kejadian muncul bilangan prima.**
 
-- A = "Mahasiswa merasa puas" = {Sangat Puas, Puas}
-- B = "Mahasiswa tidak complain" = {Sangat Puas, Puas, Cukup}
-- C = "Mahasiswa memberikan rating tinggi" = {Sangat Puas}
+a. Tentukan anggota kejadian Z dan Q.  
+b. Tentukan anggota kejadian $Z \cup Q$ dan $Z \cap Q$.  
+c. Tentukan peluang kejadian $Z \cup Q$ dan $Z \cap Q$.  
+d. Tentukan peluang kejadian $Z^c$.  
+e. Tentukan peluang kejadian $Z \cup Q^c$.  
+f. Tentukan peluang kejadian $(Z \cup Q)^c$.
 
-**Analisis**:
+**Jawaban:**
 
-- A ∩ B = {Sangat Puas, Puas}
-- A ∪ B = {Sangat Puas, Puas, Cukup}
-- A' = {Cukup, Tidak Puas}
-- Apakah A dan C saling lepas? Tidak, karena A ∩ C = {Sangat Puas} ≠ ∅
+a.  
+- $Z = \{1, 3, 5\}$ (ganjil)  
+- $Q = \{2, 3, 5\}$ (prima)
 
-```{r}
-# Implementasi dalam R
-S <- c("Sangat Puas", "Puas", "Cukup", "Tidak Puas")
-A <- c("Sangat Puas", "Puas")
-B <- c("Sangat Puas", "Puas", "Cukup")
-C <- c("Sangat Puas")
+b.  
+- $Z \cup Q = \{1, 2, 3, 5\}$  
+- $Z \cap Q = \{3, 5\}$
 
-# Operasi himpunan
-A_intersect_B <- intersect(A, B)
-A_union_B <- union(A, B)
-A_complement <- setdiff(S, A)
+c.  
+- $P(Z \cup Q) = \dfrac{4}{6} = \dfrac{2}{3}$  
+- $P(Z \cap Q) = \dfrac{2}{6} = \dfrac{1}{3}$
 
-print(paste("A ∩ B:", paste(A_intersect_B, collapse = ", ")))
-print(paste("A ∪ B:", paste(A_union_B, collapse = ", ")))
-print(paste("A':", paste(A_complement, collapse = ", ")))
-```
+d.  
+- $Z^c = \{2, 4, 6\}$  
+- $P(Z^c) = \dfrac{3}{6} = \dfrac{1}{2}$
+
+e.  
+- $Q^c = \{1, 4, 6\}$  
+- $Z \cup Q^c = \{1, 3, 4, 5, 6\}$  
+- $P(Z \cup Q^c) = \dfrac{5}{6}$
+
+f.  
+- $(Z \cup Q)^c = \{4, 6\}$  
+- $P((Z \cup Q)^c) = \dfrac{2}{6} = \dfrac{1}{3}$
 
 ---
 

@@ -682,6 +682,36 @@ E D C B A
 <li>
 <strong>Titik terpisah</strong> = outlier (data di luar whiskers)</li>
 </ul>
+<p>Untuk boxplot, Q1 dan Q3 didapat dari posisi data dalam urutan.</p>
+<p><strong>Definisi:</strong></p>
+<ul>
+<li>
+<span class="math inline">\(Q_1\)</span> (kuartil pertama) = nilai pada posisi seperempat data terendah.</li>
+<li>
+<span class="math inline">\(Q_3\)</span> (kuartil ketiga) = nilai pada posisi tiga perempat data terendah.</li>
+</ul>
+<p><strong>Rumus umum (data tunggal):</strong><br>
+Jika <span class="math inline">\(n\)</span> = banyak data (sudah diurutkan):</p>
+<p><span class="math display">\[
+Q_1 = x_{\frac{n+1}{4}}, \quad Q_3 = x_{\frac{3(n+1)}{4}}
+\]</span></p>
+<p>Jika indeks bukan bilangan bulat, gunakan interpolasi (ambil rata-rata dua nilai terdekat).</p>
+<p><strong>Contoh (n = 10 data):</strong><br>
+Data terurut: 5, 7, 8, 10, 12, 14, 15, 18, 20, 22</p>
+<ul>
+<li>
+<p><span class="math inline">\(Q_1 = x_{\frac{10+1}{4}} = x_{2.75}\)</span> → interpolasi antara <span class="math inline">\(x_2 = 7\)</span> dan <span class="math inline">\(x_3 = 8\)</span>:</p>
+<p><span class="math display">\[
+Q_1 = 7 + 0.75(8-7) = 7.75
+\]</span></p>
+</li>
+<li>
+<p><span class="math inline">\(Q_3 = x_{\frac{3(10+1)}{4}} = x_{8.25}\)</span> → interpolasi antara <span class="math inline">\(x_8 = 18\)</span> dan <span class="math inline">\(x_9 = 20\)</span>:</p>
+<p><span class="math display">\[
+Q_3 = 18 + 0.25(20-18) = 18.5
+\]</span></p>
+</li>
+</ul>
 <div class="cell">
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Box plot untuk satu variabel</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot</a></span><span class="op">(</span><span class="va">nilai</span>,</span>
