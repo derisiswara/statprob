@@ -1,0 +1,13 @@
+Question
+========
+(5c) Tentukan peluang Z ∪ Q dan Z ∩ Q.
+
+Solution
+========
+P(Z ∪ Q)=2/3, P(Z ∩ Q)=1/3.
+
+Meta-information
+================
+exname: soal5c_ZQ_prob
+extype: string
+exsolution: 2/3 dan 1/3

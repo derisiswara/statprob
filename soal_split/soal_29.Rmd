@@ -1,0 +1,21 @@
+Question
+========
+(24) Jika A dan B saling lepas serta P(A)>0 dan P(B)>0, maka A dan B independen. Benar atau salah?
+
+Answerlist
+----------
+* Salah
+* Benar
+* Tidak dapat ditentukan
+* Tergantung P(A)
+
+Solution
+========
+Salah. Saling lepas dengan peluang positif ⇒ P(A ∩ B)=0 ≠ P(A)P(B).
+
+Meta-information
+================
+exname: soal24_disjoint_vs_independent
+extype: schoice
+exsolution: 1000
+exshuffle: TRUE

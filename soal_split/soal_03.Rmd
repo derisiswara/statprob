@@ -1,0 +1,22 @@
+Question
+========
+(3) Sebuah koin logam (sisi angka dan gambar) dilempar dua kali.
+Berapa banyak anggota ruang sampel? Berapa peluang muncul tepat 1 sisi gambar?
+
+Answerlist
+----------
+* S={AA,AG,GA,GG}, n(S)=4, P=1/2
+* S={A,G}, n(S)=2, P=1/2
+* S={AA,GG}, n(S)=2, P=1/2
+* S={AG,GA}, n(S)=2, P=1
+
+Solution
+========
+Jawaban benar: S={AA,AG,GA,GG}, n(S)=4, tepat satu gambar {AG,GA}, peluang 2/4=1/2.
+
+Meta-information
+================
+exname: soal3_koin_dua_kali
+extype: schoice
+exsolution: 1000
+exshuffle: TRUE

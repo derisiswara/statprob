@@ -1,0 +1,21 @@
+Question
+========
+(11) Dua dadu fair. Berapa peluang minimal satu dadu bernilai 6?
+
+Answerlist
+----------
+* P=11/36
+* P=1/6
+* P=25/36
+* P=5/18
+
+Solution
+========
+Komplemen: tidak ada 6 = (5/6)^2=25/36. Jadi 1−25/36=11/36.
+
+Meta-information
+================
+exname: soal11_dadu_min_satu_enam
+extype: schoice
+exsolution: 1000
+exshuffle: TRUE

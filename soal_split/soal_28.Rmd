@@ -1,0 +1,13 @@
+Question
+========
+(23) Dadu sekali. Z=ganjil, Q=prima. Hitung P(Z ∩ Q^c).
+
+Solution
+========
+Q^c={1,4,6}, Z ∩ Q^c={1}, P=1/6.
+
+Meta-information
+================
+exname: soal23_intersect_complement
+extype: string
+exsolution: 1/6

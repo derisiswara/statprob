@@ -1,0 +1,21 @@
+Question
+========
+(2) Dalam pelemparan sebuah dadu, A adalah kejadian angka genap. Tentukan anggota kejadian A, jumlah anggota kejadian A, dan peluang kejadian A.
+
+Answerlist
+----------
+* A={2,4,6}, n(A)=3, P=1/2
+* A={1,3,5}, n(A)=3, P=1/2
+* A={2,3,5}, n(A)=3, P=1/2
+* A={1,2,3,4,5,6}, n(A)=6, P=1
+
+Solution
+========
+Jawaban benar: A={2,4,6}, n(A)=3, P=1/2.
+
+Meta-information
+================
+exname: soal2_dadu_genap
+extype: schoice
+exsolution: 1000
+exshuffle: TRUE

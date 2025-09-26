@@ -1,0 +1,13 @@
+Question
+========
+(17) Dadu sekali. B=bilangan genap, C=bilangan >3. Hitung P(C | B).
+
+Solution
+========
+B={2,4,6}. C∩B={4,6}. Jadi 2/3.
+
+Meta-information
+================
+exname: soal17_conditional_C_given_B
+extype: string
+exsolution: 2/3

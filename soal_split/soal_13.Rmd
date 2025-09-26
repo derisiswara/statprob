@@ -1,0 +1,13 @@
+Question
+========
+(8) Dadu sekali. Z=bilangan ganjil, Q=bilangan prima. Hitung P(Z | Q).
+
+Solution
+========
+Q={2,3,5}, Z∩Q={3,5}. P(Z|Q)=|{3,5}|/|{2,3,5}|=2/3.
+
+Meta-information
+================
+exname: soal8_conditional_Z_given_Q
+extype: string
+exsolution: 2/3

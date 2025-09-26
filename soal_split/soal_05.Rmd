@@ -1,0 +1,14 @@
+Question
+========
+(5a) Sebuah dadu bersisi 6 dilempar sekali. Z adalah kejadian bilangan ganjil, Q adalah kejadian bilangan prima.
+Tentukan anggota kejadian Z dan Q.
+
+Solution
+========
+Z={1,3,5}, Q={2,3,5}.
+
+Meta-information
+================
+exname: soal5a_ZQ
+extype: string
+exsolution: Z={1,3,5}, Q={2,3,5}.

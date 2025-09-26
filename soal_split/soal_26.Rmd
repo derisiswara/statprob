@@ -1,0 +1,21 @@
+Question
+========
+(21) Pilih pernyataan yang benar.
+
+Answerlist
+----------
+* P(S)=1 dan P(∅)=0
+* P(S)=0 dan P(∅)=1
+* P(S)=1 dan P(∅)=1
+* P(S)=0 dan P(∅)=0
+
+Solution
+========
+Ruang sampel selalu 1, himpunan kosong 0.
+
+Meta-information
+================
+exname: soal21_space_empty
+extype: schoice
+exsolution: 1000
+exshuffle: TRUE

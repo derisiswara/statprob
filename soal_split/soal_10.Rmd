@@ -1,0 +1,13 @@
+Question
+========
+(5f) Tentukan peluang (Z ∪ Q)^c.
+
+Solution
+========
+(Z ∪ Q)^c={4,6}, P=1/3.
+
+Meta-information
+================
+exname: soal5f_union_complement
+extype: string
+exsolution: 1/3

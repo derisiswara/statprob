@@ -1,0 +1,13 @@
+Question
+========
+(13) Dadu sekali. A={1,2,3,4} dan B={3,4,5,6}. Tentukan A \ B.
+
+Solution
+========
+{1,2}
+
+Meta-information
+================
+exname: soal13_set_difference
+extype: string
+exsolution: {1,2}

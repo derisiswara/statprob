@@ -1,0 +1,21 @@
+Question
+========
+(15) Diketahui P(A)=0.4, P(B)=0.5, dan P(A ∩ B)=0.2. Hitung P(A ∪ B).
+
+Answerlist
+----------
+* 0.7
+* 0.9
+* 0.6
+* 0.3
+
+Solution
+========
+P(A ∪ B)=0.4+0.5−0.2=0.7.
+
+Meta-information
+================
+exname: soal15_addition_general
+extype: schoice
+exsolution: 1000
+exshuffle: TRUE

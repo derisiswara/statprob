@@ -1,0 +1,21 @@
+Question
+========
+(7) Tiga kali lempar koin fair. Berapa peluang tepat 2 sisi gambar?
+
+Answerlist
+----------
+* P=3/8
+* P=1/2
+* P=1/4
+* P=5/8
+
+Solution
+========
+C(3,2)=3 susunan, total 2^3=8. Peluang 3/8.
+
+Meta-information
+================
+exname: soal7_koin_3x_tepat2
+extype: schoice
+exsolution: 1000
+exshuffle: TRUE

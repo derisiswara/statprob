@@ -1,0 +1,21 @@
+Question
+========
+(22) Manakah yang tidak mungkin menjadi nilai peluang?
+
+Answerlist
+----------
+* −0.1
+* 0
+* 0.3
+* 1
+
+Solution
+========
+Peluang harus di [0,1].
+
+Meta-information
+================
+exname: soal22_probability_bounds
+extype: schoice
+exsolution: 1000
+exshuffle: TRUE

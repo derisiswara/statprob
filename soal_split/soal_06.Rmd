@@ -1,0 +1,13 @@
+Question
+========
+(5b) Tentukan anggota Z ∪ Q dan Z ∩ Q.
+
+Solution
+========
+Z ∪ Q={1,2,3,5}, Z ∩ Q={3,5}.
+
+Meta-information
+================
+exname: soal5b_ZQ_union_intersect
+extype: string
+exsolution: Z ∪ Q={1,2,3,5}, Z ∩ Q={3,5}

@@ -1,0 +1,13 @@
+Question
+========
+(5d) Tentukan peluang Z^c.
+
+Solution
+========
+Z^c={2,4,6}, P(Z^c)=1/2.
+
+Meta-information
+================
+exname: soal5d_Z_complement
+extype: string
+exsolution: 1/2

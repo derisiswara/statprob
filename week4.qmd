@@ -1,0 +1,89 @@
+---
+format:
+  html:
+    css: webex.css
+    include-after-body: webex.js
+execute: 
+  echo: false
+  warning: false
+  error: false
+  message: false
+  cache: false
+---
+# Eksperimen Acak, Ruang Sampel, dan Kejadian - Latihan Soal
+
+**Simbol & Notasi yang Perlu Diingat**
+
+* $S$ = ruang sampel
+* $n(S)$ = banyaknya anggota ruang sampel
+* $A, B, C$ = kejadian
+* $n(A)$ = banyaknya anggota kejadian $A$
+* $P(A)$ = peluang kejadian $A$
+* $P(S) = 1$ = peluang ruang sampel
+* $P(\varnothing) = 0$ = peluang himpunan kosong
+* $A \cup B$ = gabungan kejadian $A$ dan $B$
+* $A \cap B$ = irisan kejadian $A$ dan $B$
+* $A^c$ = komplemen kejadian $A$, dengan $P(A^c) = 1 - P(A)$
+* $A \subseteq B$ = $A$ bagian dari $B$
+* $A \setminus B$ = selisih himpunan $A$ terhadap $B$
+* $\varnothing$ = himpunan kosong
+* {} = notasi himpunan
+
+
+**Aturan Dasar Peluang**
+
+* $0 \leq P(A) \leq 1$
+* $P(S) = 1$
+* $P(A^c) = 1 - P(A)$
+
+**Aturan Penjumlahan**
+
+* Umum: $P(A \cup B) = P(A) + P(B) - P(A \cap B)$
+* Jika $A$ dan $B$ saling lepas: $P(A \cup B) = P(A) + P(B)$
+
+**Peluang Bersyarat**
+
+* $P(A \mid B) = \dfrac{P(A \cap B)}{P(B)}$, dengan $P(B) > 0$
+
+**Aturan Perkalian**
+
+* Umum: $P(A \cap B) = P(A) \cdot P(B \mid A) = P(B) \cdot P(A \mid B)$
+* Jika $A$ dan $B$ independen: $P(A \cap B) = P(A) \cdot P(B)$
+
+**Kejadian Saling Lepas vs Independen**
+
+* **Saling lepas (mutually exclusive):** tidak bisa terjadi bersamaan.
+  
+  - Definisi: $A\cap B=\varnothing$ sehingga $P(A\cap B)=0$.
+  - Konsekuensi: $P(A\cup B)=P(A)+P(B)$.
+  - Contoh: lempar dadu, $A=\{\text{genap}\}$, $B=\{\text{ganjil}\}$.
+  - Catatan penting: jika $P(A)>0$ dan $P(B)>0$, maka **pasti tidak independen** karena $P(A)P(B)>0$ tetapi $P(A\cap B)=0$.
+
+* **Independen (independent):** kejadian satu tidak mengubah peluang yang lain.
+ 
+  - Definisi setara: $P(A\mid B)=P(A)$ dengan $P(B)>0$ **atau** $P(A\cap B)=P(A)P(B)$.
+  - Contoh 1: dua lempar koin, $A=\{\text{kepala lemparan 1}\}$, $B=\{\text{kepala lemparan 2}\}$.
+  - Contoh 2: lempar dadu, $A=\{\text{genap}\}$ $P(A)=1/2$, $B=\{\text{kelipatan 3}\}$ $P(B)=1/3$.
+  - $A\cap B=\{6\}\Rightarrow P(A\cap B)=1/6=P(A)P(B)$ jadi independen.
+
+**Ringkas beda utamanya:**
+
+* Saling lepas: *ketidakmungkinan bersama* $\Rightarrow P(A\cap B)=0$.
+* Independen: *ketidakpengaruh-an* $\Rightarrow P(A\cap B)=P(A)P(B)$. 
+
+## Bank Soal
+ 
+```{r}
+library("exams2forms")
+```
+```{r}
+#| echo: false
+#| results: "asis"
+# daftar folder yang berisi soal
+folders <- c("soal_split")
+
+for (fd in folders) {
+  files <- list.files(fd, pattern = "\\.Rmd$", full.names = TRUE)
+  exams2forms(file = files, title = paste("quiz dari", fd), browse = FALSE)
+}
+```

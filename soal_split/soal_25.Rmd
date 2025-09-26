@@ -1,0 +1,13 @@
+Question
+========
+(20) P(A)=0.35. Hitung P(A^c).
+
+Solution
+========
+0.65
+
+Meta-information
+================
+exname: soal20_complement
+extype: string
+exsolution: 0.65
