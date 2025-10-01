@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.32">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>4&nbsp; Eksperimen Acak, Ruang Sampel, dan Kejadian - Latihan Soal – Statistika dan Probabilitas</title>
+
+
+<title>5&nbsp; Kombinatorika Dalam Kalkulasi Peluang Diskret. – Statistika dan Probabilitas</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 </style>
 
+
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -26,8 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./week5.html" rel="next">
-<link href="./week3.html" rel="prev">
+<link href="./week4.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -37,7 +40,8 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-29410152e5a6e3b258a64b24c20229d6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-29410152e5a6e3b258a64b24c20229d6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -63,7 +67,12 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
     // MathJax Typeset
@@ -88,26 +97,35 @@ const typesetMath = (el) => {
 window.Quarto = {
   typesetMath
 };
-</script><link rel="stylesheet" href="styles.css">
+</script>
+
+<link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="webex.css">
 </head>
+
 <body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week4.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Eksperimen Acak, Ruang Sampel, dan Kejadian - Latihan Soal</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week5.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Kombinatorika Dalam Kalkulasi Peluang Diskret.</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Statistika dan Probabilitas</a> 
     </div>
@@ -119,7 +137,7 @@ window.Quarto = {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-<li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Pengantar</span></a>
@@ -145,32 +163,80 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./week4.html" class="sidebar-item-text sidebar-link active">
+  <a href="./week4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Eksperimen Acak, Ruang Sampel, dan Kejadian - Latihan Soal</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./week5.html" class="sidebar-item-text sidebar-link">
+  <a href="./week5.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Kombinatorika Dalam Kalkulasi Peluang Diskret.</span></span></a>
   </div>
 </li>
     </ul>
-</div>
-</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#bank-soal" id="toc-bank-soal" class="nav-link active" data-scroll-target="#bank-soal"><span class="header-section-number">4.1</span> Bank Soal</a></li>
-  </ul></nav>
+  <li><a href="#recap-singkat-minggu-4" id="toc-recap-singkat-minggu-4" class="nav-link active" data-scroll-target="#recap-singkat-minggu-4"><span class="header-section-number">5.1</span> Recap Singkat Minggu 4</a></li>
+  <li><a href="#kombinatorika-dalam-kalkulasi-peluang-diskret." id="toc-kombinatorika-dalam-kalkulasi-peluang-diskret." class="nav-link" data-scroll-target="#kombinatorika-dalam-kalkulasi-peluang-diskret."><span class="header-section-number">5.2</span> Kombinatorika Dalam Kalkulasi Peluang Diskret.</a>
+  <ul class="collapse">
+  <li><a href="#mengapa-kombinatorika-penting-dalam-peluang" id="toc-mengapa-kombinatorika-penting-dalam-peluang" class="nav-link" data-scroll-target="#mengapa-kombinatorika-penting-dalam-peluang"><span class="header-section-number">5.2.1</span> Mengapa Kombinatorika Penting dalam Peluang?</a></li>
+  </ul></li>
+  <li><a href="#prinsip-dasar-kombinatorika" id="toc-prinsip-dasar-kombinatorika" class="nav-link" data-scroll-target="#prinsip-dasar-kombinatorika"><span class="header-section-number">5.3</span> PRINSIP DASAR KOMBINATORIKA</a>
+  <ul class="collapse">
+  <li><a href="#kaidah-perkalian-multiplication-rule" id="toc-kaidah-perkalian-multiplication-rule" class="nav-link" data-scroll-target="#kaidah-perkalian-multiplication-rule"><span class="header-section-number">5.3.1</span> Kaidah Perkalian (Multiplication Rule)</a></li>
+  <li><a href="#kaidah-penjumlahan-addition-rule" id="toc-kaidah-penjumlahan-addition-rule" class="nav-link" data-scroll-target="#kaidah-penjumlahan-addition-rule"><span class="header-section-number">5.3.2</span> Kaidah Penjumlahan (Addition Rule)</a></li>
+  </ul></li>
+  <li><a href="#permutasi" id="toc-permutasi" class="nav-link" data-scroll-target="#permutasi"><span class="header-section-number">5.4</span> PERMUTASI</a>
+  <ul class="collapse">
+  <li><a href="#permutasi-tanpa-pengulangan" id="toc-permutasi-tanpa-pengulangan" class="nav-link" data-scroll-target="#permutasi-tanpa-pengulangan"><span class="header-section-number">5.4.1</span> Permutasi Tanpa Pengulangan</a></li>
+  <li><a href="#permutasi-dengan-pengulangan" id="toc-permutasi-dengan-pengulangan" class="nav-link" data-scroll-target="#permutasi-dengan-pengulangan"><span class="header-section-number">5.4.2</span> Permutasi dengan Pengulangan</a></li>
+  <li><a href="#permutasi-siklik" id="toc-permutasi-siklik" class="nav-link" data-scroll-target="#permutasi-siklik"><span class="header-section-number">5.4.3</span> Permutasi Siklik</a></li>
+  </ul></li>
+  <li><a href="#kombinasi" id="toc-kombinasi" class="nav-link" data-scroll-target="#kombinasi"><span class="header-section-number">5.5</span> KOMBINASI</a>
+  <ul class="collapse">
+  <li><a href="#kombinasi-tanpa-pengulangan" id="toc-kombinasi-tanpa-pengulangan" class="nav-link" data-scroll-target="#kombinasi-tanpa-pengulangan"><span class="header-section-number">5.5.1</span> Kombinasi Tanpa Pengulangan</a></li>
+  <li><a href="#kombinasi-dengan-pengulangan" id="toc-kombinasi-dengan-pengulangan" class="nav-link" data-scroll-target="#kombinasi-dengan-pengulangan"><span class="header-section-number">5.5.2</span> Kombinasi dengan Pengulangan</a></li>
+  </ul></li>
+  <li><a href="#perbedaan-permutasi-dan-kombinasi" id="toc-perbedaan-permutasi-dan-kombinasi" class="nav-link" data-scroll-target="#perbedaan-permutasi-dan-kombinasi"><span class="header-section-number">5.6</span> PERBEDAAN PERMUTASI DAN KOMBINASI</a></li>
+  <li><a href="#aplikasi-dalam-peluang-diskret" id="toc-aplikasi-dalam-peluang-diskret" class="nav-link" data-scroll-target="#aplikasi-dalam-peluang-diskret"><span class="header-section-number">5.7</span> APLIKASI DALAM PELUANG DISKRET</a>
+  <ul class="collapse">
+  <li><a href="#prinsip-dasar" id="toc-prinsip-dasar" class="nav-link" data-scroll-target="#prinsip-dasar"><span class="header-section-number">5.7.1</span> Prinsip Dasar</a></li>
+  <li><a href="#contoh-aplikasi-kartu" id="toc-contoh-aplikasi-kartu" class="nav-link" data-scroll-target="#contoh-aplikasi-kartu"><span class="header-section-number">5.7.2</span> Contoh Aplikasi: Kartu</a></li>
+  <li><a href="#contoh-aplikasi-lotere" id="toc-contoh-aplikasi-lotere" class="nav-link" data-scroll-target="#contoh-aplikasi-lotere"><span class="header-section-number">5.7.3</span> Contoh Aplikasi: Lotere</a></li>
+  <li><a href="#contoh-aplikasi-quality-control" id="toc-contoh-aplikasi-quality-control" class="nav-link" data-scroll-target="#contoh-aplikasi-quality-control"><span class="header-section-number">5.7.4</span> Contoh Aplikasi: Quality Control</a></li>
+  <li><a href="#contoh-aplikasi-distribusi-objek" id="toc-contoh-aplikasi-distribusi-objek" class="nav-link" data-scroll-target="#contoh-aplikasi-distribusi-objek"><span class="header-section-number">5.7.5</span> Contoh Aplikasi: Distribusi Objek</a></li>
+  <li><a href="#contoh-aplikasi-poker" id="toc-contoh-aplikasi-poker" class="nav-link" data-scroll-target="#contoh-aplikasi-poker"><span class="header-section-number">5.7.6</span> Contoh Aplikasi: Poker</a></li>
+  </ul></li>
+  <li><a href="#strategi-penyelesaian-masalah" id="toc-strategi-penyelesaian-masalah" class="nav-link" data-scroll-target="#strategi-penyelesaian-masalah"><span class="header-section-number">5.8</span> STRATEGI PENYELESAIAN MASALAH</a>
+  <ul class="collapse">
+  <li><a href="#langkah-langkah-umum" id="toc-langkah-langkah-umum" class="nav-link" data-scroll-target="#langkah-langkah-umum"><span class="header-section-number">5.8.1</span> Langkah-Langkah Umum</a></li>
+  <li><a href="#tabel-bantuan-pemilihan-formula" id="toc-tabel-bantuan-pemilihan-formula" class="nav-link" data-scroll-target="#tabel-bantuan-pemilihan-formula"><span class="header-section-number">5.8.2</span> Tabel Bantuan Pemilihan Formula</a></li>
+  </ul></li>
+  <li><a href="#ringkasan-formula-penting" id="toc-ringkasan-formula-penting" class="nav-link" data-scroll-target="#ringkasan-formula-penting"><span class="header-section-number">5.9</span> RINGKASAN FORMULA PENTING</a>
+  <ul class="collapse">
+  <li><a href="#prinsip-dasar-1" id="toc-prinsip-dasar-1" class="nav-link" data-scroll-target="#prinsip-dasar-1"><span class="header-section-number">5.9.1</span> Prinsip Dasar</a></li>
+  <li><a href="#permutasi-1" id="toc-permutasi-1" class="nav-link" data-scroll-target="#permutasi-1"><span class="header-section-number">5.9.2</span> Permutasi</a></li>
+  <li><a href="#kombinasi-1" id="toc-kombinasi-1" class="nav-link" data-scroll-target="#kombinasi-1"><span class="header-section-number">5.9.3</span> Kombinasi</a></li>
+  <li><a href="#hubungan" id="toc-hubungan" class="nav-link" data-scroll-target="#hubungan"><span class="header-section-number">5.9.4</span> Hubungan</a></li>
+  <li><a href="#faktorial" id="toc-faktorial" class="nav-link" data-scroll-target="#faktorial"><span class="header-section-number">5.9.5</span> Faktorial</a></li>
+  </ul></li>
+  <li><a href="#referensi" id="toc-referensi" class="nav-link" data-scroll-target="#referensi"><span class="header-section-number">5.10</span> REFERENSI</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title">
-<span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Eksperimen Acak, Ruang Sampel, dan Kejadian - Latihan Soal</span>
-</h1>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Kombinatorika Dalam Kalkulasi Peluang Diskret.</span></h1>
 </div>
 
 
@@ -184,1253 +250,1660 @@ window.Quarto = {
   
 
 
-</header><p><strong>Simbol &amp; Notasi yang Perlu Diingat</strong></p>
-<ul>
-<li>
-<span class="math inline">\(S\)</span> = ruang sampel</li>
-<li>
-<span class="math inline">\(n(S)\)</span> = banyaknya anggota ruang sampel</li>
-<li>
-<span class="math inline">\(A, B, C\)</span> = kejadian</li>
-<li>
-<span class="math inline">\(n(A)\)</span> = banyaknya anggota kejadian <span class="math inline">\(A\)</span>
-</li>
-<li>
-<span class="math inline">\(P(A)\)</span> = peluang kejadian <span class="math inline">\(A\)</span>
-</li>
-<li>
-<span class="math inline">\(P(S) = 1\)</span> = peluang ruang sampel</li>
-<li>
-<span class="math inline">\(P(\varnothing) = 0\)</span> = peluang himpunan kosong</li>
-<li>
-<span class="math inline">\(A \cup B\)</span> = gabungan kejadian <span class="math inline">\(A\)</span> dan <span class="math inline">\(B\)</span>
-</li>
-<li>
-<span class="math inline">\(A \cap B\)</span> = irisan kejadian <span class="math inline">\(A\)</span> dan <span class="math inline">\(B\)</span>
-</li>
-<li>
-<span class="math inline">\(A^c\)</span> = komplemen kejadian <span class="math inline">\(A\)</span>, dengan <span class="math inline">\(P(A^c) = 1 - P(A)\)</span>
-</li>
-<li>
-<span class="math inline">\(A \subseteq B\)</span> = <span class="math inline">\(A\)</span> bagian dari <span class="math inline">\(B\)</span>
-</li>
-<li>
-<span class="math inline">\(A \setminus B\)</span> = selisih himpunan <span class="math inline">\(A\)</span> terhadap <span class="math inline">\(B\)</span>
-</li>
-<li>
-<span class="math inline">\(\varnothing\)</span> = himpunan kosong</li>
-<li>{} = notasi himpunan</li>
-</ul>
-<p><strong>Aturan Dasar Peluang</strong></p>
-<ul>
-<li><span class="math inline">\(0 \leq P(A) \leq 1\)</span></li>
-<li><span class="math inline">\(P(S) = 1\)</span></li>
-<li><span class="math inline">\(P(A^c) = 1 - P(A)\)</span></li>
-</ul>
-<p><strong>Aturan Penjumlahan</strong></p>
-<ul>
-<li>Umum: <span class="math inline">\(P(A \cup B) = P(A) + P(B) - P(A \cap B)\)</span>
-</li>
-<li>Jika <span class="math inline">\(A\)</span> dan <span class="math inline">\(B\)</span> saling lepas: <span class="math inline">\(P(A \cup B) = P(A) + P(B)\)</span>
-</li>
-</ul>
-<p><strong>Peluang Bersyarat</strong></p>
-<ul>
-<li>
-<span class="math inline">\(P(A \mid B) = \dfrac{P(A \cap B)}{P(B)}\)</span>, dengan <span class="math inline">\(P(B) &gt; 0\)</span>
-</li>
-</ul>
-<p><strong>Aturan Perkalian</strong></p>
-<ul>
-<li>Umum: <span class="math inline">\(P(A \cap B) = P(A) \cdot P(B \mid A) = P(B) \cdot P(A \mid B)\)</span>
-</li>
-<li>Jika <span class="math inline">\(A\)</span> dan <span class="math inline">\(B\)</span> independen: <span class="math inline">\(P(A \cap B) = P(A) \cdot P(B)\)</span>
-</li>
-</ul>
-<p><strong>Kejadian Saling Lepas vs Independen</strong></p>
-<ul>
-<li>
-<p><strong>Saling lepas (mutually exclusive):</strong> tidak bisa terjadi bersamaan.</p>
-<ul>
-<li>Definisi: <span class="math inline">\(A\cap B=\varnothing\)</span> sehingga <span class="math inline">\(P(A\cap B)=0\)</span>.</li>
-<li>Konsekuensi: <span class="math inline">\(P(A\cup B)=P(A)+P(B)\)</span>.</li>
-<li>Contoh: lempar dadu, <span class="math inline">\(A=\{\text{genap}\}\)</span>, <span class="math inline">\(B=\{\text{ganjil}\}\)</span>.</li>
-<li>Catatan penting: jika <span class="math inline">\(P(A)&gt;0\)</span> dan <span class="math inline">\(P(B)&gt;0\)</span>, maka <strong>pasti tidak independen</strong> karena <span class="math inline">\(P(A)P(B)&gt;0\)</span> tetapi <span class="math inline">\(P(A\cap B)=0\)</span>.</li>
-</ul>
-</li>
-<li>
-<p><strong>Independen (independent):</strong> kejadian satu tidak mengubah peluang yang lain.</p>
-<ul>
-<li>Definisi setara: <span class="math inline">\(P(A\mid B)=P(A)\)</span> dengan <span class="math inline">\(P(B)&gt;0\)</span> <strong>atau</strong> <span class="math inline">\(P(A\cap B)=P(A)P(B)\)</span>.</li>
-<li>Contoh 1: dua lempar koin, <span class="math inline">\(A=\{\text{kepala lemparan 1}\}\)</span>, <span class="math inline">\(B=\{\text{kepala lemparan 2}\}\)</span>.</li>
-<li>Contoh 2: lempar dadu, <span class="math inline">\(A=\{\text{genap}\}\)</span> <span class="math inline">\(P(A)=1/2\)</span>, <span class="math inline">\(B=\{\text{kelipatan 3}\}\)</span> <span class="math inline">\(P(B)=1/3\)</span>.</li>
-<li>
-<span class="math inline">\(A\cap B=\{6\}\Rightarrow P(A\cap B)=1/6=P(A)P(B)\)</span> jadi independen.</li>
-</ul>
-</li>
-</ul>
-<p><strong>Ringkas beda utamanya:</strong></p>
-<ul>
-<li>Saling lepas: <em>ketidakmungkinan bersama</em> <span class="math inline">\(\Rightarrow P(A\cap B)=0\)</span>.</li>
-<li>Independen: <em>ketidakpengaruh-an</em> <span class="math inline">\(\Rightarrow P(A\cap B)=P(A)P(B)\)</span>.</li>
-</ul>
-<section id="bank-soal" class="level2" data-number="4.1"><h2 data-number="4.1" class="anchored" data-anchor-id="bank-soal">
-<span class="header-section-number">4.1</span> Bank Soal</h2>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol type="1">
-<li>Sebuah dadu bersisi 6 dilempar sekali. Tentukan ruang sampel dan jumlah ruang sampel dari percobaan ini.</li>
-</ol>
-<div id="webex-3b11b18dee9a2d20674f6a5d5e658404" class="webex-radiogroup" data-answer="aFIdAU4BFFU4">
-<label><input type="radio" autocomplete="off" name="3b11b18dee9a2d20674f6a5d5e658404"><span>S={1,2,3,4,5}, n(S)=5</span></label><label><input type="radio" autocomplete="off" name="3b11b18dee9a2d20674f6a5d5e658404"><span>S={2,3,4,5,6}, n(S)=5</span></label><label><input type="radio" autocomplete="off" name="3b11b18dee9a2d20674f6a5d5e658404"><span>S={1,3,5}, n(S)=3</span></label><label><input type="radio" autocomplete="off" name="3b11b18dee9a2d20674f6a5d5e658404"><span>S={1,2,3,4,5,6}, n(S)=6</span></label>
-</div>
-</div>
-<div class="webex-solution">
-<p>Jawaban benar: S={1,2,3,4,5,6}, n(S)=6.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="2" type="1">
-<li>Dalam pelemparan sebuah dadu, A adalah kejadian angka genap. Tentukan anggota kejadian A, jumlah anggota kejadian A, dan peluang kejadian A.</li>
-</ol>
-<div id="webex-9973a8af28df277f97eddf8e09751166" class="webex-radiogroup" data-answer="YgkbAk0ITVZv">
-<label><input type="radio" autocomplete="off" name="9973a8af28df277f97eddf8e09751166"><span>A={2,3,5}, n(A)=3, P=1/2</span></label><label><input type="radio" autocomplete="off" name="9973a8af28df277f97eddf8e09751166"><span>A={2,4,6}, n(A)=3, P=1/2</span></label><label><input type="radio" autocomplete="off" name="9973a8af28df277f97eddf8e09751166"><span>A={1,3,5}, n(A)=3, P=1/2</span></label><label><input type="radio" autocomplete="off" name="9973a8af28df277f97eddf8e09751166"><span>A={1,2,3,4,5,6}, n(A)=6, P=1</span></label>
-</div>
-</div>
-<div class="webex-solution">
-<p>Jawaban benar: A={2,4,6}, n(A)=3, P=1/2.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="3" type="1">
-<li>Sebuah koin logam (sisi angka dan gambar) dilempar dua kali. Berapa banyak anggota ruang sampel? Berapa peluang muncul tepat 1 sisi gambar?</li>
-</ol>
-<div id="webex-46fb02a0e170bfa4731055e903b5abde" class="webex-radiogroup" data-answer="bwdKUhwCTQA4">
-<label><input type="radio" autocomplete="off" name="46fb02a0e170bfa4731055e903b5abde"><span>S={AA,AG,GA,GG}, n(S)=4, P=1/2</span></label><label><input type="radio" autocomplete="off" name="46fb02a0e170bfa4731055e903b5abde"><span>S={AG,GA}, n(S)=2, P=1</span></label><label><input type="radio" autocomplete="off" name="46fb02a0e170bfa4731055e903b5abde"><span>S={AA,GG}, n(S)=2, P=1/2</span></label><label><input type="radio" autocomplete="off" name="46fb02a0e170bfa4731055e903b5abde"><span>S={A,G}, n(S)=2, P=1/2</span></label>
-</div>
-</div>
-<div class="webex-solution">
-<p>Jawaban benar: S={AA,AG,GA,GG}, n(S)=4, tepat satu gambar {AG,GA}, peluang 2/4=1/2.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="4" type="1">
-<li>Sebuah dadu bersisi 6 dilempar sekali. Berapa peluang munculnya bilangan prima?</li>
-</ol>
-<div id="webex-76a31d8a1db579ba8d2855cc17a16d1e" class="webex-radiogroup" data-answer="bAZNAx1UFFBs">
-<label><input type="radio" autocomplete="off" name="76a31d8a1db579ba8d2855cc17a16d1e"><span>P=1/3, bilangan prima {2,3}</span></label><label><input type="radio" autocomplete="off" name="76a31d8a1db579ba8d2855cc17a16d1e"><span>P=2/3, bilangan prima {2,3,5,7}</span></label><label><input type="radio" autocomplete="off" name="76a31d8a1db579ba8d2855cc17a16d1e"><span>P=1/6, bilangan prima {5}</span></label><label><input type="radio" autocomplete="off" name="76a31d8a1db579ba8d2855cc17a16d1e"><span>P=1/2, bilangan prima {2,3,5}</span></label>
-</div>
-</div>
-<div class="webex-solution">
-<p>Jawaban benar: bilangan prima pada dadu {2,3,5}, peluang 3/6=1/2.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<p>(5a) Sebuah dadu bersisi 6 dilempar sekali. Z adalah kejadian bilangan ganjil, Q adalah kejadian bilangan prima. Tentukan anggota kejadian Z dan Q.</p>
-<p><input class="webex-solveme" id="webex-66613d0e94ccb10e6c30e5f858556362" size="21" data-answer="bRRsDEhVHFYVAR5PQmANHgRPABxQSEgaaA=="></p>
-</div>
-<div class="webex-solution">
-<p>Z={1,3,5}, Q={2,3,5}.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<p>(5b) Tentukan anggota Z ∪ Q dan Z ∩ Q.</p>
-<p><input class="webex-solveme" id="webex-16945bb5c41e8e4784c55ea3ac3f5b04" size="28" data-answer="ahRjFNfqyBUyCUpUFFcYBBQBHhkVP0HR6coTNwgZAxgESxtp"></p>
-</div>
-<div class="webex-solution">
-<p>Z ∪ Q={1,2,3,5}, Z ∩ Q={3,5}.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<p>(5c) Tentukan peluang Z ∪ Q dan Z ∩ Q.</p>
-<p><input class="webex-solveme" id="webex-8c9a8b81db4f2b19e544d840faa46c41" size="20" data-answer="Y0ELTgtCXFAKQgVJAUBs"></p>
-</div>
-<div class="webex-solution">
-<p>P(Z ∪ Q)=2/3, P(Z ∩ Q)=1/3.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<p>(5d) Tentukan peluang Z^c.</p>
-<p><input class="webex-solveme" id="webex-f2c55866d250047d10a0ce20b3ead38f" size="20" data-answer="PRBSGgcaaw=="></p>
-</div>
-<div class="webex-solution">
-<p>Z^c={2,4,6}, P(Z^c)=1/2.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<p>(5e) Tentukan peluang Z ∪ Q^c.</p>
-<p><input class="webex-solveme" id="webex-75fe52482366ebae9db1cb2cdc2ad706" size="20" data-answer="bBdTSgMQaQ=="></p>
-</div>
-<div class="webex-solution">
-<p>Q^c={1,4,6}, Z ∪ Q^c={1,3,4,5,6}, P=5/6.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<p>(5f) Tentukan peluang (Z ∪ Q)^c.</p>
-<p><input class="webex-solveme" id="webex-6c9cbf05ae3a4e2866fdf253398dd948" size="20" data-answer="bUEITFFEbQ=="></p>
-</div>
-<div class="webex-solution">
-<p>(Z ∪ Q)^c={4,6}, P=1/3.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="6" type="1">
-<li>Dua dadu fair dilempar sekali. Berapa peluang jumlah mata = 7?</li>
-</ol>
-<div id="webex-6e01e7905d6d793cc3ebcce5dc724c31" class="webex-radiogroup" data-answer="bVUcAEkHFQBo">
-<label><input type="radio" autocomplete="off" name="6e01e7905d6d793cc3ebcce5dc724c31"><span>P=1/12</span></label><label><input type="radio" autocomplete="off" name="6e01e7905d6d793cc3ebcce5dc724c31"><span>P=1/6</span></label><label><input type="radio" autocomplete="off" name="6e01e7905d6d793cc3ebcce5dc724c31"><span>P=1/3</span></label><label><input type="radio" autocomplete="off" name="6e01e7905d6d793cc3ebcce5dc724c31"><span>P=1/36</span></label>
-</div>
-</div>
-<div class="webex-solution">
-<p>Pasangan jumlah 7: {(1,6),(2,5),(3,4),(4,3),(5,2),(6,1)} ada 6 dari 36. Peluang 6/36=1/6.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="7" type="1">
-<li>Tiga kali lempar koin fair. Berapa peluang tepat 2 sisi gambar?</li>
-</ol>
-<div id="webex-20306c7f8703f65971fd9e0beafa6678" class="webex-radiogroup" data-answer="aQAfABpTG1dl">
-<label><input type="radio" autocomplete="off" name="20306c7f8703f65971fd9e0beafa6678"><span>P=5/8</span></label><label><input type="radio" autocomplete="off" name="20306c7f8703f65971fd9e0beafa6678"><span>P=1/4</span></label><label><input type="radio" autocomplete="off" name="20306c7f8703f65971fd9e0beafa6678"><span>P=1/2</span></label><label><input type="radio" autocomplete="off" name="20306c7f8703f65971fd9e0beafa6678"><span>P=3/8</span></label>
-</div>
-</div>
-<div class="webex-solution">
-<p>C(3,2)=3 susunan, total 2^3=8. Peluang 3/8.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="8" type="1">
-<li>Dadu sekali. Z=bilangan ganjil, Q=bilangan prima. Hitung P(Z | Q).</li>
-</ol>
-<p><input class="webex-solveme" id="webex-7db7fef7eacf6ee27eeacc760ede39e8" size="20" data-answer="bEZQGFVHOw=="></p>
-</div>
-<div class="webex-solution">
-<p>Q={2,3,5}, Z∩Q={3,5}. P(Z|Q)=|{3,5}|/|{2,3,5}|=2/3.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="9" type="1">
-<li>Dadu sekali. A=kelipatan 3, B=bilangan &gt;4. Apakah A dan B independen?</li>
-</ol>
-<div id="webex-44b3656113a923f0f45518919f4102bd" class="webex-radiogroup" data-answer="bwROAhoFGgFs">
-<label><input type="radio" autocomplete="off" name="44b3656113a923f0f45518919f4102bd"><span>Independen</span></label><label><input type="radio" autocomplete="off" name="44b3656113a923f0f45518919f4102bd"><span>Tidak independen</span></label><label><input type="radio" autocomplete="off" name="44b3656113a923f0f45518919f4102bd"><span>Saling lepas dan independen</span></label><label><input type="radio" autocomplete="off" name="44b3656113a923f0f45518919f4102bd"><span>Saling lepas</span></label>
-</div>
-</div>
-<div class="webex-solution">
-<p>A={3,6}, P(A)=1/3. B={5,6}, P(B)=1/3. A∩B={6}, P=1/6. P(A)P(B)=1/9≠1/6 ⇒ tidak independen.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="10" type="1">
-<li>Dua dadu fair. Berapa peluang keduanya bernilai genap?</li>
-</ol>
-<div id="webex-6e82fd2b55884c9e62878f91aa0f167f" class="webex-radiogroup" data-answer="bVQUAkpUHlJo">
-<label><input type="radio" autocomplete="off" name="6e82fd2b55884c9e62878f91aa0f167f"><span>P=1/4</span></label><label><input type="radio" autocomplete="off" name="6e82fd2b55884c9e62878f91aa0f167f"><span>P=1/2</span></label><label><input type="radio" autocomplete="off" name="6e82fd2b55884c9e62878f91aa0f167f"><span>P=1/3</span></label><label><input type="radio" autocomplete="off" name="6e82fd2b55884c9e62878f91aa0f167f"><span>P=1/6</span></label>
-</div>
-</div>
-<div class="webex-solution">
-<p>Setiap dadu genap dengan peluang 1/2. Keduanya genap: (1/2)*(1/2)=1/4.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="11" type="1">
-<li>Dua dadu fair. Berapa peluang minimal satu dadu bernilai 6?</li>
-</ol>
-<div id="webex-353ffa80463f3af330e229bcb0fc0c7a" class="webex-radiogroup" data-answer="aAUfVkpRFAFp">
-<label><input type="radio" autocomplete="off" name="353ffa80463f3af330e229bcb0fc0c7a"><span>P=25/36</span></label><label><input type="radio" autocomplete="off" name="353ffa80463f3af330e229bcb0fc0c7a"><span>P=1/6</span></label><label><input type="radio" autocomplete="off" name="353ffa80463f3af330e229bcb0fc0c7a"><span>P=5/18</span></label><label><input type="radio" autocomplete="off" name="353ffa80463f3af330e229bcb0fc0c7a"><span>P=11/36</span></label>
-</div>
-</div>
-<div class="webex-solution">
-<p>Komplemen: tidak ada 6 = (5/6)^2=25/36. Jadi 1−25/36=11/36.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="12" type="1">
-<li>Sebuah dadu dilempar sekali. Hitung peluang muncul bilangan ganjil dengan syarat hasil lebih dari 3, <span class="math inline">\(P(\text{ganjil} \mid &gt;3)\)</span>.</li>
-</ol>
-<p><input class="webex-solveme" id="webex-25469d360647243dab9c3d61938347ba" size="20" data-answer="aRcFGQpGbg=="></p>
-</div>
-<div class="webex-solution">
-<p>Rumus peluang bersyarat: <span class="math inline">\(P(A \mid B) = \dfrac{P(A \cap B)}{P(B)}\)</span>.</p>
-<p>Di sini <span class="math inline">\(B=\{4,5,6\}\)</span>, <span class="math inline">\(A=\{1,3,5\}\)</span>. <span class="math inline">\(Irisan = \{5\}\)</span>, sehingga <span class="math inline">\(P(A \cap B)=1/6\)</span>, <span class="math inline">\(P(B)=3/6\)</span>. Maka <span class="math inline">\(P(A \mid B)=\dfrac{1/6}{3/6} = 1/3\)</span>.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="13" type="1">
-<li>Dadu sekali. A={1,2,3,4} dan B={3,4,5,6}. Tentukan A &nbsp;B.</li>
-</ol>
-<p><input class="webex-solveme" id="webex-12f66641ef08f96a7edc98fe096d080b" size="20" data-answer="ahAdBxoESRM4"></p>
-</div>
-<div class="webex-solution">
-<p>{1,2}</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="14" type="1">
-<li>Manakah yang benar?</li>
-</ol>
-<div id="webex-f01ff72877630a50c10acd222cbda5f7" class="webex-radiogroup" data-answer="PQAdVkoHHglq">
-<label><input type="radio" autocomplete="off" name="f01ff72877630a50c10acd222cbda5f7"><span>A={2,4} dan B={1,3,5} ⇒ A ⊆ B</span></label><label><input type="radio" autocomplete="off" name="f01ff72877630a50c10acd222cbda5f7"><span>A={2,4,6} dan B={2,4} ⇒ A ⊆ B</span></label><label><input type="radio" autocomplete="off" name="f01ff72877630a50c10acd222cbda5f7"><span>A={1,3,5} dan B={2,4,6} ⇒ A ⊆ B</span></label><label><input type="radio" autocomplete="off" name="f01ff72877630a50c10acd222cbda5f7"><span>A={2,4} dan B={2,4,6} ⇒ A ⊆ B</span></label>
-</div>
-</div>
-<div class="webex-solution">
-<p>Hanya {2,4} ⊆ {2,4,6} yang benar.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="15" type="1">
-<li>Diketahui P(A)=0.4, P(B)=0.5, dan P(A ∩ B)=0.2. Hitung P(A ∪ B).</li>
-</ol>
-<div id="webex-a0dc7cbbce283bce53ec6c9e7fb9e276" class="webex-radiogroup" data-answer="OgBIUxtSTlI+">
-<label><input type="radio" autocomplete="off" name="a0dc7cbbce283bce53ec6c9e7fb9e276"><span>0.6</span></label><label><input type="radio" autocomplete="off" name="a0dc7cbbce283bce53ec6c9e7fb9e276"><span>0.3</span></label><label><input type="radio" autocomplete="off" name="a0dc7cbbce283bce53ec6c9e7fb9e276"><span>0.7</span></label><label><input type="radio" autocomplete="off" name="a0dc7cbbce283bce53ec6c9e7fb9e276"><span>0.9</span></label>
-</div>
-</div>
-<div class="webex-solution">
-<p>P(A ∪ B)=0.4+0.5−0.2=0.7.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="16" type="1">
-<li>A dan B saling lepas dengan P(A)=1/3 dan P(B)=1/6. Hitung P(A ∪ B).</li>
-</ol>
-<div id="webex-81c9f1a0a863cb8d74675ffd83820fee" class="webex-radiogroup" data-answer="YwFPCUoBTQE8">
-<label><input type="radio" autocomplete="off" name="81c9f1a0a863cb8d74675ffd83820fee"><span>1/3</span></label><label><input type="radio" autocomplete="off" name="81c9f1a0a863cb8d74675ffd83820fee"><span>1/6</span></label><label><input type="radio" autocomplete="off" name="81c9f1a0a863cb8d74675ffd83820fee"><span>2/3</span></label><label><input type="radio" autocomplete="off" name="81c9f1a0a863cb8d74675ffd83820fee"><span>1/2</span></label>
-</div>
-</div>
-<div class="webex-solution">
-<p>Saling lepas ⇒ P(A ∪ B)=1/3+1/6=1/2.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="17" type="1">
-<li>Dadu sekali. B=bilangan genap, C=bilangan &gt;3. Hitung P(C | B).</li>
-</ol>
-<p><input class="webex-solveme" id="webex-59886ba7ac23048a104d22dacd817ab7" size="20" data-answer="bhsKFwVAPA=="></p>
-</div>
-<div class="webex-solution">
-<p>B={2,4,6}. C∩B={4,6}. Jadi 2/3.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="18" type="1">
-<li>Diketahui P(A)=1/2 dan P(B | A)=2/3. Hitung P(A ∩ B).</li>
-</ol>
-<div id="webex-3f2de91607a5a29df0121ff599bcb7c9" class="webex-radiogroup" data-answer="aFceVEkJHQZt">
-<label><input type="radio" autocomplete="off" name="3f2de91607a5a29df0121ff599bcb7c9"><span>1/3</span></label><label><input type="radio" autocomplete="off" name="3f2de91607a5a29df0121ff599bcb7c9"><span>3/4</span></label><label><input type="radio" autocomplete="off" name="3f2de91607a5a29df0121ff599bcb7c9"><span>1/6</span></label><label><input type="radio" autocomplete="off" name="3f2de91607a5a29df0121ff599bcb7c9"><span>2/3</span></label>
-</div>
-</div>
-<div class="webex-solution">
-<p>P(A ∩ B)=P(A)·P(B|A)=1/2·2/3=1/3.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="19" type="1">
-<li>Diketahui P(A)=1/2, P(B)=1/3, P(A ∩ B)=1/6. Tentukan hubungan A dan B.</li>
-</ol>
-<div id="webex-6d9e3f405383b170fb5befd934d725de" class="webex-radiogroup" data-answer="bVQVVR9XGABo">
-<label><input type="radio" autocomplete="off" name="6d9e3f405383b170fb5befd934d725de"><span>Tidak independen</span></label><label><input type="radio" autocomplete="off" name="6d9e3f405383b170fb5befd934d725de"><span>Saling lepas</span></label><label><input type="radio" autocomplete="off" name="6d9e3f405383b170fb5befd934d725de"><span>Independen</span></label><label><input type="radio" autocomplete="off" name="6d9e3f405383b170fb5befd934d725de"><span>Saling lepas dan independen</span></label>
-</div>
-</div>
-<div class="webex-solution">
-<p>P(A)P(B)=1/6= P(A ∩ B) ⇒ independen.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="20" type="1">
-<li>P(A)=0.35. Hitung P(A^c).</li>
-</ol>
-<p><input class="webex-solveme" id="webex-86bd94940963a61f6389ec71c674870a" size="20" data-answer="YxRSSg8BG2k="></p>
-</div>
-<div class="webex-solution">
-<p>0.65</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="21" type="1">
-<li>Pilih pernyataan yang benar.</li>
-</ol>
-<div id="webex-968f5b1d9f4d6317c5f619e1a6fcbc55" class="webex-radiogroup" data-answer="YgYUVhlTHVRk">
-<label><input type="radio" autocomplete="off" name="968f5b1d9f4d6317c5f619e1a6fcbc55"><span>P(S)=0 dan P(∅)=1</span></label><label><input type="radio" autocomplete="off" name="968f5b1d9f4d6317c5f619e1a6fcbc55"><span>P(S)=0 dan P(∅)=0</span></label><label><input type="radio" autocomplete="off" name="968f5b1d9f4d6317c5f619e1a6fcbc55"><span>P(S)=1 dan P(∅)=0</span></label><label><input type="radio" autocomplete="off" name="968f5b1d9f4d6317c5f619e1a6fcbc55"><span>P(S)=1 dan P(∅)=1</span></label>
-</div>
-</div>
-<div class="webex-solution">
-<p>Ruang sampel selalu 1, himpunan kosong 0.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="22" type="1">
-<li>Manakah yang tidak mungkin menjadi nilai peluang?</li>
-</ol>
-<div id="webex-310dcef7789a19a3b4e7441f8d533e7a" class="webex-radiogroup" data-answer="aAAcVE9VSgdq">
-<label><input type="radio" autocomplete="off" name="310dcef7789a19a3b4e7441f8d533e7a"><span>−0.1</span></label><label><input type="radio" autocomplete="off" name="310dcef7789a19a3b4e7441f8d533e7a"><span>0</span></label><label><input type="radio" autocomplete="off" name="310dcef7789a19a3b4e7441f8d533e7a"><span>1</span></label><label><input type="radio" autocomplete="off" name="310dcef7789a19a3b4e7441f8d533e7a"><span>0.3</span></label>
-</div>
-</div>
-<div class="webex-solution">
-<p>Peluang harus di [0,1].</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="23" type="1">
-<li>Dadu sekali. Z=ganjil, Q=prima. Hitung P(Z ∩ Q^c).</li>
-</ol>
-<p><input class="webex-solveme" id="webex-18d398a6d98516b81d57a1ba33b22e2d" size="20" data-answer="ahpVHA8aPA=="></p>
-</div>
-<div class="webex-solution">
-<p>Q^c={1,4,6}, Z ∩ Q^c={1}, P=1/6.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="24" type="1">
-<li>Jika A dan B saling lepas serta P(A)&gt;0 dan P(B)&gt;0, maka A dan B independen. Benar atau salah?</li>
-</ol>
-<div id="webex-056b281936ca5f493426b56d55f1c760" class="webex-radiogroup" data-answer="awUaUx4IHQlu">
-<label><input type="radio" autocomplete="off" name="056b281936ca5f493426b56d55f1c760"><span>Tergantung P(A)</span></label><label><input type="radio" autocomplete="off" name="056b281936ca5f493426b56d55f1c760"><span>Salah</span></label><label><input type="radio" autocomplete="off" name="056b281936ca5f493426b56d55f1c760"><span>Benar</span></label><label><input type="radio" autocomplete="off" name="056b281936ca5f493426b56d55f1c760"><span>Tidak dapat ditentukan</span></label>
-</div>
-</div>
-<div class="webex-solution">
-<p>Salah. Saling lepas dengan peluang positif ⇒ P(A ∩ B)=0 ≠ P(A)P(B).</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol type="1">
-<li>Sebuah kotak berisi 5 bola merah, 3 bola biru, dan 2 bola hijau. Dua bola diambil secara acak tanpa pengembalian.</li>
-</ol>
-<ol type="a">
-<li>Berapa peluang kedua bola berwarna merah?</li>
-<li>Berapa peluang bola pertama merah dan bola kedua biru?</li>
-</ol>
-<p><input class="webex-solveme" id="webex-5cc2ee8fcad9058c989de809006b7162" size="20" data-answer="bkFRHVxFXAcNQVUWBhdl"></p>
-</div>
-<div class="webex-solution">
-<ol type="a">
-<li>Kedua bola merah:</li>
-</ol>
-<ul>
-<li>Total bola = 10</li>
-<li>P(merah pertama) = 5/10</li>
-<li>P(merah kedua | merah pertama) = 4/9</li>
-<li>P(kedua merah) = (5/10) × (4/9) = 2/9</li>
-</ul>
-<ol start="2" type="a">
-<li>Pertama merah, kedua biru:</li>
-</ol>
-<ul>
-<li>P(merah pertama) = 5/10</li>
-<li>P(biru kedua | merah pertama) = 3/9</li>
-<li>P(merah lalu biru) = (5/10) × (3/9) = 1/6</li>
-</ul>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="2" type="1">
-<li>Dalam pelemparan tiga koin sekaligus, kejadian A adalah “muncul tepat 2 gambar” dan kejadian B adalah “muncul minimal 2 gambar”.</li>
-</ol>
-<ol type="a">
-<li>Tentukan anggota A dan B</li>
-<li>Apakah A ⊆ B? Jelaskan!</li>
-<li>Hitung P(B|A)</li>
-</ol>
-<p><input class="webex-solveme" id="webex-056995557e2e7c5580d0f03a58ce0b5c" size="40" data-answer="axd3BEJ0cnIbInMiGyRydEUcRHJbS3ImchQkJHdOciRxGXF+fkgZFXaHuON1Q1dQVlEWHEZgEU0VGksnTCMcQRwVFAgbaA=="></p>
-</div>
-<div class="webex-solution">
-<ol type="a">
-<li>Anggota A dan B:</li>
-</ol>
-<ul>
-<li>Ruang sampel S = {AAA, AAG, AGA, GAA, AGG, GAG, GGA, GGG}, n(S) = 8</li>
-<li>A (tepat 2 gambar) = {AGG, GAG, GGA}, n(A) = 3</li>
-<li>B (minimal 2 gambar) = {AGG, GAG, GGA, GGG}, n(B) = 4</li>
-</ul>
-<ol start="2" type="a">
-<li><p>Ya, A ⊆ B karena semua anggota A ada dalam B</p></li>
-<li><p>P(B|A) = 1 (karena A ⊆ B, maka A ∩ B = A)</p></li>
-</ol>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="3" type="1">
-<li>Diketahui P(A) = 0.6, P(B) = 0.5, dan P(A ∪ B) = 0.8.</li>
-</ol>
-<ol type="a">
-<li>Hitung P(A ∩ B)</li>
-<li>Hitung P(A|B)</li>
-<li>Apakah A dan B independen? Buktikan!</li>
-</ol>
-<p><input class="webex-solveme" id="webex-3a028b73f4031f592e4819d3fa815a45" size="20" data-answer="aENgEBRCFRsn1riac08XFRJHBBYCFURjRE0YEx0gSHcaQxwSGlIZBUoUeV1VA0VcXAFRVhNk"></p>
-</div>
-<div class="webex-solution">
-<ol type="a">
-<li><p>P(A ∩ B): P(A ∪ B) = P(A) + P(B) - P(A ∩ B) 0.8 = 0.6 + 0.5 - P(A ∩ B) P(A ∩ B) = 0.3</p></li>
-<li><p>P(A|B) = P(A ∩ B) / P(B) = 0.3 / 0.5 = 0.6</p></li>
-<li><p>Independen: P(A) × P(B) = 0.6 × 0.5 = 0.3 P(A ∩ B) = 0.3 Karena sama, maka A dan B INDEPENDEN.</p></li>
-</ol>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="4" type="1">
-<li>Sebuah dadu merah dan dadu biru dilempar bersamaan. Kejadian M adalah “jumlah mata dadu = 8” dan kejadian N adalah “hasil kali mata dadu genap”.</li>
-</ol>
-<ol type="a">
-<li>Tentukan n(M) dan n(N)</li>
-<li>Hitung P(M ∩ N)</li>
-<li>Hitung P(M ∪ N)</li>
-</ol>
-<p><input class="webex-solveme" id="webex-b17ba6a09a6380d629e1dea56041582b" size="40" data-answer="ORNZSiwfXAUVQVgbdhlZBAUVRWFMKIO9n34dDAQXA1BOEWdKLNTpmndICwEBH1cAEGQ="></p>
-</div>
-<div class="webex-solution">
-<ol type="a">
-<li>n(M) dan n(N):</li>
-</ol>
-<ul>
-<li>M (jumlah = 8): {(2,6), (3,5), (4,4), (5,3), (6,2)}, n(M) = 5</li>
-<li>N (hasil kali genap): Komplemen kedua ganjil = 9, jadi n(N) = 36 - 9 = 27</li>
-</ul>
-<ol start="2" type="a">
-<li><p>P(M ∩ N): Dari M yang hasil kalinya genap: {(2,6), (4,4), (6,2)}, n(M ∩ N) = 3 P(M ∩ N) = 3/36 = 1/12</p></li>
-<li><p>P(M ∪ N) = 5/36 + 27/36 - 3/36 = 29/36</p></li>
-</ol>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="5" type="1">
-<li>Dalam sebuah kelas terdapat 40 siswa: 25 laki-laki dan 15 perempuan. Dari laki-laki, 15 orang memakai kacamata. Dari perempuan, 9 orang memakai kacamata. Jika dipilih 1 siswa secara acak:</li>
-</ol>
-<ol type="a">
-<li>Berapa peluang terpilih siswa perempuan yang memakai kacamata?</li>
-<li>Jika yang terpilih memakai kacamata, berapa peluang dia laki-laki?</li>
-</ol>
-<div id="webex-584d8dc8f386f97fd4a07a7d9da230cf" class="webex-radiogroup" data-answer="bggYVRRUTwg7">
-<label><input type="radio" autocomplete="off" name="584d8dc8f386f97fd4a07a7d9da230cf"><span>a) P=15/40=0.375, b) P(Laki-laki|Berkacamata)=15/24=5/8=0.625</span></label><label><input type="radio" autocomplete="off" name="584d8dc8f386f97fd4a07a7d9da230cf"><span>a) P=9/40=0.225, b) P(Laki-laki|Berkacamata)=15/24=5/8=0.625</span></label><label><input type="radio" autocomplete="off" name="584d8dc8f386f97fd4a07a7d9da230cf"><span>a) P=15/40=0.375, b) P(Laki-laki|Berkacamata)=9/24=3/8=0.375</span></label><label><input type="radio" autocomplete="off" name="584d8dc8f386f97fd4a07a7d9da230cf"><span>a) P=9/40=0.225, b) P(Laki-laki|Berkacamata)=9/24=3/8=0.375</span></label>
-</div>
-</div>
-<div class="webex-solution">
-<ol type="a">
-<li><p>Perempuan berkacamata = 9, Total = 40, P = 9/40 = 0.225</p></li>
-<li><p>Total berkacamata = 24, Laki-laki berkacamata = 15 P(Laki-laki | Berkacamata) = 15/24 = 5/8 = 0.625</p></li>
-</ol>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="6" type="1">
-<li>Kejadian A dan B saling lepas dengan P(A) = 0.4 dan P(A ∪ B) = 0.7.</li>
-</ol>
-<ol type="a">
-<li>Hitung P(B)</li>
-<li>Hitung P(A ∩ B)</li>
-<li>Apakah mungkin A dan B independen? Jelaskan!</li>
-</ol>
-<p><input class="webex-solveme" id="webex-5350b8e62b3f5a6bd5b4fc540fcd6d97" size="36" data-answer="bhFlGCARWAYcUR9GZUl3gOycIB1bUxkUZA8HBV1EUFlRVkVVDFwAWBA/"></p>
-</div>
-<div class="webex-solution">
-<ol type="a">
-<li><p>P(B): Karena saling lepas: P(A ∪ B) = P(A) + P(B) 0.7 = 0.4 + P(B) P(B) = 0.3</p></li>
-<li><p>P(A ∩ B) = 0 (saling lepas)</p></li>
-<li><p>Tidak mungkin independen: Jika independen: P(A ∩ B) = P(A) × P(B) = 0.12 Tapi saling lepas: P(A ∩ B) = 0 0 ≠ 0.12, maka TIDAK INDEPENDEN</p></li>
-</ol>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="7" type="1">
-<li>Tiga kartu diambil secara acak dari 52 kartu bridge tanpa pengembalian. Berapa peluang ketiga kartu tersebut adalah kartu As?</li>
-</ol>
-<div id="webex-9998c37e5f62a0806d73e74e601f1d8b" class="webex-radiogroup" data-answer="YgkVCU8DG1Vo">
-<label><input type="radio" autocomplete="off" name="9998c37e5f62a0806d73e74e601f1d8b"><span>P=1/2652</span></label><label><input type="radio" autocomplete="off" name="9998c37e5f62a0806d73e74e601f1d8b"><span>P=1/5525</span></label><label><input type="radio" autocomplete="off" name="9998c37e5f62a0806d73e74e601f1d8b"><span>P=1/663</span></label><label><input type="radio" autocomplete="off" name="9998c37e5f62a0806d73e74e601f1d8b"><span>P=1/1326</span></label>
-</div>
-</div>
-<div class="webex-solution">
-<p>Ada 4 kartu As dalam 52 kartu. P(As pertama) = 4/52 P(As kedua | As pertama) = 3/51 P(As ketiga | 2 As terambil) = 2/50</p>
-<p>P(3 As) = (4/52) × (3/51) × (2/50) = 24/132,600 = 1/5,525</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="8" type="1">
-<li>Dalam pelemparan sebuah dadu, didefinisikan:</li>
-</ol>
-<ul>
-<li>Kejadian X = {bilangan ≤ 4}</li>
-<li>Kejadian Y = {bilangan kelipatan 2}</li>
-<li>Kejadian Z = {bilangan kelipatan 3}</li>
-</ul>
-<ol type="a">
-<li>Tentukan X ∩ Y ∩ Z</li>
-<li>Hitung P(X ∪ Y ∪ Z)</li>
-<li>Hitung P((X ∩ Y)^c)</li>
-</ol>
-<p><input class="webex-solveme" id="webex-11a84f3f18aae20aca2b8d85daa6418a" size="37" data-answer="ahM52rzPaoS5kTtch7q1TUMxGjra7JJshunLbB0MDU4HHUFoHE5rhLmROEg7URlcUU4BQGU="></p>
-</div>
-<div class="webex-solution">
-<p>X = {1, 2, 3, 4}, Y = {2, 4, 6}, Z = {3, 6}</p>
-<ol type="a">
-<li><p>X ∩ Y = {2, 4} X ∩ Y ∩ Z = ∅ (tidak ada bilangan yang memenuhi ketiga syarat)</p></li>
-<li><p>X ∪ Y ∪ Z = {1, 2, 3, 4, 6} P(X ∪ Y ∪ Z) = 5/6</p></li>
-<li><p>X ∩ Y = {2, 4} (X ∩ Y)^c = {1, 3, 5, 6} P((X ∩ Y)^c) = 4/6 = 2/3</p></li>
-</ol>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="9" type="1">
-<li>Sebuah tes medis untuk mendeteksi penyakit memiliki karakteristik:</li>
-</ol>
-<ul>
-<li>95% akurat jika pasien benar sakit (true positive)</li>
-<li>90% akurat jika pasien sehat (true negative)</li>
-<li>Prevalensi penyakit di populasi adalah 2%</li>
-</ul>
-<p>Jika seseorang dites dan hasilnya NEGATIF, berapa peluang dia benar-benar sehat?</p>
-<div id="webex-28b52bfa08102f883594538e6425c802" class="webex-radiogroup" data-answer="aQhOBR5SSlBt">
-<label><input type="radio" autocomplete="off" name="28b52bfa08102f883594538e6425c802"><span>P(Sehat|Negatif) ≈ 0.95 atau 95%</span></label><label><input type="radio" autocomplete="off" name="28b52bfa08102f883594538e6425c802"><span>P(Sehat|Negatif) ≈ 0.98 atau 98%</span></label><label><input type="radio" autocomplete="off" name="28b52bfa08102f883594538e6425c802"><span>P(Sehat|Negatif) ≈ 0.90 atau 90%</span></label><label><input type="radio" autocomplete="off" name="28b52bfa08102f883594538e6425c802"><span>P(Sehat|Negatif) ≈ 0.9989 atau 99.89%</span></label>
-</div>
-</div>
-<div class="webex-solution">
-<p>Gunakan Teorema Bayes: P(Sakit) = 0.02, P(Sehat) = 0.98 P(Negatif | Sehat) = 0.90 P(Negatif | Sakit) = 0.05</p>
-<p>P(Negatif) = (0.90 × 0.98) + (0.05 × 0.02) = 0.883 P(Sehat | Negatif) = (0.90 × 0.98) / 0.883 = 0.9989</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="10" type="1">
-<li>Empat koin fair dilempar bersamaan. Kejadian A adalah “muncul tepat 2 gambar” dan kejadian B adalah “gambar lebih banyak dari angka”.</li>
-</ol>
-<ol type="a">
-<li>Tentukan P(A) dan P(B)</li>
-<li>Tentukan P(A ∩ B)</li>
-<li>Hitung P(A | B)</li>
-<li>Apakah A dan B independen?</li>
-</ol>
-<p><input class="webex-solveme" id="webex-3c450f91477fac429e7bdcf573eb424d" size="20" data-answer="aEFkFxxGGxl1HhVKQUEHHQFJFzJGT0YXH3FMQBgSFlEcUgIZEDYbHRQVHyeD651wEEcbQkZTShVnEUlCFhp1GHFKFhkQRAkdFGNeAgAIFFtXAVISAQ0CUFkROA=="></p>
-</div>
-<div class="webex-solution">
-<ol type="a">
-<li><p>P(A) dan P(B): Total = 16 A (tepat 2 gambar): C(4,2) = 6, P(A) = 6/16 = 3/8 B (minimal 3 gambar): C(4,3) + C(4,4) = 5, P(B) = 5/16</p></li>
-<li><p>P(A ∩ B) = 0 (tidak mungkin tepat 2 sekaligus minimal 3)</p></li>
-<li><p>P(A | B) = 0</p></li>
-<li><p>Tidak independen: P(A) × P(B) = 3/8 × 5/16 = 15/128 P(A ∩ B) = 0 0 ≠ 15/128, maka TIDAK INDEPENDEN</p></li>
-</ol>
-</div>
-</div>
+</header>
 
 
-</section></main><!-- /main --><script>
+<section id="recap-singkat-minggu-4" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="recap-singkat-minggu-4"><span class="header-section-number">5.1</span> Recap Singkat Minggu 4</h2>
+<p><strong>Quiz</strong></p>
+<p><strong>Petunjuk Pengerjaan</strong></p>
+<ul>
+<li>Kerjakan soal dengan teliti</li>
+<li>Tunjukkan langkah-langkah perhitungan</li>
+<li>Waktu: 50 menit</li>
+<li>Total: 10 soal</li>
+</ul>
+<hr>
+<p><em>SOAL 1</em> Dua dadu fair dilempar sekali. Berapa peluang jumlah mata dadu = 9?</p>
+<hr>
+<p><em>SOAL 2</em> Empat kali lempar koin fair. Berapa peluang muncul tepat 3 sisi gambar?</p>
+<hr>
+<p><em>SOAL 3</em> Sebuah dadu dilempar sekali. Kejadian M adalah bilangan ganjil, kejadian N adalah bilangan prima. Hitung P(M | N).</p>
+<hr>
+<p><em>SOAL 4</em> Sebuah dadu dilempar sekali. Kejadian A adalah kelipatan 2, kejadian B adalah bilangan lebih dari 3. Apakah A dan B independen?</p>
+<hr>
+<p><em>SOAL 5</em> Dua dadu fair dilempar. Berapa peluang keduanya bernilai ganjil?</p>
+<hr>
+<p><em>SOAL 6</em> Dua dadu fair dilempar. Berapa peluang minimal satu dadu bernilai 5?</p>
+<hr>
+<p><em>SOAL 7</em> Sebuah dadu dilempar sekali. Hitung peluang muncul bilangan genap dengan syarat hasil lebih dari 2.</p>
+<hr>
+<p><em>SOAL 8</em> Diketahui P(A) = 0.6, P(B) = 0.4, dan P(A ∩ B) = 0.2. Hitung P(A ∪ B).</p>
+<hr>
+<p><em>SOAL 9</em> Kejadian A dan B saling lepas dengan P(A) = 1/4 dan P(B) = 2/5. Hitung P(A ∪ B).</p>
+<hr>
+<p><em>SOAL 10</em> Sebuah dadu dilempar sekali. Kejadian B adalah bilangan genap, kejadian C adalah bilangan kurang dari 5. Hitung P(C | B).</p>
+<hr>
+<p><strong>SOAL TAMBAHAN (Bonus Nilai)</strong></p>
+<p><em>Tambahan 1</em> Diketahui P(A) = 2/3 dan P(B | A) = 3/4. Hitung P(A ∩ B).</p>
+<p><em>Tambahan 2</em> Diketahui P(A) = 1/3, P(B) = 1/2, P(A ∩ B) = 1/6. Tentukan hubungan A dan B.</p>
+<p><em>Tambahan 3</em> P(A) = 0.45. Hitung P(A^c).</p>
+<p><em>Tambahan 4</em> Sebuah dadu dilempar sekali. Kejadian Z adalah bilangan ganjil, kejadian Q adalah bilangan prima. Hitung P(Z ∩ Q^c).</p>
+<p><em>Tambahan 5</em> Jika A dan B saling lepas serta P(A) &gt; 0 dan P(B) &gt; 0, apakah A dan B bisa independen? Jelaskan!</p>
+</section>
+<section id="kombinatorika-dalam-kalkulasi-peluang-diskret." class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="kombinatorika-dalam-kalkulasi-peluang-diskret."><span class="header-section-number">5.2</span> Kombinatorika Dalam Kalkulasi Peluang Diskret.</h2>
+<p><strong>Kombinatorika</strong> adalah cabang matematika yang mempelajari cara menghitung, mengatur, dan memilih objek. Dalam konteks peluang diskret, kombinatorika menjadi alat fundamental untuk menghitung jumlah kemungkinan hasil dalam ruang sampel.</p>
+<section id="mengapa-kombinatorika-penting-dalam-peluang" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="mengapa-kombinatorika-penting-dalam-peluang"><span class="header-section-number">5.2.1</span> Mengapa Kombinatorika Penting dalam Peluang?</h3>
+<p>Peluang suatu kejadian A didefinisikan sebagai:</p>
+<p><span class="math display">\[P(A) = \frac{\text{Jumlah hasil yang menguntungkan}}{\text{Jumlah seluruh kemungkinan}}\]</span></p>
+<p>Kombinatorika membantu kita menghitung pembilang dan penyebut dari rumus di atas secara sistematis.</p>
+<hr>
+</section>
+</section>
+<section id="prinsip-dasar-kombinatorika" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="prinsip-dasar-kombinatorika"><span class="header-section-number">5.3</span> PRINSIP DASAR KOMBINATORIKA</h2>
+<section id="kaidah-perkalian-multiplication-rule" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="kaidah-perkalian-multiplication-rule"><span class="header-section-number">5.3.1</span> Kaidah Perkalian (Multiplication Rule)</h3>
+<p><strong>Definisi:</strong><br>
+Jika suatu kegiatan dapat dilakukan dalam <strong>m</strong> cara, dan untuk setiap cara tersebut kegiatan kedua dapat dilakukan dalam <strong>n</strong> cara, maka kedua kegiatan tersebut dapat dilakukan secara berurutan dalam <strong>m × n</strong> cara.</p>
+<p><strong>Bentuk Umum:</strong><br>
+Untuk k kegiatan berurutan: Total cara = n₁ × n₂ × n₃ × … × nₖ</p>
+<p><strong>Contoh 1: Menu Restoran</strong></p>
+<p>Sebuah restoran menawarkan: - 3 jenis makanan pembuka - 5 jenis makanan utama - 4 jenis dessert - 3 jenis minuman</p>
+<p>Berapa banyak kombinasi menu lengkap yang dapat dipilih?</p>
+<p><strong>Penyelesaian:</strong></p>
+<pre><code>Total kombinasi = 3 × 5 × 4 × 3 = 180 kombinasi menu</code></pre>
+<p><strong>Contoh 2: Kode PIN</strong></p>
+<p>Sebuah PIN terdiri dari 4 digit (0-9). Berapa banyak PIN yang mungkin jika: a) Tidak ada digit yang berulang? b) Digit boleh berulang?</p>
+<p><strong>Penyelesaian:</strong></p>
+<ol type="a">
+<li>Tidak ada digit berulang:</li>
+</ol>
+<pre><code>Digit 1: 10 pilihan
+Digit 2: 9 pilihan (1 sudah terpakai)
+Digit 3: 8 pilihan (2 sudah terpakai)
+Digit 4: 7 pilihan (3 sudah terpakai)
+
+Total = 10 × 9 × 8 × 7 = 5,040 PIN</code></pre>
+<ol start="2" type="a">
+<li>Digit boleh berulang:</li>
+</ol>
+<pre><code>Setiap digit: 10 pilihan
+Total = 10 × 10 × 10 × 10 = 10,000 PIN</code></pre>
+<hr>
+</section>
+<section id="kaidah-penjumlahan-addition-rule" class="level3" data-number="5.3.2">
+<h3 data-number="5.3.2" class="anchored" data-anchor-id="kaidah-penjumlahan-addition-rule"><span class="header-section-number">5.3.2</span> Kaidah Penjumlahan (Addition Rule)</h3>
+<p><strong>Definisi:</strong><br>
+Jika suatu kegiatan dapat dilakukan dalam <strong>m</strong> cara ATAU dalam <strong>n</strong> cara (tetapi tidak keduanya sekaligus), maka kegiatan tersebut dapat dilakukan dalam <strong>m + n</strong> cara.</p>
+<p><strong>Prinsip:</strong> Digunakan untuk kejadian yang <strong>saling lepas</strong> (mutually exclusive).</p>
+<p><strong>Contoh 3: Transportasi ke Kampus</strong></p>
+<p>Seorang mahasiswa dapat ke kampus dengan: - 4 jalur bus - 2 jalur kereta - 3 jalur angkot</p>
+<p>Berapa banyak pilihan transportasi?</p>
+<p><strong>Penyelesaian:</strong></p>
+<pre><code>Total = 4 + 2 + 3 = 9 pilihan</code></pre>
+<p><strong>Contoh 4: Panitia Acara</strong></p>
+<p>Sebuah panitia perlu memilih ketua dari: - 5 mahasiswa semester 6 - 3 mahasiswa semester 8</p>
+<p>Berapa banyak cara memilih ketua?</p>
+<p><strong>Penyelesaian:</strong></p>
+<pre><code>Total = 5 + 3 = 8 cara</code></pre>
+<hr>
+</section>
+</section>
+<section id="permutasi" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="permutasi"><span class="header-section-number">5.4</span> PERMUTASI</h2>
+<p><strong>Permutasi</strong> adalah susunan objek dengan <strong>memperhatikan urutan</strong>.</p>
+<section id="permutasi-tanpa-pengulangan" class="level3" data-number="5.4.1">
+<h3 data-number="5.4.1" class="anchored" data-anchor-id="permutasi-tanpa-pengulangan"><span class="header-section-number">5.4.1</span> Permutasi Tanpa Pengulangan</h3>
+<p><strong>Formula:</strong></p>
+<p><span class="math display">\[P(n,r) = \frac{n!}{(n-r)!}\]</span></p>
+<p>dimana: - n = jumlah total objek - r = jumlah objek yang dipilih - n! = n × (n-1) × (n-2) × … × 2 × 1</p>
+<p><strong>Notasi alternatif:</strong> <span class="math inline">\(_nP_r\)</span> atau <span class="math inline">\(P_r^n\)</span></p>
+<p><strong>Kasus Khusus:</strong> Permutasi n objek semua: P(n,n) = n!</p>
+<p><strong>Contoh 5: Lomba Lari</strong></p>
+<p>Dalam lomba lari dengan 8 peserta, ada berapa cara menentukan juara 1, 2, dan 3?</p>
+<p><strong>Penyelesaian:</strong></p>
+<pre><code>P(8,3) = 8!/(8-3)! = 8!/5! = 8 × 7 × 6 = 336 cara</code></pre>
+<p><strong>Contoh 6: Susunan Buku</strong></p>
+<p>Berapa cara menyusun 5 buku berbeda di rak?</p>
+<p><strong>Penyelesaian:</strong></p>
+<pre><code>P(5,5) = 5! = 5 × 4 × 3 × 2 × 1 = 120 cara</code></pre>
+<p><strong>Contoh 7: Password</strong></p>
+<p>Sebuah password terdiri dari 3 huruf berbeda dari 26 huruf alfabet. Berapa banyak password yang mungkin?</p>
+<p><strong>Penyelesaian:</strong></p>
+<pre><code>P(26,3) = 26!/(26-3)! = 26 × 25 × 24 = 15,600 password</code></pre>
+<hr>
+</section>
+<section id="permutasi-dengan-pengulangan" class="level3" data-number="5.4.2">
+<h3 data-number="5.4.2" class="anchored" data-anchor-id="permutasi-dengan-pengulangan"><span class="header-section-number">5.4.2</span> Permutasi dengan Pengulangan</h3>
+<p><strong>Formula:</strong></p>
+<p><span class="math display">\[\frac{n!}{n_1! \times n_2! \times ... \times n_k!}\]</span></p>
+<p>dimana: - n = total objek - n₁, n₂, …, nₖ = jumlah objek identik dari setiap jenis</p>
+<p><strong>Contoh 8: Kata MATEMATIKA</strong></p>
+<p>Berapa banyak cara menyusun huruf dalam kata “MATEMATIKA”?</p>
+<p><strong>Penyelesaian:</strong></p>
+<pre><code>Total huruf = 10
+M = 2, A = 3, T = 2, E = 1, I = 1, K = 1
+
+Jumlah cara = 10!/(2! × 3! × 2! × 1! × 1! × 1!)
+            = 3,628,800/(2 × 6 × 2)
+            = 3,628,800/24
+            = 151,200 cara</code></pre>
+<p><strong>Contoh 9: Lampu Warna</strong></p>
+<p>Ada 10 lampu: 4 merah, 3 biru, 3 hijau. Berapa cara menyusunnya dalam satu baris?</p>
+<p><strong>Penyelesaian:</strong></p>
+<pre><code>Jumlah cara = 10!/(4! × 3! × 3!)
+            = 3,628,800/(24 × 6 × 6)
+            = 4,200 cara</code></pre>
+<hr>
+</section>
+<section id="permutasi-siklik" class="level3" data-number="5.4.3">
+<h3 data-number="5.4.3" class="anchored" data-anchor-id="permutasi-siklik"><span class="header-section-number">5.4.3</span> Permutasi Siklik</h3>
+<p><strong>Formula:</strong> Permutasi siklik dari n objek = (n-1)!</p>
+<p><strong>Konsep:</strong> Dalam susunan melingkar, tidak ada posisi awal/akhir yang tetap.</p>
+<p><strong>Contoh 10: Meja Bundar</strong></p>
+<p>Berapa cara menyusun 6 orang duduk mengelilingi meja bundar?</p>
+<p><strong>Penyelesaian:</strong></p>
+<pre><code>Permutasi siklik = (6-1)! = 5! = 120 cara</code></pre>
+<hr>
+</section>
+</section>
+<section id="kombinasi" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="kombinasi"><span class="header-section-number">5.5</span> KOMBINASI</h2>
+<p><strong>Kombinasi</strong> adalah pemilihan objek <strong>tanpa memperhatikan urutan</strong>.</p>
+<section id="kombinasi-tanpa-pengulangan" class="level3" data-number="5.5.1">
+<h3 data-number="5.5.1" class="anchored" data-anchor-id="kombinasi-tanpa-pengulangan"><span class="header-section-number">5.5.1</span> Kombinasi Tanpa Pengulangan</h3>
+<p><strong>Formula:</strong></p>
+<p><span class="math display">\[C(n,r) = \binom{n}{r} = \frac{n!}{r!(n-r)!}\]</span></p>
+<p><strong>Notasi alternatif:</strong> <span class="math inline">\(_nC_r\)</span> atau <span class="math inline">\(\binom{n}{r}\)</span></p>
+<p><strong>Sifat Penting:</strong> 1. <span class="math inline">\(C(n,r) = C(n,n-r)\)</span> 2. <span class="math inline">\(C(n,0) = C(n,n) = 1\)</span> 3. <span class="math inline">\(C(n,1) = n\)</span> 4. <span class="math inline">\(C(n,r) = C(n-1,r-1) + C(n-1,r)\)</span> (Identitas Pascal)</p>
+<p><strong>Contoh 11: Komite</strong></p>
+<p>Dari 10 mahasiswa, akan dipilih 4 orang untuk mengikuti kompetisi. Berapa cara pemilihan?</p>
+<p><strong>Penyelesaian:</strong></p>
+<pre><code>C(10,4) = 10!/(4! × 6!)
+        = (10 × 9 × 8 × 7)/(4 × 3 × 2 × 1)
+        = 5,040/24
+        = 210 cara</code></pre>
+<p><strong>Contoh 12: Kartu</strong></p>
+<p>Dari 52 kartu bridge, berapa cara memilih 5 kartu?</p>
+<p><strong>Penyelesaian:</strong></p>
+<pre><code>C(52,5) = 52!/(5! × 47!)
+        = 2,598,960 cara</code></pre>
+<hr>
+</section>
+<section id="kombinasi-dengan-pengulangan" class="level3" data-number="5.5.2">
+<h3 data-number="5.5.2" class="anchored" data-anchor-id="kombinasi-dengan-pengulangan"><span class="header-section-number">5.5.2</span> Kombinasi dengan Pengulangan</h3>
+<p><strong>Formula:</strong></p>
+<p><span class="math display">\[C(n+r-1, r) = \binom{n+r-1}{r}\]</span></p>
+<p>dimana: - n = jumlah jenis objek - r = jumlah objek yang dipilih</p>
+<p><strong>Contoh 13: Membeli Buah</strong></p>
+<p>Di toko ada 4 jenis buah. Anda ingin membeli 6 buah (boleh jenis yang sama). Berapa cara memilih?</p>
+<p><strong>Penyelesaian:</strong></p>
+<pre><code>C(4+6-1, 6) = C(9,6) = C(9,3) = 84 cara</code></pre>
+<hr>
+</section>
+</section>
+<section id="perbedaan-permutasi-dan-kombinasi" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="perbedaan-permutasi-dan-kombinasi"><span class="header-section-number">5.6</span> PERBEDAAN PERMUTASI DAN KOMBINASI</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Aspek</th>
+<th>Permutasi</th>
+<th>Kombinasi</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Urutan</strong></td>
+<td>PENTING</td>
+<td>TIDAK PENTING</td>
+</tr>
+<tr class="even">
+<td><strong>Rumus</strong></td>
+<td>P(n,r) = n!/(n-r)!</td>
+<td>C(n,r) = n!/[r!(n-r)!]</td>
+</tr>
+<tr class="odd">
+<td><strong>Hubungan</strong></td>
+<td>P(n,r) = r! × C(n,r)</td>
+<td>C(n,r) = P(n,r)/r!</td>
+</tr>
+<tr class="even">
+<td><strong>Contoh</strong></td>
+<td>Juara 1,2,3 dari 10 orang</td>
+<td>Tim 3 orang dari 10 orang</td>
+</tr>
+<tr class="odd">
+<td><strong>Nilai</strong></td>
+<td>Lebih besar</td>
+<td>Lebih kecil</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Contoh 14: Perbandingan</strong></p>
+<p>Dari 5 orang {A, B, C, D, E}, pilih 3 orang.</p>
+<p><strong>Permutasi (urutan penting):</strong></p>
+<pre><code>ABC, ACB, BAC, BCA, CAB, CBA,
+ABD, ADB, BAD, BDA, DAB, DBA,
+... dst
+Total: P(5,3) = 60 cara</code></pre>
+<p><strong>Kombinasi (urutan tidak penting):</strong></p>
+<pre><code>{A,B,C}, {A,B,D}, {A,B,E}, {A,C,D}, {A,C,E},
+{A,D,E}, {B,C,D}, {B,C,E}, {B,D,E}, {C,D,E}
+Total: C(5,3) = 10 cara</code></pre>
+<hr>
+</section>
+<section id="aplikasi-dalam-peluang-diskret" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="aplikasi-dalam-peluang-diskret"><span class="header-section-number">5.7</span> APLIKASI DALAM PELUANG DISKRET</h2>
+<section id="prinsip-dasar" class="level3" data-number="5.7.1">
+<h3 data-number="5.7.1" class="anchored" data-anchor-id="prinsip-dasar"><span class="header-section-number">5.7.1</span> Prinsip Dasar</h3>
+<p>Untuk menghitung peluang kejadian A:</p>
+<p><span class="math display">\[P(A) = \frac{n(A)}{n(S)} = \frac{\text{Jumlah hasil yang menguntungkan}}{\text{Jumlah seluruh kemungkinan}}\]</span></p>
+<p>Kombinatorika digunakan untuk menghitung n(A) dan n(S).</p>
+<hr>
+</section>
+<section id="contoh-aplikasi-kartu" class="level3" data-number="5.7.2">
+<h3 data-number="5.7.2" class="anchored" data-anchor-id="contoh-aplikasi-kartu"><span class="header-section-number">5.7.2</span> Contoh Aplikasi: Kartu</h3>
+<p><strong>Contoh 15: Lima Kartu dari Deck</strong></p>
+<p>Dari 52 kartu bridge, diambil 5 kartu secara acak. Berapa peluang mendapat:</p>
+<p><strong>a) 3 kartu As dan 2 kartu King?</strong></p>
+<p><strong>Penyelesaian:</strong></p>
+<pre><code>Cara memilih 3 As dari 4: C(4,3) = 4
+Cara memilih 2 King dari 4: C(4,2) = 6
+Total cara mendapat 3 As dan 2 King: 4 × 6 = 24
+
+Total cara memilih 5 kartu dari 52: C(52,5) = 2,598,960
+
+P(3 As dan 2 King) = 24/2,598,960 ≈ 0.0000092 atau 0.00092%</code></pre>
+<p><strong>b) Semua kartu hati?</strong></p>
+<p><strong>Penyelesaian:</strong></p>
+<pre><code>Kartu hati = 13
+Cara memilih 5 kartu hati: C(13,5) = 1,287
+
+P(semua hati) = 1,287/2,598,960 ≈ 0.000495 atau 0.0495%</code></pre>
+<p><strong>c) Tepat 2 kartu merah dan 3 kartu hitam?</strong></p>
+<p><strong>Penyelesaian:</strong></p>
+<pre><code>Kartu merah = 26, kartu hitam = 26
+Cara memilih 2 merah dari 26: C(26,2) = 325
+Cara memilih 3 hitam dari 26: C(26,3) = 2,600
+Total: 325 × 2,600 = 845,000
+
+P(2 merah, 3 hitam) = 845,000/2,598,960 ≈ 0.325 atau 32.5%</code></pre>
+<hr>
+</section>
+<section id="contoh-aplikasi-lotere" class="level3" data-number="5.7.3">
+<h3 data-number="5.7.3" class="anchored" data-anchor-id="contoh-aplikasi-lotere"><span class="header-section-number">5.7.3</span> Contoh Aplikasi: Lotere</h3>
+<p><strong>Contoh 16: Lotere 6/49</strong></p>
+<p>Dalam lotere, pemain memilih 6 angka dari 1-49. Berapa peluang:</p>
+<p><strong>a) Menang jackpot (menebak 6 angka dengan benar)?</strong></p>
+<p><strong>Penyelesaian:</strong></p>
+<pre><code>Total cara memilih 6 dari 49: C(49,6) = 13,983,816
+
+P(jackpot) = 1/13,983,816 ≈ 0.00000007 atau 0.000007%</code></pre>
+<p><strong>b) Menebak tepat 5 angka benar?</strong></p>
+<p><strong>Penyelesaian:</strong></p>
+<pre><code>Cara memilih 5 benar dari 6: C(6,5) = 6
+Cara memilih 1 salah dari 43: C(43,1) = 43
+Total: 6 × 43 = 258
+
+P(5 benar) = 258/13,983,816 ≈ 0.0000185 atau 0.00185%</code></pre>
+<hr>
+</section>
+<section id="contoh-aplikasi-quality-control" class="level3" data-number="5.7.4">
+<h3 data-number="5.7.4" class="anchored" data-anchor-id="contoh-aplikasi-quality-control"><span class="header-section-number">5.7.4</span> Contoh Aplikasi: Quality Control</h3>
+<p><strong>Contoh 17: Inspeksi Produk</strong></p>
+<p>Sebuah kotak berisi 20 produk, 4 diantaranya cacat. Jika diambil 5 produk secara acak untuk inspeksi, berapa peluang:</p>
+<p><strong>a) Tidak ada produk cacat?</strong></p>
+<p><strong>Penyelesaian:</strong></p>
+<pre><code>Produk baik = 16
+Cara memilih 5 dari 16 baik: C(16,5) = 4,368
+Total cara memilih 5 dari 20: C(20,5) = 15,504
+
+P(tidak cacat) = 4,368/15,504 ≈ 0.282 atau 28.2%</code></pre>
+<p><strong>b) Tepat 1 produk cacat?</strong></p>
+<p><strong>Penyelesaian:</strong></p>
+<pre><code>Cara memilih 1 cacat dari 4: C(4,1) = 4
+Cara memilih 4 baik dari 16: C(16,4) = 1,820
+Total: 4 × 1,820 = 7,280
+
+P(1 cacat) = 7,280/15,504 ≈ 0.470 atau 47.0%</code></pre>
+<p><strong>c) Minimal 2 produk cacat?</strong></p>
+<p><strong>Penyelesaian (menggunakan komplemen):</strong></p>
+<pre><code>P(minimal 2 cacat) = 1 - P(0 cacat) - P(1 cacat)
+                   = 1 - 0.282 - 0.470
+                   = 0.248 atau 24.8%</code></pre>
+<hr>
+</section>
+<section id="contoh-aplikasi-distribusi-objek" class="level3" data-number="5.7.5">
+<h3 data-number="5.7.5" class="anchored" data-anchor-id="contoh-aplikasi-distribusi-objek"><span class="header-section-number">5.7.5</span> Contoh Aplikasi: Distribusi Objek</h3>
+<p><strong>Contoh 18: Pembagian Hadiah</strong></p>
+<p>Ada 10 buku berbeda akan dibagikan kepada 3 siswa: A mendapat 4 buku, B mendapat 3 buku, C mendapat 3 buku. Berapa cara pembagian?</p>
+<p><strong>Penyelesaian:</strong></p>
+<pre><code>Cara memilih 4 buku untuk A dari 10: C(10,4) = 210
+Cara memilih 3 buku untuk B dari 6 sisanya: C(6,3) = 20
+Cara memilih 3 buku untuk C dari 3 sisanya: C(3,3) = 1
+
+Total cara = 210 × 20 × 1 = 4,200 cara</code></pre>
+<p><strong>Formula umum:</strong> <span class="math display">\[\frac{n!}{n_1! \times n_2! \times ... \times n_k!}\]</span></p>
+<p>Untuk kasus ini:</p>
+<pre><code>= 10!/(4! × 3! × 3!)
+= 3,628,800/(24 × 6 × 6)
+= 4,200 cara</code></pre>
+<hr>
+</section>
+<section id="contoh-aplikasi-poker" class="level3" data-number="5.7.6">
+<h3 data-number="5.7.6" class="anchored" data-anchor-id="contoh-aplikasi-poker"><span class="header-section-number">5.7.6</span> Contoh Aplikasi: Poker</h3>
+<p><strong>Contoh 19: Peluang Full House</strong></p>
+<p>Dalam poker, “Full House” adalah 3 kartu dengan nilai sama + 2 kartu dengan nilai sama yang berbeda. Berapa peluang mendapat Full House dari 5 kartu?</p>
+<p><strong>Penyelesaian:</strong></p>
+<pre><code>Langkah 1: Pilih nilai untuk 3 kartu: 13 pilihan
+Langkah 2: Pilih 3 kartu dari 4 kartu nilai tersebut: C(4,3) = 4
+Langkah 3: Pilih nilai untuk 2 kartu (dari 12 nilai sisanya): 12 pilihan
+Langkah 4: Pilih 2 kartu dari 4 kartu nilai tersebut: C(4,2) = 6
+
+Total Full House = 13 × 4 × 12 × 6 = 3,744
+Total 5 kartu = C(52,5) = 2,598,960
+
+P(Full House) = 3,744/2,598,960 ≈ 0.00144 atau 0.144%</code></pre>
+<hr>
+</section>
+</section>
+<section id="strategi-penyelesaian-masalah" class="level2" data-number="5.8">
+<h2 data-number="5.8" class="anchored" data-anchor-id="strategi-penyelesaian-masalah"><span class="header-section-number">5.8</span> STRATEGI PENYELESAIAN MASALAH</h2>
+<section id="langkah-langkah-umum" class="level3" data-number="5.8.1">
+<h3 data-number="5.8.1" class="anchored" data-anchor-id="langkah-langkah-umum"><span class="header-section-number">5.8.1</span> Langkah-Langkah Umum</h3>
+<ol type="1">
+<li><p><strong>Identifikasi</strong> apakah masalah tentang permutasi atau kombinasi</p>
+<ul>
+<li>Urutan penting? → Permutasi</li>
+<li>Urutan tidak penting? → Kombinasi</li>
+</ul></li>
+<li><p><strong>Tentukan</strong> apakah ada pengulangan</p>
+<ul>
+<li>Objek boleh berulang? → Formula khusus</li>
+<li>Objek tidak boleh berulang? → Formula standar</li>
+</ul></li>
+<li><p><strong>Hitung</strong> jumlah kemungkinan untuk numerator dan denominator</p></li>
+<li><p><strong>Kalkulasi</strong> peluang = n(kejadian)/n(ruang sampel)</p></li>
+</ol>
+<hr>
+</section>
+<section id="tabel-bantuan-pemilihan-formula" class="level3" data-number="5.8.2">
+<h3 data-number="5.8.2" class="anchored" data-anchor-id="tabel-bantuan-pemilihan-formula"><span class="header-section-number">5.8.2</span> Tabel Bantuan Pemilihan Formula</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 34%">
+<col style="width: 34%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Kondisi</th>
+<th>Formula</th>
+<th>Contoh</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Urutan penting, tidak ada pengulangan</td>
+<td>P(n,r) = n!/(n-r)!</td>
+<td>Juara 1,2,3 dari 10 orang</td>
+</tr>
+<tr class="even">
+<td>Urutan penting, ada pengulangan identik</td>
+<td>n!/(n₁!×n₂!×…×nₖ!)</td>
+<td>Menyusun kata BANANA</td>
+</tr>
+<tr class="odd">
+<td>Urutan tidak penting, tidak ada pengulangan</td>
+<td>C(n,r) = n!/[r!(n-r)!]</td>
+<td>Memilih 5 dari 10 orang</td>
+</tr>
+<tr class="even">
+<td>Urutan tidak penting, boleh pengulangan</td>
+<td>C(n+r-1,r)</td>
+<td>Membeli 6 buah dari 4 jenis</td>
+</tr>
+<tr class="odd">
+<td>Susunan melingkar</td>
+<td>(n-1)!</td>
+<td>Duduk mengelilingi meja</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+<section id="ringkasan-formula-penting" class="level2" data-number="5.9">
+<h2 data-number="5.9" class="anchored" data-anchor-id="ringkasan-formula-penting"><span class="header-section-number">5.9</span> RINGKASAN FORMULA PENTING</h2>
+<section id="prinsip-dasar-1" class="level3" data-number="5.9.1">
+<h3 data-number="5.9.1" class="anchored" data-anchor-id="prinsip-dasar-1"><span class="header-section-number">5.9.1</span> Prinsip Dasar</h3>
+<ul>
+<li><strong>Kaidah Perkalian</strong>: m × n × p × …</li>
+<li><strong>Kaidah Penjumlahan</strong>: m + n + p + …</li>
+</ul>
+</section>
+<section id="permutasi-1" class="level3" data-number="5.9.2">
+<h3 data-number="5.9.2" class="anchored" data-anchor-id="permutasi-1"><span class="header-section-number">5.9.2</span> Permutasi</h3>
+<ul>
+<li><strong>Tanpa pengulangan</strong>: P(n,r) = n!/(n-r)!</li>
+<li><strong>Dengan pengulangan</strong>: n!/(n₁!×n₂!×…×nₖ!)</li>
+<li><strong>Siklik</strong>: (n-1)!</li>
+</ul>
+</section>
+<section id="kombinasi-1" class="level3" data-number="5.9.3">
+<h3 data-number="5.9.3" class="anchored" data-anchor-id="kombinasi-1"><span class="header-section-number">5.9.3</span> Kombinasi</h3>
+<ul>
+<li><strong>Tanpa pengulangan</strong>: C(n,r) = n!/[r!(n-r)!]</li>
+<li><strong>Dengan pengulangan</strong>: C(n+r-1,r)</li>
+</ul>
+</section>
+<section id="hubungan" class="level3" data-number="5.9.4">
+<h3 data-number="5.9.4" class="anchored" data-anchor-id="hubungan"><span class="header-section-number">5.9.4</span> Hubungan</h3>
+<ul>
+<li>P(n,r) = r! × C(n,r)</li>
+<li>C(n,r) = C(n,n-r)</li>
+</ul>
+</section>
+<section id="faktorial" class="level3" data-number="5.9.5">
+<h3 data-number="5.9.5" class="anchored" data-anchor-id="faktorial"><span class="header-section-number">5.9.5</span> Faktorial</h3>
+<ul>
+<li>0! = 1</li>
+<li>n! = n × (n-1)!</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="referensi" class="level2" data-number="5.10">
+<h2 data-number="5.10" class="anchored" data-anchor-id="referensi"><span class="header-section-number">5.10</span> REFERENSI</h2>
+<ol type="1">
+<li>Rosen, K. H. (2019). <em>Discrete Mathematics and Its Applications</em>. McGraw-Hill.</li>
+<li>Ross, S. (2014). <em>A First Course in Probability</em>. Pearson.</li>
+<li>Lipschutz, S., &amp; Lipson, M. (2011). <em>Schaum’s Outline of Discrete Mathematics</em>. McGraw-Hill.</li>
+<li>Anderson, I. (2002). <em>A First Course in Combinatorial Mathematics</em>. Oxford University Press.</li>
+<li>Brualdi, R. A. (2010). <em>Introductory Combinatorics</em>. Pearson.</li>
+</ol>
+
+
+</section>
+
+</main> <!-- /main -->
+<script>
+
+
 
 /* definition of content for the buttons */
+
 const webex_buttons = {check_hidden:          "<b>&check;</b>",
+
                        check_hidden_alt:      "Check answer",
+
                        check_shown:           "<b>&lsh;</b>",
+
                        check_shown_alt:       "Hide check",
+
                        check_of_total:        "/",
+
                        solution:              "<b>&quest;</b>",
+
                        solution_alt:          "Correct solution",
+
                        question_next:         "<b>&#8634;</b>",
+
                        question_next_alt:     "Next question",
+
                        question_previous:     "",
+
                        question_previous_alt: ""}
 
 
+
+
+
 /* update total correct if #webex-total_correct exists */
+
 update_total_correct = function() {
+
   console.log("webex: update total_correct");
 
+
+
   document.querySelectorAll(".webex-total_correct").forEach(total => {
+
     p = total.closest(".webex-box");
+
     var correct = p.getElementsByClassName("webex-correct").length;
+
     var solvemes = p.getElementsByClassName("webex-solveme").length;
+
     var radiogroups = p.getElementsByClassName("webex-radiogroup").length;
+
     var selects = p.getElementsByClassName("webex-select").length;
+
     /* no specific class on input node, thus searching via query selector */
+
     var checkboxgroups = p.querySelectorAll("div[class=webex-checkboxgroup] input[type=checkbox]").length
 
+
+
     /* show number of correct / total number of answers */
+
     total.innerHTML = correct + "&nbsp;" + webex_buttons.check_of_total + "&nbsp;" + (solvemes + radiogroups + checkboxgroups + selects);
+
   });
+
 }
+
+
 
 /* check answers */
+
 check_func = function() {
+
   console.log("webex: check answer");
 
+
+
   //var cl = elem.parentElement.classList;
+
   var cl = this.closest(".webex-box").classList;
+
   if (cl.contains("unchecked")) {
+
     cl.remove("unchecked");
+
     this.innerHTML = webex_buttons.check_shown; //"Hide check";
+
     if (webex_buttons.check_shown_alt.length > 0) this.setAttribute("title", webex_buttons.check_shown_alt);
+
   } else {
+
     cl.add("unchecked");
+
     this.innerHTML = webex_buttons.check_hidden; //"Check answer";
+
     if (webex_buttons.check_hidden_alt.length > 0) this.setAttribute("title", webex_buttons.check_hidden_alt);
+
   }
+
 }
+
+
 
 /* helper functions for checking the webex ID */
+
 const id_checker = {"fmt": new RegExp("[g-zG-Z]"),
+
                     "load": function(e) { return e.getAttribute("id").match("(?<=(-)).*$")[0]; },
+
                     "eval": new TextEncoder(),
+
                     "dval": new TextDecoder()}
 
+
+
 /* Show/hide correct solution */
+
 solution_func = function() {
+
   console.log("webex: show/hide solution");
 
+
+
   var div = this.closest(".webex-question").querySelector(".webex-solution");
+
   var cl = div.classList;
 
+
+
   if (cl.contains("visible")) {
+
     cl.remove("visible");
+
   } else {
+
     cl.add("visible");
+
   }
+
 }
 
+
+
 /* function to check if the real answer is numeric */
+
 convert_to_numeric = function(x) {
+
   if (typeof x == "string") {
+
     /* do nothing */
+
   } else if (x.length == 1) {
+
     /* take first element */
+
     x = x[0]
+
   } else {
+
     return NaN;
+
   }
 
+
+
   /* remove spaces for easier parsing */
+
   x = x.replace(/\s/g, "");
 
+
+
   /* Define patterns for different formats, note that spaces have been removed above */
+
   const patterns = [
+
     {regex: /^[+-]?\d+(\.\d{3})*,\d+$/, decimal: ",", thousand: "." },  // Format: "1.100.100.100,3"
+
     {regex: /^[+-]?\d+(,\d{3})*\.\d+$/, decimal: ".", thousand: "," },  // Format: "1,100,100,100.3"
+
     {regex: /^[+-]?\d+(\.|\.\d+)?$/, decimal: "." },                    // Format: "1100100100.5" or "1100100100."
+
     {regex: /^[+-]?\d+(,|,\d+)$/, decimal: "," }                        // Format: "1100100100,5" or "1100100100,"
+
   ];
 
 
+
+
+
   /* testing all regular expressions, convert to float if possible */
+
   for (const { regex, decimal, thousand } of patterns) {
+
     if (regex.test(x)) {
+
       let numeric = x;
+
       if (thousand) numeric = numeric.replace(new RegExp(`\\${thousand}`, "g"), "");
+
       numeric = numeric.replace(decimal, ".");
+
       return parseFloat(numeric);
+
     }
+
   }
+
+
 
   /* input of length 1 but none of the known formats, return NaN */
+
   return NaN;
+
 }
+
+
 
 /* Checking webex ID, returns formalsol */
+
 check_id = function(e) {
+
   /* loading webex ID */
+
   var id = id_checker["load"](e);
 
+
+
   /* extracting answer */
+
   let answer = e.dataset.answer;
 
+
+
   /* checking unique id, prepare and return array */
+
   if (!id_checker["fmt"].test(id)) {
+
     const a = id_checker["eval"].encode(atob(answer));
+
     const b = id_checker["eval"].encode(id);
+
     const res = a.map((byte, index) => byte^b[index % b.length]);
+
     answer = id_checker["dval"].decode(res);
+
     /* Replacing &amp; with ' before parsing */
+
     answer = answer.replaceAll("&apos;", "'");
+
   }
+
+
 
   return JSON.parse(answer);
+
 }
+
+
 
 /* function for checking solveme answers */
+
 solveme_func = function(e) {
+
   /* avoid that keyup and keychange twice execute this function within nms = 10
+
    * ms, clearing inputTimer and add timeout */
+
   console.log("webex: check solveme");
 
+
+
   /* float, precision for checking numeric answers */
+
   const eps = 0.00000000000001;
 
+
+
   /* get last checked user answer */
+
   const question = this.closest(".webex-question")
 
+
+
   /* extracting classes */
+
   var cl = this.classList;
+
   var my_answer = this.value;
 
+
+
   /* extracting classes */
+
   var cl = this.classList;
 
+
+
   /* empty answer? Job done */
+
   if (my_answer == "") {
+
     cl.remove("webex-correct");
+
     cl.remove("webex-incorrect");
+
     return false;
+
   }
+
+
 
   /* Find closest (parent) webex-question */
+
   let formalsols = check_id(this)
 
+
+
   /* by default we assume the users' answer is incorrect */
+
   var user_answer_correct = false;
 
+
+
   /* check if the correct answer is numeric, i.e. if 
+
    * formalsols is of length 1 containing one single numeric
+
    * value in a known format, else, NaN is returned */
+
   const num_formalsol = convert_to_numeric(formalsols);
+
   const num_my_answer = convert_to_numeric(my_answer);
 
+
+
   /* if the correct answer is numeric (float), the user's answer
+
    * must also be numeric. If not, it is wrong. Else we can
+
    * compare floating point numbers */
+
   if (!isNaN(num_formalsol) && !isNaN(num_my_answer)) {
+
     /* check if the real answer and the user input are numerically the same;
+
      * adding 'delta' to avoid precision issues */
+
     var diff = Math.abs(num_formalsol - num_my_answer);
+
     if (diff < parseFloat(this.dataset.tol) + eps) { user_answer_correct = true; }
 
+
+
   /* if the question contains regex, a regular expression is used
+
    * to evaluate the users answer. Allows for multiple regular expressions */
+
   } else if (cl.contains("regex")) {
+
     for (let i = 0; i < formalsols.length; i++) {
+
         let regex = new RegExp(formalsols[i], cl.contains("ignorecase") ? "i" : "");
+
         if (regex.test(my_answer)) { user_answer_correct = true; break; }
+
     }
+
+
 
   /* else we evaluate on 'string level', considering the creators preferences
+
    * regarding set options */
+
   } else {
+
     /* modify/prepare answer */
+
     if (cl.contains("ignorecase")) { my_answer = my_answer.toLowerCase(); }
+
     if (cl.contains("nospaces"))   { my_answer = my_answer.replace(/ /g, ""); }
 
+
+
     /* if the real answer includes user input - correct */
+
     if (formalsols.includes(my_answer)) {
+
       user_answer_correct = true;
+
   
+
       // added regex bit
+
       if (cl.contains("regex")) {
+
         answer_regex = RegExp(formalsols.join("|"))
+
         if (answer_regex.test(my_answer)) {
+
           cl.add("webex-correct");
+
         }
+
       }
+
     }
+
   }
+
+
 
   if (user_answer_correct) {
+
       cl.add("webex-correct");
+
       cl.remove("webex-incorrect");
+
   } else {
+
       cl.add("webex-incorrect");
+
       cl.remove("webex-correct");
+
   }
+
+
 
   update_total_correct();
 
+
+
 }
+
+
 
 /* function for checking select answers */
+
 select_func = function(e) {
+
   console.log("webex: check select");
 
+
+
   var options   = [];
+
   Array.from(this.querySelectorAll("option")).forEach((option, index) => {
+
     if (!option.hasAttribute("value") || !option.getAttribute("value") === "blank") {
+
       options.push(option);
+
     }
+
   });
+
+
 
   /* get selected option */
+
   function get_selected(options) { return options.findIndex(option => option.selected); }
+
   var option_index = get_selected(options)
 
+
+
   /* loading webex ID */
+
   var formalsol = check_id(this)
 
+
+
   /* add class for current selection */
+
   this.classList.remove("webex-incorrect");
+
   this.classList.remove("webex-correct");
+
   if (option_index >= 0) {
+
     this.classList.add(formalsol[option_index] === 1 ? "webex-correct" : "webex-incorrect");
+
   }
 
+
+
   update_total_correct();
+
 }
+
+
 
 /* function for checking radiogroups answers */
+
 radiogroups_func = function(e) {
+
   console.log("webex: check radiogroups");
 
+
+
   /* get real answer (binary integer array) */
+
   var id = e.target.getAttribute("name");
+
   var group = document.querySelector(".webex-radiogroup[id='webex-" + id + "']");
+
   var formalsol = check_id(group)
 
+
+
   /* check which radiobuttion is selected (user answer) */
+
   function get_checked(radios) {
+
     return radios.findIndex(radios => radios.checked);
+
   }
+
   var radios = Array.from(group.querySelectorAll("input[type='radio']"))
+
   var radio_index = get_checked(radios);
 
+
+
   /* remove existing classes */
+
   radios.forEach(radio => {
+
     let cl = radio.closest("label").classList
+
     cl.remove("webex-incorrect");
+
     cl.remove("webex-correct");
+
   });
 
+
+
   /* add class for current selection */
+
   let cl = radios[radio_index].closest("label").classList
+
   if (formalsol[radio_index] === 1) {
+
       cl.add("webex-correct");
+
   } else {
+
       cl.add("webex-incorrect");
+
   }
 
+
+
   update_total_correct();
+
 }
+
+
+
 
 
 /* function for checking checkboxgroups answers */
+
 checkboxgroups_func = function(e) {
+
   console.log("webex: check checkboxgroups");
 
+
+
   /* get real answer (binary integer array) */
+
   var group = document.querySelector(".webex-checkboxgroup[id='" + this.id + "']");
+
   var formalsol = check_id(group);
 
+
+
   /* check which checkbox is checked (user answer) */
+
   function get_checked(group) {
+
       const checkboxes = Array.from(group.querySelectorAll("input[type='checkbox']"));
+
       return checkboxes.reduce((indices, checkbox, index) => {
+
           if (checkbox.checked) indices.push(index);
+
           return indices;
+
       }, []);
+
   }
+
   var checks = Array.from(group.querySelectorAll("input[type='checkbox']"));
+
   var check_index = get_checked(group);
 
+
+
   checks.forEach((e, index) => {
+
     var label = e.parentNode;
+
     var ans = formalsol[index];
+
     if ((e.checked && ans === 1) || (!e.checked && ans === 0)) {
+
         label.setAttribute("class", "webex-correct")
+
     } else {
+
         label.setAttribute("class", "webex-incorrect")
+
     }
+
   });
 
+
+
   update_total_correct();
+
 }
+
+
 
 /* shuffling array (thanks to stack overflow)
+
  * If argument x is an integer we create an integer sequence
+
  * from 0, 1, ..., (x - 1) and return a shuffled version. If
+
  * the input is an array, we simply shuffle it */
+
 shuffle_array = function(x) {
+
    if (Number.isInteger(x) && !isNaN(x)) {
+
      x = Array.from({length: x}, (v, i) => i);
+
    }
+
    let shuffled = x.map(value => ({ value, sort: Math.random() }))
+
         .sort((a, b) => a.sort - b.sort).map(({ value }) => value)
+
    return shuffled;
+
 }
+
+
 
 /* ---------------------------------------------------------
+
  * ---------------------------------------------------------
+
  * --------------------------------------------------------- */
+
 window.onload = function() {
+
   //console.log("webex: onload");
 
+
+
   /* setting up buttons and actions to show/hide answers */
+
   document.querySelectorAll(".webex-check").forEach(section => {
+
     section.classList.add("unchecked");
 
+
+
     /* ul to take up the list items with buttons */
+
     let button_ul = document.createElement("ul");
+
     button_ul.setAttribute("class", "webex-button-list");
+
     section.appendChild(button_ul);
 
+
+
     /* button to _check_ if answers given are correct */
+
     let li_check = document.createElement("li");
+
     button_ul.appendChild(li_check); /* add list item to ul */
+
     let btn_check = document.createElement("button");
+
     btn_check.innerHTML = webex_buttons.check_hidden;  // "Check answer";
+
     btn_check.setAttribute("class", "webex-button webex-button-check");
+
     if (webex_buttons.check_hidden_alt.length > 0) btn_check.setAttribute("title", webex_buttons.check_hidden_alt);
+
     btn_check.onclick = check_func;
+
     li_check.appendChild(btn_check);
 
+
+
     /* span to show current number of points (when _check_ active) */
+
     let spn = document.createElement("span");
+
     spn.classList.add("webex-total_correct");
+
     li_check.appendChild(spn);
 
+
+
     /* button to show the _solution_ if there is one */
+
     var has_solution = section.parentNode.querySelectorAll(".webex-solution").length > 0;
+
     if (has_solution) {
+
       let li_solution = document.createElement("li");
+
       button_ul.appendChild(li_solution); /* add list item to ul */
+
       let btn_solution = document.createElement("button");
+
       btn_solution.innerHTML = webex_buttons.solution; // "Correct answer";
+
       btn_solution.setAttribute("class", "webex-button webex-button-solution");
+
       if (webex_buttons.solution_alt.length > 0) btn_solution.setAttribute("title", webex_buttons.solution_alt);
+
       btn_solution.onclick = solution_func;
+
       li_solution.appendChild(btn_solution);
+
     }
 
+
+
   });
+
+
 
   /* set up webex-solveme inputs */
+
   document.querySelectorAll(".webex-solveme").forEach(solveme => {
+
     solveme.setAttribute("autocomplete","off");
+
     solveme.setAttribute("autocorrect", "off");
+
     solveme.setAttribute("autocapitalize", "off");
+
     solveme.setAttribute("spellcheck", "false");
+
     solveme.value = "";
 
+
+
     /* adjust answer for 'no spaces' (ignore spaces) */
+
     if (solveme.classList.contains("nospaces")) {
+
       solveme.dataset.answer = solveme.dataset.answer.replace(/ /g, "");
+
     }
+
+
 
     /* attach checking function, triggered on key up, change, and when
+
      * elemnt is out of focus. Only evaluated once by tracking changes
+
      * via variable solveme_last_user_answer */
+
     solveme.addEventListener("keyup",  solveme_func);
+
     solveme.addEventListener("change", solveme_func);
+
     solveme.addEventListener("blur",   solveme_func);
 
+
+
     /* adding span to show correct/incorrect icon */
+
     solveme.insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
+
   });
+
+
 
   /* set up radiogroups (single choice questions with display = "buttons") */
+
   document.querySelectorAll(".webex-radiogroup").forEach(radiogroup => {
+
     radiogroup.onchange = radiogroups_func;
+
   });
+
+
 
   /* set up checkboxgroups (multiple choice questions with display = "buttons") */
+
   document.querySelectorAll(".webex-checkboxgroup").forEach(checkboxgroup => {
+
     checkboxgroup.onchange = checkboxgroups_func;
+
   });
+
+
 
   /* set up selects (dropdown menus) */
+
   document.querySelectorAll(".webex-select").forEach(select => {
+
     select.onchange = select_func;
+
     /* append webex-icon for correct/incorrect icons */
+
     var elem = document.createElement("span")
+
     elem.classList.add("webex-icon")
+
     select.parentNode.appendChild(elem)
+
   });
+
+
 
   /* change to next/previous question if multiple are available */
+
   function handleQuestionClick(group, questions, step) {
+
     return async function() {
+
       /* get question order as integer vector */
+
       let questionOrder = group.dataset.questionOrder.split(",").map(str => parseInt(str));
 
+
+
       /* current question/position */
+
       let currentPosition = parseInt(group.dataset.currentPosition);
 
+
+
       /* Hide the current question */
+
       questions.forEach(question => { question.classList.remove("active"); });
 
+
+
       /* Move to the next question index */
+
       currentPosition = (currentPosition + step) % questionOrder.length;
+
       if (currentPosition < 0) currentPosition = currentPosition + questionOrder.length
 
+
+
       /* Display the new question */
+
       questions[questionOrder[currentPosition]].classList.add("active");
 
+
+
       // Update the currentPosition data attribute on the group div
+
       group.dataset.currentPosition = currentPosition;
+
     };
+
   }
+
+
 
   document.querySelectorAll(".webex-group").forEach(group => {
+
     const questions = Array.from(group.querySelectorAll(".webex-question"));
 
+
+
     /* Create vector with question order. If the webex-group does
+
      * not have class '.noshuffle' we will randomly shuffle the order */
+
     let questionOrder = Array.from({length: questions.length}, (v, i) => i);
+
     if (!group.classList.contains("noshuffle")) {
+
       questionOrder = shuffle_array(questionOrder);
+
     }
 
+
+
     /* take start position (if set) or start at 0 */
+
     const currentPosition = parseInt(group.getAttribute("data-start-position")) || 0;
 
+
+
     /* show the default question for each group */
+
     questions[questionOrder[currentPosition]].classList.add("active");
 
+
+
     /* store random order of questions as well as current position */
+
     group.dataset.questionOrder   = questionOrder;
+
     group.dataset.currentPosition = currentPosition;
 
+
+
     /* find all webex-questions, search for .webex-button-list and
+
      * populate the list with necessary <li><button>...</button></li> elements */
+
     questions.forEach(question => {
+
         let button_ul = question.querySelector("ul.webex-button-list");
 
+
+
         let li_next = document.createElement("li");
+
         let nextButton = document.createElement("button");
+
         nextButton.setAttribute("class", "webex-button webex-button-next");
+
         if (webex_buttons.question_next_alt.length > 0) nextButton.setAttribute("title", webex_buttons.question_next_alt);
+
         nextButton.innerHTML = webex_buttons.question_next; // "Next question";
+
         nextButton.addEventListener("click", handleQuestionClick(group, questions, 1));
+
         li_next.appendChild(nextButton);
 
+
+
         let li_previous = document.createElement("li");
+
         let previousButton = document.createElement("button");
+
         previousButton.setAttribute("class", "webex-button webex-button-previous");
+
         if (webex_buttons.question_previous_alt.length > 0) previousButton.setAttribute("title", webex_buttons.question_previous_alt);
+
         previousButton.innerHTML = webex_buttons.question_previous; // "Previous question";
+
         previousButton.addEventListener("click", handleQuestionClick(group, questions, -1));
+
         li_previous.appendChild(previousButton);
 
+
+
         if (webex_buttons.question_previous.length > 0) button_ul.appendChild(li_previous);
+
         if (webex_buttons.question_next.length > 0) button_ul.appendChild(li_next);
+
     });
+
   });
+
+
 
   /* Development options */
+
   document.querySelectorAll(".webex-question.check").forEach(question => {
+
       question.querySelector(".webex-button-check").click()
+
   });
+
   document.querySelectorAll(".webex-question.solution").forEach(question => {
+
       let btn = question.querySelector(".webex-button-solution");
+
       if (btn !== null) { btn.click(); }
+
   });
+
+
 
   /* Pre-filling <input> fields */
+
   document.querySelectorAll(".webex-question.prefill").forEach(question => {
+
       question.querySelectorAll("input.webex-solveme").forEach(solveme => {
+
           let x = JSON.parse(solveme.dataset.answer);
+
           solveme.value = x[0];
+
           /* Trigger the on change event */
+
           solveme.dispatchEvent(new Event("change"));
+
       });
+
+
 
       /* Pre-filling radiogroups, that is for schoice questions */
+
       question.querySelectorAll(".webex-radiogroup").forEach(radiogroup => {
+
           let x = JSON.parse(radiogroup.dataset.answer);
+
           let idx = x.indexOf(1);
+
           let radios = radiogroup.querySelectorAll('input[type="radio"]');
+
           radios[idx].checked = true;
+
           /* Trigger the on change event */
+
           radios[idx].dispatchEvent(new Event("change", { bubbles: true }));
+
       });
+
+
 
       /* Pre-filling checkboxgroups, that is for schoice questions w/ dropdown menus */
+
       question.querySelectorAll(".webex-select").forEach(dropdown => {
+
           let x = JSON.parse(dropdown.dataset.answer);
+
           let idx = x.indexOf(1) + 1; /* +1 to skip the first blank option */
+
           let options = dropdown.querySelectorAll("option");
+
           options[idx].selected = true;
+
           /* Trigger the on change event */
+
           options[idx].dispatchEvent(new Event("change", { bubbles: true }));
+
       });
+
+
 
       /* Pre-filling checkboxgroups, that is for mchoice questions */
+
       question.querySelectorAll(".webex-checkboxgroup").forEach(radiogroup => {
+
           let x = JSON.parse(radiogroup.dataset.answer);
+
           let checkboxes = radiogroup.querySelectorAll('input[type="checkbox"]');
+
           for (let i = 0; i < checkboxes.length; i++) {
+
               checkboxes[i].checked = x[i];
+
           }
+
           /* Trigger the on change event */
+
           checkboxes[0].dispatchEvent(new Event("change", { bubbles: true }));
+
       });
+
   });
+
+
 
   /* Show set tolerance (devel option) */
+
   function calc_width(x, txt, offset = 20) {
+
       /* We do the following:
+
        * Create a new span, insert the value we need in the .tolerance
+
        * input node, and calculate its offsetWidth. Then remove it
+
        * again; this is just used to calculate the required width. */
+
       var cwtmp = document.createElement("span");
+
       x.appendChild(cwtmp);
+
       cwtmp.innerHTML = txt || "";
+
       var w = parseInt(cwtmp.getBoundingClientRect().width) + offset;
+
       cwtmp.remove();
+
       return w;
+
   }
 
+
+
   /* If tolerance should be shown (devel option) we calculate:
+
    * - the width required to properly display the solution
+
    * - the width required to properly display the tolerance
+
    * - add a new element to display the tolerance
+
    * - reduce the width of the solution input box. */
+
   document.querySelectorAll(".webex-question.tolerance").forEach(question => {
+
       question.querySelectorAll("input[data-tol]").forEach(elem => {
+
           var w = null;
 
+
+
           /* Add new element showing the tolerance */
+
           let tol = document.createElement("input");
+
           tol.type = "text"; // <inpyt type="text">
+
           tol.disabled = true; // Disable input element
+
           tol.classList.add("tolerance"); // Appending class
+
           tol.value = "Â± " + elem.getAttribute("data-tol");
 
+
+
           /* Add new node */
+
           elem.parentNode.insertBefore(tol, elem)
 
+
+
           var body     = document.querySelector("body");
+
           //tol.value = "Â± " + "0.0000007";
+
           //tol.value = "Â± " + "0.07";
+
           w    = calc_width(body, tol.value);
+
           wold = parseInt(elem.getBoundingClientRect().width);
+
           wmin = calc_width(body, elem.value);
 
+
+
           /* Calculate required width of the 'tolerance' node, and the
+
            * reduction of the original 'input' node */
+
           let wnew = Math.max(wmin, wold - w);
+
           tol.style.width  = w + "px";
+
           elem.style.width = wnew + "px";
+
       });
+
   });
 
+
+
   update_total_correct();
+
 }
 
-</script><script id="quarto-html-after-body" type="application/javascript">
+
+
+</script>
+
+
+
+<script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -1828,19 +2301,19 @@ window.onload = function() {
       }
     }
   });
-  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./week3.html" class="pagination-link" aria-label="Eksperimen Acak, Ruang Sampel, dan Kejadian">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Eksperimen Acak, Ruang Sampel, dan Kejadian</span></span>
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./week4.html" class="pagination-link" aria-label="Eksperimen Acak, Ruang Sampel, dan Kejadian - Latihan Soal">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Eksperimen Acak, Ruang Sampel, dan Kejadian - Latihan Soal</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./week5.html" class="pagination-link" aria-label="Kombinatorika Dalam Kalkulasi Peluang Diskret.">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Kombinatorika Dalam Kalkulasi Peluang Diskret.</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer"><div class="nav-footer">
+<footer class="footer">
+  <div class="nav-footer">
     <div class="nav-footer-left">
       &nbsp;
     </div>   
@@ -1852,6 +2325,8 @@ window.onload = function() {
     </div>
   </div>
 </footer>
+
+
 
 
 </body></html>

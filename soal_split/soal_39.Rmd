@@ -1,0 +1,29 @@
+Question
+========
+(10) Empat koin fair dilempar bersamaan. Kejadian A adalah "muncul tepat 2 gambar" dan kejadian B adalah "gambar lebih banyak dari angka".
+a) Tentukan P(A) dan P(B)
+b) Tentukan P(A ∩ B)
+c) Hitung P(A | B)
+d) Apakah A dan B independen?
+
+Solution
+========
+a) P(A) dan P(B):
+Total = 16
+A (tepat 2 gambar): C(4,2) = 6, P(A) = 6/16 = 3/8
+B (minimal 3 gambar): C(4,3) + C(4,4) = 5, P(B) = 5/16
+
+b) P(A ∩ B) = 0 (tidak mungkin tepat 2 sekaligus minimal 3)
+
+c) P(A | B) = 0
+
+d) Tidak independen:
+P(A) × P(B) = 3/8 × 5/16 = 15/128
+P(A ∩ B) = 0
+0 ≠ 15/128, maka TIDAK INDEPENDEN
+
+Meta-information
+================
+exname: soal10_empat_koin_independensi
+extype: string
+exsolution: P(A)=3/8, P(B)=5/16, P(A∩B)=0, P(A|B)=0, Tidak independen

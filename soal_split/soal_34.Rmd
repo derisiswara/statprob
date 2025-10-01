@@ -1,0 +1,26 @@
+Question
+========
+(5) Dalam sebuah kelas terdapat 40 siswa: 25 laki-laki dan 15 perempuan. Dari laki-laki, 15 orang memakai kacamata. Dari perempuan, 9 orang memakai kacamata. Jika dipilih 1 siswa secara acak:
+a) Berapa peluang terpilih siswa perempuan yang memakai kacamata?
+b) Jika yang terpilih memakai kacamata, berapa peluang dia laki-laki?
+
+Answerlist
+----------
+* a) P=9/40=0.225, b) P(Laki-laki|Berkacamata)=15/24=5/8=0.625
+* a) P=15/40=0.375, b) P(Laki-laki|Berkacamata)=15/24=5/8=0.625
+* a) P=9/40=0.225, b) P(Laki-laki|Berkacamata)=9/24=3/8=0.375
+* a) P=15/40=0.375, b) P(Laki-laki|Berkacamata)=9/24=3/8=0.375
+
+Solution
+========
+a) Perempuan berkacamata = 9, Total = 40, P = 9/40 = 0.225
+
+b) Total berkacamata = 24, Laki-laki berkacamata = 15
+P(Laki-laki | Berkacamata) = 15/24 = 5/8 = 0.625
+
+Meta-information
+================
+exname: soal5_kelas_peluang_bersyarat
+extype: schoice
+exsolution: 1000
+exshuffle: TRUE

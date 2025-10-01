@@ -1,0 +1,26 @@
+Question
+========
+(6) Kejadian A dan B saling lepas dengan P(A) = 0.4 dan P(A ∪ B) = 0.7.
+a) Hitung P(B)
+b) Hitung P(A ∩ B)
+c) Apakah mungkin A dan B independen? Jelaskan!
+
+Solution
+========
+a) P(B):
+Karena saling lepas: P(A ∪ B) = P(A) + P(B)
+0.7 = 0.4 + P(B)
+P(B) = 0.3
+
+b) P(A ∩ B) = 0 (saling lepas)
+
+c) Tidak mungkin independen:
+Jika independen: P(A ∩ B) = P(A) × P(B) = 0.12
+Tapi saling lepas: P(A ∩ B) = 0
+0 ≠ 0.12, maka TIDAK INDEPENDEN
+
+Meta-information
+================
+exname: soal6_saling_lepas_vs_independen
+extype: string
+exsolution: P(B)=0.3, P(A∩B)=0, Tidak independen

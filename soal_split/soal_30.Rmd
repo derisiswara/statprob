@@ -1,0 +1,24 @@
+Question
+========
+(1) Sebuah kotak berisi 5 bola merah, 3 bola biru, dan 2 bola hijau. Dua bola diambil secara acak tanpa pengembalian.
+a) Berapa peluang kedua bola berwarna merah?
+b) Berapa peluang bola pertama merah dan bola kedua biru?
+
+Solution
+========
+a) Kedua bola merah:
+- Total bola = 10
+- P(merah pertama) = 5/10
+- P(merah kedua | merah pertama) = 4/9
+- P(kedua merah) = (5/10) × (4/9) = 2/9
+
+b) Pertama merah, kedua biru:
+- P(merah pertama) = 5/10
+- P(biru kedua | merah pertama) = 3/9
+- P(merah lalu biru) = (5/10) × (3/9) = 1/6
+
+Meta-information
+================
+exname: soal1_bola_tanpa_pengembalian
+extype: string
+exsolution: 2/9 dan 1/6

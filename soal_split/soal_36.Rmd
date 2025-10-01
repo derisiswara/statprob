@@ -1,0 +1,26 @@
+Question
+========
+(7) Tiga kartu diambil secara acak dari 52 kartu bridge tanpa pengembalian. Berapa peluang ketiga kartu tersebut adalah kartu As?
+
+Answerlist
+----------
+* P=1/5525
+* P=1/2652
+* P=1/1326
+* P=1/663
+
+Solution
+========
+Ada 4 kartu As dalam 52 kartu.
+P(As pertama) = 4/52
+P(As kedua | As pertama) = 3/51
+P(As ketiga | 2 As terambil) = 2/50
+
+P(3 As) = (4/52) × (3/51) × (2/50) = 24/132,600 = 1/5,525
+
+Meta-information
+================
+exname: soal7_kartu_tanpa_pengembalian
+extype: schoice
+exsolution: 1000
+exshuffle: TRUE

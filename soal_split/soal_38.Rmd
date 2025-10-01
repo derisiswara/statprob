@@ -1,0 +1,32 @@
+Question
+========
+(9) Sebuah tes medis untuk mendeteksi penyakit memiliki karakteristik:
+- 95% akurat jika pasien benar sakit (true positive)
+- 90% akurat jika pasien sehat (true negative)
+- Prevalensi penyakit di populasi adalah 2%
+
+Jika seseorang dites dan hasilnya NEGATIF, berapa peluang dia benar-benar sehat?
+
+Answerlist
+----------
+* P(Sehat|Negatif) ≈ 0.9989 atau 99.89%
+* P(Sehat|Negatif) ≈ 0.90 atau 90%
+* P(Sehat|Negatif) ≈ 0.98 atau 98%
+* P(Sehat|Negatif) ≈ 0.95 atau 95%
+
+Solution
+========
+Gunakan Teorema Bayes:
+P(Sakit) = 0.02, P(Sehat) = 0.98
+P(Negatif | Sehat) = 0.90
+P(Negatif | Sakit) = 0.05
+
+P(Negatif) = (0.90 × 0.98) + (0.05 × 0.02) = 0.883
+P(Sehat | Negatif) = (0.90 × 0.98) / 0.883 = 0.9989
+
+Meta-information
+================
+exname: soal9_bayes_tes_medis
+extype: schoice
+exsolution: 1000
+exshuffle: TRUE

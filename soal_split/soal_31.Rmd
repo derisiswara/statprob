@@ -1,0 +1,23 @@
+Question
+========
+(2) Dalam pelemparan tiga koin sekaligus, kejadian A adalah "muncul tepat 2 gambar" dan kejadian B adalah "muncul minimal 2 gambar".
+a) Tentukan anggota A dan B
+b) Apakah A ⊆ B? Jelaskan!
+c) Hitung P(B|A)
+
+Solution
+========
+a) Anggota A dan B:
+- Ruang sampel S = {AAA, AAG, AGA, GAA, AGG, GAG, GGA, GGG}, n(S) = 8
+- A (tepat 2 gambar) = {AGG, GAG, GGA}, n(A) = 3
+- B (minimal 2 gambar) = {AGG, GAG, GGA, GGG}, n(B) = 4
+
+b) Ya, A ⊆ B karena semua anggota A ada dalam B
+
+c) P(B|A) = 1 (karena A ⊆ B, maka A ∩ B = A)
+
+Meta-information
+================
+exname: soal2_tiga_koin_subset
+extype: string
+exsolution: A={AGG,GAG,GGA}, B={AGG,GAG,GGA,GGG}, A⊆B benar, P(B|A)=1

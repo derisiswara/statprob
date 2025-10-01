@@ -1,0 +1,24 @@
+Question
+========
+(4) Sebuah dadu merah dan dadu biru dilempar bersamaan. Kejadian M adalah "jumlah mata dadu = 8" dan kejadian N adalah "hasil kali mata dadu genap".
+a) Tentukan n(M) dan n(N)
+b) Hitung P(M ∩ N)
+c) Hitung P(M ∪ N)
+
+Solution
+========
+a) n(M) dan n(N):
+- M (jumlah = 8): {(2,6), (3,5), (4,4), (5,3), (6,2)}, n(M) = 5
+- N (hasil kali genap): Komplemen kedua ganjil = 9, jadi n(N) = 36 - 9 = 27
+
+b) P(M ∩ N):
+Dari M yang hasil kalinya genap: {(2,6), (4,4), (6,2)}, n(M ∩ N) = 3
+P(M ∩ N) = 3/36 = 1/12
+
+c) P(M ∪ N) = 5/36 + 27/36 - 3/36 = 29/36
+
+Meta-information
+================
+exname: soal4_dua_dadu_gabungan_irisan
+extype: string
+exsolution: n(M)=5, n(N)=27, P(M∩N)=1/12, P(M∪N)=29/36

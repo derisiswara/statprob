@@ -1,0 +1,26 @@
+Question
+========
+(3) Diketahui P(A) = 0.6, P(B) = 0.5, dan P(A ∪ B) = 0.8.
+a) Hitung P(A ∩ B)
+b) Hitung P(A|B)
+c) Apakah A dan B independen? Buktikan!
+
+Solution
+========
+a) P(A ∩ B):
+P(A ∪ B) = P(A) + P(B) - P(A ∩ B)
+0.8 = 0.6 + 0.5 - P(A ∩ B)
+P(A ∩ B) = 0.3
+
+b) P(A|B) = P(A ∩ B) / P(B) = 0.3 / 0.5 = 0.6
+
+c) Independen:
+P(A) × P(B) = 0.6 × 0.5 = 0.3
+P(A ∩ B) = 0.3
+Karena sama, maka A dan B INDEPENDEN.
+
+Meta-information
+================
+exname: soal3_aturan_penjumlahan_independensi
+extype: string
+exsolution: P(A∩B)=0.3, P(A|B)=0.6, Independen
