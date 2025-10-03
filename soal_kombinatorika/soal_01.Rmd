@@ -1,0 +1,22 @@
+Question
+========
+(1) Dari 8 orang siswa akan dipilih 3 orang untuk menjadi ketua, wakil ketua, dan sekretaris. Berapa banyak cara penyusunan pengurus tersebut?
+
+Answerlist
+----------
+* 336 cara
+* 56 cara
+* 512 cara
+* 168 cara
+
+Solution
+========
+Karena jabatan berbeda (urutan penting), gunakan permutasi:
+P(8,3) = 8!/(8-3)! = 8!/5! = 8 × 7 × 6 = 336 cara
+
+Meta-information
+================
+exname: soal1_permutasi_pengurus
+extype: schoice
+exsolution: 1000
+exshuffle: TRUE

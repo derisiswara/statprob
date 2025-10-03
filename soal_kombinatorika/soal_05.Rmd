@@ -1,0 +1,14 @@
+Question
+========
+(5) Dari angka 1, 2, 3, 4, 5, 6 akan dibentuk bilangan 3 digit tanpa pengulangan. Berapa banyak bilangan yang dapat dibentuk?
+
+Solution
+========
+Gunakan permutasi karena urutan penting dan tidak ada pengulangan:
+P(6,3) = 6!/(6-3)! = 6!/3! = 6 × 5 × 4 = 120 bilangan
+
+Meta-information
+================
+exname: soal5_bilangan_3digit
+extype: string
+exsolution: 120

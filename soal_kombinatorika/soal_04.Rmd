@@ -1,0 +1,27 @@
+Question
+========
+(4) Sebuah kotak berisi 5 bola merah dan 4 bola biru. Jika diambil 3 bola secara acak, berapa peluang terambil tepat 2 bola merah dan 1 bola biru?
+
+Answerlist
+----------
+* 10/21
+* 5/14
+* 1/3
+* 15/28
+
+Solution
+========
+Total cara mengambil 3 bola dari 9: C(9,3) = 84
+
+Cara mengambil 2 merah dari 5: C(5,2) = 10
+Cara mengambil 1 biru dari 4: C(4,1) = 4
+Cara yang diinginkan: 10 × 4 = 40
+
+Peluang = 40/84 = 10/21
+
+Meta-information
+================
+exname: soal4_peluang_kombinasi_bola
+extype: schoice
+exsolution: 1000
+exshuffle: TRUE

@@ -1,0 +1,18 @@
+Question
+========
+(15) Sebuah tim bola basket terdiri dari 5 pemain. Jika ada 12 pemain yang tersedia dan 2 pemain tertentu tidak boleh bermain bersamaan, berapa banyak cara membentuk tim?
+
+Solution
+========
+Total cara tanpa batasan: C(12,5) = 792
+
+Cara dengan kedua pemain tertentu bermain bersama:
+Pilih 3 pemain lagi dari 10 sisanya: C(10,3) = 120
+
+Cara yang memenuhi syarat = 792 - 120 = 672 cara
+
+Meta-information
+================
+exname: soal15_kombinasi_pembatasan
+extype: string
+exsolution: 672

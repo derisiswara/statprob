@@ -1,0 +1,22 @@
+Question
+========
+(2) Dari 10 siswa akan dipilih 4 siswa untuk mengikuti lomba. Berapa banyak cara memilih keempat siswa tersebut?
+
+Answerlist
+----------
+* 210 cara
+* 5040 cara
+* 252 cara
+* 120 cara
+
+Solution
+========
+Karena tidak ada perbedaan posisi (urutan tidak penting), gunakan kombinasi:
+C(10,4) = 10!/(4!×6!) = (10×9×8×7)/(4×3×2×1) = 5040/24 = 210 cara
+
+Meta-information
+================
+exname: soal2_kombinasi_siswa
+extype: schoice
+exsolution: 1000
+exshuffle: TRUE

@@ -615,6 +615,22 @@ P(Full House) = 3,744/2,598,960 ≈ 0.00144 atau 0.144%
 
 ---
 
+## Bank Soal Latihan
+```{r}
+library("exams2forms")
+```
+```{r}
+#| echo: false
+#| results: "asis"
+# daftar folder yang berisi soal
+folders <- c("soal_kombinatorika")
+
+for (fd in folders) {
+  files <- list.files(fd, pattern = "\\.Rmd$", full.names = TRUE)
+  exams2forms(file = files, title = paste("quiz dari", fd), browse = FALSE)
+}
+```
+ 
 ## REFERENSI
 
 1. Rosen, K. H. (2019). *Discrete Mathematics and Its Applications*. McGraw-Hill.

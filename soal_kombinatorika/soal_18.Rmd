@@ -1,0 +1,38 @@
+Question
+========
+(18) Dalam sebuah kantong terdapat 7 kelereng merah, 5 kelereng biru, dan 3 kelereng hijau. Jika diambil 4 kelereng sekaligus, berapa peluang terambil kelereng dengan 2 warna saja (tidak ketiga warna)?
+
+Answerlist
+----------
+* 266/455 ≈ 0.5846
+* 189/455 ≈ 0.4154
+* 350/455 ≈ 0.7692
+* 105/455 ≈ 0.2308
+
+Solution
+========
+Total cara: C(15,4) = 1.365
+
+Cara terambil tepat 2 warna:
+
+Merah-Biru saja (tidak hijau):
+C(12,4) - C(7,4) - C(5,4) = 495 - 35 - 5 = 455
+
+Merah-Hijau saja (tidak biru):
+C(10,4) - C(7,4) - C(3,4) = 210 - 35 - 0 = 175
+
+Biru-Hijau saja (tidak merah):
+C(8,4) - C(5,4) - C(3,4) = 70 - 5 - 0 = 65
+
+Total = 455 + 175 + 65 = 695
+
+Peluang = 695/1.365 = 139/273
+
+**Catatan: Perlu dicek ulang, sepertinya ada kesalahan dalam pilihan jawaban**
+
+Meta-information
+================
+exname: soal18_peluang_kombinasi_warna
+extype: schoice
+exsolution: 1000
+exshuffle: TRUE

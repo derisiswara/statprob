@@ -1,0 +1,26 @@
+Question
+========
+(10) Berapa banyak cara menyusun 5 orang dalam satu barisan jika 2 orang tertentu harus selalu berdampingan?
+
+Answerlist
+----------
+* 48 cara
+* 24 cara
+* 120 cara
+* 60 cara
+
+Solution
+========
+Anggap 2 orang yang harus berdampingan sebagai 1 unit.
+Jadi ada 4 objek yang akan disusun: 4! = 24 cara
+
+Di dalam unit tersebut, 2 orang dapat bertukar posisi: 2! = 2 cara
+
+Total = 24 × 2 = 48 cara
+
+Meta-information
+================
+exname: soal10_permutasi_berdampingan
+extype: schoice
+exsolution: 1000
+exshuffle: TRUE

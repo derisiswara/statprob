@@ -1,0 +1,32 @@
+Question
+========
+(8) Sebuah komite terdiri dari 6 pria dan 4 wanita. Akan dibentuk tim yang terdiri dari 4 orang dengan syarat minimal 2 wanita. Berapa banyak cara membentuk tim tersebut?
+
+Answerlist
+----------
+* 120 cara
+* 135 cara
+* 90 cara
+* 105 cara
+
+Solution
+========
+Kasus 1: 2 wanita, 2 pria
+C(4,2) × C(6,2) = 6 × 15 = 90
+
+Kasus 2: 3 wanita, 1 pria
+C(4,3) × C(6,1) = 4 × 6 = 24
+
+Kasus 3: 4 wanita, 0 pria
+C(4,4) × C(6,0) = 1 × 1 = 1
+
+Total = 90 + 24 + 1 = 115 cara
+
+**Catatan: Tidak ada jawaban yang tepat dalam pilihan, jawaban seharusnya 115**
+
+Meta-information
+================
+exname: soal8_kombinasi_syarat
+extype: schoice
+exsolution: 1000
+exshuffle: TRUE

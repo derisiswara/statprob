@@ -1,0 +1,22 @@
+Question
+========
+(7) Dalam sebuah rapat, 12 orang akan duduk melingkar pada meja bundar. Berapa banyak cara pengaturan tempat duduk mereka?
+
+Answerlist
+----------
+* 39.916.800 cara
+* 479.001.600 cara
+* 3.628.800 cara
+* 19.958.400 cara
+
+Solution
+========
+Permutasi siklis (melingkar):
+(n-1)! = (12-1)! = 11! = 39.916.800 cara
+
+Meta-information
+================
+exname: soal7_permutasi_siklis
+extype: schoice
+exsolution: 1000
+exshuffle: TRUE

@@ -1,0 +1,19 @@
+Question
+========
+(17) Berapa banyak cara mengatur 6 buku berbeda di rak jika 3 buku tertentu harus selalu berurutan (tetapi posisi urutannya bebas)?
+
+Solution
+========
+Anggap 3 buku yang harus berurutan sebagai 1 unit.
+Jadi ada 4 objek: (3 buku sebagai unit) + 3 buku lainnya = 4 objek
+Cara mengatur 4 objek: 4! = 24
+
+Di dalam unit, 3 buku dapat diatur: 3! = 6 cara
+
+Total = 24 × 6 = 144 cara
+
+Meta-information
+================
+exname: soal17_permutasi_berurutan
+extype: string
+exsolution: 144

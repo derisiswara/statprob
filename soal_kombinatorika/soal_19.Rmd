@@ -1,0 +1,25 @@
+Question
+========
+(19) Berapa banyak bilangan 5 digit yang dapat dibentuk dari angka 0, 1, 2, 3, 4 tanpa pengulangan, dan bilangan tersebut adalah bilangan ganjil?
+
+Solution
+========
+Bilangan ganjil 5 digit harus diakhiri 1 atau 3 (tidak boleh 0, 2, 4)
+
+Kasus 1: Akhiran 1
+- Ratusan ribu: 3 pilihan (2, 3, 4) - tidak boleh 0
+- Sisanya: P(3,3) = 6 cara
+- Total: 3 × 6 = 18
+
+Kasus 2: Akhiran 3
+- Ratusan ribu: 3 pilihan (1, 2, 4) - tidak boleh 0
+- Sisanya: P(3,3) = 6 cara
+- Total: 3 × 6 = 18
+
+Total = 18 + 18 = 36 bilangan
+
+Meta-information
+================
+exname: soal19_bilangan_ganjil_syarat
+extype: string
+exsolution: 36

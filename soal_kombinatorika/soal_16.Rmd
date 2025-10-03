@@ -1,0 +1,28 @@
+Question
+========
+(16) Dari angka 1, 2, 3, 4, 5, 6, 7 akan dibentuk bilangan 4 digit dengan pengulangan diperbolehkan. Berapa peluang terbentuknya bilangan yang lebih besar dari 5000?
+
+Answerlist
+----------
+* 3/7 ≈ 0.4286
+* 4/7 ≈ 0.5714
+* 2/7 ≈ 0.2857
+* 5/7 ≈ 0.7143
+
+Solution
+========
+Total bilangan 4 digit: 7⁴ = 2.401
+
+Bilangan > 5000 dimulai dengan 5, 6, atau 7:
+- Digit pertama: 3 pilihan (5, 6, 7)
+- Digit lainnya: masing-masing 7 pilihan
+Total: 3 × 7³ = 3 × 343 = 1.029
+
+Peluang = 1.029/2.401 = 3/7 ≈ 0.4286
+
+Meta-information
+================
+exname: soal16_peluang_bilangan_syarat
+extype: schoice
+exsolution: 1000
+exshuffle: TRUE

@@ -1,0 +1,29 @@
+Question
+========
+(14) Dari huruf-huruf A, B, C, D, E akan dibentuk "kata" 3 huruf tanpa pengulangan. Jika kata yang dimulai dengan huruf vokal dianggap khusus, berapa peluang terbentuknya kata khusus?
+
+Answerlist
+----------
+* 2/5 atau 0.4
+* 1/5 atau 0.2
+* 3/5 atau 0.6
+* 1/2 atau 0.5
+
+Solution
+========
+Total kata 3 huruf: P(5,3) = 5 × 4 × 3 = 60
+
+Kata dimulai vokal (A atau E):
+- Huruf pertama: 2 pilihan (A atau E)
+- Huruf kedua: 4 pilihan
+- Huruf ketiga: 3 pilihan
+Total: 2 × 4 × 3 = 24
+
+Peluang = 24/60 = 2/5 = 0.4
+
+Meta-information
+================
+exname: soal14_peluang_permutasi_syarat
+extype: schoice
+exsolution: 1000
+exshuffle: TRUE

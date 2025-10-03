@@ -1,0 +1,28 @@
+Question
+========
+(9) Dari 52 kartu bridge, diambil 5 kartu secara acak. Berapa peluang terambil tepat 3 kartu As?
+
+Answerlist
+----------
+* 4512/2598960 ≈ 0.00174
+* 48/2598960 ≈ 0.0000185
+* 94/2598960 ≈ 0.0000362
+* 1128/2598960 ≈ 0.000434
+
+Solution
+========
+Total cara mengambil 5 kartu dari 52: C(52,5) = 2.598.960
+
+Ada 4 kartu As dan 48 kartu non-As.
+Cara mengambil 3 As dari 4: C(4,3) = 4
+Cara mengambil 2 non-As dari 48: C(48,2) = 1.128
+Cara yang diinginkan: 4 × 1.128 = 4.512
+
+Peluang = 4.512/2.598.960 ≈ 0.00174
+
+Meta-information
+================
+exname: soal9_peluang_kartu
+extype: schoice
+exsolution: 1000
+exshuffle: TRUE

@@ -1,0 +1,30 @@
+Question
+========
+(12) Sebuah kode terdiri dari 4 digit angka dari 0-9 dengan pengulangan diperbolehkan. Berapa peluang kode tersebut terdiri dari 4 angka yang berbeda semua?
+
+Answerlist
+----------
+* 0.504 atau 50.4%
+* 0.720 atau 72%
+* 0.360 atau 36%
+* 0.648 atau 64.8%
+
+Solution
+========
+Total kode 4 digit: 10⁴ = 10.000
+
+Kode dengan 4 angka berbeda:
+- Digit 1: 10 pilihan
+- Digit 2: 9 pilihan
+- Digit 3: 8 pilihan
+- Digit 4: 7 pilihan
+Total: 10 × 9 × 8 × 7 = 5.040
+
+Peluang = 5.040/10.000 = 0.504 atau 50.4%
+
+Meta-information
+================
+exname: soal12_peluang_kode
+extype: schoice
+exsolution: 1000
+exshuffle: TRUE

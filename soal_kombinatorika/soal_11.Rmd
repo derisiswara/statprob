@@ -1,0 +1,15 @@
+Question
+========
+(11) Dari 8 titik yang tidak segaris, akan dibuat segitiga. Berapa banyak segitiga yang dapat dibentuk?
+
+Solution
+========
+Untuk membentuk segitiga diperlukan 3 titik.
+Gunakan kombinasi:
+C(8,3) = 8!/(3!×5!) = (8×7×6)/(3×2×1) = 336/6 = 56 segitiga
+
+Meta-information
+================
+exname: soal11_kombinasi_geometri
+extype: string
+exsolution: 56

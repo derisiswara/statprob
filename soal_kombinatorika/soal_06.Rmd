@@ -1,0 +1,25 @@
+Question
+========
+(6) Dari angka 0, 1, 2, 3, 4, 5 akan dibentuk bilangan genap 3 digit tanpa pengulangan. Berapa banyak bilangan yang dapat dibentuk?
+
+Solution
+========
+Bilangan genap 3 digit: harus diakhiri 0, 2, atau 4
+
+Kasus 1: Akhiran 0
+- Ratusan: 5 pilihan (1,2,3,4,5)
+- Puluhan: 4 pilihan (sisa)
+- Total: 5 × 4 = 20
+
+Kasus 2: Akhiran 2 atau 4 (2 pilihan)
+- Ratusan: 4 pilihan (tidak boleh 0 dan angka akhir)
+- Puluhan: 4 pilihan (sisa termasuk 0)
+- Total: 2 × 4 × 4 = 32
+
+Total = 20 + 32 = 52 bilangan
+
+Meta-information
+================
+exname: soal6_bilangan_genap_syarat
+extype: string
+exsolution: 52

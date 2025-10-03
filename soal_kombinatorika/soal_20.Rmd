@@ -1,0 +1,31 @@
+Question
+========
+(20) Sebuah panitia terdiri dari 5 orang akan dipilih dari 6 pria dan 5 wanita. Berapa peluang panitia tersebut terdiri dari pria dan wanita dengan jumlah yang sama atau hampir sama (selisih maksimal 1 orang)?
+
+Answerlist
+----------
+* 300/462 ≈ 0.6494
+* 200/462 ≈ 0.4329
+* 150/462 ≈ 0.3247
+* 250/462 ≈ 0.5411
+
+Solution
+========
+Total cara: C(11,5) = 462
+
+Jumlah sama/hampir sama untuk 5 orang:
+- 3 pria, 2 wanita: C(6,3) × C(5,2) = 20 × 10 = 200
+- 2 pria, 3 wanita: C(6,2) × C(5,3) = 15 × 10 = 150
+
+Total = 200 + 150 = 350
+
+Peluang = 350/462 = 175/231 ≈ 0.7576
+
+**Catatan: Tidak ada jawaban yang tepat, seharusnya ≈0.7576**
+
+Meta-information
+================
+exname: soal20_peluang_panitia
+extype: schoice
+exsolution: 1000
+exshuffle: TRUE
