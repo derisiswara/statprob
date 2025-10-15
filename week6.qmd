@@ -1,0 +1,693 @@
+---
+format:
+  html:
+    css: webex.css
+    include-after-body: webex.js
+execute: 
+  echo: false
+  warning: false
+  error: false
+  message: false
+  cache: false
+---
+# Teorema Bayes dan Aplikasinya
+
+**Teorema Bayes** adalah salah satu teorema paling penting dalam teori peluang yang memungkinkan kita memperbarui keyakinan atau peluang suatu kejadian berdasarkan informasi baru yang diperoleh.
+
+### Mengapa Teorema Bayes Penting?
+
+Teorema Bayes memungkinkan kita:
+
+- **Membalik** peluang bersyarat: dari P(B|A) ke P(A|B)
+- **Memperbarui** keyakinan berdasarkan bukti baru
+- **Menghitung** peluang posterior dari peluang prior dan likelihood
+- **Menganalisis** diagnostik medis, spam filtering, machine learning, dll.
+
+---
+
+## PELUANG BERSYARAT (Review)
+
+Sebelum masuk ke Teorema Bayes, kita review dulu konsep peluang bersyarat.
+
+**Definisi:**
+$$P(A \mid B) = \frac{P(A \cap B)}{P(B)}, \quad P(B) > 0$$
+
+**Interpretasi:** Peluang kejadian A terjadi, dengan **syarat** B sudah terjadi.
+
+**Aturan Perkalian:**
+$$P(A \cap B) = P(B) \cdot P(A \mid B) = P(A) \cdot P(B \mid A)$$
+
+**Contoh 1: Dua Kartu Berurutan**
+
+Dari 52 kartu, diambil 2 kartu berturut-turut tanpa pengembalian. Berapa peluang kedua kartu adalah As?
+
+**Penyelesaian:**
+```
+Misalkan:
+A₁ = kartu pertama As
+A₂ = kartu kedua As
+
+P(A₁) = 4/52
+P(A₂ | A₁) = 3/51 (tersisa 3 As dari 51 kartu)
+
+P(A₁ ∩ A₂) = P(A₁) × P(A₂ | A₁)
+           = (4/52) × (3/51)
+           = 12/2,652
+           = 1/221
+           ≈ 0.00452 atau 0.452%
+```
+
+---
+
+## HUKUM PELUANG TOTAL
+
+Hukum ini adalah fondasi untuk memahami Teorema Bayes.
+
+### Partisi Ruang Sampel
+
+**Definisi:** Kejadian-kejadian B₁, B₂, ..., Bₙ membentuk **partisi** dari ruang sampel S jika:
+
+1. Bᵢ ∩ Bⱼ = ∅ untuk semua i ≠ j (saling lepas)
+2. B₁ ∪ B₂ ∪ ... ∪ Bₙ = S (mencakup seluruh S)
+3. P(Bᵢ) > 0 untuk semua i
+
+**Visualisasi:** Bayangkan S seperti pizza yang dipotong menjadi n bagian yang tidak tumpang tindih.
+
+### Hukum Peluang Total
+
+**Teorema:** Jika B₁, B₂, ..., Bₙ adalah partisi dari S, maka untuk setiap kejadian A:
+
+$$P(A) = \sum_{i=1}^{n} P(A \mid B_i) \cdot P(B_i)$$
+
+Atau untuk 2 partisi:
+$$P(A) = P(A \mid B) \cdot P(B) + P(A \mid B^c) \cdot P(B^c)$$
+
+**Contoh 2: Tiga Pabrik**
+
+Sebuah perusahaan mendapat pasokan dari 3 pabrik:
+
+- Pabrik 1: 30% pasokan, tingkat cacat 2%
+- Pabrik 2: 45% pasokan, tingkat cacat 3%
+- Pabrik 3: 25% pasokan, tingkat cacat 5%
+
+Berapa peluang suatu produk yang dipilih acak adalah cacat?
+
+**Penyelesaian:**
+```
+Misalkan:
+B₁ = dari pabrik 1, P(B₁) = 0.30
+B₂ = dari pabrik 2, P(B₂) = 0.45
+B₃ = dari pabrik 3, P(B₃) = 0.25
+D = produk cacat
+
+P(D | B₁) = 0.02
+P(D | B₂) = 0.03
+P(D | B₃) = 0.05
+
+Hukum Peluang Total:
+P(D) = P(D|B₁)P(B₁) + P(D|B₂)P(B₂) + P(D|B₃)P(B₃)
+     = (0.02)(0.30) + (0.03)(0.45) + (0.05)(0.25)
+     = 0.006 + 0.0135 + 0.0125
+     = 0.032 atau 3.2%
+```
+
+---
+
+## TEOREMA BAYES
+
+{{< video https://www.youtube.com/watch?v=9wCnvr7Xw4E >}}
+
+### Formula Dasar
+
+**Untuk 2 Kejadian:**
+
+$$P(B \mid A) = \frac{P(A \mid B) \cdot P(B)}{P(A)}$$
+
+**Bentuk Lengkap dengan Hukum Peluang Total:**
+
+$$P(B \mid A) = \frac{P(A \mid B) \cdot P(B)}{P(A \mid B) \cdot P(B) + P(A \mid B^c) \cdot P(B^c)}$$
+
+**Untuk n Partisi:**
+
+$$P(B_i \mid A) = \frac{P(A \mid B_i) \cdot P(B_i)}{\sum_{j=1}^{n} P(A \mid B_j) \cdot P(B_j)}$$
+
+### Terminologi Penting
+
+- **P(Bᵢ)** = **Prior Probability** (peluang awal sebelum informasi A)
+- **P(A | Bᵢ)** = **Likelihood** (seberapa mungkin A terjadi jika Bᵢ benar)
+- **P(Bᵢ | A)** = **Posterior Probability** (peluang yang diperbarui setelah A terjadi)
+- **P(A)** = **Marginal Probability** atau **Evidence**
+
+**Interpretasi:** Teorema Bayes memperbarui keyakinan kita tentang Bᵢ setelah mengamati A.
+
+---
+
+### Contoh 3: Lanjutan Pabrik (Teorema Bayes)
+
+Dari Contoh 2, jika suatu produk ternyata cacat, berapa peluang produk tersebut dari Pabrik 3?
+
+**Penyelesaian:**
+```
+Kita cari P(B₃ | D)
+
+P(B₃ | D) = P(D | B₃) × P(B₃) / P(D)
+          = (0.05 × 0.25) / 0.032
+          = 0.0125 / 0.032
+          = 0.3906 atau 39.06%
+
+Bandingkan dengan prior P(B₃) = 25%
+Setelah tahu produk cacat, peluang dari Pabrik 3 naik menjadi 39.06%
+```
+
+**Untuk kelengkapan, hitung semua posterior:**
+```
+P(B₁ | D) = (0.02 × 0.30) / 0.032 = 0.006/0.032 = 0.1875 atau 18.75%
+P(B₂ | D) = (0.03 × 0.45) / 0.032 = 0.0135/0.032 = 0.4219 atau 42.19%
+P(B₃ | D) = (0.05 × 0.25) / 0.032 = 0.0125/0.032 = 0.3906 atau 39.06%
+
+Total = 18.75% + 42.19% + 39.06% = 100% ✓
+```
+
+---
+
+### Contoh 4: Tes Medis
+
+Sebuah penyakit langka menyerang 0.5% populasi. Tes diagnostik untuk penyakit ini memiliki:
+
+- Sensitivitas (True Positive Rate): 99% (jika sakit, tes positif)
+- Spesifisitas (True Negative Rate): 95% (jika sehat, tes negatif)
+
+Seseorang tes hasilnya positif. Berapa peluang dia benar-benar sakit?
+
+**Penyelesaian:**
+```
+Misalkan:
+
+S = sakit, P(S) = 0.005
+S^c = sehat, P(S^c) = 0.995
++ = tes positif
+
+Given:
+
+P(+ | S) = 0.99 (sensitivitas)
+P(- | S^c) = 0.95 (spesifisitas)
+Berarti: P(+ | S^c) = 1 - 0.95 = 0.05 (False Positive Rate)
+
+Kita cari P(S | +)
+
+Hitung P(+) dulu:
+
+P(+) = P(+ | S) × P(S) + P(+ | S^c) × P(S^c)
+     = (0.99)(0.005) + (0.05)(0.995)
+     = 0.00495 + 0.04975
+     = 0.0547
+
+Teorema Bayes: 
+
+P(S | +) = P(+ | S) × P(S) / P(+)
+         = (0.99 × 0.005) / 0.0547
+         = 0.00495 / 0.0547
+         = 0.0905 atau 9.05%
+```
+
+**Interpretasi Penting:**
+
+- Meskipun tes akurat 99%, peluang benar-benar sakit hanya 9.05%!
+- Ini karena penyakit sangat langka (prevalensi rendah)
+- False positive (5% dari 99.5% orang sehat) >> True positive
+
+---
+
+### Contoh 5: Email Spam
+
+Sebuah filter spam mengklasifikasi email berdasarkan kata "gratis":
+
+- 80% email spam mengandung kata "gratis"
+- 10% email normal mengandung kata "gratis"
+- 30% email yang masuk adalah spam
+
+Jika email mengandung kata "gratis", berapa peluang email itu spam?
+
+**Penyelesaian:**
+```
+Misalkan:
+S = spam, P(S) = 0.30
+N = normal, P(N) = 0.70
+G = mengandung "gratis"
+
+Given:
+P(G | S) = 0.80
+P(G | N) = 0.10
+
+Kita cari P(S | G)
+
+P(G) = P(G | S) × P(S) + P(G | N) × P(N)
+     = (0.80)(0.30) + (0.10)(0.70)
+     = 0.24 + 0.07
+     = 0.31
+
+P(S | G) = P(G | S) × P(S) / P(G)
+         = (0.80 × 0.30) / 0.31
+         = 0.24 / 0.31
+         = 0.7742 atau 77.42%
+```
+
+---
+
+## DIAGRAM POHON PELUANG
+
+Diagram pohon sangat membantu dalam masalah Teorema Bayes.
+
+### Contoh 6: Kotak dan Bola
+
+Ada 3 kotak:
+
+- **Kotak A**: 3 merah, 2 biru
+- **Kotak B**: 2 merah, 3 biru
+- **Kotak C**: 4 merah, 1 biru
+
+Kotak dipilih acak, lalu sebuah bola diambil dari kotak tersebut. Jika bola yang diambil merah, berapa peluang dari Kotak B?
+
+**Penyelesaian dengan Diagram Pohon:**
+
+```
+                    Kotak A (1/3)
+                   /              \
+                  /                \
+              Merah (3/5)        Biru (2/5)
+                 |                   |
+            P(A∩M)=1/3×3/5=1/5   P(A∩B)=2/15
+            
+                    Kotak B (1/3)
+                   /              \
+                  /                \
+              Merah (2/5)        Biru (3/5)
+                 |                   |
+            P(B∩M)=1/3×2/5=2/15  P(B∩Biru)=1/5
+            
+                    Kotak C (1/3)
+                   /              \
+                  /                \
+              Merah (4/5)        Biru (1/5)
+                 |                   |
+            P(C∩M)=1/3×4/5=4/15  P(C∩Biru)=1/15
+```
+
+**Hitung P(M):**
+```
+P(M) = P(M|A)P(A) + P(M|B)P(B) + P(M|C)P(C)
+     = (3/5)(1/3) + (2/5)(1/3) + (4/5)(1/3)
+     = 1/5 + 2/15 + 4/15
+     = 3/15 + 2/15 + 4/15
+     = 9/15 = 3/5
+```
+
+**Hitung P(B|M):**
+```
+P(B | M) = P(M | B) × P(B) / P(M)
+         = (2/5) × (1/3) / (3/5)
+         = (2/15) / (3/5)
+         = (2/15) × (5/3)
+         = 10/45 = 2/9
+         ≈ 0.222 atau 22.22%
+```
+
+---
+
+## APLIKASI LANJUTAN
+
+### Contoh 7: Deteksi Kebohongan
+
+Sebuah lie detector (polygraph) memiliki akurasi:
+
+- Jika berbohong, terdeteksi bohong: 90%
+- Jika jujur, terdeteksi jujur: 85%
+
+Diasumsikan 95% orang jujur. Jika seseorang terdeteksi bohong, berapa peluang dia benar-benar bohong?
+
+**Penyelesaian:**
+```
+Misalkan:
+L = berbohong, P(L) = 0.05
+T = jujur, P(T) = 0.95
+D = terdeteksi bohong
+
+Given:
+P(D | L) = 0.90 (sensitivitas)
+P(tidak D | T) = 0.85
+Berarti: P(D | T) = 1 - 0.85 = 0.15 (false positive)
+
+P(D) = P(D | L) × P(L) + P(D | T) × P(T)
+     = (0.90)(0.05) + (0.15)(0.95)
+     = 0.045 + 0.1425
+     = 0.1875
+
+P(L | D) = P(D | L) × P(L) / P(D)
+         = (0.90 × 0.05) / 0.1875
+         = 0.045 / 0.1875
+         = 0.24 atau 24%
+```
+
+**Kesimpulan:** Hanya 24% kemungkinan benar-benar bohong meskipun terdeteksi bohong!
+
+---
+
+### Contoh 8: A/B Testing
+
+Sebuah website menguji 2 desain:
+
+- **Desain A**: 5% pengunjung melakukan pembelian
+- **Desain B**: 7% pengunjung melakukan pembelian
+- Trafik dibagi: 60% ke A, 40% ke B
+
+Jika user melakukan pembelian, berapa peluang dia melihat Desain B?
+
+**Penyelesaian:**
+```
+Misalkan:
+A = melihat desain A, P(A) = 0.60
+B = melihat desain B, P(B) = 0.40
+P = melakukan pembelian
+
+Given:
+P(P | A) = 0.05
+P(P | B) = 0.07
+
+P(P) = P(P | A) × P(A) + P(P | B) × P(B)
+     = (0.05)(0.60) + (0.07)(0.40)
+     = 0.030 + 0.028
+     = 0.058
+
+P(B | P) = P(P | B) × P(B) / P(P)
+         = (0.07 × 0.40) / 0.058
+         = 0.028 / 0.058
+         = 0.4828 atau 48.28%
+```
+
+---
+
+### Contoh 9: Multiple Testing
+
+Seseorang di tes COVID-19 dua kali dengan hasil:
+
+- Tes 1: Positif
+- Tes 2: Positif
+
+Prevalensi COVID: 2%
+Akurasi tes (sensitivitas dan spesifisitas): 95%
+
+Berapa peluang benar-benar positif setelah 2 tes?
+
+**Penyelesaian (asumsi tes independen):**
+
+**Setelah Tes 1:**
+```
+P(C) = 0.02 (prior)
+P(+ | C) = 0.95
+P(+ | C^c) = 0.05
+
+P(+) = 0.95 × 0.02 + 0.05 × 0.98 = 0.019 + 0.049 = 0.068
+
+P(C | +) = (0.95 × 0.02) / 0.068
+         = 0.019 / 0.068
+         = 0.279 atau 27.9%
+```
+
+**Setelah Tes 2 (menggunakan posterior sebagai prior baru):**
+```
+Prior baru: P(C) = 0.279
+
+P(+ | C) = 0.95
+P(+ | C^c) = 0.05
+
+P(+) = 0.95 × 0.279 + 0.05 × 0.721 = 0.265 + 0.036 = 0.301
+
+P(C | +) = (0.95 × 0.279) / 0.301
+         = 0.265 / 0.301
+         = 0.880 atau 88.0%
+```
+
+**Kesimpulan:** Setelah 2 tes positif, peluang naik dari 27.9% → 88.0%
+
+---
+
+## TABEL KONTINGENSI DAN BAYES
+
+Tabel kontingensi membantu visualisasi untuk Teorema Bayes.
+
+### Contoh 10: Format Tabel 2×2
+
+Dari 10,000 orang:
+
+- 100 sakit (1%)
+- 9,900 sehat (99%)
+- Tes sensitivitas: 99%, spesifisitas: 95%
+
+|            | Sakit | Sehat | Total |
+|------------|-------|-------|-------|
+| Tes +      | 99    | 495   | 594   |
+| Tes -      | 1     | 9,405 | 9,406 |
+| **Total**  | 100   | 9,900 | 10,000|
+
+**Hitung P(Sakit | Tes+):**
+```
+P(Sakit | Tes+) = 99 / 594 = 0.167 atau 16.7%
+```
+
+**Interpretasi:** Dari 594 orang dengan tes positif, hanya 99 (16.7%) yang benar-benar sakit.
+
+---
+
+## TEOREMA BAYES UNTUK MULTIPLE HYPOTHESES
+
+Ketika ada lebih dari 2 hipotesis:
+
+$$P(H_i \mid E) = \frac{P(E \mid H_i) \cdot P(H_i)}{\sum_{j=1}^{n} P(E \mid H_j) \cdot P(H_j)}$$
+
+### Contoh 11: Tiga Koin
+
+Ada 3 koin:
+
+- **Koin 1**: Fair (P(H)=0.5)
+- **Koin 2**: Bias ke Heads (P(H)=0.7)
+- **Koin 3**: Bias ke Tails (P(H)=0.3)
+
+Koin dipilih acak, dilempar 3 kali, hasilnya: H, H, T. Berapa peluang koin yang dipilih adalah Koin 2?
+
+**Penyelesaian:**
+```
+Prior: P(K₁) = P(K₂) = P(K₃) = 1/3
+
+Likelihood (untuk hasil HHT):
+P(HHT | K₁) = 0.5 × 0.5 × 0.5 = 0.125
+P(HHT | K₂) = 0.7 × 0.7 × 0.3 = 0.147
+P(HHT | K₃) = 0.3 × 0.3 × 0.7 = 0.063
+
+P(HHT) = (1/3)[0.125 + 0.147 + 0.063]
+       = (1/3)(0.335) = 0.1117
+
+P(K₂ | HHT) = P(HHT | K₂) × P(K₂) / P(HHT)
+            = (0.147 × 1/3) / 0.1117
+            = 0.049 / 0.1117
+            = 0.439 atau 43.9%
+
+Untuk kelengkapan:
+P(K₁ | HHT) = (0.125 × 1/3) / 0.1117 = 0.373 atau 37.3%
+P(K₃ | HHT) = (0.063 × 1/3) / 0.1117 = 0.188 atau 18.8%
+
+Total = 37.3% + 43.9% + 18.8% = 100% ✓
+```
+
+---
+
+## STRATEGI PENYELESAIAN MASALAH BAYES
+
+### Langkah-Langkah Sistematis
+
+1. **Identifikasi** hipotesis/partisi (B₁, B₂, ..., Bₙ)
+2. **Tentukan** prior probabilities: P(Bᵢ)
+3. **Identifikasi** evidence/data yang diamati: A
+4. **Tentukan** likelihoods: P(A | Bᵢ) untuk semua i
+5. **Hitung** P(A) menggunakan Hukum Peluang Total
+6. **Terapkan** Teorema Bayes: P(Bᵢ | A)
+7. **Interpretasi** hasil dalam konteks masalah
+
+### Checklist Verifikasi
+
+- [ ] Apakah hipotesis membentuk partisi? (saling lepas, lengkap)
+- [ ] Apakah semua prior dijumlahkan = 1?
+- [ ] Apakah semua posterior dijumlahkan = 1?
+- [ ] Apakah hasil masuk akal secara intuitif?
+
+---
+
+## TABEL PERBANDINGAN: KONSEP TERKAIT
+
+| Konsep | Formula | Kegunaan |
+|--------|---------|----------|
+| **Peluang Bersyarat** | P(A\|B) = P(A∩B)/P(B) | Dasar untuk Bayes |
+| **Aturan Perkalian** | P(A∩B) = P(A)P(B\|A) | Menghitung joint probability |
+| **Hukum Peluang Total** | P(A) = Σ P(A\|Bᵢ)P(Bᵢ) | Menghitung marginal probability |
+| **Teorema Bayes** | P(B\|A) = P(A\|B)P(B)/P(A) | Membalik conditional probability |
+| **Independensi** | P(A\|B) = P(A) | Cek ketergantungan |
+
+---
+
+## RINGKASAN FORMULA PENTING
+
+### Formula Inti
+
+**Teorema Bayes (2 kejadian):**
+$$P(B \mid A) = \frac{P(A \mid B) \cdot P(B)}{P(A)}$$
+
+**Teorema Bayes (lengkap):**
+$$P(B \mid A) = \frac{P(A \mid B) \cdot P(B)}{P(A \mid B) \cdot P(B) + P(A \mid B^c) \cdot P(B^c)}$$
+
+**Teorema Bayes (n partisi):**
+$$P(B_i \mid A) = \frac{P(A \mid B_i) \cdot P(B_i)}{\sum_{j=1}^{n} P(A \mid B_j) \cdot P(B_j)}$$
+
+### Hukum Peluang Total
+$$P(A) = \sum_{i=1}^{n} P(A \mid B_i) \cdot P(B_i)$$
+
+### Aturan Perkalian
+$$P(A \cap B) = P(A) \cdot P(B \mid A) = P(B) \cdot P(A \mid B)$$
+
+## PERSPEKTIF FREQUENTIST VS BAYESIAN
+
+| Pendekatan      | Fokus                                                               | Makna “probabilitas”                                                      |
+| --------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| **Frequentist** | Frekuensi kejadian dalam jangka panjang                             | “Seberapa sering ini terjadi kalau diulang ribuan kali?”                  |
+| **Bayesian**    | Keyakinan (degree of belief) yang bisa diperbarui dengan bukti baru | “Seberapa yakin saya terhadap suatu hal, sebelum & sesudah melihat data?” |
+
+---
+
+**🧠 Saat hasil *bisa sama***
+
+Kalau datanya **banyak banget**, dan prior Bayes-nya **netral (tidak bias)**,
+biasanya hasil **Bayesian ≈ Frequentist** (karena bukti mendominasi).
+
+Contoh: kalau kamu lempar koin 10.000 kali, hasil 5.012 kali muncul kepala →
+baik metode frequentist maupun Bayesian sama-sama akan bilang “sekitar 50%”.
+
+---
+
+**⚖️ Saat hasil *bisa beda***
+
+Perbedaannya muncul **kalau datanya sedikit** atau **kita punya informasi awal (prior)**.
+Mari lihat dua contoh:
+
+---
+
+### 🔹 **Contoh A — Koin baru (data sedikit)**
+
+Kamu lempar **koin baru 3 kali**, hasil: 3 kali kepala.
+Kamu mau tahu: “Apakah koin ini fair?”
+
+#### 💭 Frequentist:
+
+> Estimasi peluang kepala = 3/3 = 1 (100%)
+> Karena belum ada asumsi lain, dia pakai murni data.
+
+#### 💭 Bayesian:
+
+> Mulai dari *prior belief*: “Sebelum lihat data, saya percaya koin kemungkinan besar fair (p=0.5)”.
+> Setelah 3 kali kepala, update keyakinan jadi sekitar **p(head) ≈ 0.8**, bukan 1.
+
+👉 **Beda hasilnya:**
+Frequentist “keras” — 100%,
+Bayesian “lebih hati-hati” karena masih menggabungkan informasi sebelumnya.
+
+---
+
+### 🔹 **Contoh B — Tes medis penyakit langka**
+
+Kita bahas yang tadi:
+Penyakit 0.5%, sensitivitas 99%, spesifisitas 95%.
+
+#### 💭 Frequentist:
+
+> “Kalau kamu tes positif, peluang benar-benar sakit = 9%”
+> (pakai proporsi populasi dan sifat tes, tanpa pendapat sebelumnya).
+
+#### 💭 Bayesian:
+
+> Kalau dokter tahu pasien **punya gejala khas** → bisa pasang prior lebih tinggi, misalnya 10%.
+> Maka:
+> [
+> P(S|+) = \frac{0.99(0.10)}{0.99(0.10)+0.05(0.90)} = 0.69 = 69%
+> ]
+> Sekarang hasilnya **berbeda jauh** (9% vs 69%) karena *prior belief-nya berubah*.
+
+---
+
+### 🧮 4️⃣ Kesimpulan singkat
+
+| Situasi                                          | Frequentist                     | Bayesian                       | Hasil beda? |
+| ------------------------------------------------ | ------------------------------- | ------------------------------ | ----------- |
+| Data besar, prior netral                         | Berdasarkan data saja           | Data + prior (prior lemah)     | Tidak       |
+| Data sedikit                                     | Berdasarkan frekuensi observasi | Menggabungkan keyakinan awal   | ✅ Ya        |
+| Ada informasi awal (gejala, konteks, pengalaman) | Tidak digunakan                 | Digunakan dalam prior          | ✅ Ya        |
+| Tujuan: keputusan klinis/prediksi personal       | Kurang fleksibel                | Lebih realistis (personalized) | ✅ Ya        |
+
+---
+
+Kalimat ringkasnya:
+
+> 🔸 *Frequentist* bilang: “Probabilitas itu sifat dunia, saya cuma hitung frekuensinya.”
+> 🔹 *Bayesian* bilang: “Probabilitas itu tingkat keyakinan saya, bisa berubah kalau ada data baru.”
+
+---
+
+## APLIKASI NYATA TEOREMA BAYES
+
+### 1. Kedokteran
+- Diagnosis penyakit berdasarkan gejala dan tes
+- Evaluasi efektivitas screening tests
+- Personalized medicine
+
+### 2. Machine Learning
+- Naive Bayes Classifier untuk:
+  - Spam filtering
+  - Sentiment analysis
+  - Text classification
+- Bayesian Networks untuk reasoning under uncertainty
+
+### 3. Forensik
+- DNA evidence analysis
+- Probabilistic reasoning dalam kasus hukum
+
+### 4. Finance
+- Credit scoring
+- Risk assessment
+- Portfolio optimization
+
+### 5. Quality Control
+- Product defect analysis
+- Supplier evaluation
+- Process monitoring
+
+---
+
+## LATIHAN MANDIRI
+
+**Soal 1:** Prevalensi penyakit X adalah 1%. Tes memiliki sensitivitas 98% dan spesifisitas 97%. Jika hasil tes positif, berapa peluang benar-benar sakit?
+
+**Soal 2:** Tiga mesin A, B, C memproduksi 25%, 35%, 40% dari total produksi dengan tingkat cacat 5%, 4%, 2%. Jika produk cacat, berapa peluang dari mesin C?
+
+**Soal 3:** Email spam 40% mengandung kata "uang", email normal 5% mengandung kata "uang". 60% email adalah spam. Jika email mengandung "uang", berapa peluang spam?
+
+**Soal 4:** Seorang siswa belajar dengan peluang 0.7. Jika belajar, lulus dengan peluang 0.9. Jika tidak belajar, lulus dengan peluang 0.3. Siswa lulus, berapa peluang dia belajar?
+
+**Soal 5:** Dari contoh 11, jika hasil lemparan adalah HHHH (4 heads), berapa peluang koin yang dipilih adalah Koin 2?
+
+---
+
+## REFERENSI
+
+1. Ross, S. (2014). *A First Course in Probability* (9th ed.). Pearson.
+2. Degroot, M. H., & Schervish, M. J. (2012). *Probability and Statistics* (4th ed.). Pearson.
+3. Bertsekas, D. P., & Tsitsiklis, J. N. (2008). *Introduction to Probability* (2nd ed.). Athena Scientific.
+4. Hogg, R. V., McKean, J. W., & Craig, A. T. (2019). *Introduction to Mathematical Statistics* (8th ed.). Pearson.
+5. Pearl, J. (2018). *The Book of Why: The New Science of Cause and Effect*. Basic Books.
+
+---

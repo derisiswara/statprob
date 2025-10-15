@@ -10,7 +10,7 @@ execute:
   message: false
   cache: false
 ---
-# Kombinatorika Dalam Kalkulasi Peluang Diskret.
+# Kombinatorika Dalam Kalkulasi Peluang Diskret
 
 ## Recap Singkat Minggu 4
 

@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Deri Siswara">
 
-<title>Statistika dan Probabilitas</title>
+<title>kunciw6</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,294 +23,257 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./week1.html" rel="next">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-832c273f0af7a47d06e59912ec7b3523.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
-  "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+<script src="kunciw6_files/libs/clipboard/clipboard.min.js"></script>
+<script src="kunciw6_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="kunciw6_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="kunciw6_files/libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="kunciw6_files/libs/quarto-html/popper.min.js"></script>
+<script src="kunciw6_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="kunciw6_files/libs/quarto-html/anchor.min.js"></script>
+<link href="kunciw6_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="kunciw6_files/libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="kunciw6_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="kunciw6_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="kunciw6_files/libs/bootstrap/bootstrap-9e3ffae467580fdb927a41352e75a2e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
   }
-}</script>
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
-
-<link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar floating quarto-light">
+<body class="fullcontent quarto-light">
 
-<div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Pengantar</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
-<!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">Statistika dan Probabilitas</a> 
-    </div>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Pengantar</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./week1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Understanding the World with Data</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./week2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Statistika Deskriptif</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./week3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Eksperimen Acak, Ruang Sampel, dan Kejadian</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./week4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Eksperimen Acak, Ruang Sampel, dan Kejadian - Latihan Soal</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./week5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Kombinatorika Dalam Kalkulasi Peluang Diskret</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./week6.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Teorema Bayes dan Aplikasinya</span></span></a>
-  </div>
-</li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#pengantar" id="toc-pengantar" class="nav-link active" data-scroll-target="#pengantar">Pengantar</a>
-  <ul class="collapse">
-  <li><a href="#informasi-mata-kuliah" id="toc-informasi-mata-kuliah" class="nav-link" data-scroll-target="#informasi-mata-kuliah">Informasi Mata Kuliah</a></li>
-  </ul></li>
-  </ul>
-</nav>
-    </div>
-<!-- main -->
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Statistika dan Probabilitas</h1>
-</div>
 
 
 
-<div class="quarto-title-meta">
-
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Deri Siswara </p>
-          </div>
-  </div>
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<section id="pengantar" class="level1 unnumbered">
-<h1 class="unnumbered">Pengantar</h1>
-<p>Buku ini ringkas dan praktis untuk mata kuliah Statistika dan Probabilitas (SI243040). Target: mengenali peran data, statistika, dan probabilitas untuk penalaran berbasis bukti.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Capaian Pembelajaran (CPMK)</strong><br>
-1) Menjelaskan statistika &amp; probabilitas.<br>
-2) Mengaitkan konsep keduanya.<br>
-3) Menghitung peluang dasar.<br>
-4) Mengenali karakteristik distribusi diskret &amp; kontinu.<br>
-5) Melakukan uji hipotesis dasar.<br>
-6) Menulis ringkas hasil analisis.</p>
-</div>
-</div>
-<section id="informasi-mata-kuliah" class="level2">
-<h2 class="anchored" data-anchor-id="informasi-mata-kuliah">Informasi Mata Kuliah</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: left;"></th>
-<th style="text-align: center;">Quiz</th>
-<th style="text-align: center;">Tugas</th>
-<th style="text-align: center;">UTS</th>
-<th style="text-align: center;">UAS</th>
-<th style="text-align: center;">Total</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">CPMK 1</td>
-<td style="text-align: center;">5%</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">5%</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">10%</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">CPMK 2</td>
-<td style="text-align: center;">5%</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">5%</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">10%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">CPMK 3</td>
-<td style="text-align: center;">7%</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">8%</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">15%</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">CPMK 4</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">10%</td>
-<td style="text-align: center;">5%</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">15%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">CPMK 5</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">10%</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">10%</td>
-<td style="text-align: center;">20%</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">CPMK 6</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">10%</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">20%</td>
-<td style="text-align: center;">30%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Total</strong></td>
-<td style="text-align: center;"><strong>17%</strong></td>
-<td style="text-align: center;"><strong>30%</strong></td>
-<td style="text-align: center;"><strong>23%</strong></td>
-<td style="text-align: center;"><strong>30%</strong></td>
-<td style="text-align: center;"><strong>100%</strong></td>
-</tr>
-</tbody>
-</table>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Syarat lulus</strong>: setiap CPMK ≥ 55 dan nilai akhir ≥ 55.<br>
-Tidak lulus → remedial.</p>
-</div>
-</div>
-
-
+<section id="jawaban-lengkap-soal-kombinatorik-dan-peluang" class="level1">
+<h1>Jawaban Lengkap Soal Kombinatorik dan Peluang</h1>
+<section id="soal-1" class="level2">
+<h2 class="anchored" data-anchor-id="soal-1">SOAL 1</h2>
+<p><strong>Dari 12 orang akan dipilih 5 orang untuk menjadi tim. Berapa banyak cara pemilihan?</strong></p>
+<p><strong>Penyelesaian:</strong> Ini adalah masalah kombinasi karena urutan tidak penting (tim tidak memiliki hierarki).</p>
+<p><span class="math display">\[C(12,5) = \frac{12!}{5!(12-5)!} = \frac{12!}{5! \cdot 7!}\]</span></p>
+<p><span class="math display">\[= \frac{12 \times 11 \times 10 \times 9 \times 8}{5 \times 4 \times 3 \times 2 \times 1}\]</span></p>
+<p><span class="math display">\[= \frac{95040}{120} = 792\]</span></p>
+<p><strong>Jawaban: 792 cara</strong></p>
+<hr>
+</section>
+<section id="soal-2" class="level2">
+<h2 class="anchored" data-anchor-id="soal-2">SOAL 2</h2>
+<p><strong>Berapa banyak cara menyusun kata “STATISTIKA”?</strong></p>
+<p><strong>Penyelesaian:</strong> Kata “STATISTIKA” memiliki 10 huruf dengan pengulangan: - S = 2 - T = 3 - A = 2 - I = 2 - K = 1</p>
+<p>Formula permutasi dengan pengulangan: <span class="math display">\[\frac{n!}{n_1! \cdot n_2! \cdot n_3! \cdot ...}\]</span></p>
+<p><span class="math display">\[= \frac{10!}{2! \cdot 3! \cdot 2! \cdot 2! \cdot 1!}\]</span></p>
+<p><span class="math display">\[= \frac{3628800}{2 \times 6 \times 2 \times 2 \times 1}\]</span></p>
+<p><span class="math display">\[= \frac{3628800}{48} = 75600\]</span></p>
+<p><strong>Jawaban: 75.600 cara</strong></p>
+<hr>
+</section>
+<section id="soal-3" class="level2">
+<h2 class="anchored" data-anchor-id="soal-3">SOAL 3</h2>
+<p><strong>Berapa banyak cara menyusun 7 orang duduk mengelilingi meja bundar?</strong></p>
+<p><strong>Penyelesaian:</strong> Permutasi siklik (melingkar) = <span class="math inline">\((n-1)!\)</span></p>
+<p>Untuk 7 orang: <span class="math display">\[P_{siklik} = (7-1)! = 6!\]</span></p>
+<p><span class="math display">\[= 6 \times 5 \times 4 \times 3 \times 2 \times 1 = 720\]</span></p>
+<p><strong>Jawaban: 720 cara</strong></p>
+<hr>
+</section>
+<section id="soal-4" class="level2">
+<h2 class="anchored" data-anchor-id="soal-4">SOAL 4</h2>
+<p><strong>Dari 10 soal, mahasiswa harus mengerjakan 6 soal. Berapa banyak pilihan soal yang dapat dikerjakan?</strong></p>
+<p><strong>Penyelesaian:</strong> Ini adalah kombinasi karena urutan soal tidak penting.</p>
+<p><span class="math display">\[C(10,6) = \frac{10!}{6! \cdot 4!}\]</span></p>
+<p><span class="math display">\[= \frac{10 \times 9 \times 8 \times 7}{4 \times 3 \times 2 \times 1}\]</span></p>
+<p><span class="math display">\[= \frac{5040}{24} = 210\]</span></p>
+<p><strong>Jawaban: 210 pilihan</strong></p>
+<hr>
+</section>
+<section id="soal-5" class="level2">
+<h2 class="anchored" data-anchor-id="soal-5">SOAL 5</h2>
+<p><strong>Berapa banyak password 4 digit yang dapat dibuat dari angka 0-9 jika tidak boleh ada pengulangan?</strong></p>
+<p><strong>Penyelesaian:</strong> Ini adalah permutasi tanpa pengulangan dari 10 angka diambil 4.</p>
+<p><span class="math display">\[P(10,4) = \frac{10!}{(10-4)!} = \frac{10!}{6!}\]</span></p>
+<p><span class="math display">\[= 10 \times 9 \times 8 \times 7 = 5040\]</span></p>
+<p><strong>Jawaban: 5.040 password</strong></p>
+<hr>
+</section>
+<section id="soal-6" class="level2">
+<h2 class="anchored" data-anchor-id="soal-6">SOAL 6</h2>
+<p><strong>Dalam lomba debat ada 10 tim. Berapa cara menentukan juara 1, 2, dan 3?</strong></p>
+<p><strong>Penyelesaian:</strong> Ini adalah permutasi karena urutan penting (juara 1, 2, 3 berbeda).</p>
+<p><span class="math display">\[P(10,3) = \frac{10!}{(10-3)!} = \frac{10!}{7!}\]</span></p>
+<p><span class="math display">\[= 10 \times 9 \times 8 = 720\]</span></p>
+<p><strong>Jawaban: 720 cara</strong></p>
+<hr>
+</section>
+<section id="soal-7" class="level2">
+<h2 class="anchored" data-anchor-id="soal-7">SOAL 7</h2>
+<p><strong>Dari 8 pria dan 6 wanita, akan dipilih komite beranggotakan 3 pria dan 2 wanita. Berapa banyak cara pemilihan?</strong></p>
+<p><strong>Penyelesaian:</strong> Gunakan aturan perkalian kombinasi.</p>
+<p>Memilih 3 pria dari 8: <span class="math display">\[C(8,3) = \frac{8!}{3! \cdot 5!} = \frac{8 \times 7 \times 6}{3 \times 2 \times 1} = \frac{336}{6} = 56\]</span></p>
+<p>Memilih 2 wanita dari 6: <span class="math display">\[C(6,2) = \frac{6!}{2! \cdot 4!} = \frac{6 \times 5}{2 \times 1} = 15\]</span></p>
+<p>Total cara: <span class="math display">\[C(8,3) \times C(6,2) = 56 \times 15 = 840\]</span></p>
+<p><strong>Jawaban: 840 cara</strong></p>
+<hr>
+</section>
+<section id="soal-8" class="level2">
+<h2 class="anchored" data-anchor-id="soal-8">SOAL 8</h2>
+<p><strong>Berapa banyak cara membagi 12 buku berbeda kepada 3 orang, masing-masing mendapat 4 buku?</strong></p>
+<p><strong>Penyelesaian:</strong> Ini adalah permutasi kelompok (multinomial).</p>
+<p><span class="math display">\[\frac{12!}{4! \cdot 4! \cdot 4!}\]</span></p>
+<p><span class="math display">\[= \frac{479001600}{24 \times 24 \times 24}\]</span></p>
+<p><span class="math display">\[= \frac{479001600}{13824} = 34650\]</span></p>
+<p><strong>Jawaban: 34.650 cara</strong></p>
+<hr>
+</section>
+<section id="soal-9" class="level2">
+<h2 class="anchored" data-anchor-id="soal-9">SOAL 9</h2>
+<p><strong>Dari 52 kartu bridge, diambil 5 kartu. Berapa peluang mendapat tepat 2 kartu As?</strong></p>
+<p><strong>Penyelesaian:</strong></p>
+<p><strong>Ruang sampel:</strong> Memilih 5 kartu dari 52 <span class="math display">\[n(S) = C(52,5) = \frac{52!}{5! \cdot 47!} = 2598960\]</span></p>
+<p><strong>Kejadian favorable:</strong> 2 As dari 4 As DAN 3 kartu bukan As dari 48 kartu <span class="math display">\[n(A) = C(4,2) \times C(48,3)\]</span></p>
+<p><span class="math display">\[C(4,2) = \frac{4 \times 3}{2 \times 1} = 6\]</span></p>
+<p><span class="math display">\[C(48,3) = \frac{48 \times 47 \times 46}{3 \times 2 \times 1} = \frac{103776}{6} = 17296\]</span></p>
+<p><span class="math display">\[n(A) = 6 \times 17296 = 103776\]</span></p>
+<p><strong>Peluang:</strong> <span class="math display">\[P = \frac{103776}{2598960} = \frac{6486}{162435} \approx 0.0399\]</span></p>
+<p><strong>Jawaban: 103776/2598960 ≈ 0.0399 atau 3.99%</strong></p>
+<hr>
+</section>
+<section id="soal-10" class="level2">
+<h2 class="anchored" data-anchor-id="soal-10">SOAL 10</h2>
+<p><strong>Sebuah kotak berisi 15 bola: 5 merah, 6 biru, 4 hijau. Diambil 4 bola sekaligus. Berapa peluang mendapat 2 merah dan 2 biru?</strong></p>
+<p><strong>Penyelesaian:</strong></p>
+<p><strong>Ruang sampel:</strong> Memilih 4 bola dari 15 <span class="math display">\[n(S) = C(15,4) = \frac{15 \times 14 \times 13 \times 12}{4 \times 3 \times 2 \times 1} = \frac{32760}{24} = 1365\]</span></p>
+<p><strong>Kejadian favorable:</strong> 2 merah dari 5 DAN 2 biru dari 6 <span class="math display">\[n(A) = C(5,2) \times C(6,2)\]</span></p>
+<p><span class="math display">\[C(5,2) = \frac{5 \times 4}{2 \times 1} = 10\]</span></p>
+<p><span class="math display">\[C(6,2) = \frac{6 \times 5}{2 \times 1} = 15\]</span></p>
+<p><span class="math display">\[n(A) = 10 \times 15 = 150\]</span></p>
+<p><strong>Peluang:</strong> <span class="math display">\[P = \frac{150}{1365} = \frac{10}{91} \approx 0.1099\]</span></p>
+<p><strong>Jawaban: 150/1365 = 10/91 ≈ 0.1099 atau 10.99%</strong></p>
+<hr>
+</section>
+</section>
+<section id="soal-tambahan-bonus" class="level1">
+<h1>SOAL TAMBAHAN (BONUS)</h1>
+<section id="tambahan-1" class="level2">
+<h2 class="anchored" data-anchor-id="tambahan-1">Tambahan 1</h2>
+<p><strong>Jelaskan perbedaan antara permutasi dan kombinasi dengan contoh!</strong></p>
+<p><strong>Penjelasan:</strong></p>
+<section id="permutasi" class="level3">
+<h3 class="anchored" data-anchor-id="permutasi">PERMUTASI</h3>
+<ul>
+<li><strong>Definisi:</strong> Susunan objek dimana <strong>URUTAN PENTING</strong></li>
+<li><strong>Rumus:</strong> <span class="math inline">\(P(n,r) = \frac{n!}{(n-r)!}\)</span></li>
+<li><strong>Contoh:</strong>
+<ul>
+<li>Susunan ketua, wakil ketua, sekretaris dari 5 orang</li>
+<li>Posisi juara 1, 2, 3 dalam lomba</li>
+<li>Password atau kode PIN</li>
+<li><strong>Kasus:</strong> ABC ≠ BAC ≠ CAB (berbeda)</li>
+</ul></li>
+</ul>
+</section>
+<section id="kombinasi" class="level3">
+<h3 class="anchored" data-anchor-id="kombinasi">KOMBINASI</h3>
+<ul>
+<li><strong>Definisi:</strong> Pemilihan objek dimana <strong>URUTAN TIDAK PENTING</strong></li>
+<li><strong>Rumus:</strong> <span class="math inline">\(C(n,r) = \frac{n!}{r!(n-r)!}\)</span></li>
+<li><strong>Contoh:</strong>
+<ul>
+<li>Memilih 3 orang untuk tim tanpa jabatan</li>
+<li>Memilih topping pizza</li>
+<li>Memilih kartu dari deck</li>
+<li><strong>Kasus:</strong> {A,B,C} = {B,A,C} = {C,A,B} (sama)</li>
+</ul></li>
+</ul>
+<p><strong>Perbedaan Kunci:</strong> | Aspek | Permutasi | Kombinasi | |——-|———–|———–| | Urutan | Penting | Tidak penting | | Hasil | Lebih banyak | Lebih sedikit | | Hubungan | <span class="math inline">\(P(n,r) = r! \times C(n,r)\)</span> | <span class="math inline">\(C(n,r) = \frac{P(n,r)}{r!}\)</span> |</p>
+<hr>
+</section>
+</section>
+<section id="tambahan-2" class="level2">
+<h2 class="anchored" data-anchor-id="tambahan-2">Tambahan 2</h2>
+<p><strong>Hitung: C(10,3) × C(7,2)</strong></p>
+<p><strong>Penyelesaian:</strong></p>
+<p><span class="math display">\[C(10,3) = \frac{10!}{3! \cdot 7!} = \frac{10 \times 9 \times 8}{3 \times 2 \times 1} = \frac{720}{6} = 120\]</span></p>
+<p><span class="math display">\[C(7,2) = \frac{7!}{2! \cdot 5!} = \frac{7 \times 6}{2 \times 1} = \frac{42}{2} = 21\]</span></p>
+<p><span class="math display">\[C(10,3) \times C(7,2) = 120 \times 21 = 2520\]</span></p>
+<p><strong>Jawaban: 2.520</strong></p>
+<hr>
+</section>
+<section id="tambahan-3" class="level2">
+<h2 class="anchored" data-anchor-id="tambahan-3">Tambahan 3</h2>
+<p><strong>Berapa banyak bilangan 5 digit yang dapat dibuat dari angka 1,2,3,4,5 tanpa pengulangan?</strong></p>
+<p><strong>Penyelesaian:</strong></p>
+<p>Karena menggunakan semua 5 angka tanpa pengulangan, ini adalah permutasi dari 5 objek.</p>
+<p><span class="math display">\[P(5,5) = 5! = 5 \times 4 \times 3 \times 2 \times 1 = 120\]</span></p>
+<p><strong>Penjelasan detail:</strong> - Posisi pertama: 5 pilihan - Posisi kedua: 4 pilihan (1 sudah terpakai) - Posisi ketiga: 3 pilihan - Posisi keempat: 2 pilihan - Posisi kelima: 1 pilihan - Total: 5 × 4 × 3 × 2 × 1 = 120</p>
+<p><strong>Jawaban: 120 bilangan</strong></p>
+<hr>
+</section>
+<section id="tambahan-4" class="level2">
+<h2 class="anchored" data-anchor-id="tambahan-4">Tambahan 4</h2>
+<p><strong>Dari 20 produk dengan 3 cacat, diambil 5 produk. Berapa peluang semua baik?</strong></p>
+<p><strong>Penyelesaian:</strong></p>
+<p>Produk baik = 20 - 3 = 17 produk</p>
+<p><strong>Ruang sampel:</strong> Memilih 5 produk dari 20 <span class="math display">\[n(S) = C(20,5) = \frac{20!}{5! \cdot 15!} = \frac{20 \times 19 \times 18 \times 17 \times 16}{120} = 15504\]</span></p>
+<p><strong>Kejadian favorable:</strong> Memilih 5 produk baik dari 17 produk baik <span class="math display">\[n(A) = C(17,5) = \frac{17!}{5! \cdot 12!} = \frac{17 \times 16 \times 15 \times 14 \times 13}{120} = 6188\]</span></p>
+<p><strong>Peluang:</strong> <span class="math display">\[P = \frac{C(17,5)}{C(20,5)} = \frac{6188}{15504} = \frac{1547}{3876} \approx 0.3991\]</span></p>
+<p><strong>Jawaban: 6188/15504 ≈ 0.3991 atau 39.91%</strong></p>
+<hr>
+</section>
+<section id="tambahan-5" class="level2">
+<h2 class="anchored" data-anchor-id="tambahan-5">Tambahan 5</h2>
+<p><strong>Buktikan bahwa C(n,r) = C(n,n-r)!</strong></p>
+<p><strong>BUKTI:</strong></p>
+<p><strong>Metode 1: Menggunakan Definisi</strong></p>
+<p><span class="math display">\[C(n,r) = \frac{n!}{r!(n-r)!}\]</span></p>
+<p><span class="math display">\[C(n,n-r) = \frac{n!}{(n-r)!(n-(n-r))!} = \frac{n!}{(n-r)! \cdot r!}\]</span></p>
+<p>Karena perkalian bersifat komutatif: <span class="math display">\[\frac{n!}{r!(n-r)!} = \frac{n!}{(n-r)! \cdot r!}\]</span></p>
+<p><strong>Terbukti:</strong> <span class="math inline">\(C(n,r) = C(n,n-r)\)</span> ✓</p>
+<hr>
+<p><strong>Metode 2: Interpretasi Kombinatorik</strong></p>
+<p>Memilih <span class="math inline">\(r\)</span> objek dari <span class="math inline">\(n\)</span> objek sama dengan <strong>meninggalkan</strong> <span class="math inline">\((n-r)\)</span> objek.</p>
+<p><strong>Contoh konkret:</strong> - Memilih 3 orang dari 5 orang → C(5,3) - Sama dengan memilih 2 orang yang TIDAK terpilih → C(5,2) - C(5,3) = 10 dan C(5,2) = 10 ✓</p>
+<p><strong>Verifikasi numerik:</strong> <span class="math display">\[C(5,3) = \frac{5!}{3! \cdot 2!} = \frac{120}{6 \times 2} = 10\]</span></p>
+<p><span class="math display">\[C(5,2) = \frac{5!}{2! \cdot 3!} = \frac{120}{2 \times 6} = 10\]</span></p>
+<p><strong>Kesimpulan:</strong> Sifat ini disebut <strong>sifat simetri kombinasi</strong> dan menunjukkan bahwa memilih objek yang diambil ekuivalen dengan memilih objek yang ditinggalkan.</p>
+<p><strong>∎ Terbukti</strong></p>
 </section>
 </section>
 
-</main> <!-- /main -->
+</main>
+<!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -712,29 +674,7 @@ Tidak lulus → remedial.</p>
     }
   });
   </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="./week1.html" class="pagination-link" aria-label="Understanding the World with Data">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Understanding the World with Data</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
-    <div class="nav-footer-left">
-      &nbsp;
-    </div>   
-    <div class="nav-footer-center">
-<p>Made with love and <a href="https://quarto.org/">Quarto</a> by <a href="https://derisiswara.art/">Deri Siswara</a> - <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
-</div>
-    <div class="nav-footer-right">
-      &nbsp;
-    </div>
-  </div>
-</footer>
 
 
 
