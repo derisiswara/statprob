@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.7.32">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>5&nbsp; Kombinatorika Dalam Kalkulasi Peluang Diskret – Statistika dan Probabilitas</title>
 <style>
@@ -30,15 +30,14 @@ ul.task-list li input[type="checkbox"] {
 <link href="./week4.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-832c273f0af7a47d06e59912ec7b3523.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-29410152e5a6e3b258a64b24c20229d6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -75,7 +74,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+      if (mathElements[i].tagName == "SPAN") {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -108,9 +107,7 @@ window.Quarto = {
     </div>
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Statistika dan Probabilitas</a> 
     </div>
@@ -678,8 +675,8 @@ P(Full House) = 3,744/2,598,960 ≈ 0.00144 atau 0.144%</code></pre>
 <ol type="1">
 <li>Dari 8 orang siswa akan dipilih 3 orang untuk menjadi ketua, wakil ketua, dan sekretaris. Berapa banyak cara penyusunan pengurus tersebut?</li>
 </ol>
-<div id="webex-d0cdd75e41ce10f485d0cd66f793b969" class="webex-radiogroup" data-answer="PwBPVEgGGVVp">
-<label><input type="radio" autocomplete="off" name="d0cdd75e41ce10f485d0cd66f793b969"><span>512 cara</span></label><label><input type="radio" autocomplete="off" name="d0cdd75e41ce10f485d0cd66f793b969"><span>56 cara</span></label><label><input type="radio" autocomplete="off" name="d0cdd75e41ce10f485d0cd66f793b969"><span>336 cara</span></label><label><input type="radio" autocomplete="off" name="d0cdd75e41ce10f485d0cd66f793b969"><span>168 cara</span></label>
+<div id="webex-da13d87f68b59864a9bab51477f66a69" class="webex-radiogroup" data-answer="P1EdA0gIG1dr">
+<label><input type="radio" autocomplete="off" name="da13d87f68b59864a9bab51477f66a69"><span>168 cara</span></label><label><input type="radio" autocomplete="off" name="da13d87f68b59864a9bab51477f66a69"><span>512 cara</span></label><label><input type="radio" autocomplete="off" name="da13d87f68b59864a9bab51477f66a69"><span>56 cara</span></label><label><input type="radio" autocomplete="off" name="da13d87f68b59864a9bab51477f66a69"><span>336 cara</span></label>
 </div>
 </div>
 <div class="webex-solution">
@@ -691,8 +688,8 @@ P(Full House) = 3,744/2,598,960 ≈ 0.00144 atau 0.144%</code></pre>
 <ol start="2" type="1">
 <li>Dari 10 siswa akan dipilih 4 siswa untuk mengikuti lomba. Berapa banyak cara memilih keempat siswa tersebut?</li>
 </ol>
-<div id="webex-5406c8f0a440f72440aa68a6cfd7e827" class="webex-radiogroup" data-answer="bgQcB08ISgA8">
-<label><input type="radio" autocomplete="off" name="5406c8f0a440f72440aa68a6cfd7e827"><span>5040 cara</span></label><label><input type="radio" autocomplete="off" name="5406c8f0a440f72440aa68a6cfd7e827"><span>210 cara</span></label><label><input type="radio" autocomplete="off" name="5406c8f0a440f72440aa68a6cfd7e827"><span>252 cara</span></label><label><input type="radio" autocomplete="off" name="5406c8f0a440f72440aa68a6cfd7e827"><span>120 cara</span></label>
+<div id="webex-d587bcbfde0c8bed49eaa903e1f62d1e" class="webex-radiogroup" data-answer="PwUUBk5TTlY5">
+<label><input type="radio" autocomplete="off" name="d587bcbfde0c8bed49eaa903e1f62d1e"><span>120 cara</span></label><label><input type="radio" autocomplete="off" name="d587bcbfde0c8bed49eaa903e1f62d1e"><span>210 cara</span></label><label><input type="radio" autocomplete="off" name="d587bcbfde0c8bed49eaa903e1f62d1e"><span>5040 cara</span></label><label><input type="radio" autocomplete="off" name="d587bcbfde0c8bed49eaa903e1f62d1e"><span>252 cara</span></label>
 </div>
 </div>
 <div class="webex-solution">
@@ -704,8 +701,8 @@ P(Full House) = 3,744/2,598,960 ≈ 0.00144 atau 0.144%</code></pre>
 <ol start="3" type="1">
 <li>Berapa banyak cara menyusun huruf-huruf dari kata “MATEMATIKA”?</li>
 </ol>
-<div id="webex-15dc501496c503d07da8c5e60bab68bf" class="webex-radiogroup" data-answer="agVIUxkAHQVk">
-<label><input type="radio" autocomplete="off" name="15dc501496c503d07da8c5e60bab68bf"><span>302.400 cara</span></label><label><input type="radio" autocomplete="off" name="15dc501496c503d07da8c5e60bab68bf"><span>3.628.800 cara</span></label><label><input type="radio" autocomplete="off" name="15dc501496c503d07da8c5e60bab68bf"><span>75.600 cara</span></label><label><input type="radio" autocomplete="off" name="15dc501496c503d07da8c5e60bab68bf"><span>151.200 cara</span></label>
+<div id="webex-dadb7affb7f4cfea16deacc7074bea82" class="webex-radiogroup" data-answer="P1FIUhtQSlY/">
+<label><input type="radio" autocomplete="off" name="dadb7affb7f4cfea16deacc7074bea82"><span>75.600 cara</span></label><label><input type="radio" autocomplete="off" name="dadb7affb7f4cfea16deacc7074bea82"><span>3.628.800 cara</span></label><label><input type="radio" autocomplete="off" name="dadb7affb7f4cfea16deacc7074bea82"><span>151.200 cara</span></label><label><input type="radio" autocomplete="off" name="dadb7affb7f4cfea16deacc7074bea82"><span>302.400 cara</span></label>
 </div>
 </div>
 <div class="webex-solution">
@@ -718,8 +715,8 @@ P(Full House) = 3,744/2,598,960 ≈ 0.00144 atau 0.144%</code></pre>
 <ol start="4" type="1">
 <li>Sebuah kotak berisi 5 bola merah dan 4 bola biru. Jika diambil 3 bola secara acak, berapa peluang terambil tepat 2 bola merah dan 1 bola biru?</li>
 </ol>
-<div id="webex-616f4fe7990581778b5d2d2a9c67a5e4" class="webex-radiogroup" data-answer="bQEaVhhWSQZk">
-<label><input type="radio" autocomplete="off" name="616f4fe7990581778b5d2d2a9c67a5e4"><span>5/14</span></label><label><input type="radio" autocomplete="off" name="616f4fe7990581778b5d2d2a9c67a5e4"><span>1/3</span></label><label><input type="radio" autocomplete="off" name="616f4fe7990581778b5d2d2a9c67a5e4"><span>15/28</span></label><label><input type="radio" autocomplete="off" name="616f4fe7990581778b5d2d2a9c67a5e4"><span>10/21</span></label>
+<div id="webex-b08281ee7bfcd96bf5a98535b6baa105" class="webex-radiogroup" data-answer="OQAUAhQASVVq">
+<label><input type="radio" autocomplete="off" name="b08281ee7bfcd96bf5a98535b6baa105"><span>15/28</span></label><label><input type="radio" autocomplete="off" name="b08281ee7bfcd96bf5a98535b6baa105"><span>5/14</span></label><label><input type="radio" autocomplete="off" name="b08281ee7bfcd96bf5a98535b6baa105"><span>10/21</span></label><label><input type="radio" autocomplete="off" name="b08281ee7bfcd96bf5a98535b6baa105"><span>1/3</span></label>
 </div>
 </div>
 <div class="webex-solution">
@@ -733,7 +730,7 @@ P(Full House) = 3,744/2,598,960 ≈ 0.00144 atau 0.144%</code></pre>
 <ol start="5" type="1">
 <li>Dari angka 1, 2, 3, 4, 5, 6 akan dibentuk bilangan 3 digit tanpa pengulangan. Berapa banyak bilangan yang dapat dibentuk?</li>
 </ol>
-<p><input class="webex-solveme" id="webex-5b556f105d53831e48fa3c02c281cbeb" size="20" data-answer="bkAEBwZEbA=="></p>
+<p><input class="webex-solveme" id="webex-dac92b53ec6b1808beab4a10ef2cdfec" size="20" data-answer="P0NSCwJAaA=="></p>
 </div>
 <div class="webex-solution">
 <p>Gunakan permutasi karena urutan penting dan tidak ada pengulangan: P(6,3) = 6!/(6-3)! = 6!/3! = 6 × 5 × 4 = 120 bilangan</p>
@@ -744,7 +741,7 @@ P(Full House) = 3,744/2,598,960 ≈ 0.00144 atau 0.144%</code></pre>
 <ol start="6" type="1">
 <li>Dari angka 0, 1, 2, 3, 4, 5 akan dibentuk bilangan genap 3 digit tanpa pengulangan. Berapa banyak bilangan yang dapat dibentuk?</li>
 </ol>
-<p><input class="webex-solveme" id="webex-d1e20813d402992cab229f41d07d0ffa" size="20" data-answer="PxNQABJl"></p>
+<p><input class="webex-solveme" id="webex-5c060a6473b4861269348a598f4b8042" size="20" data-answer="bkEFBBI8"></p>
 </div>
 <div class="webex-solution">
 <p>Bilangan genap 3 digit: harus diakhiri 0, 2, atau 4</p>
@@ -758,8 +755,8 @@ P(Full House) = 3,744/2,598,960 ≈ 0.00144 atau 0.144%</code></pre>
 <ol start="7" type="1">
 <li>Dalam sebuah rapat, 12 orang akan duduk melingkar pada meja bundar. Berapa banyak cara pengaturan tempat duduk mereka?</li>
 </ol>
-<div id="webex-e366f4464feefa65f0fe54a573ac259b" class="webex-radiogroup" data-answer="PgMaB0oEGAZp">
-<label><input type="radio" autocomplete="off" name="e366f4464feefa65f0fe54a573ac259b"><span>19.958.400 cara</span></label><label><input type="radio" autocomplete="off" name="e366f4464feefa65f0fe54a573ac259b"><span>39.916.800 cara</span></label><label><input type="radio" autocomplete="off" name="e366f4464feefa65f0fe54a573ac259b"><span>3.628.800 cara</span></label><label><input type="radio" autocomplete="off" name="e366f4464feefa65f0fe54a573ac259b"><span>479.001.600 cara</span></label>
+<div id="webex-2bf7d8de22e0f34d4ce90f1df386ade6" class="webex-radiogroup" data-answer="aVNKB0gISFVv">
+<label><input type="radio" autocomplete="off" name="2bf7d8de22e0f34d4ce90f1df386ade6"><span>39.916.800 cara</span></label><label><input type="radio" autocomplete="off" name="2bf7d8de22e0f34d4ce90f1df386ade6"><span>479.001.600 cara</span></label><label><input type="radio" autocomplete="off" name="2bf7d8de22e0f34d4ce90f1df386ade6"><span>19.958.400 cara</span></label><label><input type="radio" autocomplete="off" name="2bf7d8de22e0f34d4ce90f1df386ade6"><span>3.628.800 cara</span></label>
 </div>
 </div>
 <div class="webex-solution">
@@ -771,8 +768,8 @@ P(Full House) = 3,744/2,598,960 ≈ 0.00144 atau 0.144%</code></pre>
 <ol start="8" type="1">
 <li>Sebuah komite terdiri dari 6 pria dan 4 wanita. Akan dibentuk tim yang terdiri dari 4 orang dengan syarat minimal 2 wanita. Berapa banyak cara membentuk tim tersebut?</li>
 </ol>
-<div id="webex-8f0f1ef8495fa88279fccc7958a471ce" class="webex-radiogroup" data-answer="Y1YcVh1USghp">
-<label><input type="radio" autocomplete="off" name="8f0f1ef8495fa88279fccc7958a471ce"><span>135 cara</span></label><label><input type="radio" autocomplete="off" name="8f0f1ef8495fa88279fccc7958a471ce"><span>90 cara</span></label><label><input type="radio" autocomplete="off" name="8f0f1ef8495fa88279fccc7958a471ce"><span>120 cara</span></label><label><input type="radio" autocomplete="off" name="8f0f1ef8495fa88279fccc7958a471ce"><span>105 cara</span></label>
+<div id="webex-30f607889f7ee86aa999265bf7cb83c4" class="webex-radiogroup" data-answer="aABKBhwHFAlk">
+<label><input type="radio" autocomplete="off" name="30f607889f7ee86aa999265bf7cb83c4"><span>135 cara</span></label><label><input type="radio" autocomplete="off" name="30f607889f7ee86aa999265bf7cb83c4"><span>90 cara</span></label><label><input type="radio" autocomplete="off" name="30f607889f7ee86aa999265bf7cb83c4"><span>105 cara</span></label><label><input type="radio" autocomplete="off" name="30f607889f7ee86aa999265bf7cb83c4"><span>120 cara</span></label>
 </div>
 </div>
 <div class="webex-solution">
@@ -788,8 +785,8 @@ P(Full House) = 3,744/2,598,960 ≈ 0.00144 atau 0.144%</code></pre>
 <ol start="9" type="1">
 <li>Dari 52 kartu bridge, diambil 5 kartu secara acak. Berapa peluang terambil tepat 3 kartu As?</li>
 </ol>
-<div id="webex-73d0b4c71f24badae8f8e172b08c9a82" class="webex-radiogroup" data-answer="bAJIAE4ETwds">
-<label><input type="radio" autocomplete="off" name="73d0b4c71f24badae8f8e172b08c9a82"><span>4512/2598960 ≈ 0.00174</span></label><label><input type="radio" autocomplete="off" name="73d0b4c71f24badae8f8e172b08c9a82"><span>48/2598960 ≈ 0.0000185</span></label><label><input type="radio" autocomplete="off" name="73d0b4c71f24badae8f8e172b08c9a82"><span>1128/2598960 ≈ 0.000434</span></label><label><input type="radio" autocomplete="off" name="73d0b4c71f24badae8f8e172b08c9a82"><span>94/2598960 ≈ 0.0000362</span></label>
+<div id="webex-4ef715d399d4fd6396ff103b1277d870" class="webex-radiogroup" data-answer="b1VKBx0FSAJk">
+<label><input type="radio" autocomplete="off" name="4ef715d399d4fd6396ff103b1277d870"><span>48/2598960 ≈ 0.0000185</span></label><label><input type="radio" autocomplete="off" name="4ef715d399d4fd6396ff103b1277d870"><span>94/2598960 ≈ 0.0000362</span></label><label><input type="radio" autocomplete="off" name="4ef715d399d4fd6396ff103b1277d870"><span>1128/2598960 ≈ 0.000434</span></label><label><input type="radio" autocomplete="off" name="4ef715d399d4fd6396ff103b1277d870"><span>4512/2598960 ≈ 0.00174</span></label>
 </div>
 </div>
 <div class="webex-solution">
@@ -803,8 +800,8 @@ P(Full House) = 3,744/2,598,960 ≈ 0.00144 atau 0.144%</code></pre>
 <ol start="10" type="1">
 <li>Berapa banyak cara menyusun 5 orang dalam satu barisan jika 2 orang tertentu harus selalu berdampingan?</li>
 </ol>
-<div id="webex-d1c8837fdedbccfc4cfec0136c3fa464" class="webex-radiogroup" data-answer="PwFPCBQDG1c5">
-<label><input type="radio" autocomplete="off" name="d1c8837fdedbccfc4cfec0136c3fa464"><span>120 cara</span></label><label><input type="radio" autocomplete="off" name="d1c8837fdedbccfc4cfec0136c3fa464"><span>60 cara</span></label><label><input type="radio" autocomplete="off" name="d1c8837fdedbccfc4cfec0136c3fa464"><span>24 cara</span></label><label><input type="radio" autocomplete="off" name="d1c8837fdedbccfc4cfec0136c3fa464"><span>48 cara</span></label>
+<div id="webex-9386054643ba882004cebbf7b105ae37" class="webex-radiogroup" data-answer="YgMUBxwFGAZp">
+<label><input type="radio" autocomplete="off" name="9386054643ba882004cebbf7b105ae37"><span>24 cara</span></label><label><input type="radio" autocomplete="off" name="9386054643ba882004cebbf7b105ae37"><span>48 cara</span></label><label><input type="radio" autocomplete="off" name="9386054643ba882004cebbf7b105ae37"><span>120 cara</span></label><label><input type="radio" autocomplete="off" name="9386054643ba882004cebbf7b105ae37"><span>60 cara</span></label>
 </div>
 </div>
 <div class="webex-solution">
@@ -818,7 +815,7 @@ P(Full House) = 3,744/2,598,960 ≈ 0.00144 atau 0.144%</code></pre>
 <ol start="11" type="1">
 <li>Dari 8 titik yang tidak segaris, akan dibuat segitiga. Berapa banyak segitiga yang dapat dibentuk?</li>
 </ol>
-<p><input class="webex-solveme" id="webex-52a0ab6f54c0b41082869f1fcc5223fc" size="20" data-answer="bhBUBkM/"></p>
+<p><input class="webex-solveme" id="webex-647f2181fb41845dd3543de135fe2901" size="20" data-answer="bRYCUBBs"></p>
 </div>
 <div class="webex-solution">
 <p>Untuk membentuk segitiga diperlukan 3 titik. Gunakan kombinasi: C(8,3) = 8!/(3!×5!) = (8×7×6)/(3×2×1) = 336/6 = 56 segitiga</p>
@@ -829,8 +826,8 @@ P(Full House) = 3,744/2,598,960 ≈ 0.00144 atau 0.144%</code></pre>
 <ol start="12" type="1">
 <li>Sebuah kode terdiri dari 4 digit angka dari 0-9 dengan pengulangan diperbolehkan. Berapa peluang kode tersebut terdiri dari 4 angka yang berbeda semua?</li>
 </ol>
-<div id="webex-0e970b4f09c78298894cb935051761c8" class="webex-radiogroup" data-answer="a1QVBxxSGFZt">
-<label><input type="radio" autocomplete="off" name="0e970b4f09c78298894cb935051761c8"><span>0.504 atau 50.4%</span></label><label><input type="radio" autocomplete="off" name="0e970b4f09c78298894cb935051761c8"><span>0.648 atau 64.8%</span></label><label><input type="radio" autocomplete="off" name="0e970b4f09c78298894cb935051761c8"><span>0.720 atau 72%</span></label><label><input type="radio" autocomplete="off" name="0e970b4f09c78298894cb935051761c8"><span>0.360 atau 36%</span></label>
+<div id="webex-b096e4140e1db8a6142e1f5e487061c1" class="webex-radiogroup" data-answer="OQAVBkkEHQVt">
+<label><input type="radio" autocomplete="off" name="b096e4140e1db8a6142e1f5e487061c1"><span>0.720 atau 72%</span></label><label><input type="radio" autocomplete="off" name="b096e4140e1db8a6142e1f5e487061c1"><span>0.648 atau 64.8%</span></label><label><input type="radio" autocomplete="off" name="b096e4140e1db8a6142e1f5e487061c1"><span>0.360 atau 36%</span></label><label><input type="radio" autocomplete="off" name="b096e4140e1db8a6142e1f5e487061c1"><span>0.504 atau 50.4%</span></label>
 </div>
 </div>
 <div class="webex-solution">
@@ -844,7 +841,7 @@ P(Full House) = 3,744/2,598,960 ≈ 0.00144 atau 0.144%</code></pre>
 <ol start="13" type="1">
 <li>Dalam sebuah perlombaan dengan 10 peserta, akan dipilih juara 1, 2, dan 3. Berapa banyak kemungkinan susunan juara yang berbeda?</li>
 </ol>
-<p><input class="webex-solveme" id="webex-d1bd15a16853abd576d5c896c39c2702" size="20" data-answer="PxNVVgEXPA=="></p>
+<p><input class="webex-solveme" id="webex-ca53c9a50709bdb6ffdcb9c7f23de475" size="20" data-answer="OEMCAVMbPA=="></p>
 </div>
 <div class="webex-solution">
 <p>Karena posisi juara berbeda (urutan penting), gunakan permutasi: P(10,3) = 10!/(10-3)! = 10!/7! = 10 × 9 × 8 = 720 cara</p>
@@ -855,8 +852,8 @@ P(Full House) = 3,744/2,598,960 ≈ 0.00144 atau 0.144%</code></pre>
 <ol start="14" type="1">
 <li>Dari huruf-huruf A, B, C, D, E akan dibentuk “kata” 3 huruf tanpa pengulangan. Jika kata yang dimulai dengan huruf vokal dianggap khusus, berapa peluang terbentuknya kata khusus?</li>
 </ol>
-<div id="webex-c26c75bcf2c7703410cd91743b9ab8bf" class="webex-radiogroup" data-answer="OAIaUhsFTlM7">
-<label><input type="radio" autocomplete="off" name="c26c75bcf2c7703410cd91743b9ab8bf"><span>1/2 atau 0.5</span></label><label><input type="radio" autocomplete="off" name="c26c75bcf2c7703410cd91743b9ab8bf"><span>2/5 atau 0.4</span></label><label><input type="radio" autocomplete="off" name="c26c75bcf2c7703410cd91743b9ab8bf"><span>1/5 atau 0.2</span></label><label><input type="radio" autocomplete="off" name="c26c75bcf2c7703410cd91743b9ab8bf"><span>3/5 atau 0.6</span></label>
+<div id="webex-77146772e499fbbc6d8b2244836069dd" class="webex-radiogroup" data-answer="bAcdBBoHGwM4">
+<label><input type="radio" autocomplete="off" name="77146772e499fbbc6d8b2244836069dd"><span>3/5 atau 0.6</span></label><label><input type="radio" autocomplete="off" name="77146772e499fbbc6d8b2244836069dd"><span>1/5 atau 0.2</span></label><label><input type="radio" autocomplete="off" name="77146772e499fbbc6d8b2244836069dd"><span>1/2 atau 0.5</span></label><label><input type="radio" autocomplete="off" name="77146772e499fbbc6d8b2244836069dd"><span>2/5 atau 0.4</span></label>
 </div>
 </div>
 <div class="webex-solution">
@@ -870,7 +867,7 @@ P(Full House) = 3,744/2,598,960 ≈ 0.00144 atau 0.144%</code></pre>
 <ol start="15" type="1">
 <li>Sebuah tim bola basket terdiri dari 5 pemain. Jika ada 12 pemain yang tersedia dan 2 pemain tertentu tidak boleh bermain bersamaan, berapa banyak cara membentuk tim?</li>
 </ol>
-<p><input class="webex-solveme" id="webex-517245c170a894823a76bbe17afe2f10" size="20" data-answer="bhMBBQYXPg=="></p>
+<p><input class="webex-solveme" id="webex-aaf9ed98dbf9279ef5876e36a8473c93" size="20" data-answer="OkNQDldGZA=="></p>
 </div>
 <div class="webex-solution">
 <p>Total cara tanpa batasan: C(12,5) = 792</p>
@@ -883,8 +880,8 @@ P(Full House) = 3,744/2,598,960 ≈ 0.00144 atau 0.144%</code></pre>
 <ol start="16" type="1">
 <li>Dari angka 1, 2, 3, 4, 5, 6, 7 akan dibentuk bilangan 4 digit dengan pengulangan diperbolehkan. Berapa peluang terbentuknya bilangan yang lebih besar dari 5000?</li>
 </ol>
-<div id="webex-4f8eba2dfc07a1463d737ac36773fe9b" class="webex-radiogroup" data-answer="b1cUVU5RHlQ7">
-<label><input type="radio" autocomplete="off" name="4f8eba2dfc07a1463d737ac36773fe9b"><span>3/7 ≈ 0.4286</span></label><label><input type="radio" autocomplete="off" name="4f8eba2dfc07a1463d737ac36773fe9b"><span>2/7 ≈ 0.2857</span></label><label><input type="radio" autocomplete="off" name="4f8eba2dfc07a1463d737ac36773fe9b"><span>4/7 ≈ 0.5714</span></label><label><input type="radio" autocomplete="off" name="4f8eba2dfc07a1463d737ac36773fe9b"><span>5/7 ≈ 0.7143</span></label>
+<div id="webex-7dd9cf563cd1224eb4237088b295e451" class="webex-radiogroup" data-answer="bFRICE9WGQZu">
+<label><input type="radio" autocomplete="off" name="7dd9cf563cd1224eb4237088b295e451"><span>2/7 ≈ 0.2857</span></label><label><input type="radio" autocomplete="off" name="7dd9cf563cd1224eb4237088b295e451"><span>3/7 ≈ 0.4286</span></label><label><input type="radio" autocomplete="off" name="7dd9cf563cd1224eb4237088b295e451"><span>4/7 ≈ 0.5714</span></label><label><input type="radio" autocomplete="off" name="7dd9cf563cd1224eb4237088b295e451"><span>5/7 ≈ 0.7143</span></label>
 </div>
 </div>
 <div class="webex-solution">
@@ -898,7 +895,7 @@ P(Full House) = 3,744/2,598,960 ≈ 0.00144 atau 0.144%</code></pre>
 <ol start="17" type="1">
 <li>Berapa banyak cara mengatur 6 buku berbeda di rak jika 3 buku tertentu harus selalu berurutan (tetapi posisi urutannya bebas)?</li>
 </ol>
-<p><input class="webex-solveme" id="webex-260b50decc77ba0002f311ad2f478c70" size="20" data-answer="aRQBVgESOQ=="></p>
+<p><input class="webex-solveme" id="webex-495000f0773ae6b11cac8dba5b0ef305" size="20" data-answer="bxsEBAQSOw=="></p>
 </div>
 <div class="webex-solution">
 <p>Anggap 3 buku yang harus berurutan sebagai 1 unit. Jadi ada 4 objek: (3 buku sebagai unit) + 3 buku lainnya = 4 objek Cara mengatur 4 objek: 4! = 24</p>
@@ -911,8 +908,8 @@ P(Full House) = 3,744/2,598,960 ≈ 0.00144 atau 0.144%</code></pre>
 <ol start="18" type="1">
 <li>Dalam sebuah kantong terdapat 7 kelereng merah, 5 kelereng biru, dan 3 kelereng hijau. Jika diambil 4 kelereng sekaligus, berapa peluang terambil kelereng dengan 2 warna saja (tidak ketiga warna)?</li>
 </ol>
-<div id="webex-51c9daa117a5ff95f055e89abe5fb086" class="webex-radiogroup" data-answer="bgFPCUhQTQFs">
-<label><input type="radio" autocomplete="off" name="51c9daa117a5ff95f055e89abe5fb086"><span>105/455 ≈ 0.2308</span></label><label><input type="radio" autocomplete="off" name="51c9daa117a5ff95f055e89abe5fb086"><span>350/455 ≈ 0.7692</span></label><label><input type="radio" autocomplete="off" name="51c9daa117a5ff95f055e89abe5fb086"><span>266/455 ≈ 0.5846</span></label><label><input type="radio" autocomplete="off" name="51c9daa117a5ff95f055e89abe5fb086"><span>189/455 ≈ 0.4154</span></label>
+<div id="webex-f56e603748b39c062a0403ed784691a5" class="webex-radiogroup" data-answer="PQUaVRoAHwZp">
+<label><input type="radio" autocomplete="off" name="f56e603748b39c062a0403ed784691a5"><span>350/455 ≈ 0.7692</span></label><label><input type="radio" autocomplete="off" name="f56e603748b39c062a0403ed784691a5"><span>189/455 ≈ 0.4154</span></label><label><input type="radio" autocomplete="off" name="f56e603748b39c062a0403ed784691a5"><span>105/455 ≈ 0.2308</span></label><label><input type="radio" autocomplete="off" name="f56e603748b39c062a0403ed784691a5"><span>266/455 ≈ 0.5846</span></label>
 </div>
 </div>
 <div class="webex-solution">
@@ -931,7 +928,7 @@ P(Full House) = 3,744/2,598,960 ≈ 0.00144 atau 0.144%</code></pre>
 <ol start="19" type="1">
 <li>Berapa banyak bilangan 5 digit yang dapat dibentuk dari angka 0, 1, 2, 3, 4 tanpa pengulangan, dan bilangan tersebut adalah bilangan ganjil?</li>
 </ol>
-<p><input class="webex-solveme" id="webex-4f24e2ec2582e0cff48478f4c2a0b478" size="20" data-answer="b0QBAkdv"></p>
+<p><input class="webex-solveme" id="webex-c9c83dad769df9fbbb168e3a8e63dccc" size="20" data-answer="OBtQDhE5"></p>
 </div>
 <div class="webex-solution">
 <p>Bilangan ganjil 5 digit harus diakhiri 1 atau 3 (tidak boleh 0, 2, 4)</p>
@@ -945,8 +942,8 @@ P(Full House) = 3,744/2,598,960 ≈ 0.00144 atau 0.144%</code></pre>
 <ol start="20" type="1">
 <li>Sebuah panitia terdiri dari 5 orang akan dipilih dari 6 pria dan 5 wanita. Berapa peluang panitia tersebut terdiri dari pria dan wanita dengan jumlah yang sama atau hampir sama (selisih maksimal 1 orang)?</li>
 </ol>
-<div id="webex-a7a85a3f9590dc11f9a082701e92372e" class="webex-radiogroup" data-answer="OgdNCBlQH1Zk">
-<label><input type="radio" autocomplete="off" name="a7a85a3f9590dc11f9a082701e92372e"><span>250/462 ≈ 0.5411</span></label><label><input type="radio" autocomplete="off" name="a7a85a3f9590dc11f9a082701e92372e"><span>150/462 ≈ 0.3247</span></label><label><input type="radio" autocomplete="off" name="a7a85a3f9590dc11f9a082701e92372e"><span>300/462 ≈ 0.6494</span></label><label><input type="radio" autocomplete="off" name="a7a85a3f9590dc11f9a082701e92372e"><span>200/462 ≈ 0.4329</span></label>
+<div id="webex-cfe622e22f923b6c3dbe34cb026ef143" class="webex-radiogroup" data-answer="OFdJBh4CSQJv">
+<label><input type="radio" autocomplete="off" name="cfe622e22f923b6c3dbe34cb026ef143"><span>300/462 ≈ 0.6494</span></label><label><input type="radio" autocomplete="off" name="cfe622e22f923b6c3dbe34cb026ef143"><span>200/462 ≈ 0.4329</span></label><label><input type="radio" autocomplete="off" name="cfe622e22f923b6c3dbe34cb026ef143"><span>150/462 ≈ 0.3247</span></label><label><input type="radio" autocomplete="off" name="cfe622e22f923b6c3dbe34cb026ef143"><span>250/462 ≈ 0.5411</span></label>
 </div>
 </div>
 <div class="webex-solution">
@@ -1603,14 +1600,13 @@ window.onload = function() {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
         }
-      }
-      return codeEl.innerText;
+        return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

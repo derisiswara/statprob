@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.7.32">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>4&nbsp; Eksperimen Acak, Ruang Sampel, dan Kejadian - Latihan Soal – Statistika dan Probabilitas</title>
 <style>
@@ -30,15 +30,14 @@ ul.task-list li input[type="checkbox"] {
 <link href="./week3.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-832c273f0af7a47d06e59912ec7b3523.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-29410152e5a6e3b258a64b24c20229d6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -75,7 +74,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+      if (mathElements[i].tagName == "SPAN") {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -108,9 +107,7 @@ window.Quarto = {
     </div>
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Statistika dan Probabilitas</a> 
     </div>
@@ -290,8 +287,8 @@ window.Quarto = {
 <ol type="1">
 <li>Sebuah dadu bersisi 6 dilempar sekali. Tentukan ruang sampel dan jumlah ruang sampel dari percobaan ini.</li>
 </ol>
-<div id="webex-c4ac03c407f81d1e0641bee1ae996d7f" class="webex-radiogroup" data-answer="OARNUxwCTwRt">
-<label><input type="radio" autocomplete="off" name="c4ac03c407f81d1e0641bee1ae996d7f"><span>S={2,3,4,5,6}, n(S)=5</span></label><label><input type="radio" autocomplete="off" name="c4ac03c407f81d1e0641bee1ae996d7f"><span>S={1,3,5}, n(S)=3</span></label><label><input type="radio" autocomplete="off" name="c4ac03c407f81d1e0641bee1ae996d7f"><span>S={1,2,3,4,5,6}, n(S)=6</span></label><label><input type="radio" autocomplete="off" name="c4ac03c407f81d1e0641bee1ae996d7f"><span>S={1,2,3,4,5}, n(S)=5</span></label>
+<div id="webex-3e6b5aaded81de86c2b9668e8863706c" class="webex-radiogroup" data-answer="aFUaUxlRTVQ4">
+<label><input type="radio" autocomplete="off" name="3e6b5aaded81de86c2b9668e8863706c"><span>S={1,2,3,4,5}, n(S)=5</span></label><label><input type="radio" autocomplete="off" name="3e6b5aaded81de86c2b9668e8863706c"><span>S={1,2,3,4,5,6}, n(S)=6</span></label><label><input type="radio" autocomplete="off" name="3e6b5aaded81de86c2b9668e8863706c"><span>S={1,3,5}, n(S)=3</span></label><label><input type="radio" autocomplete="off" name="3e6b5aaded81de86c2b9668e8863706c"><span>S={2,3,4,5,6}, n(S)=5</span></label>
 </div>
 </div>
 <div class="webex-solution">
@@ -303,8 +300,8 @@ window.Quarto = {
 <ol start="2" type="1">
 <li>Dalam pelemparan sebuah dadu, A adalah kejadian angka genap. Tentukan anggota kejadian A, jumlah anggota kejadian A, dan peluang kejadian A.</li>
 </ol>
-<div id="webex-ac5d0a7a1bbc1f1ca6c8480ea043cd8d" class="webex-radiogroup" data-answer="OlMZVBxRG1Bs">
-<label><input type="radio" autocomplete="off" name="ac5d0a7a1bbc1f1ca6c8480ea043cd8d"><span>A={1,2,3,4,5,6}, n(A)=6, P=1</span></label><label><input type="radio" autocomplete="off" name="ac5d0a7a1bbc1f1ca6c8480ea043cd8d"><span>A={2,3,5}, n(A)=3, P=1/2</span></label><label><input type="radio" autocomplete="off" name="ac5d0a7a1bbc1f1ca6c8480ea043cd8d"><span>A={1,3,5}, n(A)=3, P=1/2</span></label><label><input type="radio" autocomplete="off" name="ac5d0a7a1bbc1f1ca6c8480ea043cd8d"><span>A={2,4,6}, n(A)=3, P=1/2</span></label>
+<div id="webex-1ae54937f3379071236cc02054c69d5e" class="webex-radiogroup" data-answer="alFJBRgJHwY7">
+<label><input type="radio" autocomplete="off" name="1ae54937f3379071236cc02054c69d5e"><span>A={2,3,5}, n(A)=3, P=1/2</span></label><label><input type="radio" autocomplete="off" name="1ae54937f3379071236cc02054c69d5e"><span>A={1,2,3,4,5,6}, n(A)=6, P=1</span></label><label><input type="radio" autocomplete="off" name="1ae54937f3379071236cc02054c69d5e"><span>A={1,3,5}, n(A)=3, P=1/2</span></label><label><input type="radio" autocomplete="off" name="1ae54937f3379071236cc02054c69d5e"><span>A={2,4,6}, n(A)=3, P=1/2</span></label>
 </div>
 </div>
 <div class="webex-solution">
@@ -316,8 +313,8 @@ window.Quarto = {
 <ol start="3" type="1">
 <li>Sebuah koin logam (sisi angka dan gambar) dilempar dua kali. Berapa banyak anggota ruang sampel? Berapa peluang muncul tepat 1 sisi gambar?</li>
 </ol>
-<div id="webex-0d76c84d8e5b88f1fc8330e08a8a71f1" class="webex-radiogroup" data-answer="a1QbBk8IGFVl">
-<label><input type="radio" autocomplete="off" name="0d76c84d8e5b88f1fc8330e08a8a71f1"><span>S={AG,GA}, n(S)=2, P=1</span></label><label><input type="radio" autocomplete="off" name="0d76c84d8e5b88f1fc8330e08a8a71f1"><span>S={AA,GG}, n(S)=2, P=1/2</span></label><label><input type="radio" autocomplete="off" name="0d76c84d8e5b88f1fc8330e08a8a71f1"><span>S={A,G}, n(S)=2, P=1/2</span></label><label><input type="radio" autocomplete="off" name="0d76c84d8e5b88f1fc8330e08a8a71f1"><span>S={AA,AG,GA,GG}, n(S)=4, P=1/2</span></label>
+<div id="webex-f050c9fa203c9336d2ddd93b32533601" class="webex-radiogroup" data-answer="PQAZAU8JSlFv">
+<label><input type="radio" autocomplete="off" name="f050c9fa203c9336d2ddd93b32533601"><span>S={AA,GG}, n(S)=2, P=1/2</span></label><label><input type="radio" autocomplete="off" name="f050c9fa203c9336d2ddd93b32533601"><span>S={AA,AG,GA,GG}, n(S)=4, P=1/2</span></label><label><input type="radio" autocomplete="off" name="f050c9fa203c9336d2ddd93b32533601"><span>S={AG,GA}, n(S)=2, P=1</span></label><label><input type="radio" autocomplete="off" name="f050c9fa203c9336d2ddd93b32533601"><span>S={A,G}, n(S)=2, P=1/2</span></label>
 </div>
 </div>
 <div class="webex-solution">
@@ -329,8 +326,8 @@ window.Quarto = {
 <ol start="4" type="1">
 <li>Sebuah dadu bersisi 6 dilempar sekali. Berapa peluang munculnya bilangan prima?</li>
 </ol>
-<div id="webex-369bec2fe0d703d60fd9d445ff58584c" class="webex-radiogroup" data-answer="aAYVU0lTHlY4">
-<label><input type="radio" autocomplete="off" name="369bec2fe0d703d60fd9d445ff58584c"><span>P=1/3, bilangan prima {2,3}</span></label><label><input type="radio" autocomplete="off" name="369bec2fe0d703d60fd9d445ff58584c"><span>P=1/2, bilangan prima {2,3,5}</span></label><label><input type="radio" autocomplete="off" name="369bec2fe0d703d60fd9d445ff58584c"><span>P=2/3, bilangan prima {2,3,5,7}</span></label><label><input type="radio" autocomplete="off" name="369bec2fe0d703d60fd9d445ff58584c"><span>P=1/6, bilangan prima {5}</span></label>
+<div id="webex-8aadf27af80883adf82526a9f50cb2cc" class="webex-radiogroup" data-answer="Y1FNVUoCG1E7">
+<label><input type="radio" autocomplete="off" name="8aadf27af80883adf82526a9f50cb2cc"><span>P=1/3, bilangan prima {2,3}</span></label><label><input type="radio" autocomplete="off" name="8aadf27af80883adf82526a9f50cb2cc"><span>P=1/2, bilangan prima {2,3,5}</span></label><label><input type="radio" autocomplete="off" name="8aadf27af80883adf82526a9f50cb2cc"><span>P=1/6, bilangan prima {5}</span></label><label><input type="radio" autocomplete="off" name="8aadf27af80883adf82526a9f50cb2cc"><span>P=2/3, bilangan prima {2,3,5,7}</span></label>
 </div>
 </div>
 <div class="webex-solution">
@@ -340,7 +337,7 @@ window.Quarto = {
 <div class="webex-question">
 <div class="webex-check webex-box">
 <p>(5a) Sebuah dadu bersisi 6 dilempar sekali. Z adalah kejadian bilangan ganjil, Q adalah kejadian bilangan prima. Tentukan anggota kejadian Z dan Q.</p>
-<p><input class="webex-solveme" id="webex-8dbe9ea0fd8f0c5dde61b9316f01a9f5" size="21" data-answer="Y0Y4WEJUTQNKUUVKEDIIH1ZJBR1XRB0Taw=="></p>
+<p><input class="webex-solveme" id="webex-58c232e6961c81cd00f7f1652e4f6f44" size="21" data-answer="bho5D0gDSQUVA0xPGGBeHwIcVRtTTBgXbw=="></p>
 </div>
 <div class="webex-solution">
 <p>Z={1,3,5}, Q={2,3,5}.</p>
@@ -349,7 +346,7 @@ window.Quarto = {
 <div class="webex-question">
 <div class="webex-check webex-box">
 <p>(5b) Tentukan anggota Z ∪ Q dan Z ∩ Q.</p>
-<p><input class="webex-solveme" id="webex-c7cca3440e3b0855fb98bde1ab6a5e8a" size="28" data-answer="OBU5Q4O7nhRhWEhTHAoZBkpXRBRCPkXT6csWMAgeC01WSkE+"></p>
+<p><input class="webex-solveme" id="webex-cefe0b9da647a81014fcc60e639b68d0" size="28" data-answer="OEc8RdLqk0QwC08GTQodAx0BG09DbBCHvpoZMwtDVxxWGEQ4"></p>
 </div>
 <div class="webex-solution">
 <p>Z ∪ Q={1,2,3,5}, Z ∩ Q={3,5}.</p>
@@ -358,7 +355,7 @@ window.Quarto = {
 <div class="webex-question">
 <div class="webex-check webex-box">
 <p>(5c) Tentukan peluang Z ∪ Q dan Z ∩ Q.</p>
-<p><input class="webex-solveme" id="webex-88a45c572c97fe0b1dd1a7f9b60e552d" size="20" data-answer="YxpTGwZDUVZcQwgYVUdt"></p>
+<p><input class="webex-solveme" id="webex-9c95b3123c098ae6873838b5d91f9021" size="20" data-answer="YkELGlETVVNdQwEWC0M4"></p>
 </div>
 <div class="webex-solution">
 <p>P(Z ∪ Q)=2/3, P(Z ∩ Q)=1/3.</p>
@@ -367,7 +364,7 @@ window.Quarto = {
 <div class="webex-question">
 <div class="webex-check webex-box">
 <p>(5d) Tentukan peluang Z^c.</p>
-<p><input class="webex-solveme" id="webex-b964723ce3bf1a8c6ca4c793633880ff" size="20" data-answer="ORsHGwUQbg=="></p>
+<p><input class="webex-solveme" id="webex-41d27d7c723e060f016e2000029a72e6" size="20" data-answer="bxNVHQVGag=="></p>
 </div>
 <div class="webex-solution">
 <p>Z^c={2,4,6}, P(Z^c)=1/2.</p>
@@ -376,7 +373,7 @@ window.Quarto = {
 <div class="webex-question">
 <div class="webex-check webex-box">
 <p>(5e) Tentukan peluang Z ∪ Q^c.</p>
-<p><input class="webex-solveme" id="webex-47eea1e5ea6f13f97a22b9cf9d89b782" size="20" data-answer="bxVQSlcTOA=="></p>
+<p><input class="webex-solveme" id="webex-2b9e4287145d8e3d26f47d52433fcb0b" size="20" data-answer="aUAMSgIQZQ=="></p>
 </div>
 <div class="webex-solution">
 <p>Q^c={1,4,6}, Z ∪ Q^c={1,3,4,5,6}, P=5/6.</p>
@@ -385,7 +382,7 @@ window.Quarto = {
 <div class="webex-question">
 <div class="webex-check webex-box">
 <p>(5f) Tentukan peluang (Z ∪ Q)^c.</p>
-<p><input class="webex-solveme" id="webex-c47a90296589119b89d11c43f0706465" size="20" data-answer="OBYGTgoSbw=="></p>
+<p><input class="webex-solveme" id="webex-66c2fe123201d49af97ba60bafbfd4a4" size="20" data-answer="bRRSHVVHbA=="></p>
 </div>
 <div class="webex-solution">
 <p>(Z ∪ Q)^c={4,6}, P=1/3.</p>
@@ -396,8 +393,8 @@ window.Quarto = {
 <ol start="6" type="1">
 <li>Dua dadu fair dilempar sekali. Berapa peluang jumlah mata = 7?</li>
 </ol>
-<div id="webex-0f4cee1446332d22e248d1861f13fa6a" class="webex-radiogroup" data-answer="a1YYU0lUHQRp">
-<label><input type="radio" autocomplete="off" name="0f4cee1446332d22e248d1861f13fa6a"><span>P=1/36</span></label><label><input type="radio" autocomplete="off" name="0f4cee1446332d22e248d1861f13fa6a"><span>P=1/3</span></label><label><input type="radio" autocomplete="off" name="0f4cee1446332d22e248d1861f13fa6a"><span>P=1/6</span></label><label><input type="radio" autocomplete="off" name="0f4cee1446332d22e248d1861f13fa6a"><span>P=1/12</span></label>
+<div id="webex-4157e101c929c4401bac1768294544da" class="webex-radiogroup" data-answer="bwEZB0kAHAE+">
+<label><input type="radio" autocomplete="off" name="4157e101c929c4401bac1768294544da"><span>P=1/36</span></label><label><input type="radio" autocomplete="off" name="4157e101c929c4401bac1768294544da"><span>P=1/12</span></label><label><input type="radio" autocomplete="off" name="4157e101c929c4401bac1768294544da"><span>P=1/6</span></label><label><input type="radio" autocomplete="off" name="4157e101c929c4401bac1768294544da"><span>P=1/3</span></label>
 </div>
 </div>
 <div class="webex-solution">
@@ -409,8 +406,8 @@ window.Quarto = {
 <ol start="7" type="1">
 <li>Tiga kali lempar koin fair. Berapa peluang tepat 2 sisi gambar?</li>
 </ol>
-<div id="webex-f23ae4e01a7dc4b5ac86a40ccacb82ac" class="webex-radiogroup" data-answer="PQIfUUkESQFs">
-<label><input type="radio" autocomplete="off" name="f23ae4e01a7dc4b5ac86a40ccacb82ac"><span>P=5/8</span></label><label><input type="radio" autocomplete="off" name="f23ae4e01a7dc4b5ac86a40ccacb82ac"><span>P=1/2</span></label><label><input type="radio" autocomplete="off" name="f23ae4e01a7dc4b5ac86a40ccacb82ac"><span>P=1/4</span></label><label><input type="radio" autocomplete="off" name="f23ae4e01a7dc4b5ac86a40ccacb82ac"><span>P=3/8</span></label>
+<div id="webex-056576125fa849d376b38666ce23b06f" class="webex-radiogroup" data-answer="awQaBRsGHQJo">
+<label><input type="radio" autocomplete="off" name="056576125fa849d376b38666ce23b06f"><span>P=3/8</span></label><label><input type="radio" autocomplete="off" name="056576125fa849d376b38666ce23b06f"><span>P=1/2</span></label><label><input type="radio" autocomplete="off" name="056576125fa849d376b38666ce23b06f"><span>P=1/4</span></label><label><input type="radio" autocomplete="off" name="056576125fa849d376b38666ce23b06f"><span>P=5/8</span></label>
 </div>
 </div>
 <div class="webex-solution">
@@ -422,7 +419,7 @@ window.Quarto = {
 <ol start="8" type="1">
 <li>Dadu sekali. Z=bilangan ganjil, Q=bilangan prima. Hitung P(Z | Q).</li>
 </ol>
-<p><input class="webex-solveme" id="webex-21c66cc38d071560db1f7a397fcd1450" size="20" data-answer="aRNRGQVBPg=="></p>
+<p><input class="webex-solveme" id="webex-f878e011576510df6cd4e3d6cf2de831" size="20" data-answer="PRoFF1YSbA=="></p>
 </div>
 <div class="webex-solution">
 <p>Q={2,3,5}, Z∩Q={3,5}. P(Z|Q)=|{3,5}|/|{2,3,5}|=2/3.</p>
@@ -433,8 +430,8 @@ window.Quarto = {
 <ol start="9" type="1">
 <li>Dadu sekali. A=kelipatan 3, B=bilangan &gt;4. Apakah A dan B independen?</li>
 </ol>
-<div id="webex-5b4ae8ddbb3d45fa9d518638e7e64113" class="webex-radiogroup" data-answer="blMYUUkISFQ/">
-<label><input type="radio" autocomplete="off" name="5b4ae8ddbb3d45fa9d518638e7e64113"><span>Tidak independen</span></label><label><input type="radio" autocomplete="off" name="5b4ae8ddbb3d45fa9d518638e7e64113"><span>Independen</span></label><label><input type="radio" autocomplete="off" name="5b4ae8ddbb3d45fa9d518638e7e64113"><span>Saling lepas dan independen</span></label><label><input type="radio" autocomplete="off" name="5b4ae8ddbb3d45fa9d518638e7e64113"><span>Saling lepas</span></label>
+<div id="webex-ed51f63d64a11165e6b9b899ceca3189" class="webex-radiogroup" data-answer="PlUZAUoGH1Rr">
+<label><input type="radio" autocomplete="off" name="ed51f63d64a11165e6b9b899ceca3189"><span>Tidak independen</span></label><label><input type="radio" autocomplete="off" name="ed51f63d64a11165e6b9b899ceca3189"><span>Independen</span></label><label><input type="radio" autocomplete="off" name="ed51f63d64a11165e6b9b899ceca3189"><span>Saling lepas dan independen</span></label><label><input type="radio" autocomplete="off" name="ed51f63d64a11165e6b9b899ceca3189"><span>Saling lepas</span></label>
 </div>
 </div>
 <div class="webex-solution">
@@ -446,8 +443,8 @@ window.Quarto = {
 <ol start="10" type="1">
 <li>Dua dadu fair. Berapa peluang keduanya bernilai genap?</li>
 </ol>
-<div id="webex-036b9fce4030e14a51241144ca1de0b5" class="webex-radiogroup" data-answer="awMaUhVXT1Vp">
-<label><input type="radio" autocomplete="off" name="036b9fce4030e14a51241144ca1de0b5"><span>P=1/3</span></label><label><input type="radio" autocomplete="off" name="036b9fce4030e14a51241144ca1de0b5"><span>P=1/2</span></label><label><input type="radio" autocomplete="off" name="036b9fce4030e14a51241144ca1de0b5"><span>P=1/4</span></label><label><input type="radio" autocomplete="off" name="036b9fce4030e14a51241144ca1de0b5"><span>P=1/6</span></label>
+<div id="webex-573f069eb761646ce2356546b1ad2499" class="webex-radiogroup" data-answer="bgcfVhwGFVQ/">
+<label><input type="radio" autocomplete="off" name="573f069eb761646ce2356546b1ad2499"><span>P=1/2</span></label><label><input type="radio" autocomplete="off" name="573f069eb761646ce2356546b1ad2499"><span>P=1/6</span></label><label><input type="radio" autocomplete="off" name="573f069eb761646ce2356546b1ad2499"><span>P=1/3</span></label><label><input type="radio" autocomplete="off" name="573f069eb761646ce2356546b1ad2499"><span>P=1/4</span></label>
 </div>
 </div>
 <div class="webex-solution">
@@ -459,8 +456,8 @@ window.Quarto = {
 <ol start="11" type="1">
 <li>Dua dadu fair. Berapa peluang minimal satu dadu bernilai 6?</li>
 </ol>
-<div id="webex-2f0ee1b26b10293ba51d30014357e477" class="webex-radiogroup" data-answer="aVccVUkBTgJr">
-<label><input type="radio" autocomplete="off" name="2f0ee1b26b10293ba51d30014357e477"><span>P=11/36</span></label><label><input type="radio" autocomplete="off" name="2f0ee1b26b10293ba51d30014357e477"><span>P=5/18</span></label><label><input type="radio" autocomplete="off" name="2f0ee1b26b10293ba51d30014357e477"><span>P=1/6</span></label><label><input type="radio" autocomplete="off" name="2f0ee1b26b10293ba51d30014357e477"><span>P=25/36</span></label>
+<div id="webex-cd17443a8524382e99281e4630f16e0d" class="webex-radiogroup" data-answer="OFQdBhgEH1Fl">
+<label><input type="radio" autocomplete="off" name="cd17443a8524382e99281e4630f16e0d"><span>P=5/18</span></label><label><input type="radio" autocomplete="off" name="cd17443a8524382e99281e4630f16e0d"><span>P=11/36</span></label><label><input type="radio" autocomplete="off" name="cd17443a8524382e99281e4630f16e0d"><span>P=1/6</span></label><label><input type="radio" autocomplete="off" name="cd17443a8524382e99281e4630f16e0d"><span>P=25/36</span></label>
 </div>
 </div>
 <div class="webex-solution">
@@ -472,7 +469,7 @@ window.Quarto = {
 <ol start="12" type="1">
 <li>Sebuah dadu dilempar sekali. Hitung peluang muncul bilangan ganjil dengan syarat hasil lebih dari 3, <span class="math inline">\(P(\text{ganjil} \mid &gt;3)\)</span>.</li>
 </ol>
-<p><input class="webex-solveme" id="webex-c0bb01387feff6c3b4331b3cde09c279" size="20" data-answer="OBJTTQMTbg=="></p>
+<p><input class="webex-solveme" id="webex-67448284b09ad63cba4237678ccc3347" size="20" data-answer="bRUFGwsQZQ=="></p>
 </div>
 <div class="webex-solution">
 <p>Rumus peluang bersyarat: <span class="math inline">\(P(A \mid B) = \dfrac{P(A \cap B)}{P(B)}\)</span>.</p>
@@ -484,7 +481,7 @@ window.Quarto = {
 <ol start="13" type="1">
 <li>Dadu sekali. A={1,2,3,4} dan B={3,4,5,6}. Tentukan A &nbsp;B.</li>
 </ol>
-<p><input class="webex-solveme" id="webex-bc052ba6df5c41cd9d6d4505a2bb082e" size="20" data-answer="OUFLBB5QHBQ5"></p>
+<p><input class="webex-solveme" id="webex-60277aed744276c20ab5dd1707ebc4fb" size="20" data-answer="bRJJBhtTGEZq"></p>
 </div>
 <div class="webex-solution">
 <p>{1,2}</p>
@@ -495,8 +492,8 @@ window.Quarto = {
 <ol start="14" type="1">
 <li>Manakah yang benar?</li>
 </ol>
-<div id="webex-46c5741e3a741a855a9b5427b9792ac4" class="webex-radiogroup" data-answer="bwdPBRsEHVVu">
-<label><input type="radio" autocomplete="off" name="46c5741e3a741a855a9b5427b9792ac4"><span>A={2,4} dan B={2,4,6} ⇒ A ⊆ B</span></label><label><input type="radio" autocomplete="off" name="46c5741e3a741a855a9b5427b9792ac4"><span>A={2,4} dan B={1,3,5} ⇒ A ⊆ B</span></label><label><input type="radio" autocomplete="off" name="46c5741e3a741a855a9b5427b9792ac4"><span>A={2,4,6} dan B={2,4} ⇒ A ⊆ B</span></label><label><input type="radio" autocomplete="off" name="46c5741e3a741a855a9b5427b9792ac4"><span>A={1,3,5} dan B={2,4,6} ⇒ A ⊆ B</span></label>
+<div id="webex-c23a5f36f5ee8277f760573f9ab0add6" class="webex-radiogroup" data-answer="OAMfURlWHwY7">
+<label><input type="radio" autocomplete="off" name="c23a5f36f5ee8277f760573f9ab0add6"><span>A={2,4} dan B={2,4,6} ⇒ A ⊆ B</span></label><label><input type="radio" autocomplete="off" name="c23a5f36f5ee8277f760573f9ab0add6"><span>A={1,3,5} dan B={2,4,6} ⇒ A ⊆ B</span></label><label><input type="radio" autocomplete="off" name="c23a5f36f5ee8277f760573f9ab0add6"><span>A={2,4,6} dan B={2,4} ⇒ A ⊆ B</span></label><label><input type="radio" autocomplete="off" name="c23a5f36f5ee8277f760573f9ab0add6"><span>A={2,4} dan B={1,3,5} ⇒ A ⊆ B</span></label>
 </div>
 </div>
 <div class="webex-solution">
@@ -508,8 +505,8 @@ window.Quarto = {
 <ol start="15" type="1">
 <li>Diketahui P(A)=0.4, P(B)=0.5, dan P(A ∩ B)=0.2. Hitung P(A ∪ B).</li>
 </ol>
-<div id="webex-14bc6ddc7a6c2e7f67bb7af4d429dc11" class="webex-radiogroup" data-answer="agROUxpUSFJq">
-<label><input type="radio" autocomplete="off" name="14bc6ddc7a6c2e7f67bb7af4d429dc11"><span>0.3</span></label><label><input type="radio" autocomplete="off" name="14bc6ddc7a6c2e7f67bb7af4d429dc11"><span>0.6</span></label><label><input type="radio" autocomplete="off" name="14bc6ddc7a6c2e7f67bb7af4d429dc11"><span>0.9</span></label><label><input type="radio" autocomplete="off" name="14bc6ddc7a6c2e7f67bb7af4d429dc11"><span>0.7</span></label>
+<div id="webex-10a5baa325da28b024151ffb1dda5c8c" class="webex-radiogroup" data-answer="agBNBU5QTQNv">
+<label><input type="radio" autocomplete="off" name="10a5baa325da28b024151ffb1dda5c8c"><span>0.6</span></label><label><input type="radio" autocomplete="off" name="10a5baa325da28b024151ffb1dda5c8c"><span>0.3</span></label><label><input type="radio" autocomplete="off" name="10a5baa325da28b024151ffb1dda5c8c"><span>0.7</span></label><label><input type="radio" autocomplete="off" name="10a5baa325da28b024151ffb1dda5c8c"><span>0.9</span></label>
 </div>
 </div>
 <div class="webex-solution">
@@ -521,8 +518,8 @@ window.Quarto = {
 <ol start="16" type="1">
 <li>A dan B saling lepas dengan P(A)=1/3 dan P(B)=1/6. Hitung P(A ∪ B).</li>
 </ol>
-<div id="webex-6787dc508bfcce09ca17f081b855e6df" class="webex-radiogroup" data-answer="bQYUB0hTGQBl">
-<label><input type="radio" autocomplete="off" name="6787dc508bfcce09ca17f081b855e6df"><span>1/2</span></label><label><input type="radio" autocomplete="off" name="6787dc508bfcce09ca17f081b855e6df"><span>2/3</span></label><label><input type="radio" autocomplete="off" name="6787dc508bfcce09ca17f081b855e6df"><span>1/3</span></label><label><input type="radio" autocomplete="off" name="6787dc508bfcce09ca17f081b855e6df"><span>1/6</span></label>
+<div id="webex-316e3bb3c0a6b2c2274a7463cfbe6cd8" class="webex-radiogroup" data-answer="aAEaVR9TTgM+">
+<label><input type="radio" autocomplete="off" name="316e3bb3c0a6b2c2274a7463cfbe6cd8"><span>1/6</span></label><label><input type="radio" autocomplete="off" name="316e3bb3c0a6b2c2274a7463cfbe6cd8"><span>1/3</span></label><label><input type="radio" autocomplete="off" name="316e3bb3c0a6b2c2274a7463cfbe6cd8"><span>1/2</span></label><label><input type="radio" autocomplete="off" name="316e3bb3c0a6b2c2274a7463cfbe6cd8"><span>2/3</span></label>
 </div>
 </div>
 <div class="webex-solution">
@@ -534,7 +531,7 @@ window.Quarto = {
 <ol start="17" type="1">
 <li>Dadu sekali. B=bilangan genap, C=bilangan &gt;3. Hitung P(C | B).</li>
 </ol>
-<p><input class="webex-solveme" id="webex-c70caeefd746c4c51dc0daa3085ed290" size="20" data-answer="OBUCTFJHOA=="></p>
+<p><input class="webex-solveme" id="webex-3944c7286675270400ddbfbe492b6abd" size="20" data-answer="aBsGG1AVbw=="></p>
 </div>
 <div class="webex-solution">
 <p>B={2,4,6}. C∩B={4,6}. Jadi 2/3.</p>
@@ -545,8 +542,8 @@ window.Quarto = {
 <ol start="18" type="1">
 <li>Diketahui P(A)=1/2 dan P(B | A)=2/3. Hitung P(A ∩ B).</li>
 </ol>
-<div id="webex-d27cb8176a7d44775427c6bd0b178445" class="webex-radiogroup" data-answer="PwIbUk4IHQdr">
-<label><input type="radio" autocomplete="off" name="d27cb8176a7d44775427c6bd0b178445"><span>2/3</span></label><label><input type="radio" autocomplete="off" name="d27cb8176a7d44775427c6bd0b178445"><span>1/3</span></label><label><input type="radio" autocomplete="off" name="d27cb8176a7d44775427c6bd0b178445"><span>3/4</span></label><label><input type="radio" autocomplete="off" name="d27cb8176a7d44775427c6bd0b178445"><span>1/6</span></label>
+<div id="webex-9248bfc45f567113ed16332f50b2c005" class="webex-radiogroup" data-answer="YgIYCE5XTwRo">
+<label><input type="radio" autocomplete="off" name="9248bfc45f567113ed16332f50b2c005"><span>2/3</span></label><label><input type="radio" autocomplete="off" name="9248bfc45f567113ed16332f50b2c005"><span>1/6</span></label><label><input type="radio" autocomplete="off" name="9248bfc45f567113ed16332f50b2c005"><span>1/3</span></label><label><input type="radio" autocomplete="off" name="9248bfc45f567113ed16332f50b2c005"><span>3/4</span></label>
 </div>
 </div>
 <div class="webex-solution">
@@ -558,8 +555,8 @@ window.Quarto = {
 <ol start="19" type="1">
 <li>Diketahui P(A)=1/2, P(B)=1/3, P(A ∩ B)=1/6. Tentukan hubungan A dan B.</li>
 </ol>
-<div id="webex-01978ee6abfa8b076bcdd1c1f06e8f11" class="webex-radiogroup" data-answer="awEVBhRVSQY8">
-<label><input type="radio" autocomplete="off" name="01978ee6abfa8b076bcdd1c1f06e8f11"><span>Saling lepas</span></label><label><input type="radio" autocomplete="off" name="01978ee6abfa8b076bcdd1c1f06e8f11"><span>Independen</span></label><label><input type="radio" autocomplete="off" name="01978ee6abfa8b076bcdd1c1f06e8f11"><span>Saling lepas dan independen</span></label><label><input type="radio" autocomplete="off" name="01978ee6abfa8b076bcdd1c1f06e8f11"><span>Tidak independen</span></label>
+<div id="webex-109e8c0257205b62c6f399037d74b052" class="webex-radiogroup" data-answer="agEVVRRTHAJo">
+<label><input type="radio" autocomplete="off" name="109e8c0257205b62c6f399037d74b052"><span>Independen</span></label><label><input type="radio" autocomplete="off" name="109e8c0257205b62c6f399037d74b052"><span>Saling lepas</span></label><label><input type="radio" autocomplete="off" name="109e8c0257205b62c6f399037d74b052"><span>Saling lepas dan independen</span></label><label><input type="radio" autocomplete="off" name="109e8c0257205b62c6f399037d74b052"><span>Tidak independen</span></label>
 </div>
 </div>
 <div class="webex-solution">
@@ -571,7 +568,7 @@ window.Quarto = {
 <ol start="20" type="1">
 <li>P(A)=0.35. Hitung P(A^c).</li>
 </ol>
-<p><input class="webex-solveme" id="webex-741e4b7e917d998810487de8bb05332b" size="20" data-answer="bBYBSwJXFTg="></p>
+<p><input class="webex-solveme" id="webex-d868eaee1a40d5740b85f18b8c0ee6c5" size="20" data-answer="PxoGFlNURzg="></p>
 </div>
 <div class="webex-solution">
 <p>0.65</p>
@@ -582,8 +579,8 @@ window.Quarto = {
 <ol start="21" type="1">
 <li>Pilih pernyataan yang benar.</li>
 </ol>
-<div id="webex-ab098559fa4ab6085560126c4c32b5f6" class="webex-radiogroup" data-answer="OlIcCRQFGQg7">
-<label><input type="radio" autocomplete="off" name="ab098559fa4ab6085560126c4c32b5f6"><span>P(S)=1 dan P(∅)=1</span></label><label><input type="radio" autocomplete="off" name="ab098559fa4ab6085560126c4c32b5f6"><span>P(S)=0 dan P(∅)=1</span></label><label><input type="radio" autocomplete="off" name="ab098559fa4ab6085560126c4c32b5f6"><span>P(S)=0 dan P(∅)=0</span></label><label><input type="radio" autocomplete="off" name="ab098559fa4ab6085560126c4c32b5f6"><span>P(S)=1 dan P(∅)=0</span></label>
+<div id="webex-0dceb43b8b1c6371ebc600fee568dd53" class="webex-radiogroup" data-answer="a1RPVU4EH1Nl">
+<label><input type="radio" autocomplete="off" name="0dceb43b8b1c6371ebc600fee568dd53"><span>P(S)=1 dan P(∅)=1</span></label><label><input type="radio" autocomplete="off" name="0dceb43b8b1c6371ebc600fee568dd53"><span>P(S)=0 dan P(∅)=1</span></label><label><input type="radio" autocomplete="off" name="0dceb43b8b1c6371ebc600fee568dd53"><span>P(S)=0 dan P(∅)=0</span></label><label><input type="radio" autocomplete="off" name="0dceb43b8b1c6371ebc600fee568dd53"><span>P(S)=1 dan P(∅)=0</span></label>
 </div>
 </div>
 <div class="webex-solution">
@@ -595,8 +592,8 @@ window.Quarto = {
 <ol start="22" type="1">
 <li>Manakah yang tidak mungkin menjadi nilai peluang?</li>
 </ol>
-<div id="webex-e4137c945ec2909115c3603038f2f428" class="webex-radiogroup" data-answer="PgUdAxtTFQRo">
-<label><input type="radio" autocomplete="off" name="e4137c945ec2909115c3603038f2f428"><span>−0.1</span></label><label><input type="radio" autocomplete="off" name="e4137c945ec2909115c3603038f2f428"><span>1</span></label><label><input type="radio" autocomplete="off" name="e4137c945ec2909115c3603038f2f428"><span>0.3</span></label><label><input type="radio" autocomplete="off" name="e4137c945ec2909115c3603038f2f428"><span>0</span></label>
+<div id="webex-418ffde9f401779615b05dcc36778210" class="webex-radiogroup" data-answer="bwEUV0pUSQk7">
+<label><input type="radio" autocomplete="off" name="418ffde9f401779615b05dcc36778210"><span>1</span></label><label><input type="radio" autocomplete="off" name="418ffde9f401779615b05dcc36778210"><span>−0.1</span></label><label><input type="radio" autocomplete="off" name="418ffde9f401779615b05dcc36778210"><span>0</span></label><label><input type="radio" autocomplete="off" name="418ffde9f401779615b05dcc36778210"><span>0.3</span></label>
 </div>
 </div>
 <div class="webex-solution">
@@ -608,7 +605,7 @@ window.Quarto = {
 <ol start="23" type="1">
 <li>Dadu sekali. Z=ganjil, Q=prima. Hitung P(Z ∩ Q^c).</li>
 </ol>
-<p><input class="webex-solveme" id="webex-9fe03cffb1e99cb38bcb17f712e0b78f" size="20" data-answer="YkRUHwVBOw=="></p>
+<p><input class="webex-solveme" id="webex-d36f05d6501857a16e9815715e60db9c" size="20" data-answer="PxEHSQYXOQ=="></p>
 </div>
 <div class="webex-solution">
 <p>Q^c={1,4,6}, Z ∩ Q^c={1}, P=1/6.</p>
@@ -619,8 +616,8 @@ window.Quarto = {
 <ol start="24" type="1">
 <li>Jika A dan B saling lepas serta P(A)&gt;0 dan P(B)&gt;0, maka A dan B independen. Benar atau salah?</li>
 </ol>
-<div id="webex-f43de61c0ff9bb8950a45a6b06bda01f" class="webex-radiogroup" data-answer="PQQfVUkGHVNt">
-<label><input type="radio" autocomplete="off" name="f43de61c0ff9bb8950a45a6b06bda01f"><span>Benar</span></label><label><input type="radio" autocomplete="off" name="f43de61c0ff9bb8950a45a6b06bda01f"><span>Salah</span></label><label><input type="radio" autocomplete="off" name="f43de61c0ff9bb8950a45a6b06bda01f"><span>Tergantung P(A)</span></label><label><input type="radio" autocomplete="off" name="f43de61c0ff9bb8950a45a6b06bda01f"><span>Tidak dapat ditentukan</span></label>
+<div id="webex-9ac21fe5af484d1f26347f9ebbf172f0" class="webex-radiogroup" data-answer="YlBPAh1WSQU8">
+<label><input type="radio" autocomplete="off" name="9ac21fe5af484d1f26347f9ebbf172f0"><span>Salah</span></label><label><input type="radio" autocomplete="off" name="9ac21fe5af484d1f26347f9ebbf172f0"><span>Tergantung P(A)</span></label><label><input type="radio" autocomplete="off" name="9ac21fe5af484d1f26347f9ebbf172f0"><span>Benar</span></label><label><input type="radio" autocomplete="off" name="9ac21fe5af484d1f26347f9ebbf172f0"><span>Tidak dapat ditentukan</span></label>
 </div>
 </div>
 <div class="webex-solution">
@@ -636,7 +633,7 @@ window.Quarto = {
 <li>Berapa peluang kedua bola berwarna merah?</li>
 <li>Berapa peluang bola pertama merah dan bola kedua biru?</li>
 </ol>
-<p><input class="webex-solveme" id="webex-7370883c7d4fed07c4e03ae3c922c367" size="20" data-answer="bBEFHwEYVwJZRAVJU0Zt"></p>
+<p><input class="webex-solveme" id="webex-c937a7ea6fc8e33d812edb261d7d6798" size="20" data-answer="OBsBGFgXAQBYRlIXUxFu"></p>
 </div>
 <div class="webex-solution">
 <ol type="a">
@@ -668,7 +665,7 @@ window.Quarto = {
 <li>Apakah A ⊆ B? Jelaskan!</li>
 <li>Hitung P(B|A)</li>
 </ol>
-<p><input class="webex-solveme" id="webex-138f1456d1cac5398e74b5c5baf88315" size="40" data-answer="ahF5W0p1cnFIdiImT3J0eEVJF3ZfTiJyJU0heX8fdnJwH38hdkkZFiXT6echFVFcVgRFGEJlQRlCQ056RHIYFx0TGlcTaQ=="></p>
+<p><input class="webex-solveme" id="webex-794fe7cef32d99a1151f071c264b80eb" size="40" data-answer="bBt1Wx52JCJKdHMjFX4mcEwZESQNTHAkdRpzI38cIiV2FXMhIkpPRSfRuOJ7GQNUX1RDShBnE08SFBwgRHFMQBsZFldHag=="></p>
 </div>
 <div class="webex-solution">
 <ol type="a">
@@ -695,7 +692,7 @@ window.Quarto = {
 <li>Hitung P(A|B)</li>
 <li>Apakah A dan B independen? Buktikan!</li>
 </ol>
-<p><input class="webex-solveme" id="webex-faea8523955b6b8fb17aaa1448fb2b5c" size="20" data-answer="PUM1QxQVEBt4173LdEsaSkITB09STRFkFhRGQBojSSFPQ0lBGgUcBRUVfAxSB0gDDFVSD0M8"></p>
+<p><input class="webex-solveme" id="webex-33c0352b9033864aa683ac0213944109" size="20" data-answer="aBEzEh8VEEp40ruaeh8WTUEUCB1STxBiEx8ZFhxwTHsaEU8QEQUcVBUQel1cU0QED1JdXUM+"></p>
 </div>
 <div class="webex-solution">
 <ol type="a">
@@ -715,7 +712,7 @@ window.Quarto = {
 <li>Hitung P(M ∩ N)</li>
 <li>Hitung P(M ∪ N)</li>
 </ol>
-<p><input class="webex-solveme" id="webex-6c105848aa62f0e253faa747ec7a3c02" size="40" data-answer="bUFfGHgRCQ1NQVgaKBlYAAIfRjFJeta/zC0eXAJMAQAaQ2EYeNq8ki9ICwBfH1YEF24="></p>
+<p><input class="webex-solveme" id="webex-5a7990de3f7c24d2bdce3f0c9b27778d" size="40" data-answer="bkNZEXQZWVAfRllLfB1ZAFVIQzUbK9LrkCwbCgYYCVYZQWcRdNLsz31PClELG1cEQDk="></p>
 </div>
 <div class="webex-solution">
 <ol type="a">
@@ -740,8 +737,8 @@ window.Quarto = {
 <li>Berapa peluang terpilih siswa perempuan yang memakai kacamata?</li>
 <li>Jika yang terpilih memakai kacamata, berapa peluang dia laki-laki?</li>
 </ol>
-<div id="webex-1183c89d77f0818040de2b074439adbf" class="webex-radiogroup" data-answer="agEUA08JFVRq">
-<label><input type="radio" autocomplete="off" name="1183c89d77f0818040de2b074439adbf"><span>a) P=15/40=0.375, b) P(Laki-laki|Berkacamata)=15/24=5/8=0.625</span></label><label><input type="radio" autocomplete="off" name="1183c89d77f0818040de2b074439adbf"><span>a) P=9/40=0.225, b) P(Laki-laki|Berkacamata)=9/24=3/8=0.375</span></label><label><input type="radio" autocomplete="off" name="1183c89d77f0818040de2b074439adbf"><span>a) P=9/40=0.225, b) P(Laki-laki|Berkacamata)=15/24=5/8=0.625</span></label><label><input type="radio" autocomplete="off" name="1183c89d77f0818040de2b074439adbf"><span>a) P=15/40=0.375, b) P(Laki-laki|Berkacamata)=9/24=3/8=0.375</span></label>
+<div id="webex-db6067618d86c7a719e5feca5ccd3e6a" class="webex-radiogroup" data-answer="P1IaABoGGgFl">
+<label><input type="radio" autocomplete="off" name="db6067618d86c7a719e5feca5ccd3e6a"><span>a) P=15/40=0.375, b) P(Laki-laki|Berkacamata)=15/24=5/8=0.625</span></label><label><input type="radio" autocomplete="off" name="db6067618d86c7a719e5feca5ccd3e6a"><span>a) P=15/40=0.375, b) P(Laki-laki|Berkacamata)=9/24=3/8=0.375</span></label><label><input type="radio" autocomplete="off" name="db6067618d86c7a719e5feca5ccd3e6a"><span>a) P=9/40=0.225, b) P(Laki-laki|Berkacamata)=15/24=5/8=0.625</span></label><label><input type="radio" autocomplete="off" name="db6067618d86c7a719e5feca5ccd3e6a"><span>a) P=9/40=0.225, b) P(Laki-laki|Berkacamata)=9/24=3/8=0.375</span></label>
 </div>
 </div>
 <div class="webex-solution">
@@ -761,7 +758,7 @@ window.Quarto = {
 <li>Hitung P(A ∩ B)</li>
 <li>Apakah mungkin A dan B independen? Jelaskan!</li>
 </ol>
-<p><input class="webex-solveme" id="webex-16226aded461b5da4f06158e3b605ab0" size="36" data-answer="ahRiGnRIWVVKBxoRMh0lg7zPch8MBRRFZwtSUV5BC15VU0JXWAUBC0Zp"></p>
+<p><input class="webex-solveme" id="webex-88c9ed4cbebd48165de7b59d13c54cc8" size="36" data-answer="YxozESdNCVNMVk5EZBBw1L3NJx5fBRVEZVoHVF9DClZcXRNcCwBRDUA4"></p>
 </div>
 <div class="webex-solution">
 <ol type="a">
@@ -776,8 +773,8 @@ window.Quarto = {
 <ol start="7" type="1">
 <li>Tiga kartu diambil secara acak dari 52 kartu bridge tanpa pengembalian. Berapa peluang ketiga kartu tersebut adalah kartu As?</li>
 </ol>
-<div id="webex-11d5ca46f0e5c266f1eb1f771b98b255" class="webex-radiogroup" data-answer="agFIBU9QGAY7">
-<label><input type="radio" autocomplete="off" name="11d5ca46f0e5c266f1eb1f771b98b255"><span>P=1/2652</span></label><label><input type="radio" autocomplete="off" name="11d5ca46f0e5c266f1eb1f771b98b255"><span>P=1/663</span></label><label><input type="radio" autocomplete="off" name="11d5ca46f0e5c266f1eb1f771b98b255"><span>P=1/5525</span></label><label><input type="radio" autocomplete="off" name="11d5ca46f0e5c266f1eb1f771b98b255"><span>P=1/1326</span></label>
+<div id="webex-922422c5fdfefd789790f8841fb38862" class="webex-radiogroup" data-answer="YgIeBB4CTwQ7">
+<label><input type="radio" autocomplete="off" name="922422c5fdfefd789790f8841fb38862"><span>P=1/663</span></label><label><input type="radio" autocomplete="off" name="922422c5fdfefd789790f8841fb38862"><span>P=1/2652</span></label><label><input type="radio" autocomplete="off" name="922422c5fdfefd789790f8841fb38862"><span>P=1/1326</span></label><label><input type="radio" autocomplete="off" name="922422c5fdfefd789790f8841fb38862"><span>P=1/5525</span></label>
 </div>
 </div>
 <div class="webex-solution">
@@ -800,7 +797,7 @@ window.Quarto = {
 <li>Hitung P(X ∪ Y ∪ Z)</li>
 <li>Hitung P((X ∩ Y)^c)</li>
 </ol>
-<p><input class="webex-solveme" id="webex-f57eefac89a1f613d8388f2810ae0123" size="37" data-answer="PRdvh+3POIGwkDsMhL60H0RoG2Da7phh07jLPxkMBxxQGRc1TU45gbCQOBg4VRgOVhcAGmU="></p>
+<p><input class="webex-solveme" id="webex-dd0ec2b70327b6193a82e9c785e17c4d" size="37" data-answer="P0Zoh+ubO9W4mmgKgL60FRMxEGqHsclu2r3Pax5eAUtSSBA1Sxo61biaax48VRgEAU4LEDg="></p>
 </div>
 <div class="webex-solution">
 <p>X = {1, 2, 3, 4}, Y = {2, 4, 6}, Z = {3, 6}</p>
@@ -822,8 +819,8 @@ window.Quarto = {
 <li>Prevalensi penyakit di populasi adalah 2%</li>
 </ul>
 <p>Jika seseorang dites dan hasilnya NEGATIF, berapa peluang dia benar-benar sehat?</p>
-<div id="webex-3823d2dca5f52f1c3d117c1341dfcafa" class="webex-radiogroup" data-answer="aAgeA0gDSFM8">
-<label><input type="radio" autocomplete="off" name="3823d2dca5f52f1c3d117c1341dfcafa"><span>P(Sehat|Negatif) ≈ 0.90 atau 90%</span></label><label><input type="radio" autocomplete="off" name="3823d2dca5f52f1c3d117c1341dfcafa"><span>P(Sehat|Negatif) ≈ 0.98 atau 98%</span></label><label><input type="radio" autocomplete="off" name="3823d2dca5f52f1c3d117c1341dfcafa"><span>P(Sehat|Negatif) ≈ 0.9989 atau 99.89%</span></label><label><input type="radio" autocomplete="off" name="3823d2dca5f52f1c3d117c1341dfcafa"><span>P(Sehat|Negatif) ≈ 0.95 atau 95%</span></label>
+<div id="webex-1e92a51dd7594a8b7ad7e90d9fe371b0" class="webex-radiogroup" data-answer="alUVA00FHVQ5">
+<label><input type="radio" autocomplete="off" name="1e92a51dd7594a8b7ad7e90d9fe371b0"><span>P(Sehat|Negatif) ≈ 0.98 atau 98%</span></label><label><input type="radio" autocomplete="off" name="1e92a51dd7594a8b7ad7e90d9fe371b0"><span>P(Sehat|Negatif) ≈ 0.9989 atau 99.89%</span></label><label><input type="radio" autocomplete="off" name="1e92a51dd7594a8b7ad7e90d9fe371b0"><span>P(Sehat|Negatif) ≈ 0.95 atau 95%</span></label><label><input type="radio" autocomplete="off" name="1e92a51dd7594a8b7ad7e90d9fe371b0"><span>P(Sehat|Negatif) ≈ 0.90 atau 90%</span></label>
 </div>
 </div>
 <div class="webex-solution">
@@ -842,7 +839,7 @@ window.Quarto = {
 <li>Hitung P(A | B)</li>
 <li>Apakah A dan B independen?</li>
 </ol>
-<p><input class="webex-solveme" id="webex-3ac3fe63ddfaa2d3205340ac915b9f85" size="20" data-answer="aEMzEUpFFBslTURNQRBXHAocFWMWHEFBEXMcQBVGGgAcUFUfRjUUH0RGTiCDus1xGxIZExYATUNpExlCG055SXFIQR9GRwYfRDAPBQBZRFpcVFBDUV4FBlcTaA=="></p>
+<p><input class="webex-solveme" id="webex-f5f0f17dd49368ef122f66993b8da596" size="20" data-answer="PRc2EkoRFUwlHRsfFhpWSQkeEjYUGhkbGyARRk0VGwNJBFAcRmEVSEQWEXLUsMwkGBAeRhQGFRljQBREQx14SiQcRBxGEwdIRGBQV1dTRQ9fVlcWU1hdXF1AZQ=="></p>
 </div>
 <div class="webex-solution">
 <ol type="a">
@@ -1490,14 +1487,13 @@ window.onload = function() {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
         }
-      }
-      return codeEl.innerText;
+        return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
