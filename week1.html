@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Deri Siswara">
 
-<title>Statistika dan Probabilitas</title>
+<title>1&nbsp; Understanding the World with Data – Statistika dan Probabilitas</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./week1.html" rel="next">
+<link href="./week2.html" rel="next">
+<link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -84,7 +84,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Pengantar</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week1.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Understanding the World with Data</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -113,13 +113,13 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Pengantar</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./week1.html" class="sidebar-item-text sidebar-link">
+  <a href="./week1.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Understanding the World with Data</span></span></a>
   </div>
 </li>
@@ -157,10 +157,25 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#pengantar" id="toc-pengantar" class="nav-link active" data-scroll-target="#pengantar">Pengantar</a>
+  <li><a href="#apa-itu-data" id="toc-apa-itu-data" class="nav-link active" data-scroll-target="#apa-itu-data"><span class="header-section-number">1.1</span> Apa itu Data?</a>
   <ul class="collapse">
-  <li><a href="#informasi-mata-kuliah" id="toc-informasi-mata-kuliah" class="nav-link" data-scroll-target="#informasi-mata-kuliah">Informasi Mata Kuliah</a></li>
+  <li><a href="#contoh-data-dalam-kehidupan-sehari-hari" id="toc-contoh-data-dalam-kehidupan-sehari-hari" class="nav-link" data-scroll-target="#contoh-data-dalam-kehidupan-sehari-hari"><span class="header-section-number">1.1.1</span> Contoh Data dalam Kehidupan Sehari-hari</a></li>
+  <li><a href="#klasifikasi-tipe-data" id="toc-klasifikasi-tipe-data" class="nav-link" data-scroll-target="#klasifikasi-tipe-data"><span class="header-section-number">1.1.2</span> Klasifikasi Tipe Data</a></li>
+  <li><a href="#skala-pengukuran" id="toc-skala-pengukuran" class="nav-link" data-scroll-target="#skala-pengukuran"><span class="header-section-number">1.1.3</span> Skala Pengukuran</a></li>
+  <li><a href="#data-tidak-terstruktur-unstructured-data" id="toc-data-tidak-terstruktur-unstructured-data" class="nav-link" data-scroll-target="#data-tidak-terstruktur-unstructured-data"><span class="header-section-number">1.1.4</span> Data Tidak Terstruktur (Unstructured Data)</a></li>
   </ul></li>
+  <li><a href="#apa-itu-statistika" id="toc-apa-itu-statistika" class="nav-link" data-scroll-target="#apa-itu-statistika"><span class="header-section-number">1.2</span> Apa itu Statistika?</a>
+  <ul class="collapse">
+  <li><a href="#interpretasi-visual-data" id="toc-interpretasi-visual-data" class="nav-link" data-scroll-target="#interpretasi-visual-data"><span class="header-section-number">1.2.1</span> Interpretasi Visual Data</a></li>
+  <li><a href="#cabang-utama-statistika" id="toc-cabang-utama-statistika" class="nav-link" data-scroll-target="#cabang-utama-statistika"><span class="header-section-number">1.2.2</span> Cabang Utama Statistika</a></li>
+  <li><a href="#contoh-penerapan-dalam-konteks-pendidikan" id="toc-contoh-penerapan-dalam-konteks-pendidikan" class="nav-link" data-scroll-target="#contoh-penerapan-dalam-konteks-pendidikan"><span class="header-section-number">1.2.3</span> Contoh Penerapan dalam Konteks Pendidikan</a></li>
+  </ul></li>
+  <li><a href="#probabilitas-kerangka-mengukur-ketidakpastian" id="toc-probabilitas-kerangka-mengukur-ketidakpastian" class="nav-link" data-scroll-target="#probabilitas-kerangka-mengukur-ketidakpastian"><span class="header-section-number">1.3</span> Probabilitas: Kerangka Mengukur Ketidakpastian</a>
+  <ul class="collapse">
+  <li><a href="#aplikasi-dalam-kehidupan-sehari-hari" id="toc-aplikasi-dalam-kehidupan-sehari-hari" class="nav-link" data-scroll-target="#aplikasi-dalam-kehidupan-sehari-hari"><span class="header-section-number">1.3.1</span> Aplikasi dalam Kehidupan Sehari-hari</a></li>
+  <li><a href="#peran-krusial-dalam-statistika" id="toc-peran-krusial-dalam-statistika" class="nav-link" data-scroll-target="#peran-krusial-dalam-statistika"><span class="header-section-number">1.3.2</span> Peran Krusial dalam Statistika</a></li>
+  </ul></li>
+  <li><a href="#referensi" id="toc-referensi" class="nav-link" data-scroll-target="#referensi"><span class="header-section-number">1.4</span> Referensi</a></li>
   </ul>
 </nav>
     </div>
@@ -169,19 +184,13 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Statistika dan Probabilitas</h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Understanding the World with Data</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Deri Siswara </p>
-          </div>
-  </div>
     
   
     
@@ -192,9 +201,9 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="pengantar" class="level1 unnumbered">
-<h1 class="unnumbered">Pengantar</h1>
-<p>Buku ini ringkas dan praktis untuk mata kuliah Statistika dan Probabilitas (SI243040). Target: mengenali peran data, statistika, dan probabilitas untuk penalaran berbasis bukti.</p>
+<section id="apa-itu-data" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="apa-itu-data"><span class="header-section-number">1.1</span> Apa itu Data?</h2>
+<p>Data adalah <strong>informasi</strong> tentang individu/objek/unit observasi dalam bentuk angka, teks, gambar, atau sinyal yang dianalisis untuk menjawab pertanyaan penelitian atau bisnis.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -205,104 +214,305 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Capaian Pembelajaran (CPMK)</strong><br>
-1) Menjelaskan statistika &amp; probabilitas.<br>
-2) Mengaitkan konsep keduanya.<br>
-3) Menghitung peluang dasar.<br>
-4) Mengenali karakteristik distribusi diskret &amp; kontinu.<br>
-5) Melakukan uji hipotesis dasar.<br>
-6) Menulis ringkas hasil analisis.</p>
+<p>Definisi merujuk Agresti <em>Statistics: The Art and Science of Learning from Data</em>.</p>
 </div>
 </div>
-<section id="informasi-mata-kuliah" class="level2">
-<h2 class="anchored" data-anchor-id="informasi-mata-kuliah">Informasi Mata Kuliah</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: left;"></th>
-<th style="text-align: center;">Quiz</th>
-<th style="text-align: center;">Tugas</th>
-<th style="text-align: center;">UTS</th>
-<th style="text-align: center;">UAS</th>
-<th style="text-align: center;">Total</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">CPMK 1</td>
-<td style="text-align: center;">5%</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">5%</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">10%</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">CPMK 2</td>
-<td style="text-align: center;">5%</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">5%</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">10%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">CPMK 3</td>
-<td style="text-align: center;">7%</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">8%</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">15%</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">CPMK 4</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">10%</td>
-<td style="text-align: center;">5%</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">15%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">CPMK 5</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">10%</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">10%</td>
-<td style="text-align: center;">20%</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">CPMK 6</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">10%</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">20%</td>
-<td style="text-align: center;">30%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Total</strong></td>
-<td style="text-align: center;"><strong>17%</strong></td>
-<td style="text-align: center;"><strong>30%</strong></td>
-<td style="text-align: center;"><strong>23%</strong></td>
-<td style="text-align: center;"><strong>30%</strong></td>
-<td style="text-align: center;"><strong>100%</strong></td>
-</tr>
-</tbody>
-</table>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Syarat lulus</strong>: setiap CPMK ≥ 55 dan nilai akhir ≥ 55.<br>
-Tidak lulus → remedial.</p>
-</div>
-</div>
-
-
+<section id="contoh-data-dalam-kehidupan-sehari-hari" class="level3" data-number="1.1.1">
+<h3 data-number="1.1.1" class="anchored" data-anchor-id="contoh-data-dalam-kehidupan-sehari-hari"><span class="header-section-number">1.1.1</span> Contoh Data dalam Kehidupan Sehari-hari</h3>
+<p><strong>1. Data Tabel (Structured Data)</strong> <img src="https://www.gastonsanchez.com/matrix4sl/images/tables/table-mixed.png" class="img-fluid quarto-figure quarto-figure-center"></p>
+<p>Contoh tabel di atas menunjukkan data mahasiswa dengan variabel:</p>
+<ul>
+<li><strong>Name</strong>: data nominal (kategori tanpa urutan)</li>
+<li><strong>Gender</strong>: data nominal (Male/Female)</li>
+<li><strong>Height</strong>: data kontinu (dapat diukur dengan presisi tinggi)</li>
+<li><strong>Weight</strong>: data kontinu (berat badan dalam kg)</li>
+<li><strong>Religion</strong>: data nominal (kategori kepercayaan)</li>
+<li><strong>Age</strong>: data diskret (usia dalam tahun penuh)</li>
+</ul>
+<p><strong>2. Data Visual/Gambar (Unstructured Data)</strong> <img src="https://www.stat20.org/1-questions-and-data/01-understanding-the-world/images/shoebill-1.png" class="img-fluid"></p>
+<p>Gambar burung ini adalah data unstructured yang bisa dianalisis untuk:</p>
+<ul>
+<li>Klasifikasi spesies menggunakan machine learning</li>
+<li>Analisis perilaku hewan</li>
+<li>Penelitian biodiversitas</li>
+</ul>
 </section>
+<section id="klasifikasi-tipe-data" class="level3" data-number="1.1.2">
+<h3 data-number="1.1.2" class="anchored" data-anchor-id="klasifikasi-tipe-data"><span class="header-section-number">1.1.2</span> Klasifikasi Tipe Data</h3>
+<p><img src="images/data.webp" class="img-fluid"></p>
+<section id="data-kualitatif-categorical" class="level4" data-number="1.1.2.1">
+<h4 data-number="1.1.2.1" class="anchored" data-anchor-id="data-kualitatif-categorical"><span class="header-section-number">1.1.2.1</span> <strong>Data Kualitatif (Categorical)</strong></h4>
+<p><strong>1. Nominal</strong>: Kategori tanpa urutan natural</p>
+<ul>
+<li>Contoh: Warna (merah, biru, hijau), Jenis kelamin (L/P), Agama</li>
+<li>Tidak bisa diurutkan atau diberi ranking</li>
+<li>Hanya bisa dihitung frekuensinya</li>
+</ul>
+<p><strong>2. Ordinal</strong>: Kategori yang bisa diurutkan</p>
+<ul>
+<li>Contoh: Tingkat pendidikan (SD &lt; SMP &lt; SMA &lt; S1), Rating kepuasan (tidak puas &lt; cukup &lt; puas &lt; sangat puas)</li>
+<li>Bisa diurutkan tapi jarak antar kategori tidak sama</li>
+<li>Dapat menggunakan median sebagai ukuran tengah</li>
+</ul>
+</section>
+<section id="data-kuantitatif-numerical" class="level4" data-number="1.1.2.2">
+<h4 data-number="1.1.2.2" class="anchored" data-anchor-id="data-kuantitatif-numerical"><span class="header-section-number">1.1.2.2</span> <strong>Data Kuantitatif (Numerical)</strong></h4>
+<p><strong>3. Diskret</strong>: Hitungan bilangan bulat</p>
+<ul>
+<li>Contoh: Jumlah anak (0, 1, 2, 3, …), Jumlah karyawan, Jumlah produk terjual</li>
+<li>Tidak bisa berupa pecahan</li>
+<li>Hasil dari menghitung (counting)</li>
+</ul>
+<p><strong>4. Kontinu</strong>: Bilangan riil pada rentang tertentu</p>
+<ul>
+<li>Contoh: Tinggi badan (170.5 cm), Berat (65.7 kg), Suhu (25.3°C)</li>
+<li>Bisa berupa pecahan dengan presisi tak terbatas</li>
+<li>Hasil dari mengukur (measuring)</li>
+</ul>
+</section>
+</section>
+<section id="skala-pengukuran" class="level3" data-number="1.1.3">
+<h3 data-number="1.1.3" class="anchored" data-anchor-id="skala-pengukuran"><span class="header-section-number">1.1.3</span> Skala Pengukuran</h3>
+<p><img src="https://lalitphyedu.wordpress.com/wp-content/uploads/2019/03/lalit1.png" class="img-fluid"></p>
+<section id="skala-interval" class="level4" data-number="1.1.3.1">
+<h4 data-number="1.1.3.1" class="anchored" data-anchor-id="skala-interval"><span class="header-section-number">1.1.3.1</span> <strong>Skala Interval</strong></h4>
+<ul>
+<li>Selisih antar nilai bermakna dan konsisten</li>
+<li>Titik nol tidak absolut (arbitrary zero point)</li>
+<li>Contoh: Suhu Celsius (0°C tidak berarti “tidak ada suhu”)</li>
+<li>Operasi: penjumlahan dan pengurangan valid</li>
+<li>Tidak bisa menghitung rasio (20°C bukan 2x lebih panas dari 10°C)</li>
+</ul>
+</section>
+<section id="skala-rasio" class="level4" data-number="1.1.3.2">
+<h4 data-number="1.1.3.2" class="anchored" data-anchor-id="skala-rasio"><span class="header-section-number">1.1.3.2</span> <strong>Skala Rasio</strong></h4>
+<ul>
+<li>Selisih dan rasio antar nilai bermakna</li>
+<li>Memiliki titik nol absolut (true zero point)</li>
+<li>Contoh: Tinggi badan, berat, pendapatan, jarak</li>
+<li>Operasi: semua operasi matematika valid</li>
+<li>Bisa menghitung rasio (berat 60kg adalah 2x dari 30kg)</li>
+</ul>
+</section>
+</section>
+<section id="data-tidak-terstruktur-unstructured-data" class="level3" data-number="1.1.4">
+<h3 data-number="1.1.4" class="anchored" data-anchor-id="data-tidak-terstruktur-unstructured-data"><span class="header-section-number">1.1.4</span> Data Tidak Terstruktur (Unstructured Data)</h3>
+<p><img src="https://i0.wp.com/spotintelligence.com/wp-content/uploads/2023/12/data2vec-1024x576.webp?resize=1024%2C576&amp;ssl=1" class="img-fluid"></p>
+<p><strong>Karakteristik:</strong></p>
+<ul>
+<li>Tidak mengikuti format tabel yang terorganisir</li>
+<li>Memerlukan teknik khusus untuk analisis</li>
+<li>Volume sangat besar (big data)</li>
+</ul>
+<p><strong>Contoh dan Aplikasi:</strong></p>
+<ul>
+<li><strong>Teks</strong>: Review produk, media sosial, dokumen → Sentiment analysis, topic modeling</li>
+<li><strong>Audio</strong>: Rekaman suara, musik → Speech recognition, music classification<br>
+</li>
+<li><strong>Video</strong>: Film, surveillance → Object detection, behavior analysis</li>
+<li><strong>Gambar</strong>: Foto produk, medical imaging → Image classification, medical diagnosis</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="apa-itu-statistika" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="apa-itu-statistika"><span class="header-section-number">1.2</span> Apa itu Statistika?</h2>
+<p><em>“Statistics is the art and science of learning from data.”</em> — Agresti</p>
+<p>Statistika adalah ilmu yang mencakup <strong>pengumpulan</strong>, <strong>peringkasan</strong>, <strong>pemodelan</strong>, dan <strong>inferensi</strong> dari data untuk membuat keputusan yang berdasar bukti.</p>
+<section id="interpretasi-visual-data" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="interpretasi-visual-data"><span class="header-section-number">1.2.1</span> Interpretasi Visual Data</h3>
+<p><strong>Contoh 1: Rating Produk E-commerce</strong> <img src="images/rate1 (2).png" class="img-fluid" style="width:70.0%"></p>
+<p>Dari grafik ulasan pembeli di atas:</p>
+<ul>
+<li><strong>4.8/5.0</strong>: Rating rata-rata sangat tinggi</li>
+<li><strong>100% pembeli merasa puas</strong>: Indikator kualitas produk excellent</li>
+<li><strong>12 rating, 10 ulasan</strong>: Sample size cukup untuk validitas</li>
+<li><strong>Distribusi rating</strong>: Mayoritas 5 bintang (10), sedikit 4 bintang (2)</li>
+<li><strong>Interpretasi bisnis</strong>: Produk berkualitas tinggi, customer satisfaction excellent</li>
+</ul>
+<p><strong>Contoh 2: Data Demografi iPhone</strong> <img src="images/rate1 (1).png" class="img-fluid" style="width:70.0%"></p>
+<p>Data spesifikasi produk teknologi:</p>
+<ul>
+<li><strong>Processor</strong>: Apple A18 Chip (data nominal - jenis processor)</li>
+<li><strong>Storage</strong>: 128GB (data diskret - kapasitas penyimpanan)<br>
+</li>
+<li><strong>Battery</strong>: 3561mAh (data kontinu - kapasitas baterai)</li>
+<li><strong>Camera</strong>: 48MP main, 12MP front (data diskret - resolusi kamera)</li>
+<li><strong>Screen</strong>: 6.1” Super Retina XDR OLED (data kontinu - ukuran layar)</li>
+</ul>
+</section>
+<section id="cabang-utama-statistika" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="cabang-utama-statistika"><span class="header-section-number">1.2.2</span> Cabang Utama Statistika</h3>
+<section id="statistika-deskriptif" class="level4" data-number="1.2.2.1">
+<h4 data-number="1.2.2.1" class="anchored" data-anchor-id="statistika-deskriptif"><span class="header-section-number">1.2.2.1</span> <strong>1. Statistika Deskriptif</strong></h4>
+<p><strong>Tujuan</strong>: Meringkas dan menampilkan data <strong>Metode</strong>:</p>
+<ul>
+<li><strong>Tabel</strong>: Distribusi frekuensi, crosstab</li>
+<li><strong>Grafik</strong>: Histogram, boxplot, scatter plot, pie chart</li>
+<li><strong>Ukuran numerik</strong>: Mean, median, modus, standar deviasi, range</li>
+</ul>
+<p><strong>Contoh Aplikasi</strong>:</p>
+<ul>
+<li>Dashboard penjualan bulanan</li>
+<li>Profil demografis pelanggan</li>
+<li>Rangkuman kinerja karyawan</li>
+</ul>
+</section>
+<section id="statistika-inferensial" class="level4" data-number="1.2.2.2">
+<h4 data-number="1.2.2.2" class="anchored" data-anchor-id="statistika-inferensial"><span class="header-section-number">1.2.2.2</span> <strong>2. Statistika Inferensial</strong></h4>
+<p><strong>Tujuan</strong>: Membuat kesimpulan tentang populasi berdasarkan sampel <strong>Metode</strong>:</p>
+<ul>
+<li><strong>Estimasi</strong>: Point estimate, confidence interval</li>
+<li><strong>Uji Hipotesis</strong>: t-test, chi-square test, ANOVA</li>
+<li><strong>Regresi</strong>: Memprediksi hubungan antar variabel</li>
+</ul>
+<p><strong>Contoh Aplikasi</strong>:</p>
+<ul>
+<li>Survei politik: Prediksi hasil pemilu dari sample</li>
+<li>Quality control: Menentukan produk memenuhi standar</li>
+<li>A/B Testing: Membandingkan efektivitas dua strategi marketing</li>
+</ul>
+</section>
+</section>
+<section id="contoh-penerapan-dalam-konteks-pendidikan" class="level3" data-number="1.2.3">
+<h3 data-number="1.2.3" class="anchored" data-anchor-id="contoh-penerapan-dalam-konteks-pendidikan"><span class="header-section-number">1.2.3</span> Contoh Penerapan dalam Konteks Pendidikan</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://rasioo.id/wp-content/uploads/2023/04/6591-1679893539-230324_IPP_Berapa-Jumlah-Sekolah-di-Indonesia_DV-e1680959189851.jpg.webp" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p><strong>Analisis Statistik pada Data Pendidikan:</strong></p>
+<p><strong>Statistika Deskriptif</strong>:</p>
+<ul>
+<li>Jumlah sekolah per provinsi (data diskret)</li>
+<li>Distribusi jenjang pendidikan (data ordinal: SD &lt; SMP &lt; SMA)</li>
+<li>Rasio guru-siswa per daerah (data rasio)</li>
+</ul>
+<p><strong>Statistika Inferensial</strong>:</p>
+<ul>
+<li>Estimasi kebutuhan guru nasional dari data sampel daerah</li>
+<li>Uji hipotesis: Apakah rasio guru-siswa berbeda signifikan antar provinsi?</li>
+<li>Prediksi pertumbuhan jumlah sekolah 5 tahun ke depan</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="probabilitas-kerangka-mengukur-ketidakpastian" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="probabilitas-kerangka-mengukur-ketidakpastian"><span class="header-section-number">1.3</span> Probabilitas: Kerangka Mengukur Ketidakpastian</h2>
+<p>Probabilitas adalah <strong>sistem matematis</strong> untuk mengkuantifikasi dan menganalisis ketidakpastian dalam berbagai fenomena.</p>
+<section id="aplikasi-dalam-kehidupan-sehari-hari" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="aplikasi-dalam-kehidupan-sehari-hari"><span class="header-section-number">1.3.1</span> Aplikasi dalam Kehidupan Sehari-hari</h3>
+<p><strong>1. Prediksi Cuaca</strong></p>
+<ul>
+<li>“60% kemungkinan hujan” = P(Hujan) = 0.6</li>
+<li>Berdasarkan data historis pola cuaca serupa</li>
+<li>Membantu perencanaan aktivitas outdoor</li>
+</ul>
+<p><strong>2. Diagnosa Medis</strong></p>
+<ul>
+<li>“Terapi ini memiliki 80% tingkat kesembuhan”</li>
+<li>Berdasarkan data klinis dari pasien sebelumnya<br>
+</li>
+<li>Membantu dokter dan pasien membuat keputusan treatment</li>
+</ul>
+<p><strong>3. Investasi Keuangan</strong></p>
+<ul>
+<li>“Portfolio ini memiliki risiko 15% mengalami kerugian”</li>
+<li>Berdasarkan analisis historis pergerakan pasar</li>
+<li>Membantu investor mengelola risiko</li>
+</ul>
+<p><strong>4. Industri Asuransi</strong></p>
+<ul>
+<li>Menghitung premi berdasarkan probabilitas klaim</li>
+<li>Data historis kecelakaan, kesehatan, bencana</li>
+<li>Menentukan tarif yang profitable namun kompetitif</li>
+</ul>
+</section>
+<section id="peran-krusial-dalam-statistika" class="level3" data-number="1.3.2">
+<h3 data-number="1.3.2" class="anchored" data-anchor-id="peran-krusial-dalam-statistika"><span class="header-section-number">1.3.2</span> Peran Krusial dalam Statistika</h3>
+<section id="dasar-teoritis-inferensi" class="level4" data-number="1.3.2.1">
+<h4 data-number="1.3.2.1" class="anchored" data-anchor-id="dasar-teoritis-inferensi"><span class="header-section-number">1.3.2.1</span> <strong>1. Dasar Teoritis Inferensi</strong></h4>
+<ul>
+<li>Sampling distribution: Bagaimana statistik sampel terdistribusi</li>
+<li>Central Limit Theorem: Distribusi mean sampel mendekati normal</li>
+<li>Confidence interval: Rentang nilai parameter populasi yang mungkin</li>
+</ul>
+</section>
+<section id="uji-hipotesis" class="level4" data-number="1.3.2.2">
+<h4 data-number="1.3.2.2" class="anchored" data-anchor-id="uji-hipotesis"><span class="header-section-number">1.3.2.2</span> <strong>2. Uji Hipotesis</strong></h4>
+<ul>
+<li>P-value: Probabilitas mendapat hasil ekstrem jika H₀ benar</li>
+<li>Type I error: Probabilitas menolak H₀ padahal benar (α)</li>
+<li>Type II error: Probabilitas menerima H₀ padahal salah (β)</li>
+<li>Power: Probabilitas menolak H₀ padahal salah (1-β)</li>
+</ul>
+</section>
+<section id="kuantifikasi-ketidakpastian" class="level4" data-number="1.3.2.3">
+<h4 data-number="1.3.2.3" class="anchored" data-anchor-id="kuantifikasi-ketidakpastian"><span class="header-section-number">1.3.2.3</span> <strong>3. Kuantifikasi Ketidakpastian</strong></h4>
+<ul>
+<li>Standard error: Ukuran variabilitas estimasi</li>
+<li>Margin of error: Rentang ketidakpastian dalam estimasi</li>
+<li>Prediction interval: Rentang nilai prediksi individual</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Contoh Lengkap - Survei Preferensi Produk:</strong></p>
+<p><strong>Data</strong>: Survei 1.000 responden, 650 orang (65%) menyukai produk A</p>
+<p><strong>Statistika Deskriptif</strong>:</p>
+<ul>
+<li>Proporsi sampel = 650/1000 = 0.65 (65%)</li>
+</ul>
+<p><strong>Statistika Inferensial dengan Probabilitas</strong>:</p>
+<ul>
+<li>Estimasi proporsi populasi = 65%</li>
+<li>Standard error = √[0.65(1-0.65)/1000] = 0.015</li>
+<li>95% Confidence Interval = 65% ± 1.96(1.5%) = (62.1%, 67.9%)</li>
+</ul>
+<p><strong>Interpretasi</strong>: “Dengan tingkat kepercayaan 95%, proporsi populasi yang menyukai produk A berada antara 62.1% hingga 67.9%”</p>
+</div>
+</div>
+</section>
+<section id="pengambilan-keputusan-berbasis-data" class="level4" data-number="1.3.2.4">
+<h4 data-number="1.3.2.4" class="anchored" data-anchor-id="pengambilan-keputusan-berbasis-data"><span class="header-section-number">1.3.2.4</span> <strong>4. Pengambilan Keputusan Berbasis Data</strong></h4>
+<ul>
+<li>Decision theory: Memilih tindakan optimal dengan ketidakpastian</li>
+<li>Expected value: Nilai harapan dari berbagai skenario</li>
+<li>Risk assessment: Evaluasi probabilitas dan dampak risiko</li>
+</ul>
+<p><strong>Contoh Aplikasi Bisnis</strong>:</p>
+<ul>
+<li>Marketing: A/B testing dengan confidence interval</li>
+<li>Finance: Value at Risk (VaR) menggunakan probabilitas kerugian</li>
+<li>Operations: Quality control dengan sampling inspection</li>
+<li>HR: Prediksi turnover karyawan berdasarkan data historis</li>
+</ul>
+<hr>
+</section>
+</section>
+</section>
+<section id="referensi" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="referensi"><span class="header-section-number">1.4</span> Referensi</h2>
+<ol type="1">
+<li>Agresti, A., Franklin, C., Klingenberg, B. (2018). <em>Statistics: The Art and Science of Learning from Data</em>. Pearson.<br>
+</li>
+<li>Mendenhall, W., Beaver, R. J., Beaver, B. M. (2013). <em>Introduction to Probability and Statistics (14th ed.)</em>. Brooks/Cole.<br>
+</li>
+<li>Ott, R. L., Longnecker, M. (2010). <em>An Introduction to Statistical Methods and Data Analysis (6th ed.)</em>. Brooks/Cole.<br>
+</li>
+<li>Lohr, S. L. (2010). <em>Sampling: Design and Analysis (2nd ed.)</em>. Brooks/Cole.<br>
+</li>
+<li>Scheaffer, R. L., Mendenhall, W., Ott, L., Gerow, K. G. (2012). <em>Elementary Survey Sampling (7th ed.)</em>. Brooks/Cole.</li>
+</ol>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -708,10 +918,13 @@ Tidak lulus → remedial.</p>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link" aria-label="Pengantar">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Pengantar</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./week1.html" class="pagination-link" aria-label="Understanding the World with Data">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Understanding the World with Data</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./week2.html" class="pagination-link" aria-label="Statistika Deskriptif">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Statistika Deskriptif</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
