@@ -1,0 +1,725 @@
+---
+format:
+  html:
+    css: webex.css
+    include-after-body: webex.js
+execute: 
+  echo: false
+  warning: false
+  error: false
+  message: false
+  cache: false
+---
+
+# Peubah Acak, Nilai Ekspektasi, dan Variansi
+
+**Peubah acak** (random variable) adalah fungsi yang memetakan hasil dari eksperimen acak ke bilangan riil. Konsep ini fundamental dalam teori peluang dan statistika karena memungkinkan kita menganalisis kejadian acak secara matematis.
+
+### Mengapa Peubah Acak Penting?
+
+Peubah acak memungkinkan kita:
+
+- **Mengkuantifikasi** hasil eksperimen acak
+- **Menghitung** ekspektasi dan variansi
+- **Memodelkan** fenomena acak dalam kehidupan nyata
+- **Membuat keputusan** berdasarkan data probabilistik
+
+---
+
+## PEUBAH ACAK DISKRET
+
+### Definisi
+
+**Peubah acak diskret** adalah peubah acak yang mengambil nilai dari himpunan terhitung (countable), biasanya bilangan bulat.
+
+**Notasi:** Biasanya menggunakan huruf kapital seperti X, Y, Z.
+
+**Fungsi Massa Peluang (PMF):** 
+$$P(X = x) = p(x)$$
+
+dengan syarat:
+
+1. $0 \leq p(x) \leq 1$ untuk semua $x$
+2. $\sum_{\text{semua } x} p(x) = 1$
+
+---
+
+### Contoh 1: Lempar Koin 3 Kali
+
+Misalkan X = banyaknya kepala dalam 3 lemparan koin fair.
+
+**Ruang sampel:** {HHH, HHT, HTH, HTT, THH, THT, TTH, TTT}
+
+**Nilai X:**
+
+- X = 0: {TTT} → P(X=0) = 1/8
+- X = 1: {HTT, THT, TTH} → P(X=1) = 3/8
+- X = 2: {HHT, HTH, THH} → P(X=2) = 3/8
+- X = 3: {HHH} → P(X=3) = 1/8
+
+**Tabel PMF:**
+
+| x | 0 | 1 | 2 | 3 |
+|---|---|---|---|---|
+| P(X=x) | 1/8 | 3/8 | 3/8 | 1/8 |
+
+**Verifikasi:** $\frac{1}{8} + \frac{3}{8} + \frac{3}{8} + \frac{1}{8} = 1$ ✓
+
+---
+
+### Contoh 2: Lempar Dadu
+
+Misalkan X = hasil lempar dadu fair.
+
+**PMF:**
+$$P(X = x) = \frac{1}{6}, \quad x \in \{1, 2, 3, 4, 5, 6\}$$
+
+| x | 1 | 2 | 3 | 4 | 5 | 6 |
+|---|---|---|---|---|---|---|
+| P(X=x) | 1/6 | 1/6 | 1/6 | 1/6 | 1/6 | 1/6 |
+
+---
+
+### Contoh 3: Jumlah Dua Dadu
+
+Misalkan Y = jumlah hasil lempar 2 dadu fair.
+
+**Nilai Y:** 2, 3, 4, ..., 12
+
+**PMF:**
+
+| y | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 |
+|---|---|---|---|---|---|---|---|---|----|----|-----|
+| P(Y=y) | 1/36 | 2/36 | 3/36 | 4/36 | 5/36 | 6/36 | 5/36 | 4/36 | 3/36 | 2/36 | 1/36 |
+
+**Contoh perhitungan:**
+
+```
+P(Y=7) = 6/36 = 1/6
+Karena ada 6 cara: (1,6), (2,5), (3,4), (4,3), (5,2), (6,1)
+```
+
+---
+
+### Fungsi Distribusi Kumulatif (CDF)
+
+**Definisi:**
+$$F(x) = P(X \leq x) = \sum_{t \leq x} p(t)$$
+
+**Contoh:** Untuk X = hasil lempar dadu
+
+| x | <1 | 1 | 2 | 3 | 4 | 5 | 6 | >6 |
+|---|-------|---|---|---|---|---|---|-----|
+| F(x) | 0 | 1/6 | 2/6 | 3/6 | 4/6 | 5/6 | 1 | 1 |
+
+**Sifat CDF:**
+
+1. $F(-\infty) = 0$
+2. $F(\infty) = 1$
+3. $F(x)$ monoton naik
+4. $P(a < X \leq b) = F(b) - F(a)$
+
+---
+
+## PEUBAH ACAK KONTINU
+
+### Definisi
+
+**Peubah acak kontinu** adalah peubah acak yang dapat mengambil nilai dari interval bilangan riil yang tidak terhitung.
+
+**Fungsi Densitas Peluang (PDF):**
+$$f(x)$$
+
+dengan syarat:
+
+1. $f(x) \geq 0$ untuk semua $x$
+2. $\int_{-\infty}^{\infty} f(x) \, dx = 1$
+
+**Penting:** Untuk peubah acak kontinu:
+$$P(X = x) = 0$$
+
+Tetapi:
+$$P(a \leq X \leq b) = \int_a^b f(x) \, dx$$
+
+---
+
+### Contoh 4: Uniform Kontinu
+
+X berdistribusi Uniform pada interval [0, 5].
+
+**PDF:**
+
+$$f(x) = \begin{cases}
+\frac{1}{5}, & 0 \leq x \leq 5 \\
+0, & \text{lainnya}
+\end{cases}$$
+
+**Perhitungan peluang:**
+
+```
+P(1 ≤ X ≤ 3) = ∫₁³ (1/5) dx = (1/5) × (3-1) = 2/5 = 0.4
+```
+
+**Visualisasi:** PDF berbentuk persegi panjang dengan tinggi 1/5 dan lebar 5.
+
+---
+
+### Contoh 5: Eksponensial
+
+Waktu tunggu (dalam menit) berdistribusi Eksponensial dengan parameter λ = 0.5.
+
+**PDF:**
+$$f(x) = 0.5 e^{-0.5x}, \quad x \geq 0$$
+
+**Perhitungan:**
+```
+P(X ≤ 2) = ∫₀² 0.5e^{-0.5x} dx
+         = [-e^{-0.5x}]₀²
+         = -e^{-1} - (-e^0)
+         = 1 - e^{-1}
+         ≈ 0.632
+```
+
+---
+
+### CDF untuk Peubah Acak Kontinu
+
+**Definisi:**
+$$F(x) = P(X \leq x) = \int_{-\infty}^{x} f(t) \, dt$$
+
+**Hubungan PDF dan CDF:**
+$$f(x) = \frac{dF(x)}{dx}$$
+
+**Contoh:** Untuk Uniform[0,5]
+$$F(x) = \begin{cases}
+0, & x < 0 \\
+\frac{x}{5}, & 0 \leq x \leq 5 \\
+1, & x > 5
+\end{cases}$$
+
+---
+
+## PERBANDINGAN DISKRET VS KONTINU
+
+| Aspek | Diskret | Kontinu |
+|-------|---------|---------|
+| **Nilai** | Terhitung (countable) | Interval (uncountable) |
+| **Fungsi** | PMF: $p(x)$ | PDF: $f(x)$ |
+| **P(X=x)** | $p(x) > 0$ | Selalu 0 |
+| **Total Peluang** | $\sum p(x) = 1$ | $\int f(x)dx = 1$ |
+| **P(a≤X≤b)** | $\sum_{a}^{b} p(x)$ | $\int_a^b f(x)dx$ |
+| **CDF** | $F(x) = \sum_{t\leq x} p(t)$ | $F(x) = \int_{-\infty}^x f(t)dt$ |
+| **Contoh** | Jumlah dadu, banyak kepala | Tinggi, berat, waktu |
+
+---
+
+## NILAI EKSPEKTASI (EXPECTED VALUE)
+
+### Definisi
+
+**Nilai ekspektasi** atau **mean** adalah rata-rata tertimbang dari semua nilai yang mungkin.
+
+**Untuk Peubah Acak Diskret:**
+$$E(X) = \mu = \sum_{\text{semua } x} x \cdot p(x)$$
+
+**Untuk Peubah Acak Kontinu:**
+$$E(X) = \mu = \int_{-\infty}^{\infty} x \cdot f(x) \, dx$$
+
+**Interpretasi:** Nilai yang diharapkan jika eksperimen diulang banyak kali.
+
+---
+
+### Contoh 6: Ekspektasi Lempar Dadu
+
+X = hasil lempar dadu fair.
+
+$$E(X) = \sum_{x=1}^{6} x \cdot P(X=x)$$
+
+```
+E(X) = 1(1/6) + 2(1/6) + 3(1/6) + 4(1/6) + 5(1/6) + 6(1/6)
+     = (1 + 2 + 3 + 4 + 5 + 6) / 6
+     = 21 / 6
+     = 3.5
+```
+
+**Interpretasi:** Jika kita lempar dadu berkali-kali, rata-rata hasilnya mendekati 3.5.
+
+---
+
+### Contoh 7: Ekspektasi Koin 3 Kali
+
+X = banyaknya kepala dalam 3 lemparan koin.
+
+| x | 0 | 1 | 2 | 3 |
+|---|---|---|---|---|
+| P(X=x) | 1/8 | 3/8 | 3/8 | 1/8 |
+
+```
+E(X) = 0(1/8) + 1(3/8) + 2(3/8) + 3(1/8)
+     = 0 + 3/8 + 6/8 + 3/8
+     = 12/8
+     = 1.5
+```
+
+**Interpretasi:** Rata-rata kita dapatkan 1.5 kepala dalam 3 lemparan.
+
+---
+
+### Contoh 8: Ekspektasi Uniform
+
+X ~ Uniform[0, 5]
+
+$$f(x) = \frac{1}{5}, \quad 0 \leq x \leq 5$$
+
+```
+E(X) = ∫₀⁵ x · (1/5) dx
+     = (1/5) ∫₀⁵ x dx
+     = (1/5) [x²/2]₀⁵
+     = (1/5) · (25/2)
+     = 2.5
+```
+
+**Formula umum Uniform[a,b]:**
+$$E(X) = \frac{a + b}{2}$$
+
+---
+
+### Contoh 9: Ekspektasi dengan Biaya
+
+Sebuah permainan:
+- Bayar Rp 10,000
+- Lempar koin 2 kali
+- Dapat Rp 20,000 jika 2 kepala
+- Dapat Rp 10,000 jika 1 kepala
+- Dapat Rp 0 jika 0 kepala
+
+Apakah permainan ini menguntungkan?
+
+**Penyelesaian:**
+
+Misalkan Y = keuntungan bersih
+
+| Hasil | Peluang | Pendapatan | Keuntungan |
+|-------|---------|------------|------------|
+| HH | 1/4 | 20,000 | 10,000 |
+| HT, TH | 2/4 | 10,000 | 0 |
+| TT | 1/4 | 0 | -10,000 |
+
+```
+E(Y) = 10,000(1/4) + 0(2/4) + (-10,000)(1/4)
+     = 2,500 + 0 - 2,500
+     = 0
+```
+
+**Kesimpulan:** Permainan ini fair (tidak untung, tidak rugi dalam jangka panjang).
+
+---
+
+### Sifat-Sifat Ekspektasi
+
+1. **Linearitas:**
+   $$E(aX + b) = aE(X) + b$$
+
+2. **Untuk dua peubah acak:**
+   $$E(X + Y) = E(X) + E(Y)$$
+   (selalu berlaku, independen atau tidak)
+
+3. **Jika X dan Y independen:**
+   $$E(XY) = E(X) \cdot E(Y)$$
+
+4. **Konstanta:**
+   $$E(c) = c$$
+
+---
+
+### Contoh 10: Sifat Linearitas
+
+Jika E(X) = 10, hitung E(3X + 5).
+
+```
+E(3X + 5) = 3E(X) + 5
+          = 3(10) + 5
+          = 35
+```
+
+---
+
+## EKSPEKTASI FUNGSI PEUBAH ACAK
+
+### Untuk Diskret
+
+$$E[g(X)] = \sum_{\text{semua } x} g(x) \cdot p(x)$$
+
+### Untuk Kontinu
+
+$$E[g(X)] = \int_{-\infty}^{\infty} g(x) \cdot f(x) \, dx$$
+
+---
+
+### Contoh 11: E(X²)
+
+X = hasil lempar dadu fair.
+
+$$E(X^2) = \sum_{x=1}^{6} x^2 \cdot P(X=x)$$
+
+```
+E(X²) = 1²(1/6) + 2²(1/6) + 3²(1/6) + 4²(1/6) + 5²(1/6) + 6²(1/6)
+      = (1 + 4 + 9 + 16 + 25 + 36) / 6
+      = 91 / 6
+      ≈ 15.17
+```
+
+**Catatan:** $E(X^2) \neq [E(X)]^2$ karena $15.17 \neq 3.5^2 = 12.25$
+
+---
+
+## VARIANSI DAN STANDAR DEVIASI
+
+### Definisi Variansi
+
+**Variansi** mengukur sebaran atau dispersi nilai peubah acak dari nilai ekspektasinya.
+
+$$Var(X) = \sigma^2 = E[(X - \mu)^2]$$
+
+**Formula alternatif (lebih mudah):**
+$$Var(X) = E(X^2) - [E(X)]^2$$
+
+---
+
+### Definisi Standar Deviasi
+
+$$SD(X) = \sigma = \sqrt{Var(X)}$$
+
+**Satuan:** Sama dengan satuan X (tidak seperti variansi yang kuadrat).
+
+---
+
+### Contoh 12: Variansi Lempar Dadu
+
+X = hasil lempar dadu fair.
+
+Dari contoh sebelumnya:
+- $E(X) = 3.5$
+- $E(X^2) = 15.17$
+
+```
+Var(X) = E(X²) - [E(X)]²
+       = 15.17 - (3.5)²
+       = 15.17 - 12.25
+       = 2.92
+
+SD(X) = √2.92 ≈ 1.71
+```
+
+---
+
+### Contoh 13: Variansi Koin 3 Kali
+
+X = banyaknya kepala dalam 3 lemparan.
+
+Dari contoh sebelumnya: E(X) = 1.5
+
+Hitung E(X²):
+
+| x | 0 | 1 | 2 | 3 |
+|---|---|---|---|---|
+| x² | 0 | 1 | 4 | 9 |
+| P(X=x) | 1/8 | 3/8 | 3/8 | 1/8 |
+
+```
+E(X²) = 0(1/8) + 1(3/8) + 4(3/8) + 9(1/8)
+      = 0 + 3/8 + 12/8 + 9/8
+      = 24/8
+      = 3
+
+Var(X) = E(X²) - [E(X)]²
+       = 3 - (1.5)²
+       = 3 - 2.25
+       = 0.75
+
+SD(X) = √0.75 ≈ 0.87
+```
+
+---
+
+### Contoh 14: Variansi Uniform
+
+X ~ Uniform[0, 5]
+
+E(X) = 2.5 (dari contoh sebelumnya)
+
+```
+E(X²) = ∫₀⁵ x² · (1/5) dx
+      = (1/5) [x³/3]₀⁵
+      = (1/5) · (125/3)
+      = 25/3
+      ≈ 8.33
+
+Var(X) = 8.33 - (2.5)²
+       = 8.33 - 6.25
+       = 2.08
+
+SD(X) = √2.08 ≈ 1.44
+```
+
+**Formula umum Uniform[a,b]:**
+$$Var(X) = \frac{(b-a)^2}{12}$$
+
+---
+
+### Sifat-Sifat Variansi
+
+1. **Konstanta keluar kuadrat:**
+   $$Var(aX) = a^2 Var(X)$$
+
+2. **Menambah konstanta tidak mengubah variansi:**
+   $$Var(X + b) = Var(X)$$
+
+3. **Kombinasi:**
+   $$Var(aX + b) = a^2 Var(X)$$
+
+4. **Jika X dan Y independen:**
+   $$Var(X + Y) = Var(X) + Var(Y)$$
+
+5. **Selalu non-negatif:**
+   $$Var(X) \geq 0$$
+
+---
+
+### Contoh 15: Sifat Variansi
+
+Jika Var(X) = 9, hitung:
+
+**a) Var(2X)**
+```
+Var(2X) = 2² · Var(X) = 4 · 9 = 36
+```
+
+**b) Var(X + 5)**
+```
+Var(X + 5) = Var(X) = 9
+```
+
+**c) Var(3X - 7)**
+```
+Var(3X - 7) = 3² · Var(X) = 9 · 9 = 81
+```
+
+**d) SD(2X)**
+```
+SD(2X) = √Var(2X) = √36 = 6
+Atau: SD(2X) = 2 · SD(X) = 2 · 3 = 6
+```
+
+---
+
+## APLIKASI PRAKTIS
+
+### Contoh 16: Investasi
+
+Dua investasi:
+- **Investasi A:** E(return) = 12%, SD = 5%
+- **Investasi B:** E(return) = 15%, SD = 12%
+
+**Analisis:**
+- Investasi B memberikan return ekspektasi lebih tinggi
+- Tetapi Investasi B lebih berisiko (SD lebih besar)
+- Pilihan tergantung profil risiko investor
+
+**Coefficient of Variation (CV):**
+$$CV = \frac{SD}{E(X)}$$
+
+```
+CV_A = 5/12 ≈ 0.42
+CV_B = 12/15 = 0.80
+
+Investasi A lebih stabil relatif terhadap returnnya
+```
+
+---
+
+### Contoh 17: Quality Control
+
+Mesin produksi menghasilkan baut dengan diameter:
+- E(diameter) = 10 mm
+- SD(diameter) = 0.2 mm
+
+**Spesifikasi:** diameter harus 10 ± 0.5 mm
+
+**Analisis:** 
+
+Dengan SD kecil (0.2), sebagian besar produk akan dalam rentang spesifikasi.
+
+Jika SD = 0.8 mm, lebih banyak produk di luar spesifikasi.
+
+---
+
+### Contoh 18: Portofolio
+
+Portofolio terdiri dari 2 saham independen:
+- Saham 1: E₁ = $100, Var₁ = 400
+- Saham 2: E₂ = $150, Var₂ = 900
+
+Investasi total: X = Saham 1 + Saham 2
+
+```
+E(X) = E₁ + E₂ = 100 + 150 = $250
+
+Var(X) = Var₁ + Var₂ = 400 + 900 = 1,300
+
+SD(X) = √1,300 ≈ $36.06
+```
+
+---
+
+## TABEL RINGKASAN DISTRIBUSI UMUM
+
+### Diskret
+
+| Distribusi | PMF | E(X) | Var(X) |
+|------------|-----|------|--------|
+| Uniform Diskret | $p(x) = \frac{1}{n}$ | $\frac{n+1}{2}$ | $\frac{n^2-1}{12}$ |
+| Bernoulli | $p(1)=p, p(0)=1-p$ | $p$ | $p(1-p)$ |
+| Binomial | $\binom{n}{x}p^x(1-p)^{n-x}$ | $np$ | $np(1-p)$ |
+| Poisson | $\frac{e^{-\lambda}\lambda^x}{x!}$ | $\lambda$ | $\lambda$ |
+
+### Kontinu
+
+| Distribusi | PDF | E(X) | Var(X) |
+|------------|-----|------|--------|
+| Uniform | $\frac{1}{b-a}$ | $\frac{a+b}{2}$ | $\frac{(b-a)^2}{12}$ |
+| Eksponensial | $\lambda e^{-\lambda x}$ | $\frac{1}{\lambda}$ | $\frac{1}{\lambda^2}$ |
+| Normal | $\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$ | $\mu$ | $\sigma^2$ |
+
+---
+
+## STRATEGI PENYELESAIAN MASALAH
+
+### Langkah-Langkah Umum
+
+1. **Identifikasi** jenis peubah acak (diskret/kontinu)
+2. **Tentukan** PMF atau PDF
+3. **Verifikasi** total peluang = 1
+4. **Hitung** ekspektasi menggunakan definisi
+5. **Hitung** E(X²) untuk variansi
+6. **Gunakan** formula Var(X) = E(X²) - [E(X)]²
+7. **Interpretasi** hasil dalam konteks
+
+---
+
+### Tips Perhitungan
+
+**Untuk Ekspektasi:**
+
+- Gunakan tabel untuk memudahkan perhitungan diskret
+- Periksa apakah ada formula distribusi umum
+- Gunakan sifat linearitas untuk menyederhanakan
+
+**Untuk Variansi:**
+
+- Formula $E(X^2) - [E(X)]^2$ lebih praktis
+- Ingat sifat-sifat variansi untuk transformasi
+- Selalu periksa: Var(X) ≥ 0
+
+---
+
+## KESALAHAN UMUM
+
+### 1. Ekspektasi Bukan Nilai yang Mungkin
+
+**Kesalahan:** "E(X) = 3.5 berarti dadu bisa menghasilkan 3.5"
+- **Salah!** Ekspektasi adalah rata-rata jangka panjang, bukan nilai individu.
+
+### 2. E(X²) = [E(X)]²
+
+**Kesalahan:** Mengira ekspektasi kuadrat sama dengan kuadrat ekspektasi.
+- **Salah!** Umumnya $E(X^2) \geq [E(X)]^2$
+
+### 3. Var(X+Y) = Var(X) + Var(Y)
+
+**Kesalahan:** Menggunakan tanpa cek independensi.
+- **Benar hanya jika** X dan Y independen!
+
+### 4. Lupa Kuadratkan untuk Var(aX)
+
+**Kesalahan:** $Var(aX) = a \cdot Var(X)$
+- **Salah!** Seharusnya $Var(aX) = a^2 \cdot Var(X)$
+
+---
+
+## HUBUNGAN ANTAR KONSEP
+
+```
+Eksperimen Acak
+      ↓
+Ruang Sampel
+      ↓
+Peubah Acak X
+      ↓
+  ┌─────┴─────┐
+Diskret    Kontinu
+  ↓           ↓
+PMF         PDF
+  ↓           ↓
+  └─────┬─────┘
+      ↓
+   E(X) - Nilai Pusat
+      ↓
+ Var(X) - Sebaran
+      ↓
+Inferensi & Keputusan
+```
+
+---
+
+## LATIHAN MANDIRI
+
+**Soal 1:** X = jumlah 2 dadu. Hitung E(X) dan Var(X).
+
+**Soal 2:** Y ~ Uniform[2, 8]. Hitung E(Y), E(Y²), dan Var(Y).
+
+**Soal 3:** Permainan bayar Rp 5,000. Lempar dadu: dapat Rp 10,000 jika genap, Rp 0 jika ganjil. Hitung E(keuntungan).
+
+**Soal 4:** Jika E(X) = 20 dan Var(X) = 16, hitung E(3X-10) dan Var(3X-10).
+
+**Soal 5:** X memiliki PMF: P(X=1)=0.3, P(X=2)=0.5, P(X=3)=0.2. Hitung E(X) dan SD(X).
+
+**Soal 6:** Dua investasi independen dengan E₁=$50, SD₁=$10, E₂=$80, SD₂=$15. Hitung E dan SD total.
+
+**Soal 7:** Buktikan bahwa Var(X) = E(X²) - [E(X)]².
+
+**Soal 8:** X = banyak kepala dalam 4 lemparan koin fair. Buat tabel PMF, hitung E(X) dan Var(X).
+
+**Soal 9:** Jika X ~ Uniform[0,10], berapa P(3 ≤ X ≤ 7)?
+
+**Soal 10:** Jelaskan mengapa SD lebih sering digunakan daripada variansi untuk interpretasi!
+
+---
+
+## REFERENSI
+
+1. Ross, S. (2014). *A First Course in Probability* (9th ed.). Pearson.
+2. Walpole, R. E., et al. (2016). *Probability & Statistics for Engineers & Scientists* (9th ed.). Pearson.
+3. Hogg, R. V., McKean, J. W., & Craig, A. T. (2019). *Introduction to Mathematical Statistics* (8th ed.). Pearson.
+4. Degroot, M. H., & Schervish, M. J. (2012). *Probability and Statistics* (4th ed.). Pearson.
+5. Montgomery, D. C., & Runger, G. C. (2018). *Applied Statistics and Probability for Engineers* (7th ed.). Wiley.
+
+---
+
+## PENUTUP
+
+Konsep peubah acak, ekspektasi, dan variansi adalah fondasi untuk:
+
+- **Analisis statistik** yang lebih lanjut
+- **Pengambilan keputusan** di bawah ketidakpastian
+- **Pemodelan** fenomena acak
+- **Estimasi dan inferensi** parameter
+
+Kunci keberhasilan:
+
+1. Pahami perbedaan diskret vs kontinu
+2. Kuasai perhitungan ekspektasi dan variansi
+3. Gunakan sifat-sifat untuk menyederhanakan
+4. Selalu interpretasi hasil dalam konteks
+
+**Ingat:** Ekspektasi memberikan "pusat" distribusi, variansi memberikan "sebaran" dari pusat tersebut.

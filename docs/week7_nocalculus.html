@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.32">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>4&nbsp; Eksperimen Acak, Ruang Sampel, dan Kejadian - Latihan Soal – Statistika dan Probabilitas</title>
+<title>7&nbsp; Peubah Acak, Ekspektasi, dan Variansi – Statistika dan Probabilitas</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -26,8 +26,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./week5.html" rel="next">
-<link href="./week3.html" rel="prev">
+<link href="./week6.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -97,7 +96,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week4.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Eksperimen Acak, Ruang Sampel, dan Kejadian - Latihan Soal</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week7_nocalculus.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Peubah Acak, Ekspektasi, dan Variansi</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -144,7 +143,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./week4.html" class="sidebar-item-text sidebar-link active">
+  <a href="./week4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Eksperimen Acak, Ruang Sampel, dan Kejadian - Latihan Soal</span></span></a>
   </div>
 </li>
@@ -162,7 +161,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./week7_nocalculus.html" class="sidebar-item-text sidebar-link">
+  <a href="./week7_nocalculus.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Peubah Acak, Ekspektasi, dan Variansi</span></span></a>
   </div>
 </li>
@@ -174,13 +173,89 @@ window.Quarto = {
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#bank-soal" id="toc-bank-soal" class="nav-link active" data-scroll-target="#bank-soal"><span class="header-section-number">4.1</span> Bank Soal</a></li>
+<li>
+<a href="#pendahuluan" id="toc-pendahuluan" class="nav-link active" data-scroll-target="#pendahuluan"><span class="header-section-number">7.1</span> PENDAHULUAN</a>
+  <ul class="collapse">
+<li><a href="#mengapa-penting" id="toc-mengapa-penting" class="nav-link" data-scroll-target="#mengapa-penting"><span class="header-section-number">7.1.1</span> Mengapa Penting?</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#bagian-i-peubah-acak-diskret" id="toc-bagian-i-peubah-acak-diskret" class="nav-link" data-scroll-target="#bagian-i-peubah-acak-diskret"><span class="header-section-number">7.2</span> BAGIAN I: PEUBAH ACAK DISKRET</a>
+  <ul class="collapse">
+<li><a href="#apa-itu-peubah-acak-diskret" id="toc-apa-itu-peubah-acak-diskret" class="nav-link" data-scroll-target="#apa-itu-peubah-acak-diskret"><span class="header-section-number">7.2.1</span> Apa itu Peubah Acak Diskret?</a></li>
+  <li><a href="#fungsi-massa-peluang-pmf" id="toc-fungsi-massa-peluang-pmf" class="nav-link" data-scroll-target="#fungsi-massa-peluang-pmf"><span class="header-section-number">7.2.2</span> Fungsi Massa Peluang (PMF)</a></li>
+  <li><a href="#contoh-1-lempar-dadu-sekali" id="toc-contoh-1-lempar-dadu-sekali" class="nav-link" data-scroll-target="#contoh-1-lempar-dadu-sekali"><span class="header-section-number">7.2.3</span> Contoh 1: Lempar Dadu Sekali</a></li>
+  <li><a href="#contoh-2-lempar-koin-2-kali" id="toc-contoh-2-lempar-koin-2-kali" class="nav-link" data-scroll-target="#contoh-2-lempar-koin-2-kali"><span class="header-section-number">7.2.4</span> Contoh 2: Lempar Koin 2 Kali</a></li>
+  <li><a href="#contoh-3-jumlah-2-dadu" id="toc-contoh-3-jumlah-2-dadu" class="nav-link" data-scroll-target="#contoh-3-jumlah-2-dadu"><span class="header-section-number">7.2.5</span> Contoh 3: Jumlah 2 Dadu</a></li>
+  <li><a href="#nilai-ekspektasi-rata-rata" id="toc-nilai-ekspektasi-rata-rata" class="nav-link" data-scroll-target="#nilai-ekspektasi-rata-rata"><span class="header-section-number">7.2.6</span> NILAI EKSPEKTASI (RATA-RATA)</a></li>
+  <li><a href="#definisi-sederhana" id="toc-definisi-sederhana" class="nav-link" data-scroll-target="#definisi-sederhana"><span class="header-section-number">7.2.7</span> Definisi Sederhana</a></li>
+  <li><a href="#contoh-4-ekspektasi-lempar-dadu" id="toc-contoh-4-ekspektasi-lempar-dadu" class="nav-link" data-scroll-target="#contoh-4-ekspektasi-lempar-dadu"><span class="header-section-number">7.2.8</span> Contoh 4: Ekspektasi Lempar Dadu</a></li>
+  <li><a href="#contoh-5-ekspektasi-koin-2-kali" id="toc-contoh-5-ekspektasi-koin-2-kali" class="nav-link" data-scroll-target="#contoh-5-ekspektasi-koin-2-kali"><span class="header-section-number">7.2.9</span> Contoh 5: Ekspektasi Koin 2 Kali</a></li>
+  <li><a href="#contoh-6-permainan-untung-rugi" id="toc-contoh-6-permainan-untung-rugi" class="nav-link" data-scroll-target="#contoh-6-permainan-untung-rugi"><span class="header-section-number">7.2.10</span> Contoh 6: Permainan Untung-Rugi</a></li>
+  <li><a href="#sifat-sifat-ekspektasi" id="toc-sifat-sifat-ekspektasi" class="nav-link" data-scroll-target="#sifat-sifat-ekspektasi"><span class="header-section-number">7.2.11</span> Sifat-Sifat Ekspektasi</a></li>
+  <li><a href="#contoh-7-menggunakan-sifat-ekspektasi" id="toc-contoh-7-menggunakan-sifat-ekspektasi" class="nav-link" data-scroll-target="#contoh-7-menggunakan-sifat-ekspektasi"><span class="header-section-number">7.2.12</span> Contoh 7: Menggunakan Sifat Ekspektasi</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#variansi-dan-standar-deviasi" id="toc-variansi-dan-standar-deviasi" class="nav-link" data-scroll-target="#variansi-dan-standar-deviasi"><span class="header-section-number">7.3</span> VARIANSI DAN STANDAR DEVIASI</a>
+  <ul class="collapse">
+<li><a href="#mengapa-perlu-variansi" id="toc-mengapa-perlu-variansi" class="nav-link" data-scroll-target="#mengapa-perlu-variansi"><span class="header-section-number">7.3.1</span> Mengapa Perlu Variansi?</a></li>
+  <li><a href="#definisi-variansi" id="toc-definisi-variansi" class="nav-link" data-scroll-target="#definisi-variansi"><span class="header-section-number">7.3.2</span> Definisi Variansi</a></li>
+  <li><a href="#contoh-8-variansi-lempar-dadu" id="toc-contoh-8-variansi-lempar-dadu" class="nav-link" data-scroll-target="#contoh-8-variansi-lempar-dadu"><span class="header-section-number">7.3.3</span> Contoh 8: Variansi Lempar Dadu</a></li>
+  <li><a href="#contoh-9-variansi-koin-2-kali" id="toc-contoh-9-variansi-koin-2-kali" class="nav-link" data-scroll-target="#contoh-9-variansi-koin-2-kali"><span class="header-section-number">7.3.4</span> Contoh 9: Variansi Koin 2 Kali</a></li>
+  <li><a href="#sifat-sifat-variansi" id="toc-sifat-sifat-variansi" class="nav-link" data-scroll-target="#sifat-sifat-variansi"><span class="header-section-number">7.3.5</span> Sifat-Sifat Variansi</a></li>
+  <li><a href="#contoh-10-menggunakan-sifat-variansi" id="toc-contoh-10-menggunakan-sifat-variansi" class="nav-link" data-scroll-target="#contoh-10-menggunakan-sifat-variansi"><span class="header-section-number">7.3.6</span> Contoh 10: Menggunakan Sifat Variansi</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#bagian-ii-peubah-acak-kontinu" id="toc-bagian-ii-peubah-acak-kontinu" class="nav-link" data-scroll-target="#bagian-ii-peubah-acak-kontinu"><span class="header-section-number">7.4</span> BAGIAN II: PEUBAH ACAK KONTINU</a>
+  <ul class="collapse">
+<li><a href="#apa-itu-peubah-acak-kontinu" id="toc-apa-itu-peubah-acak-kontinu" class="nav-link" data-scroll-target="#apa-itu-peubah-acak-kontinu"><span class="header-section-number">7.4.1</span> Apa itu Peubah Acak Kontinu?</a></li>
+  <li><a href="#fungsi-densitas-peluang-pdf" id="toc-fungsi-densitas-peluang-pdf" class="nav-link" data-scroll-target="#fungsi-densitas-peluang-pdf"><span class="header-section-number">7.4.2</span> Fungsi Densitas Peluang (PDF)</a></li>
+  <li><a href="#contoh-11-konsep-dasar-kontinu" id="toc-contoh-11-konsep-dasar-kontinu" class="nav-link" data-scroll-target="#contoh-11-konsep-dasar-kontinu"><span class="header-section-number">7.4.3</span> Contoh 11: Konsep Dasar Kontinu</a></li>
+  <li><a href="#ekspektasi-dan-variansi-kontinu" id="toc-ekspektasi-dan-variansi-kontinu" class="nav-link" data-scroll-target="#ekspektasi-dan-variansi-kontinu"><span class="header-section-number">7.4.4</span> Ekspektasi dan Variansi Kontinu</a></li>
+  </ul>
+</li>
+  <li><a href="#perbandingan-diskret-vs-kontinu" id="toc-perbandingan-diskret-vs-kontinu" class="nav-link" data-scroll-target="#perbandingan-diskret-vs-kontinu"><span class="header-section-number">7.5</span> PERBANDINGAN DISKRET VS KONTINU</a></li>
+  <li>
+<a href="#aplikasi-praktis" id="toc-aplikasi-praktis" class="nav-link" data-scroll-target="#aplikasi-praktis"><span class="header-section-number">7.6</span> APLIKASI PRAKTIS</a>
+  <ul class="collapse">
+<li><a href="#contoh-14-analisis-investasi" id="toc-contoh-14-analisis-investasi" class="nav-link" data-scroll-target="#contoh-14-analisis-investasi"><span class="header-section-number">7.6.1</span> Contoh 14: Analisis Investasi</a></li>
+  <li><a href="#contoh-15-quality-control" id="toc-contoh-15-quality-control" class="nav-link" data-scroll-target="#contoh-15-quality-control"><span class="header-section-number">7.6.2</span> Contoh 15: Quality Control</a></li>
+  <li><a href="#contoh-16-portofolio-investasi" id="toc-contoh-16-portofolio-investasi" class="nav-link" data-scroll-target="#contoh-16-portofolio-investasi"><span class="header-section-number">7.6.3</span> Contoh 16: Portofolio Investasi</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#kesalahan-umum-cara-menghindari" id="toc-kesalahan-umum-cara-menghindari" class="nav-link" data-scroll-target="#kesalahan-umum-cara-menghindari"><span class="header-section-number">7.7</span> KESALAHAN UMUM &amp; CARA MENGHINDARI</a>
+  <ul class="collapse">
+<li><a href="#ex-3.5-berarti-dadu-bisa-menghasilkan-3.5" id="toc-ex-3.5-berarti-dadu-bisa-menghasilkan-3.5" class="nav-link" data-scroll-target="#ex-3.5-berarti-dadu-bisa-menghasilkan-3.5"><span class="header-section-number">7.7.1</span> 1. “E(X) = 3.5 berarti dadu bisa menghasilkan 3.5”</a></li>
+  <li><a href="#ex%C2%B2-ex%C2%B2" id="toc-ex²-ex²" class="nav-link" data-scroll-target="#ex%C2%B2-ex%C2%B2"><span class="header-section-number">7.7.2</span> 2. E(X²) = [E(X)]²</a></li>
+  <li><a href="#var2x-2-varx" id="toc-var2x-2-varx" class="nav-link" data-scroll-target="#var2x-2-varx"><span class="header-section-number">7.7.3</span> 3. Var(2X) = 2 × Var(X)</a></li>
+  <li><a href="#varxy-varx-vary" id="toc-varxy-varx-vary" class="nav-link" data-scroll-target="#varxy-varx-vary"><span class="header-section-number">7.7.4</span> 4. Var(X+Y) = Var(X) + Var(Y)</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#tabel-ringkasan-formula" id="toc-tabel-ringkasan-formula" class="nav-link" data-scroll-target="#tabel-ringkasan-formula"><span class="header-section-number">7.8</span> TABEL RINGKASAN FORMULA</a>
+  <ul class="collapse">
+<li><a href="#diskret" id="toc-diskret" class="nav-link" data-scroll-target="#diskret"><span class="header-section-number">7.8.1</span> Diskret</a></li>
+  <li><a href="#sifat-sifat" id="toc-sifat-sifat" class="nav-link" data-scroll-target="#sifat-sifat"><span class="header-section-number">7.8.2</span> Sifat-Sifat</a></li>
+  <li><a href="#distribusi-umum" id="toc-distribusi-umum" class="nav-link" data-scroll-target="#distribusi-umum"><span class="header-section-number">7.8.3</span> Distribusi Umum</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#latihan-mandiri" id="toc-latihan-mandiri" class="nav-link" data-scroll-target="#latihan-mandiri"><span class="header-section-number">7.9</span> LATIHAN MANDIRI</a>
+  <ul class="collapse">
+<li><a href="#level-1-dasar" id="toc-level-1-dasar" class="nav-link" data-scroll-target="#level-1-dasar"><span class="header-section-number">7.9.1</span> Level 1: Dasar</a></li>
+  <li><a href="#level-2-menengah" id="toc-level-2-menengah" class="nav-link" data-scroll-target="#level-2-menengah"><span class="header-section-number">7.9.2</span> Level 2: Menengah</a></li>
+  <li><a href="#level-3-aplikasi" id="toc-level-3-aplikasi" class="nav-link" data-scroll-target="#level-3-aplikasi"><span class="header-section-number">7.9.3</span> Level 3: Aplikasi</a></li>
+  </ul>
+</li>
   </ul></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title">
-<span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Eksperimen Acak, Ruang Sampel, dan Kejadian - Latihan Soal</span>
+<span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Peubah Acak, Ekspektasi, dan Variansi</span>
 </h1>
 </div>
 
@@ -195,669 +270,777 @@ window.Quarto = {
   
 
 
-</header><p><strong>Simbol &amp; Notasi yang Perlu Diingat</strong></p>
+</header><div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Catatan Penting
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Materi ini disusun khusus untuk mahasiswa yang belum mempelajari kalkulus. Fokus utama adalah pada <strong>peubah acak diskret</strong> yang hanya membutuhkan aljabar dasar dan penjumlahan. Bagian peubah acak kontinu akan dijelaskan secara <strong>konseptual</strong> tanpa perhitungan integral yang rumit.</p>
+</div>
+</div>
+<hr>
+<section id="pendahuluan" class="level2" data-number="7.1"><h2 data-number="7.1" class="anchored" data-anchor-id="pendahuluan">
+<span class="header-section-number">7.1</span> PENDAHULUAN</h2>
+<p><strong>Peubah acak</strong> (random variable) adalah cara kita memberikan <strong>angka</strong> pada hasil eksperimen acak.</p>
+<p><strong>Analogi sederhana:</strong></p>
+<p>Bayangkan kita lempar koin. Hasilnya bisa “Kepala” atau “Ekor”. Untuk memudahkan perhitungan, kita beri angka:</p>
+<ul>
+<li>Kepala = 1</li>
+<li>Ekor = 0</li>
+</ul>
+<p>Inilah yang disebut <strong>peubah acak</strong>!</p>
+<section id="mengapa-penting" class="level3" data-number="7.1.1"><h3 data-number="7.1.1" class="anchored" data-anchor-id="mengapa-penting">
+<span class="header-section-number">7.1.1</span> Mengapa Penting?</h3>
+<p>Dengan peubah acak, kita bisa:</p>
 <ul>
 <li>
-<span class="math inline">\(S\)</span> = ruang sampel</li>
+<strong>Menghitung rata-rata</strong> hasil eksperimen</li>
 <li>
-<span class="math inline">\(n(S)\)</span> = banyaknya anggota ruang sampel</li>
+<strong>Mengukur seberapa tersebar</strong> hasilnya</li>
 <li>
-<span class="math inline">\(A, B, C\)</span> = kejadian</li>
+<strong>Membuat prediksi</strong> dan keputusan</li>
 <li>
-<span class="math inline">\(n(A)\)</span> = banyaknya anggota kejadian <span class="math inline">\(A\)</span>
-</li>
-<li>
-<span class="math inline">\(P(A)\)</span> = peluang kejadian <span class="math inline">\(A\)</span>
-</li>
-<li>
-<span class="math inline">\(P(S) = 1\)</span> = peluang ruang sampel</li>
-<li>
-<span class="math inline">\(P(\varnothing) = 0\)</span> = peluang himpunan kosong</li>
-<li>
-<span class="math inline">\(A \cup B\)</span> = gabungan kejadian <span class="math inline">\(A\)</span> dan <span class="math inline">\(B\)</span>
-</li>
-<li>
-<span class="math inline">\(A \cap B\)</span> = irisan kejadian <span class="math inline">\(A\)</span> dan <span class="math inline">\(B\)</span>
-</li>
-<li>
-<span class="math inline">\(A^c\)</span> = komplemen kejadian <span class="math inline">\(A\)</span>, dengan <span class="math inline">\(P(A^c) = 1 - P(A)\)</span>
-</li>
-<li>
-<span class="math inline">\(A \subseteq B\)</span> = <span class="math inline">\(A\)</span> bagian dari <span class="math inline">\(B\)</span>
-</li>
-<li>
-<span class="math inline">\(A \setminus B\)</span> = selisih himpunan <span class="math inline">\(A\)</span> terhadap <span class="math inline">\(B\)</span>
-</li>
-<li>
-<span class="math inline">\(\varnothing\)</span> = himpunan kosong</li>
-<li>{} = notasi himpunan</li>
+<strong>Menyelesaikan</strong> masalah praktis</li>
 </ul>
-<p><strong>Aturan Dasar Peluang</strong></p>
+<hr></section></section><section id="bagian-i-peubah-acak-diskret" class="level2" data-number="7.2"><h2 data-number="7.2" class="anchored" data-anchor-id="bagian-i-peubah-acak-diskret">
+<span class="header-section-number">7.2</span> BAGIAN I: PEUBAH ACAK DISKRET</h2>
+<section id="apa-itu-peubah-acak-diskret" class="level3" data-number="7.2.1"><h3 data-number="7.2.1" class="anchored" data-anchor-id="apa-itu-peubah-acak-diskret">
+<span class="header-section-number">7.2.1</span> Apa itu Peubah Acak Diskret?</h3>
+<p><strong>Peubah acak diskret</strong> adalah peubah acak yang nilainya bisa <strong>dihitung satu per satu</strong>.</p>
+<p><strong>Contoh:</strong></p>
 <ul>
-<li><span class="math inline">\(0 \leq P(A) \leq 1\)</span></li>
-<li><span class="math inline">\(P(S) = 1\)</span></li>
-<li><span class="math inline">\(P(A^c) = 1 - P(A)\)</span></li>
+<li>Jumlah mata dadu: 1, 2, 3, 4, 5, 6</li>
+<li>Banyak kepala dalam 3 lemparan koin: 0, 1, 2, 3</li>
+<li>Jumlah mahasiswa yang hadir: 0, 1, 2, …, 40</li>
 </ul>
-<p><strong>Aturan Penjumlahan</strong></p>
+<p><strong>Bukan contoh diskret:</strong></p>
 <ul>
-<li>Umum: <span class="math inline">\(P(A \cup B) = P(A) + P(B) - P(A \cap B)\)</span>
-</li>
-<li>Jika <span class="math inline">\(A\)</span> dan <span class="math inline">\(B\)</span> saling lepas: <span class="math inline">\(P(A \cup B) = P(A) + P(B)\)</span>
-</li>
+<li>Tinggi badan (bisa 170.5 cm, 170.51 cm, dst)</li>
+<li>Waktu (bisa 2.3 detik, 2.31 detik, dst)</li>
 </ul>
-<p><strong>Peluang Bersyarat</strong></p>
-<ul>
-<li>
-<span class="math inline">\(P(A \mid B) = \dfrac{P(A \cap B)}{P(B)}\)</span>, dengan <span class="math inline">\(P(B) &gt; 0\)</span>
-</li>
-</ul>
-<p><strong>Aturan Perkalian</strong></p>
-<ul>
-<li>Umum: <span class="math inline">\(P(A \cap B) = P(A) \cdot P(B \mid A) = P(B) \cdot P(A \mid B)\)</span>
-</li>
-<li>Jika <span class="math inline">\(A\)</span> dan <span class="math inline">\(B\)</span> independen: <span class="math inline">\(P(A \cap B) = P(A) \cdot P(B)\)</span>
-</li>
-</ul>
-<p><strong>Kejadian Saling Lepas vs Independen</strong></p>
-<ul>
-<li>
-<p><strong>Saling lepas (mutually exclusive):</strong> tidak bisa terjadi bersamaan.</p>
-<ul>
-<li>Definisi: <span class="math inline">\(A\cap B=\varnothing\)</span> sehingga <span class="math inline">\(P(A\cap B)=0\)</span>.</li>
-<li>Konsekuensi: <span class="math inline">\(P(A\cup B)=P(A)+P(B)\)</span>.</li>
-<li>Contoh: lempar dadu, <span class="math inline">\(A=\{\text{genap}\}\)</span>, <span class="math inline">\(B=\{\text{ganjil}\}\)</span>.</li>
-<li>Catatan penting: jika <span class="math inline">\(P(A)&gt;0\)</span> dan <span class="math inline">\(P(B)&gt;0\)</span>, maka <strong>pasti tidak independen</strong> karena <span class="math inline">\(P(A)P(B)&gt;0\)</span> tetapi <span class="math inline">\(P(A\cap B)=0\)</span>.</li>
-</ul>
-</li>
-<li>
-<p><strong>Independen (independent):</strong> kejadian satu tidak mengubah peluang yang lain.</p>
-<ul>
-<li>Definisi setara: <span class="math inline">\(P(A\mid B)=P(A)\)</span> dengan <span class="math inline">\(P(B)&gt;0\)</span> <strong>atau</strong> <span class="math inline">\(P(A\cap B)=P(A)P(B)\)</span>.</li>
-<li>Contoh 1: dua lempar koin, <span class="math inline">\(A=\{\text{kepala lemparan 1}\}\)</span>, <span class="math inline">\(B=\{\text{kepala lemparan 2}\}\)</span>.</li>
-<li>Contoh 2: lempar dadu, <span class="math inline">\(A=\{\text{genap}\}\)</span> <span class="math inline">\(P(A)=1/2\)</span>, <span class="math inline">\(B=\{\text{kelipatan 3}\}\)</span> <span class="math inline">\(P(B)=1/3\)</span>.</li>
-<li>
-<span class="math inline">\(A\cap B=\{6\}\Rightarrow P(A\cap B)=1/6=P(A)P(B)\)</span> jadi independen.</li>
-</ul>
-</li>
-</ul>
-<p><strong>Ringkas beda utamanya:</strong></p>
-<ul>
-<li>Saling lepas: <em>ketidakmungkinan bersama</em> <span class="math inline">\(\Rightarrow P(A\cap B)=0\)</span>.</li>
-<li>Independen: <em>ketidakpengaruh-an</em> <span class="math inline">\(\Rightarrow P(A\cap B)=P(A)P(B)\)</span>.</li>
-</ul>
-<section id="bank-soal" class="level2" data-number="4.1"><h2 data-number="4.1" class="anchored" data-anchor-id="bank-soal">
-<span class="header-section-number">4.1</span> Bank Soal</h2>
-<div class="webex-question">
-<div class="webex-check webex-box">
+<hr></section><section id="fungsi-massa-peluang-pmf" class="level3" data-number="7.2.2"><h3 data-number="7.2.2" class="anchored" data-anchor-id="fungsi-massa-peluang-pmf">
+<span class="header-section-number">7.2.2</span> Fungsi Massa Peluang (PMF)</h3>
+<p><strong>PMF</strong> adalah tabel yang menunjukkan peluang setiap nilai.</p>
+<p><strong>Aturan PMF:</strong></p>
 <ol type="1">
-<li>Sebuah dadu bersisi 6 dilempar sekali. Tentukan ruang sampel dan jumlah ruang sampel dari percobaan ini.</li>
+<li>Setiap peluang antara 0 dan 1</li>
+<li><strong>Total semua peluang = 1</strong></li>
 </ol>
-<div id="webex-a0ce02bd35a38fd4689a2fc8fd64244a" class="webex-radiogroup" data-answer="OgBPVRwDTlRu">
-<label><input type="radio" autocomplete="off" name="a0ce02bd35a38fd4689a2fc8fd64244a"><span>S={2,3,4,5,6}, n(S)=5</span></label><label><input type="radio" autocomplete="off" name="a0ce02bd35a38fd4689a2fc8fd64244a"><span>S={1,3,5}, n(S)=3</span></label><label><input type="radio" autocomplete="off" name="a0ce02bd35a38fd4689a2fc8fd64244a"><span>S={1,2,3,4,5,6}, n(S)=6</span></label><label><input type="radio" autocomplete="off" name="a0ce02bd35a38fd4689a2fc8fd64244a"><span>S={1,2,3,4,5}, n(S)=5</span></label>
-</div>
-</div>
-<div class="webex-solution">
-<p>Jawaban benar: S={1,2,3,4,5,6}, n(S)=6.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="2" type="1">
-<li>Dalam pelemparan sebuah dadu, A adalah kejadian angka genap. Tentukan anggota kejadian A, jumlah anggota kejadian A, dan peluang kejadian A.</li>
-</ol>
-<div id="webex-c82e9379daaea2b46139c4e377677363" class="webex-radiogroup" data-answer="OAgeVRUDGwg5">
-<label><input type="radio" autocomplete="off" name="c82e9379daaea2b46139c4e377677363"><span>A={1,2,3,4,5,6}, n(A)=6, P=1</span></label><label><input type="radio" autocomplete="off" name="c82e9379daaea2b46139c4e377677363"><span>A={1,3,5}, n(A)=3, P=1/2</span></label><label><input type="radio" autocomplete="off" name="c82e9379daaea2b46139c4e377677363"><span>A={2,3,5}, n(A)=3, P=1/2</span></label><label><input type="radio" autocomplete="off" name="c82e9379daaea2b46139c4e377677363"><span>A={2,4,6}, n(A)=3, P=1/2</span></label>
-</div>
-</div>
-<div class="webex-solution">
-<p>Jawaban benar: A={2,4,6}, n(A)=3, P=1/2.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="3" type="1">
-<li>Sebuah koin logam (sisi angka dan gambar) dilempar dua kali. Berapa banyak anggota ruang sampel? Berapa peluang muncul tepat 1 sisi gambar?</li>
-</ol>
-<div id="webex-808b025787626e915c79d98f188ace77" class="webex-radiogroup" data-answer="YwAUUhwDGQdl">
-<label><input type="radio" autocomplete="off" name="808b025787626e915c79d98f188ace77"><span>S={AG,GA}, n(S)=2, P=1</span></label><label><input type="radio" autocomplete="off" name="808b025787626e915c79d98f188ace77"><span>S={AA,GG}, n(S)=2, P=1/2</span></label><label><input type="radio" autocomplete="off" name="808b025787626e915c79d98f188ace77"><span>S={AA,AG,GA,GG}, n(S)=4, P=1/2</span></label><label><input type="radio" autocomplete="off" name="808b025787626e915c79d98f188ace77"><span>S={A,G}, n(S)=2, P=1/2</span></label>
-</div>
-</div>
-<div class="webex-solution">
-<p>Jawaban benar: S={AA,AG,GA,GG}, n(S)=4, tepat satu gambar {AG,GA}, peluang 2/4=1/2.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="4" type="1">
-<li>Sebuah dadu bersisi 6 dilempar sekali. Berapa peluang munculnya bilangan prima?</li>
-</ol>
-<div id="webex-f5cd6575070eb30f7fa6d6d1f6b0a438" class="webex-radiogroup" data-answer="PQVPVRoFGwVt">
-<label><input type="radio" autocomplete="off" name="f5cd6575070eb30f7fa6d6d1f6b0a438"><span>P=2/3, bilangan prima {2,3,5,7}</span></label><label><input type="radio" autocomplete="off" name="f5cd6575070eb30f7fa6d6d1f6b0a438"><span>P=1/2, bilangan prima {2,3,5}</span></label><label><input type="radio" autocomplete="off" name="f5cd6575070eb30f7fa6d6d1f6b0a438"><span>P=1/6, bilangan prima {5}</span></label><label><input type="radio" autocomplete="off" name="f5cd6575070eb30f7fa6d6d1f6b0a438"><span>P=1/3, bilangan prima {2,3}</span></label>
-</div>
-</div>
-<div class="webex-solution">
-<p>Jawaban benar: bilangan prima pada dadu {2,3,5}, peluang 3/6=1/2.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<p>(5a) Sebuah dadu bersisi 6 dilempar sekali. Z adalah kejadian bilangan ganjil, Q adalah kejadian bilangan prima. Tentukan anggota kejadian Z dan Q.</p>
-<p><input class="webex-solveme" id="webex-1799047d4eec6370ea139f7d3ee7004b" size="21" data-answer="ahVjBEsFG1cYUBhPFmIKS1dNAh8MGxlGbg=="></p>
-</div>
-<div class="webex-solution">
-<p>Z={1,3,5}, Q={2,3,5}.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<p>(5b) Tentukan anggota Z ∪ Q dan Z ∩ Q.</p>
-<p><input class="webex-solveme" id="webex-91d5c6902de252c8a99a952207bbf9b5" size="28" data-answer="YhM+FYG+kxBjWR4DGQBPC00MRE0ZbxLQuJ5CM1tCURkMTEZo"></p>
-</div>
-<div class="webex-solution">
-<p>Z ∪ Q={1,2,3,5}, Z ∩ Q={3,5}.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<p>(5c) Tentukan peluang Z ∪ Q dan Z ∩ Q.</p>
-<p><input class="webex-solveme" id="webex-1967f97d8bf8abd4ed59b4f33a473c30" size="20" data-answer="ahsEGFUZUwVWQlcXUkA5"></p>
-</div>
-<div class="webex-solution">
-<p>P(Z ∪ Q)=2/3, P(Z ∩ Q)=1/3.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<p>(5d) Tentukan peluang Z^c.</p>
-<p><input class="webex-solveme" id="webex-84f202938b8c423d7ec487e33359a56b" size="20" data-answer="YxZXHQIQZA=="></p>
-</div>
-<div class="webex-solution">
-<p>Z^c={2,4,6}, P(Z^c)=1/2.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<p>(5e) Tentukan peluang Z ∪ Q^c.</p>
-<p><input class="webex-solveme" id="webex-d1553c071e389a40094c52b0483941cc" size="20" data-answer="PxMAGgVBbQ=="></p>
-</div>
-<div class="webex-solution">
-<p>Q^c={1,4,6}, Z ∪ Q^c={1,3,4,5,6}, P=5/6.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<p>(5f) Tentukan peluang (Z ∪ Q)^c.</p>
-<p><input class="webex-solveme" id="webex-c5b36ae7b727db960ace3dda73ddabc4" size="20" data-answer="OBdTHAVDOA=="></p>
-</div>
-<div class="webex-solution">
-<p>(Z ∪ Q)^c={4,6}, P=1/3.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="6" type="1">
-<li>Dua dadu fair dilempar sekali. Berapa peluang jumlah mata = 7?</li>
-</ol>
-<div id="webex-8a57af9be15a52ce907f76e71dc17af5" class="webex-radiogroup" data-answer="Y1EZB01XFVI4">
-<label><input type="radio" autocomplete="off" name="8a57af9be15a52ce907f76e71dc17af5"><span>P=1/3</span></label><label><input type="radio" autocomplete="off" name="8a57af9be15a52ce907f76e71dc17af5"><span>P=1/36</span></label><label><input type="radio" autocomplete="off" name="8a57af9be15a52ce907f76e71dc17af5"><span>P=1/6</span></label><label><input type="radio" autocomplete="off" name="8a57af9be15a52ce907f76e71dc17af5"><span>P=1/12</span></label>
-</div>
-</div>
-<div class="webex-solution">
-<p>Pasangan jumlah 7: {(1,6),(2,5),(3,4),(4,3),(5,2),(6,1)} ada 6 dari 36. Peluang 6/36=1/6.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="7" type="1">
-<li>Tiga kali lempar koin fair. Berapa peluang tepat 2 sisi gambar?</li>
-</ol>
-<div id="webex-a6592ddaf9a43e9bb37e97f523adc1a1" class="webex-radiogroup" data-answer="OgYZCR5VSFE7">
-<label><input type="radio" autocomplete="off" name="a6592ddaf9a43e9bb37e97f523adc1a1"><span>P=5/8</span></label><label><input type="radio" autocomplete="off" name="a6592ddaf9a43e9bb37e97f523adc1a1"><span>P=1/2</span></label><label><input type="radio" autocomplete="off" name="a6592ddaf9a43e9bb37e97f523adc1a1"><span>P=3/8</span></label><label><input type="radio" autocomplete="off" name="a6592ddaf9a43e9bb37e97f523adc1a1"><span>P=1/4</span></label>
-</div>
-</div>
-<div class="webex-solution">
-<p>C(3,2)=3 susunan, total 2^3=8. Peluang 3/8.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="8" type="1">
-<li>Dadu sekali. Z=bilangan ganjil, Q=bilangan prima. Hitung P(Z | Q).</li>
-</ol>
-<p><input class="webex-solveme" id="webex-229f21223a3bed118ec069fb8e16c265" size="20" data-answer="aRALSQETbw=="></p>
-</div>
-<div class="webex-solution">
-<p>Q={2,3,5}, Z∩Q={3,5}. P(Z|Q)=|{3,5}|/|{2,3,5}|=2/3.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="9" type="1">
-<li>Dadu sekali. A=kelipatan 3, B=bilangan &gt;4. Apakah A dan B independen?</li>
-</ol>
-<div id="webex-fee7f5ecf132f8e2ccae6cca7aa6f7a4" class="webex-radiogroup" data-answer="PVRJB0oFSVM7">
-<label><input type="radio" autocomplete="off" name="fee7f5ecf132f8e2ccae6cca7aa6f7a4"><span>Tidak independen</span></label><label><input type="radio" autocomplete="off" name="fee7f5ecf132f8e2ccae6cca7aa6f7a4"><span>Independen</span></label><label><input type="radio" autocomplete="off" name="fee7f5ecf132f8e2ccae6cca7aa6f7a4"><span>Saling lepas dan independen</span></label><label><input type="radio" autocomplete="off" name="fee7f5ecf132f8e2ccae6cca7aa6f7a4"><span>Saling lepas</span></label>
-</div>
-</div>
-<div class="webex-solution">
-<p>A={3,6}, P(A)=1/3. B={5,6}, P(B)=1/3. A∩B={6}, P=1/6. P(A)P(B)=1/9≠1/6 ⇒ tidak independen.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="10" type="1">
-<li>Dua dadu fair. Berapa peluang keduanya bernilai genap?</li>
-</ol>
-<div id="webex-b1e587b7d397da2c1578eb4a3a951011" class="webex-radiogroup" data-answer="OQFJBBQHTgc5">
-<label><input type="radio" autocomplete="off" name="b1e587b7d397da2c1578eb4a3a951011"><span>P=1/3</span></label><label><input type="radio" autocomplete="off" name="b1e587b7d397da2c1578eb4a3a951011"><span>P=1/4</span></label><label><input type="radio" autocomplete="off" name="b1e587b7d397da2c1578eb4a3a951011"><span>P=1/6</span></label><label><input type="radio" autocomplete="off" name="b1e587b7d397da2c1578eb4a3a951011"><span>P=1/2</span></label>
-</div>
-</div>
-<div class="webex-solution">
-<p>Setiap dadu genap dengan peluang 1/2. Keduanya genap: (1/2)*(1/2)=1/4.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="11" type="1">
-<li>Dua dadu fair. Berapa peluang minimal satu dadu bernilai 6?</li>
-</ol>
-<div id="webex-219b13ff0fc0f65ee5daa341e5ffcba3" class="webex-radiogroup" data-answer="aQEVUx0DSlZt">
-<label><input type="radio" autocomplete="off" name="219b13ff0fc0f65ee5daa341e5ffcba3"><span>P=5/18</span></label><label><input type="radio" autocomplete="off" name="219b13ff0fc0f65ee5daa341e5ffcba3"><span>P=11/36</span></label><label><input type="radio" autocomplete="off" name="219b13ff0fc0f65ee5daa341e5ffcba3"><span>P=1/6</span></label><label><input type="radio" autocomplete="off" name="219b13ff0fc0f65ee5daa341e5ffcba3"><span>P=25/36</span></label>
-</div>
-</div>
-<div class="webex-solution">
-<p>Komplemen: tidak ada 6 = (5/6)^2=25/36. Jadi 1−25/36=11/36.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="12" type="1">
-<li>Sebuah dadu dilempar sekali. Hitung peluang muncul bilangan ganjil dengan syarat hasil lebih dari 3, <span class="math inline">\(P(\text{ganjil} \mid &gt;3)\)</span>.</li>
-</ol>
-<p><input class="webex-solveme" id="webex-75d6a0ce7b4781c70e7ca51bc861ab0a" size="20" data-answer="bBdVGVISPg=="></p>
-</div>
-<div class="webex-solution">
-<p>Rumus peluang bersyarat: <span class="math inline">\(P(A \mid B) = \dfrac{P(A \cap B)}{P(B)}\)</span>.</p>
-<p>Di sini <span class="math inline">\(B=\{4,5,6\}\)</span>, <span class="math inline">\(A=\{1,3,5\}\)</span>. <span class="math inline">\(Irisan = \{5\}\)</span>, sehingga <span class="math inline">\(P(A \cap B)=1/6\)</span>, <span class="math inline">\(P(B)=3/6\)</span>. Maka <span class="math inline">\(P(A \mid B)=\dfrac{1/6}{3/6} = 1/3\)</span>.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="13" type="1">
-<li>Dadu sekali. A={1,2,3,4} dan B={3,4,5,6}. Tentukan A &nbsp;B.</li>
-</ol>
-<p><input class="webex-solveme" id="webex-11f3d4fb433a6423d002a5b199050b75" size="20" data-answer="ahMdAkgGG0Bp"></p>
-</div>
-<div class="webex-solution">
-<p>{1,2}</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="14" type="1">
-<li>Manakah yang benar?</li>
-</ol>
-<div id="webex-ce9d1143877fe2b8c0e882050c4d7bfb" class="webex-radiogroup" data-answer="OFUVVB0AGANl">
-<label><input type="radio" autocomplete="off" name="ce9d1143877fe2b8c0e882050c4d7bfb"><span>A={1,3,5} dan B={2,4,6} ⇒ A ⊆ B</span></label><label><input type="radio" autocomplete="off" name="ce9d1143877fe2b8c0e882050c4d7bfb"><span>A={2,4} dan B={1,3,5} ⇒ A ⊆ B</span></label><label><input type="radio" autocomplete="off" name="ce9d1143877fe2b8c0e882050c4d7bfb"><span>A={2,4} dan B={2,4,6} ⇒ A ⊆ B</span></label><label><input type="radio" autocomplete="off" name="ce9d1143877fe2b8c0e882050c4d7bfb"><span>A={2,4,6} dan B={2,4} ⇒ A ⊆ B</span></label>
-</div>
-</div>
-<div class="webex-solution">
-<p>Hanya {2,4} ⊆ {2,4,6} yang benar.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="15" type="1">
-<li>Diketahui P(A)=0.4, P(B)=0.5, dan P(A ∩ B)=0.2. Hitung P(A ∪ B).</li>
-</ol>
-<div id="webex-cb5b5c89f23ef1b3693a909c95a39f31" class="webex-radiogroup" data-answer="OFIZUhlTFAg7">
-<label><input type="radio" autocomplete="off" name="cb5b5c89f23ef1b3693a909c95a39f31"><span>0.9</span></label><label><input type="radio" autocomplete="off" name="cb5b5c89f23ef1b3693a909c95a39f31"><span>0.6</span></label><label><input type="radio" autocomplete="off" name="cb5b5c89f23ef1b3693a909c95a39f31"><span>0.3</span></label><label><input type="radio" autocomplete="off" name="cb5b5c89f23ef1b3693a909c95a39f31"><span>0.7</span></label>
-</div>
-</div>
-<div class="webex-solution">
-<p>P(A ∪ B)=0.4+0.5−0.2=0.7.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="16" type="1">
-<li>A dan B saling lepas dengan P(A)=1/3 dan P(B)=1/6. Hitung P(A ∪ B).</li>
-</ol>
-<div id="webex-ffcddf3371349bc59fe259b61e5b0b87" class="webex-radiogroup" data-answer="PVZPVEhWHwJq">
-<label><input type="radio" autocomplete="off" name="ffcddf3371349bc59fe259b61e5b0b87"><span>1/3</span></label><label><input type="radio" autocomplete="off" name="ffcddf3371349bc59fe259b61e5b0b87"><span>1/6</span></label><label><input type="radio" autocomplete="off" name="ffcddf3371349bc59fe259b61e5b0b87"><span>2/3</span></label><label><input type="radio" autocomplete="off" name="ffcddf3371349bc59fe259b61e5b0b87"><span>1/2</span></label>
-</div>
-</div>
-<div class="webex-solution">
-<p>Saling lepas ⇒ P(A ∪ B)=1/3+1/6=1/2.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="17" type="1">
-<li>Dadu sekali. B=bilangan genap, C=bilangan &gt;3. Hitung P(C | B).</li>
-</ol>
-<p><input class="webex-solveme" id="webex-7dbd2c3d4b22528f557b23864ae5685b" size="20" data-answer="bEZQSwFBbg=="></p>
-</div>
-<div class="webex-solution">
-<p>B={2,4,6}. C∩B={4,6}. Jadi 2/3.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="18" type="1">
-<li>Diketahui P(A)=1/2 dan P(B | A)=2/3. Hitung P(A ∩ B).</li>
-</ol>
-<div id="webex-e8a0953d57d175e09a3ec9752a3c3c1c" class="webex-radiogroup" data-answer="PghNABUEH1Ro">
-<label><input type="radio" autocomplete="off" name="e8a0953d57d175e09a3ec9752a3c3c1c"><span>1/6</span></label><label><input type="radio" autocomplete="off" name="e8a0953d57d175e09a3ec9752a3c3c1c"><span>2/3</span></label><label><input type="radio" autocomplete="off" name="e8a0953d57d175e09a3ec9752a3c3c1c"><span>1/3</span></label><label><input type="radio" autocomplete="off" name="e8a0953d57d175e09a3ec9752a3c3c1c"><span>3/4</span></label>
-</div>
-</div>
-<div class="webex-solution">
-<p>P(A ∩ B)=P(A)·P(B|A)=1/2·2/3=1/3.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="19" type="1">
-<li>Diketahui P(A)=1/2, P(B)=1/3, P(A ∩ B)=1/6. Tentukan hubungan A dan B.</li>
-</ol>
-<div id="webex-7971282f6b5b27652740a630b0bf5b46" class="webex-radiogroup" data-answer="bAkbAR4IHldr">
-<label><input type="radio" autocomplete="off" name="7971282f6b5b27652740a630b0bf5b46"><span>Saling lepas</span></label><label><input type="radio" autocomplete="off" name="7971282f6b5b27652740a630b0bf5b46"><span>Saling lepas dan independen</span></label><label><input type="radio" autocomplete="off" name="7971282f6b5b27652740a630b0bf5b46"><span>Tidak independen</span></label><label><input type="radio" autocomplete="off" name="7971282f6b5b27652740a630b0bf5b46"><span>Independen</span></label>
-</div>
-</div>
-<div class="webex-solution">
-<p>P(A)P(B)=1/6= P(A ∩ B) ⇒ independen.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="20" type="1">
-<li>P(A)=0.35. Hitung P(A^c).</li>
-</ol>
-<p><input class="webex-solveme" id="webex-f22bc0cf71dd6e6c24faca781c7049a6" size="20" data-answer="PRACTFUFQTs="></p>
-</div>
-<div class="webex-solution">
-<p>0.65</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="21" type="1">
-<li>Pilih pernyataan yang benar.</li>
-</ol>
-<div id="webex-9caabf31f0676064fa7cf6db8b4b1ac2" class="webex-radiogroup" data-answer="YlJNUU5WHwE7">
-<label><input type="radio" autocomplete="off" name="9caabf31f0676064fa7cf6db8b4b1ac2"><span>P(S)=1 dan P(∅)=0</span></label><label><input type="radio" autocomplete="off" name="9caabf31f0676064fa7cf6db8b4b1ac2"><span>P(S)=0 dan P(∅)=0</span></label><label><input type="radio" autocomplete="off" name="9caabf31f0676064fa7cf6db8b4b1ac2"><span>P(S)=1 dan P(∅)=1</span></label><label><input type="radio" autocomplete="off" name="9caabf31f0676064fa7cf6db8b4b1ac2"><span>P(S)=0 dan P(∅)=1</span></label>
-</div>
-</div>
-<div class="webex-solution">
-<p>Ruang sampel selalu 1, himpunan kosong 0.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="22" type="1">
-<li>Manakah yang tidak mungkin menjadi nilai peluang?</li>
-</ol>
-<div id="webex-745f90ad35b5e13a138bae6383313873" class="webex-radiogroup" data-answer="bAQZVxUATVRu">
-<label><input type="radio" autocomplete="off" name="745f90ad35b5e13a138bae6383313873"><span>0</span></label><label><input type="radio" autocomplete="off" name="745f90ad35b5e13a138bae6383313873"><span>−0.1</span></label><label><input type="radio" autocomplete="off" name="745f90ad35b5e13a138bae6383313873"><span>1</span></label><label><input type="radio" autocomplete="off" name="745f90ad35b5e13a138bae6383313873"><span>0.3</span></label>
-</div>
-</div>
-<div class="webex-solution">
-<p>Peluang harus di [0,1].</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="23" type="1">
-<li>Dadu sekali. Z=ganjil, Q=prima. Hitung P(Z ∩ Q^c).</li>
-</ol>
-<p><input class="webex-solveme" id="webex-a1120e171845a260cf5f551392e2092e" size="20" data-answer="OhMAHQZHbA=="></p>
-</div>
-<div class="webex-solution">
-<p>Q^c={1,4,6}, Z ∩ Q^c={1}, P=1/6.</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="24" type="1">
-<li>Jika A dan B saling lepas serta P(A)&gt;0 dan P(B)&gt;0, maka A dan B independen. Benar atau salah?</li>
-</ol>
-<div id="webex-50646df88c7ab57d57c128d12602bf3e" class="webex-radiogroup" data-answer="bgAaBBpVSghl">
-<label><input type="radio" autocomplete="off" name="50646df88c7ab57d57c128d12602bf3e"><span>Tidak dapat ditentukan</span></label><label><input type="radio" autocomplete="off" name="50646df88c7ab57d57c128d12602bf3e"><span>Benar</span></label><label><input type="radio" autocomplete="off" name="50646df88c7ab57d57c128d12602bf3e"><span>Salah</span></label><label><input type="radio" autocomplete="off" name="50646df88c7ab57d57c128d12602bf3e"><span>Tergantung P(A)</span></label>
-</div>
-</div>
-<div class="webex-solution">
-<p>Salah. Saling lepas dengan peluang positif ⇒ P(A ∩ B)=0 ≠ P(A)P(B).</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
+<p><strong>Format:</strong> P(X = x) = peluang X bernilai x</p>
+<hr></section><section id="contoh-1-lempar-dadu-sekali" class="level3" data-number="7.2.3"><h3 data-number="7.2.3" class="anchored" data-anchor-id="contoh-1-lempar-dadu-sekali">
+<span class="header-section-number">7.2.3</span> Contoh 1: Lempar Dadu Sekali</h3>
+<p>X = hasil lempar dadu fair (6 sisi)</p>
+<p><strong>Nilai yang mungkin:</strong> 1, 2, 3, 4, 5, 6 <strong>Setiap nilai sama kemungkinannya</strong></p>
+<table class="caption-top table">
+<thead><tr class="header">
+<th>x</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td>P(X=x)</td>
+<td>1/6</td>
+<td>1/6</td>
+<td>1/6</td>
+<td>1/6</td>
+<td>1/6</td>
+<td>1/6</td>
+</tr></tbody>
+</table>
+<p><strong>Cek:</strong> <span class="math inline">\(\frac{1}{6} + \frac{1}{6} + \frac{1}{6} + \frac{1}{6} + \frac{1}{6} + \frac{1}{6} = \frac{6}{6} = 1\)</span> ✓</p>
+<hr></section><section id="contoh-2-lempar-koin-2-kali" class="level3" data-number="7.2.4"><h3 data-number="7.2.4" class="anchored" data-anchor-id="contoh-2-lempar-koin-2-kali">
+<span class="header-section-number">7.2.4</span> Contoh 2: Lempar Koin 2 Kali</h3>
+<p>X = banyaknya kepala dalam 2 lemparan</p>
+<p><strong>Cara menghitung:</strong></p>
+<ul>
+<li>Ruang sampel: {HH, HT, TH, TT}</li>
+<li>X = 0: {TT} → 1 cara dari 4 → P(X=0) = 1/4</li>
+<li>X = 1: {HT, TH} → 2 cara dari 4 → P(X=1) = 2/4 = 1/2<br>
+</li>
+<li>X = 2: {HH} → 1 cara dari 4 → P(X=2) = 1/4</li>
+</ul>
+<p><strong>Tabel PMF:</strong></p>
+<table class="caption-top table">
+<thead><tr class="header">
+<th>x</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td>P(X=x)</td>
+<td>1/4</td>
+<td>1/2</td>
+<td>1/4</td>
+</tr></tbody>
+</table>
+<p><strong>Cek:</strong> <span class="math inline">\(\frac{1}{4} + \frac{1}{2} + \frac{1}{4} = \frac{1+2+1}{4} = 1\)</span> ✓</p>
+<hr></section><section id="contoh-3-jumlah-2-dadu" class="level3" data-number="7.2.5"><h3 data-number="7.2.5" class="anchored" data-anchor-id="contoh-3-jumlah-2-dadu">
+<span class="header-section-number">7.2.5</span> Contoh 3: Jumlah 2 Dadu</h3>
+<p>Y = jumlah hasil lempar 2 dadu</p>
+<p><strong>Nilai yang mungkin:</strong> 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12</p>
+<p><strong>Cara menghitung P(Y=7):</strong></p>
+<p>Kombinasi yang menghasilkan jumlah 7:</p>
+<ul>
+<li>(1,6), (2,5), (3,4), (4,3), (5,2), (6,1) → <strong>6 cara</strong>
+</li>
+<li>Total kemungkinan: 6 × 6 = 36</li>
+<li>P(Y=7) = 6/36 = 1/6</li>
+</ul>
+<p><strong>Tabel lengkap:</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 12%">
+</colgroup>
+<thead><tr class="header">
+<th>y</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+<th>11</th>
+<th>12</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Cara</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+<td>5</td>
+<td>4</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>P(Y=y)</td>
+<td>1/36</td>
+<td>2/36</td>
+<td>3/36</td>
+<td>4/36</td>
+<td>5/36</td>
+<td>6/36</td>
+<td>5/36</td>
+<td>4/36</td>
+<td>3/36</td>
+<td>2/36</td>
+<td>1/36</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Mengapa jumlah 7 paling sering?</strong> Karena ada paling banyak cara membuatnya!</p>
+<hr></section><section id="nilai-ekspektasi-rata-rata" class="level3" data-number="7.2.6"><h3 data-number="7.2.6" class="anchored" data-anchor-id="nilai-ekspektasi-rata-rata">
+<span class="header-section-number">7.2.6</span> NILAI EKSPEKTASI (RATA-RATA)</h3>
+</section><section id="definisi-sederhana" class="level3" data-number="7.2.7"><h3 data-number="7.2.7" class="anchored" data-anchor-id="definisi-sederhana">
+<span class="header-section-number">7.2.7</span> Definisi Sederhana</h3>
+<p><strong>Ekspektasi</strong> = rata-rata nilai jika eksperimen diulang <strong>sangat banyak kali</strong></p>
+<p><strong>Formula untuk diskret:</strong> <span class="math display">\[E(X) = \sum_{\text{semua } x} x \times P(X = x)\]</span></p>
+<p><strong>Artinya:</strong> Kalikan setiap nilai dengan peluangnya, lalu jumlahkan.</p>
+<hr></section><section id="contoh-4-ekspektasi-lempar-dadu" class="level3" data-number="7.2.8"><h3 data-number="7.2.8" class="anchored" data-anchor-id="contoh-4-ekspektasi-lempar-dadu">
+<span class="header-section-number">7.2.8</span> Contoh 4: Ekspektasi Lempar Dadu</h3>
+<p>X = hasil lempar dadu</p>
+<pre><code>E(X) = 1×(1/6) + 2×(1/6) + 3×(1/6) + 4×(1/6) + 5×(1/6) + 6×(1/6)
+     = (1 + 2 + 3 + 4 + 5 + 6) × (1/6)
+     = 21 × (1/6)
+     = 3.5</code></pre>
+<p><strong>Interpretasi:</strong></p>
+<ul>
+<li>Jika kita lempar dadu 1000 kali, rata-rata hasilnya akan mendekati 3.5</li>
+<li>
+<strong>Bukan berarti</strong> dadu bisa menghasilkan 3.5!</li>
+<li>3.5 adalah <strong>rata-rata jangka panjang</strong>
+</li>
+</ul>
+<hr></section><section id="contoh-5-ekspektasi-koin-2-kali" class="level3" data-number="7.2.9"><h3 data-number="7.2.9" class="anchored" data-anchor-id="contoh-5-ekspektasi-koin-2-kali">
+<span class="header-section-number">7.2.9</span> Contoh 5: Ekspektasi Koin 2 Kali</h3>
+<p>X = banyak kepala dalam 2 lemparan</p>
+<table class="caption-top table">
+<thead><tr class="header">
+<th>x</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td>P(X=x)</td>
+<td>1/4</td>
+<td>1/2</td>
+<td>1/4</td>
+</tr></tbody>
+</table>
+<pre><code>E(X) = 0×(1/4) + 1×(1/2) + 2×(1/4)
+     = 0 + 1/2 + 2/4
+     = 0 + 1/2 + 1/2
+     = 1</code></pre>
+<p><strong>Interpretasi:</strong> Rata-rata kita dapat 1 kepala dalam 2 lemparan.</p>
+<hr></section><section id="contoh-6-permainan-untung-rugi" class="level3" data-number="7.2.10"><h3 data-number="7.2.10" class="anchored" data-anchor-id="contoh-6-permainan-untung-rugi">
+<span class="header-section-number">7.2.10</span> Contoh 6: Permainan Untung-Rugi</h3>
+<p><strong>Aturan permainan:</strong></p>
+<ul>
+<li>Bayar Rp 10,000 untuk main</li>
+<li>Lempar koin 2 kali</li>
+<li>Dapat Rp 25,000 jika 2 kepala</li>
+<li>Dapat Rp 10,000 jika 1 kepala<br>
+</li>
+<li>Dapat Rp 0 jika 0 kepala</li>
+</ul>
+<p><strong>Pertanyaan:</strong> Apakah permainan ini menguntungkan?</p>
+<p><strong>Penyelesaian:</strong></p>
+<p>Misalkan Y = keuntungan bersih</p>
+<table class="caption-top table">
+<thead><tr class="header">
+<th>Hasil</th>
+<th>Peluang</th>
+<th>Pendapatan</th>
+<th>Keuntungan</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>2 kepala</td>
+<td>1/4</td>
+<td>25,000</td>
+<td>15,000</td>
+</tr>
+<tr class="even">
+<td>1 kepala</td>
+<td>1/2</td>
+<td>10,000</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>0 kepala</td>
+<td>1/4</td>
+<td>0</td>
+<td>-10,000</td>
+</tr>
+</tbody>
+</table>
+<pre><code>E(Y) = 15,000×(1/4) + 0×(1/2) + (-10,000)×(1/4)
+     = 3,750 + 0 - 2,500
+     = 1,250</code></pre>
+<p><strong>Kesimpulan:</strong> Rata-rata untung Rp 1,250 per permainan. <strong>Menguntungkan!</strong></p>
+<hr></section><section id="sifat-sifat-ekspektasi" class="level3" data-number="7.2.11"><h3 data-number="7.2.11" class="anchored" data-anchor-id="sifat-sifat-ekspektasi">
+<span class="header-section-number">7.2.11</span> Sifat-Sifat Ekspektasi</h3>
+<p><strong>1. Konstanta keluar:</strong> <span class="math inline">\(E(aX) = a \times E(X)\)</span></p>
+<p><strong>2. Tambah konstanta:</strong> <span class="math inline">\(E(X + b) = E(X) + b\)</span></p>
+<p><strong>3. Kombinasi:</strong> <span class="math inline">\(E(aX + b) = a \times E(X) + b\)</span></p>
+<p><strong>4. Penjumlahan:</strong> <span class="math inline">\(E(X + Y) = E(X) + E(Y)\)</span> (selalu berlaku!)</p>
+<hr></section><section id="contoh-7-menggunakan-sifat-ekspektasi" class="level3" data-number="7.2.12"><h3 data-number="7.2.12" class="anchored" data-anchor-id="contoh-7-menggunakan-sifat-ekspektasi">
+<span class="header-section-number">7.2.12</span> Contoh 7: Menggunakan Sifat Ekspektasi</h3>
+<p>Jika E(X) = 10, hitung:</p>
+<p><strong>a) E(3X)</strong></p>
+<pre><code>E(3X) = 3 × E(X) = 3 × 10 = 30</code></pre>
+<p><strong>b) E(X + 5)</strong></p>
+<pre><code>E(X + 5) = E(X) + 5 = 10 + 5 = 15</code></pre>
+<p><strong>c) E(2X - 7)</strong></p>
+<pre><code>E(2X - 7) = 2 × E(X) - 7 = 2 × 10 - 7 = 13</code></pre>
+<hr></section></section><section id="variansi-dan-standar-deviasi" class="level2" data-number="7.3"><h2 data-number="7.3" class="anchored" data-anchor-id="variansi-dan-standar-deviasi">
+<span class="header-section-number">7.3</span> VARIANSI DAN STANDAR DEVIASI</h2>
+<section id="mengapa-perlu-variansi" class="level3" data-number="7.3.1"><h3 data-number="7.3.1" class="anchored" data-anchor-id="mengapa-perlu-variansi">
+<span class="header-section-number">7.3.1</span> Mengapa Perlu Variansi?</h3>
+<p><strong>Masalah:</strong> Dua permainan punya ekspektasi sama, tapi risikonya beda.</p>
+<p><strong>Permainan A:</strong> Selalu dapat Rp 1,000 → E(A) = 1,000</p>
+<p><strong>Permainan B:</strong> 50% dapat Rp 0, 50% dapat Rp 2,000 → E(B) = 1,000</p>
+<p>Ekspektasi sama, tapi <strong>risiko berbeda</strong>! Permainan B lebih berisiko.</p>
+<p><strong>Variansi</strong> mengukur <strong>seberapa tersebar</strong> nilai dari rata-ratanya.</p>
+<hr></section><section id="definisi-variansi" class="level3" data-number="7.3.2"><h3 data-number="7.3.2" class="anchored" data-anchor-id="definisi-variansi">
+<span class="header-section-number">7.3.2</span> Definisi Variansi</h3>
+<p><strong>Variansi</strong> = rata-rata kuadrat selisih dengan ekspektasi</p>
+<p><strong>Formula yang mudah:</strong> <span class="math display">\[Var(X) = E(X^2) - [E(X)]^2\]</span></p>
+<p><strong>Langkah-langkah:</strong></p>
 <ol type="1">
-<li>Sebuah kotak berisi 5 bola merah, 3 bola biru, dan 2 bola hijau. Dua bola diambil secara acak tanpa pengembalian.</li>
+<li>Hitung E(X)</li>
+<li>Hitung E(X²)</li>
+<li>Var(X) = E(X²) - [E(X)]²</li>
 </ol>
-<ol type="a">
-<li>Berapa peluang kedua bola berwarna merah?</li>
-<li>Berapa peluang bola pertama merah dan bola kedua biru?</li>
-</ol>
-<p><input class="webex-solveme" id="webex-57b89f584829047f94c603ed5897035d" size="20" data-answer="bhVQFwBGUVlaGAMWBhZq"></p>
+<p><strong>Standar Deviasi:</strong> <span class="math display">\[SD(X) = \sqrt{Var(X)}\]</span></p>
+<hr></section><section id="contoh-8-variansi-lempar-dadu" class="level3" data-number="7.3.3"><h3 data-number="7.3.3" class="anchored" data-anchor-id="contoh-8-variansi-lempar-dadu">
+<span class="header-section-number">7.3.3</span> Contoh 8: Variansi Lempar Dadu</h3>
+<p>X = hasil lempar dadu</p>
+<p><strong>Langkah 1:</strong> E(X) = 3.5 (sudah dihitung sebelumnya)</p>
+<p><strong>Langkah 2:</strong> Hitung E(X²)</p>
+<table class="caption-top table">
+<thead><tr class="header">
+<th>x</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>x²</td>
+<td>1</td>
+<td>4</td>
+<td>9</td>
+<td>16</td>
+<td>25</td>
+<td>36</td>
+</tr>
+<tr class="even">
+<td>P(X=x)</td>
+<td>1/6</td>
+<td>1/6</td>
+<td>1/6</td>
+<td>1/6</td>
+<td>1/6</td>
+<td>1/6</td>
+</tr>
+</tbody>
+</table>
+<pre><code>E(X²) = 1×(1/6) + 4×(1/6) + 9×(1/6) + 16×(1/6) + 25×(1/6) + 36×(1/6)
+      = (1 + 4 + 9 + 16 + 25 + 36) × (1/6)
+      = 91 × (1/6)
+      = 15.17</code></pre>
+<p><strong>Langkah 3:</strong> Hitung Variansi</p>
+<pre><code>Var(X) = E(X²) - [E(X)]²
+       = 15.17 - (3.5)²
+       = 15.17 - 12.25
+       = 2.92
+
+SD(X) = √2.92 ≈ 1.71</code></pre>
+<hr></section><section id="contoh-9-variansi-koin-2-kali" class="level3" data-number="7.3.4"><h3 data-number="7.3.4" class="anchored" data-anchor-id="contoh-9-variansi-koin-2-kali">
+<span class="header-section-number">7.3.4</span> Contoh 9: Variansi Koin 2 Kali</h3>
+<p>X = banyak kepala dalam 2 lemparan</p>
+<p>E(X) = 1 (sudah dihitung sebelumnya)</p>
+<p><strong>Hitung E(X²):</strong></p>
+<table class="caption-top table">
+<thead><tr class="header">
+<th>x</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>x²</td>
+<td>0</td>
+<td>1</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>P(X=x)</td>
+<td>1/4</td>
+<td>1/2</td>
+<td>1/4</td>
+</tr>
+</tbody>
+</table>
+<pre><code>E(X²) = 0×(1/4) + 1×(1/2) + 4×(1/4)
+      = 0 + 1/2 + 1
+      = 1.5
+
+Var(X) = 1.5 - (1)²
+       = 1.5 - 1
+       = 0.5
+
+SD(X) = √0.5 ≈ 0.71</code></pre>
+<hr></section><section id="sifat-sifat-variansi" class="level3" data-number="7.3.5"><h3 data-number="7.3.5" class="anchored" data-anchor-id="sifat-sifat-variansi">
+<span class="header-section-number">7.3.5</span> Sifat-Sifat Variansi</h3>
+<p><strong>1. Konstanta keluar kuadrat:</strong> <span class="math inline">\(Var(aX) = a^2 \times Var(X)\)</span></p>
+<p><strong>2. Tambah konstanta tidak mengubah variansi:</strong> <span class="math inline">\(Var(X + b) = Var(X)\)</span></p>
+<p><strong>3. Kombinasi:</strong> <span class="math inline">\(Var(aX + b) = a^2 \times Var(X)\)</span></p>
+<p><strong>4. Jika X dan Y independen:</strong> <span class="math inline">\(Var(X + Y) = Var(X) + Var(Y)\)</span></p>
+<p><strong>5. Selalu non-negatif:</strong> <span class="math inline">\(Var(X) \geq 0\)</span></p>
+<hr></section><section id="contoh-10-menggunakan-sifat-variansi" class="level3" data-number="7.3.6"><h3 data-number="7.3.6" class="anchored" data-anchor-id="contoh-10-menggunakan-sifat-variansi">
+<span class="header-section-number">7.3.6</span> Contoh 10: Menggunakan Sifat Variansi</h3>
+<p>Jika Var(X) = 9, hitung:</p>
+<p><strong>a) Var(2X)</strong></p>
+<pre><code>Var(2X) = 2² × Var(X) = 4 × 9 = 36</code></pre>
+<p><strong>b) Var(X + 5)</strong></p>
+<pre><code>Var(X + 5) = Var(X) = 9
+(Tambah konstanta tidak mengubah variansi)</code></pre>
+<p><strong>c) SD(3X)</strong></p>
+<pre><code>Var(3X) = 3² × Var(X) = 9 × 9 = 81
+SD(3X) = √81 = 9</code></pre>
+<hr></section></section><section id="bagian-ii-peubah-acak-kontinu" class="level2" data-number="7.4"><h2 data-number="7.4" class="anchored" data-anchor-id="bagian-ii-peubah-acak-kontinu">
+<span class="header-section-number">7.4</span> BAGIAN II: PEUBAH ACAK KONTINU</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<div class="webex-solution">
-<ol type="a">
-<li>Kedua bola merah:</li>
-</ol>
+<div class="callout-title-container flex-fill">
+Catatan untuk Bagian Ini
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Bagian ini dijelaskan secara <strong>konseptual</strong> tanpa perhitungan kalkulus yang rumit. Fokus pada <strong>pemahaman ide</strong> dan <strong>penggunaan formula hasil akhir</strong>.</p>
+</div>
+</div>
+<section id="apa-itu-peubah-acak-kontinu" class="level3" data-number="7.4.1"><h3 data-number="7.4.1" class="anchored" data-anchor-id="apa-itu-peubah-acak-kontinu">
+<span class="header-section-number">7.4.1</span> Apa itu Peubah Acak Kontinu?</h3>
+<p><strong>Peubah acak kontinu</strong> adalah peubah acak yang nilainya bisa berupa <strong>interval</strong> (tidak bisa dihitung satu per satu).</p>
+<p><strong>Contoh:</strong></p>
 <ul>
-<li>Total bola = 10</li>
-<li>P(merah pertama) = 5/10</li>
-<li>P(merah kedua | merah pertama) = 4/9</li>
-<li>P(kedua merah) = (5/10) × (4/9) = 2/9</li>
+<li>Tinggi mahasiswa: bisa 170.1 cm, 170.15 cm, 170.151 cm, dst</li>
+<li>Waktu tunggu bus: bisa 5.2 menit, 5.23 menit, dst</li>
+<li>Suhu ruangan: bisa 25.6°C, 25.63°C, dst</li>
 </ul>
-<ol start="2" type="a">
-<li>Pertama merah, kedua biru:</li>
-</ol>
+<p><strong>Perbedaan utama dengan diskret:</strong></p>
 <ul>
-<li>P(merah pertama) = 5/10</li>
-<li>P(biru kedua | merah pertama) = 3/9</li>
-<li>P(merah lalu biru) = (5/10) × (3/9) = 1/6</li>
+<li>
+<strong>Diskret:</strong> P(X = nilai tertentu) bisa &gt; 0</li>
+<li>
+<strong>Kontinu:</strong> P(X = nilai tertentu) = 0 (selalu!)</li>
 </ul>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="2" type="1">
-<li>Dalam pelemparan tiga koin sekaligus, kejadian A adalah “muncul tepat 2 gambar” dan kejadian B adalah “muncul minimal 2 gambar”.</li>
-</ol>
-<ol type="a">
-<li>Tentukan anggota A dan B</li>
-<li>Apakah A ⊆ B? Jelaskan!</li>
-<li>Hitung P(B|A)</li>
-</ol>
-<p><input class="webex-solveme" id="webex-8cebf48fa2bf5d3b7965b50720afe986" size="40" data-answer="Y0EkXx11fyFNdSMhGSN0I0oVFndfTnFwdRwmJyIVf3F5TyIlIUkURiDQ6OB3RFEHWVhEGUJlEhsSEkkkGXgRFBRDR1NEaQ=="></p>
-</div>
-<div class="webex-solution">
-<ol type="a">
-<li>Anggota A dan B:</li>
-</ol>
+<p><strong>Yang bermakna untuk kontinu:</strong> P(a ≤ X ≤ b) = peluang X di antara a dan b</p>
+<hr></section><section id="fungsi-densitas-peluang-pdf" class="level3" data-number="7.4.2"><h3 data-number="7.4.2" class="anchored" data-anchor-id="fungsi-densitas-peluang-pdf">
+<span class="header-section-number">7.4.2</span> Fungsi Densitas Peluang (PDF)</h3>
+<p><strong>PDF</strong> adalah “kurva peluang” untuk peubah acak kontinu.</p>
+<p><strong>Konsep penting:</strong></p>
 <ul>
-<li>Ruang sampel S = {AAA, AAG, AGA, GAA, AGG, GAG, GGA, GGG}, n(S) = 8</li>
-<li>A (tepat 2 gambar) = {AGG, GAG, GGA}, n(A) = 3</li>
-<li>B (minimal 2 gambar) = {AGG, GAG, GGA, GGG}, n(B) = 4</li>
+<li>
+<strong>Tinggi kurva</strong> = densitas peluang</li>
+<li>
+<strong>Luas di bawah kurva</strong> = peluang</li>
+<li>
+<strong>Total luas</strong> = 1</li>
 </ul>
-<ol start="2" type="a">
-<li><p>Ya, A ⊆ B karena semua anggota A ada dalam B</p></li>
-<li><p>P(B|A) = 1 (karena A ⊆ B, maka A ∩ B = A)</p></li>
+<p><strong>Interpretasi geometris:</strong> P(a ≤ X ≤ b) = Luas di bawah kurva dari a sampai b</p>
+<p><strong>Mari kita lihat contoh kurva PDF:</strong></p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="week7_nocalculus_files/figure-html/contoh-pdf-1.png" class="img-fluid figure-img" width="960"></p>
+<figcaption>Contoh Kurva PDF untuk Berbagai Distribusi</figcaption></figure>
+</div>
+</div>
+</div>
+<p><strong>Poin penting dari kurva di atas:</strong></p>
+<ul>
+<li>
+<strong>Uniform:</strong> Tinggi sama di semua tempat = peluang merata</li>
+<li>
+<strong>Normal:</strong> Tinggi di tengah = nilai tengah paling mungkin<br>
+</li>
+<li>
+<strong>Eksponensial:</strong> Tinggi di kiri = nilai kecil lebih sering</li>
+<li>
+<strong>Semua kurva:</strong> Total luas di bawah kurva = 1</li>
+</ul>
+<hr></section><section id="contoh-11-konsep-dasar-kontinu" class="level3" data-number="7.4.3"><h3 data-number="7.4.3" class="anchored" data-anchor-id="contoh-11-konsep-dasar-kontinu">
+<span class="header-section-number">7.4.3</span> Contoh 11: Konsep Dasar Kontinu</h3>
+<p>Bayangkan kita mengukur <strong>waktu tunggu bus</strong> yang bisa berapa saja antara 0 sampai 10 menit.</p>
+<p><strong>Perbedaan dengan diskret:</strong></p>
+<ul>
+<li>
+<strong>Diskret:</strong> Lempar dadu → hasil pasti 1,2,3,4,5, atau 6</li>
+<li>
+<strong>Kontinu:</strong> Waktu tunggu → bisa 2.3 menit, 5.67 menit, 8.123 menit, dst</li>
+</ul>
+<p><strong>Konsep PDF:</strong></p>
+<ul>
+<li>Tidak ada “peluang tepat” untuk nilai tertentu</li>
+<li>Yang ada adalah “peluang dalam rentang”</li>
+<li>Contoh: P(3 ≤ waktu ≤ 7) = peluang tunggu antara 3-7 menit</li>
+</ul>
+<p><strong>Cara berpikir:</strong></p>
+<ul>
+<li>
+<strong>Luas di bawah kurva</strong> = peluang</li>
+<li>
+<strong>Total luas kurva</strong> = 1</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ingat!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Untuk peubah acak kontinu, kita tidak pernah bertanya “Berapa peluang X = 5.0000 tepat?” karena jawabannya selalu 0. Yang bermakna adalah “Berapa peluang X antara 4.9 dan 5.1?”</p>
+</div>
+</div>
+<p><strong>Mari kita lihat konsep “Luas = Peluang” secara visual:</strong></p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="week7_nocalculus_files/figure-html/luas-peluang-1.png" class="img-fluid figure-img" width="1152"></p>
+<figcaption>Konsep Luas di Bawah Kurva = Peluang</figcaption></figure>
+</div>
+</div>
+</div>
+<p><strong>Yang bisa kita pelajari:</strong></p>
+<ol type="1">
+<li>
+<strong>Persegi panjang (Uniform):</strong> Mudah hitung luas = panjang × lebar</li>
+<li>
+<strong>Lonceng (Normal):</strong> Simetris, area tengah paling besar<br>
+</li>
+<li>
+<strong>Menurun (Eksponensial):</strong> Area kiri (nilai kecil) dominan</li>
+<li>
+<strong>Prinsip umum:</strong> Semakin tinggi kurva di suatu area = semakin besar peluang</li>
 </ol>
+<hr></section><section id="ekspektasi-dan-variansi-kontinu" class="level3" data-number="7.4.4"><h3 data-number="7.4.4" class="anchored" data-anchor-id="ekspektasi-dan-variansi-kontinu">
+<span class="header-section-number">7.4.4</span> Ekspektasi dan Variansi Kontinu</h3>
+<p><strong>Konsep sama dengan diskret:</strong></p>
+<ul>
+<li>Ekspektasi = nilai tengah distribusi</li>
+<li>Variansi = ukuran sebaran</li>
+</ul>
+<p><strong>Yang berbeda:</strong> Cara menghitung (pakai integral, tapi kita skip!)</p>
+<p><strong>Prinsip umum:</strong></p>
+<ul>
+<li>Untuk peubah acak kontinu, ekspektasi dan variansi tetap ada</li>
+<li>Perhitungannya lebih rumit (butuh kalkulus)</li>
+<li>
+<strong>Interpretasinya sama</strong> dengan diskret</li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Fokus Minggu Ini
 </div>
 </div>
-<div class="webex-question">
-<div class="webex-check webex-box">
+<div class="callout-body-container callout-body">
+<p>Untuk sekarang, yang penting adalah memahami <strong>konsep</strong> ekspektasi dan variansi dari peubah acak diskret. Distribusi spesifik (Uniform, Normal, dll) akan dipelajari minggu depan dengan rumus yang sudah jadi.</p>
+</div>
+</div>
+<hr></section></section><section id="perbandingan-diskret-vs-kontinu" class="level2" data-number="7.5"><h2 data-number="7.5" class="anchored" data-anchor-id="perbandingan-diskret-vs-kontinu">
+<span class="header-section-number">7.5</span> PERBANDINGAN DISKRET VS KONTINU</h2>
+<table class="caption-top table">
+<thead><tr class="header">
+<th>Aspek</th>
+<th>Diskret</th>
+<th>Kontinu</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><strong>Nilai</strong></td>
+<td>Dapat dihitung: 1,2,3,…</td>
+<td>Interval: [0,10]</td>
+</tr>
+<tr class="even">
+<td><strong>P(X=nilai)</strong></td>
+<td>Bisa &gt; 0</td>
+<td>Selalu = 0</td>
+</tr>
+<tr class="odd">
+<td><strong>Fungsi</strong></td>
+<td>PMF (tabel/formula)</td>
+<td>PDF (kurva)</td>
+</tr>
+<tr class="even">
+<td><strong>Peluang</strong></td>
+<td>Jumlahkan PMF</td>
+<td>Luas di bawah kurva</td>
+</tr>
+<tr class="odd">
+<td><strong>Total</strong></td>
+<td>Σ PMF = 1</td>
+<td>Luas total = 1</td>
+</tr>
+<tr class="even">
+<td><strong>Contoh</strong></td>
+<td>Jumlah dadu, koin</td>
+<td>Tinggi, berat, waktu</td>
+</tr>
+<tr class="odd">
+<td><strong>Perhitungan</strong></td>
+<td>Penjumlahan</td>
+<td>Integral (skip!)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Mari kita lihat perbedaan visual PMF vs PDF:</strong></p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="week7_nocalculus_files/figure-html/pmf-vs-pdf-1.png" class="img-fluid figure-img" width="1152"></p>
+<figcaption>Perbandingan PMF (Diskret) vs PDF (Kontinu)</figcaption></figure>
+</div>
+</div>
+</div>
+<p><strong>Perbedaan kunci yang terlihat:</strong></p>
+<table class="caption-top table">
+<thead><tr class="header">
+<th>Aspek</th>
+<th>PMF (Diskret)</th>
+<th>PDF (Kontinu)</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><strong>Visual</strong></td>
+<td>Batang terpisah</td>
+<td>Kurva halus</td>
+</tr>
+<tr class="even">
+<td><strong>Tinggi</strong></td>
+<td>= Peluang tepat</td>
+<td>= Densitas (bukan peluang)</td>
+</tr>
+<tr class="odd">
+<td><strong>Peluang</strong></td>
+<td>Tinggi batang</td>
+<td>Luas di bawah kurva</td>
+</tr>
+<tr class="even">
+<td><strong>Total</strong></td>
+<td>Jumlah tinggi = 1</td>
+<td>Luas total = 1</td>
+</tr>
+<tr class="odd">
+<td><strong>P(X=nilai)</strong></td>
+<td>Bisa &gt; 0</td>
+<td>Selalu = 0</td>
+</tr>
+</tbody>
+</table>
+<hr></section><section id="aplikasi-praktis" class="level2" data-number="7.6"><h2 data-number="7.6" class="anchored" data-anchor-id="aplikasi-praktis">
+<span class="header-section-number">7.6</span> APLIKASI PRAKTIS</h2>
+<section id="contoh-14-analisis-investasi" class="level3" data-number="7.6.1"><h3 data-number="7.6.1" class="anchored" data-anchor-id="contoh-14-analisis-investasi">
+<span class="header-section-number">7.6.1</span> Contoh 14: Analisis Investasi</h3>
+<p><strong>Investasi A:</strong> - E(return) = 10%, SD = 3%</p>
+<p><strong>Investasi B:</strong> - E(return) = 12%, SD = 8%</p>
+<p><strong>Analisis:</strong></p>
+<ul>
+<li>B punya return ekspektasi lebih tinggi</li>
+<li>Tapi B lebih berisiko (SD lebih besar)</li>
+<li>Pilihan tergantung profil risiko</li>
+</ul>
+<p><strong>Coefficient of Variation (CV):</strong> <span class="math display">\[CV = \frac{SD}{E(X)}\]</span></p>
+<pre><code>CV_A = 3/10 = 0.3
+CV_B = 8/12 ≈ 0.67
+
+A lebih stabil relatif terhadap returnnya</code></pre>
+<hr></section><section id="contoh-15-quality-control" class="level3" data-number="7.6.2"><h3 data-number="7.6.2" class="anchored" data-anchor-id="contoh-15-quality-control">
+<span class="header-section-number">7.6.2</span> Contoh 15: Quality Control</h3>
+<p>Mesin produksi baut dengan:</p>
+<ul>
+<li>E(diameter) = 10 mm</li>
+<li>SD(diameter) = 0.1 mm</li>
+</ul>
+<p><strong>Spesifikasi:</strong> diameter 10 ± 0.3 mm (9.7 - 10.3 mm)</p>
+<p><strong>Analisis:</strong></p>
+<ul>
+<li>Dengan SD kecil (0.1), kebanyakan produk sesuai spesifikasi</li>
+<li>Jika SD besar (0.5), banyak produk di luar spesifikasi</li>
+</ul>
+<p><strong>Prinsip:</strong> Semakin kecil SD, semakin konsisten kualitas.</p>
+<hr></section><section id="contoh-16-portofolio-investasi" class="level3" data-number="7.6.3"><h3 data-number="7.6.3" class="anchored" data-anchor-id="contoh-16-portofolio-investasi">
+<span class="header-section-number">7.6.3</span> Contoh 16: Portofolio Investasi</h3>
+<p>Dua saham independen:</p>
+<ul>
+<li>Saham A: E = $100, SD = $20</li>
+<li>Saham B: E = $150, SD = $30</li>
+</ul>
+<p>Total investasi: X = A + B</p>
+<pre><code>E(X) = E(A) + E(B) = 100 + 150 = $250
+
+Var(X) = Var(A) + Var(B) = 20² + 30² = 400 + 900 = 1,300
+
+SD(X) = √1,300 ≈ $36</code></pre>
+<p><strong>Insight:</strong> Diversifikasi tidak mengurangi total risiko jika saham independen!</p>
+<hr></section></section><section id="kesalahan-umum-cara-menghindari" class="level2" data-number="7.7"><h2 data-number="7.7" class="anchored" data-anchor-id="kesalahan-umum-cara-menghindari">
+<span class="header-section-number">7.7</span> KESALAHAN UMUM &amp; CARA MENGHINDARI</h2>
+<section id="ex-3.5-berarti-dadu-bisa-menghasilkan-3.5" class="level3" data-number="7.7.1"><h3 data-number="7.7.1" class="anchored" data-anchor-id="ex-3.5-berarti-dadu-bisa-menghasilkan-3.5">
+<span class="header-section-number">7.7.1</span> 1. “E(X) = 3.5 berarti dadu bisa menghasilkan 3.5”</h3>
+<p><strong>❌ Salah!</strong> Ekspektasi adalah rata-rata jangka panjang, bukan nilai individu.</p>
+</section><section id="ex²-ex²" class="level3" data-number="7.7.2"><h3 data-number="7.7.2" class="anchored" data-anchor-id="ex²-ex²">
+<span class="header-section-number">7.7.2</span> 2. E(X²) = [E(X)]²</h3>
+<p><strong>❌ Salah!</strong> Ekspektasi kuadrat ≠ kuadrat ekspektasi <strong>✅ Benar:</strong> Umumnya E(X²) &gt; [E(X)]²</p>
+</section><section id="var2x-2-varx" class="level3" data-number="7.7.3"><h3 data-number="7.7.3" class="anchored" data-anchor-id="var2x-2-varx">
+<span class="header-section-number">7.7.3</span> 3. Var(2X) = 2 × Var(X)</h3>
+<p><strong>❌ Salah!</strong> Konstanta keluar kuadrat <strong>✅ Benar:</strong> Var(2X) = 2² × Var(X) = 4 × Var(X)</p>
+</section><section id="varxy-varx-vary" class="level3" data-number="7.7.4"><h3 data-number="7.7.4" class="anchored" data-anchor-id="varxy-varx-vary">
+<span class="header-section-number">7.7.4</span> 4. Var(X+Y) = Var(X) + Var(Y)</h3>
+<p><strong>❌ Tidak selalu!</strong> Hanya berlaku jika X dan Y independen</p>
+<hr></section></section><section id="tabel-ringkasan-formula" class="level2" data-number="7.8"><h2 data-number="7.8" class="anchored" data-anchor-id="tabel-ringkasan-formula">
+<span class="header-section-number">7.8</span> TABEL RINGKASAN FORMULA</h2>
+<section id="diskret" class="level3" data-number="7.8.1"><h3 data-number="7.8.1" class="anchored" data-anchor-id="diskret">
+<span class="header-section-number">7.8.1</span> Diskret</h3>
+<p><span class="math display">\[E(X) = \sum x \cdot P(X=x)\]</span> <span class="math display">\[Var(X) = E(X^2) - [E(X)]^2\]</span></p>
+</section><section id="sifat-sifat" class="level3" data-number="7.8.2"><h3 data-number="7.8.2" class="anchored" data-anchor-id="sifat-sifat">
+<span class="header-section-number">7.8.2</span> Sifat-Sifat</h3>
+<p><span class="math display">\[E(aX + b) = aE(X) + b\]</span> <span class="math display">\[Var(aX + b) = a^2 Var(X)\]</span> <span class="math display">\[SD(X) = \sqrt{Var(X)}\]</span></p>
+</section><section id="distribusi-umum" class="level3" data-number="7.8.3"><h3 data-number="7.8.3" class="anchored" data-anchor-id="distribusi-umum">
+<span class="header-section-number">7.8.3</span> Distribusi Umum</h3>
+<p><em>Akan dipelajari minggu depan dengan rumus lengkap</em></p>
+<table class="caption-top table">
+<thead><tr class="header">
+<th>Jenis</th>
+<th>E(X)</th>
+<th>Var(X)</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Uniform[a,b]</td>
+<td>(a+b)/2</td>
+<td>(b-a)²/12</td>
+</tr>
+<tr class="even">
+<td>Eksponensial(λ)</td>
+<td>1/λ</td>
+<td>1/λ²</td>
+</tr>
+<tr class="odd">
+<td>Normal(μ,σ)</td>
+<td>μ</td>
+<td>σ²</td>
+</tr>
+</tbody>
+</table>
+<hr></section></section><section id="latihan-mandiri" class="level2" data-number="7.9"><h2 data-number="7.9" class="anchored" data-anchor-id="latihan-mandiri">
+<span class="header-section-number">7.9</span> LATIHAN MANDIRI</h2>
+<section id="level-1-dasar" class="level3" data-number="7.9.1"><h3 data-number="7.9.1" class="anchored" data-anchor-id="level-1-dasar">
+<span class="header-section-number">7.9.1</span> Level 1: Dasar</h3>
+<ol type="1">
+<li><p>X = hasil lempar koin (H=1, T=0). Buat PMF, hitung E(X) dan Var(X).</p></li>
+<li><p>Y = jumlah 2 koin (H=1, T=0). Buat PMF, hitung E(Y) dan Var(Y).</p></li>
+</ol></section><section id="level-2-menengah" class="level3" data-number="7.9.2"><h3 data-number="7.9.2" class="anchored" data-anchor-id="level-2-menengah">
+<span class="header-section-number">7.9.2</span> Level 2: Menengah</h3>
 <ol start="3" type="1">
-<li>Diketahui P(A) = 0.6, P(B) = 0.5, dan P(A ∪ B) = 0.8.</li>
-</ol>
-<ol type="a">
-<li>Hitung P(A ∩ B)</li>
-<li>Hitung P(A|B)</li>
-<li>Apakah A dan B independen? Buktikan!</li>
-</ol>
-<p><input class="webex-solveme" id="webex-aa9cca12fe575a66a6fc27bf15776639" size="20" data-answer="OkNpQU9BExonh72ed0gUGkEUVk0BG0I2ExkXFR53T3tIQxVDQVEfBEpFfFlRBEZTD1IDDRBq"></p>
-</div>
-<div class="webex-solution">
-<ol type="a">
-<li><p>P(A ∩ B): P(A ∪ B) = P(A) + P(B) - P(A ∩ B) 0.8 = 0.6 + 0.5 - P(A ∩ B) P(A ∩ B) = 0.3</p></li>
-<li><p>P(A|B) = P(A ∩ B) / P(B) = 0.3 / 0.5 = 0.6</p></li>
-<li><p>Independen: P(A) × P(B) = 0.6 × 0.5 = 0.3 P(A ∩ B) = 0.3 Karena sama, maka A dan B INDEPENDEN.</p></li>
-</ol>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="4" type="1">
-<li>Sebuah dadu merah dan dadu biru dilempar bersamaan. Kejadian M adalah “jumlah mata dadu = 8” dan kejadian N adalah “hasil kali mata dadu genap”.</li>
-</ol>
-<ol type="a">
-<li>Tentukan n(M) dan n(N)</li>
-<li>Hitung P(M ∩ N)</li>
-<li>Hitung P(M ∪ N)</li>
-</ol>
-<p><input class="webex-solveme" id="webex-3a001b7fa9282c322f16c16648615c46" size="40" data-answer="aENeGHxLClNNGVwQfEoOAAVKEWZLfNS+nXYfDARMBQQfQWAYfIC/zC8QDwoLTAAEEDs="></p>
-</div>
-<div class="webex-solution">
-<ol type="a">
-<li>n(M) dan n(N):</li>
-</ol>
-<ul>
-<li>M (jumlah = 8): {(2,6), (3,5), (4,4), (5,3), (6,2)}, n(M) = 5</li>
-<li>N (hasil kali genap): Komplemen kedua ganjil = 9, jadi n(N) = 36 - 9 = 27</li>
-</ul>
-<ol start="2" type="a">
-<li><p>P(M ∩ N): Dari M yang hasil kalinya genap: {(2,6), (4,4), (6,2)}, n(M ∩ N) = 3 P(M ∩ N) = 3/36 = 1/12</p></li>
-<li><p>P(M ∪ N) = 5/36 + 27/36 - 3/36 = 29/36</p></li>
-</ol>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
+<li><p>Permainan: bayar Rp 5,000, lempar dadu, dapat Rp 6,000 jika genap. Hitung E(keuntungan).</p></li>
+<li><p>Jika E(X) = 15 dan Var(X) = 25, hitung E(2X-10) dan SD(2X-10).</p></li>
+</ol></section><section id="level-3-aplikasi" class="level3" data-number="7.9.3"><h3 data-number="7.9.3" class="anchored" data-anchor-id="level-3-aplikasi">
+<span class="header-section-number">7.9.3</span> Level 3: Aplikasi</h3>
 <ol start="5" type="1">
-<li>Dalam sebuah kelas terdapat 40 siswa: 25 laki-laki dan 15 perempuan. Dari laki-laki, 15 orang memakai kacamata. Dari perempuan, 9 orang memakai kacamata. Jika dipilih 1 siswa secara acak:</li>
+<li><p>Dua investasi independen: E₁=$50, SD₁=$8, E₂=$80, SD₂=$12. Hitung E dan SD portofolio.</p></li>
+<li><p><strong>[Preview minggu depan]</strong> Jika waktu tunggu mengikuti distribusi tertentu dengan E(waktu)=5 menit dan Var(waktu)=9, berapa SD(waktu)?</p></li>
 </ol>
-<ol type="a">
-<li>Berapa peluang terpilih siswa perempuan yang memakai kacamata?</li>
-<li>Jika yang terpilih memakai kacamata, berapa peluang dia laki-laki?</li>
-</ol>
-<div id="webex-80c4d46de83351b5315b5e2667775675" class="webex-radiogroup" data-answer="YwFPBEgEGlQ4">
-<label><input type="radio" autocomplete="off" name="80c4d46de83351b5315b5e2667775675"><span>a) P=9/40=0.225, b) P(Laki-laki|Berkacamata)=15/24=5/8=0.625</span></label><label><input type="radio" autocomplete="off" name="80c4d46de83351b5315b5e2667775675"><span>a) P=9/40=0.225, b) P(Laki-laki|Berkacamata)=9/24=3/8=0.375</span></label><label><input type="radio" autocomplete="off" name="80c4d46de83351b5315b5e2667775675"><span>a) P=15/40=0.375, b) P(Laki-laki|Berkacamata)=9/24=3/8=0.375</span></label><label><input type="radio" autocomplete="off" name="80c4d46de83351b5315b5e2667775675"><span>a) P=15/40=0.375, b) P(Laki-laki|Berkacamata)=15/24=5/8=0.625</span></label>
-</div>
-</div>
-<div class="webex-solution">
-<ol type="a">
-<li><p>Perempuan berkacamata = 9, Total = 40, P = 9/40 = 0.225</p></li>
-<li><p>Total berkacamata = 24, Laki-laki berkacamata = 15 P(Laki-laki | Berkacamata) = 15/24 = 5/8 = 0.625</p></li>
-</ol>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="6" type="1">
-<li>Kejadian A dan B saling lepas dengan P(A) = 0.4 dan P(A ∪ B) = 0.7.</li>
-</ol>
-<ol type="a">
-<li>Hitung P(B)</li>
-<li>Hitung P(A ∩ B)</li>
-<li>Apakah mungkin A dan B independen? Jelaskan!</li>
-</ol>
-<p><input class="webex-solveme" id="webex-7df36687f13aba598fd2a71a54590578" size="36" data-answer="bEY2G3QfBQdIAh9BMkl027DPJhtcBx1BYV1RWFsVXlZTARZWWFJdWURs"></p>
-</div>
-<div class="webex-solution">
-<ol type="a">
-<li><p>P(B): Karena saling lepas: P(A ∪ B) = P(A) + P(B) 0.7 = 0.4 + P(B) P(B) = 0.3</p></li>
-<li><p>P(A ∩ B) = 0 (saling lepas)</p></li>
-<li><p>Tidak mungkin independen: Jika independen: P(A ∩ B) = P(A) × P(B) = 0.12 Tapi saling lepas: P(A ∩ B) = 0 0 ≠ 0.12, maka TIDAK INDEPENDEN</p></li>
-</ol>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="7" type="1">
-<li>Tiga kartu diambil secara acak dari 52 kartu bridge tanpa pengembalian. Berapa peluang ketiga kartu tersebut adalah kartu As?</li>
-</ol>
-<div id="webex-5919a5ebe6be01aa3d30a6b30a60dfa8" class="webex-radiogroup" data-answer="bgkdCE0FSVI4">
-<label><input type="radio" autocomplete="off" name="5919a5ebe6be01aa3d30a6b30a60dfa8"><span>P=1/2652</span></label><label><input type="radio" autocomplete="off" name="5919a5ebe6be01aa3d30a6b30a60dfa8"><span>P=1/5525</span></label><label><input type="radio" autocomplete="off" name="5919a5ebe6be01aa3d30a6b30a60dfa8"><span>P=1/663</span></label><label><input type="radio" autocomplete="off" name="5919a5ebe6be01aa3d30a6b30a60dfa8"><span>P=1/1326</span></label>
-</div>
-</div>
-<div class="webex-solution">
-<p>Ada 4 kartu As dalam 52 kartu. P(As pertama) = 4/52 P(As kedua | As pertama) = 3/51 P(As ketiga | 2 As terambil) = 2/50</p>
-<p>P(3 As) = (4/52) × (3/51) × (2/50) = 24/132,600 = 1/5,525</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="8" type="1">
-<li>Dalam pelemparan sebuah dadu, didefinisikan:</li>
-</ol>
-<ul>
-<li>Kejadian X = {bilangan ≤ 4}</li>
-<li>Kejadian Y = {bilangan kelipatan 2}</li>
-<li>Kejadian Z = {bilangan kelipatan 3}</li>
-</ul>
-<ol type="a">
-<li>Tentukan X ∩ Y ∩ Z</li>
-<li>Hitung P(X ∪ Y ∪ Z)</li>
-<li>Hitung P((X ∩ Y)^c)</li>
-</ol>
-<p><input class="webex-solveme" id="webex-ead36c742fc109568a4e80f5ef502cd9" size="37" data-answer="PkM80b7Kbta6zzkM0rGwGhgxHD3auMxsh+6fahteURZTTURjHktv1rrPOhhuWhwLCk4HR2U="></p>
-</div>
-<div class="webex-solution">
-<p>X = {1, 2, 3, 4}, Y = {2, 4, 6}, Z = {3, 6}</p>
-<ol type="a">
-<li><p>X ∩ Y = {2, 4} X ∩ Y ∩ Z = ∅ (tidak ada bilangan yang memenuhi ketiga syarat)</p></li>
-<li><p>X ∪ Y ∪ Z = {1, 2, 3, 4, 6} P(X ∪ Y ∪ Z) = 5/6</p></li>
-<li><p>X ∩ Y = {2, 4} (X ∩ Y)^c = {1, 3, 5, 6} P((X ∩ Y)^c) = 4/6 = 2/3</p></li>
-</ol>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="9" type="1">
-<li>Sebuah tes medis untuk mendeteksi penyakit memiliki karakteristik:</li>
-</ol>
-<ul>
-<li>95% akurat jika pasien benar sakit (true positive)</li>
-<li>90% akurat jika pasien sehat (true negative)</li>
-<li>Prevalensi penyakit di populasi adalah 2%</li>
-</ul>
-<p>Jika seseorang dites dan hasilnya NEGATIF, berapa peluang dia benar-benar sehat?</p>
-<div id="webex-34f8e00d5b5e94b01c44684099a34a3f" class="webex-radiogroup" data-answer="aARKCUkAHFRo">
-<label><input type="radio" autocomplete="off" name="34f8e00d5b5e94b01c44684099a34a3f"><span>P(Sehat|Negatif) ≈ 0.90 atau 90%</span></label><label><input type="radio" autocomplete="off" name="34f8e00d5b5e94b01c44684099a34a3f"><span>P(Sehat|Negatif) ≈ 0.9989 atau 99.89%</span></label><label><input type="radio" autocomplete="off" name="34f8e00d5b5e94b01c44684099a34a3f"><span>P(Sehat|Negatif) ≈ 0.98 atau 98%</span></label><label><input type="radio" autocomplete="off" name="34f8e00d5b5e94b01c44684099a34a3f"><span>P(Sehat|Negatif) ≈ 0.95 atau 95%</span></label>
-</div>
-</div>
-<div class="webex-solution">
-<p>Gunakan Teorema Bayes: P(Sakit) = 0.02, P(Sehat) = 0.98 P(Negatif | Sehat) = 0.90 P(Negatif | Sakit) = 0.05</p>
-<p>P(Negatif) = (0.90 × 0.98) + (0.05 × 0.02) = 0.883 P(Sehat | Negatif) = (0.90 × 0.98) / 0.883 = 0.9989</p>
-</div>
-</div>
-<div class="webex-question">
-<div class="webex-check webex-box">
-<ol start="10" type="1">
-<li>Empat koin fair dilempar bersamaan. Kejadian A adalah “muncul tepat 2 gambar” dan kejadian B adalah “gambar lebih banyak dari angka”.</li>
-</ol>
-<ol type="a">
-<li>Tentukan P(A) dan P(B)</li>
-<li>Tentukan P(A ∩ B)</li>
-<li>Hitung P(A | B)</li>
-<li>Apakah A dan B independen?</li>
-</ol>
-<p><input class="webex-solveme" id="webex-701851b32f0d1cddef40523331537cbc" size="20" data-answer="bBJhGhkRQBtzTxJIEUFXS11KFGAXHhMRG3McERtDQFYYAQcUFWFAHxJEGCXT680mTEQYEBcCHxNjExkTFUsjH3UZExQVE1IfEjJZAFAIRA0LAlFAUFxXVl0TaA=="></p>
-</div>
-<div class="webex-solution">
-<ol type="a">
-<li><p>P(A) dan P(B): Total = 16 A (tepat 2 gambar): C(4,2) = 6, P(A) = 6/16 = 3/8 B (minimal 3 gambar): C(4,3) + C(4,4) = 5, P(B) = 5/16</p></li>
-<li><p>P(A ∩ B) = 0 (tidak mungkin tepat 2 sekaligus minimal 3)</p></li>
-<li><p>P(A | B) = 0</p></li>
-<li><p>Tidak independen: P(A) × P(B) = 3/8 × 5/16 = 15/128 P(A ∩ B) = 0 0 ≠ 15/128, maka TIDAK INDEPENDEN</p></li>
-</ol>
-</div>
-</div>
+<hr>
 
 
-</section></main><!-- /main --><script>
+</section></section></main><!-- /main --><script>
 
 /* definition of content for the buttons */
 const webex_buttons = {check_hidden:          "<b>&check;</b>",
@@ -1840,14 +2023,11 @@ window.onload = function() {
     }
   });
   </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./week3.html" class="pagination-link" aria-label="Eksperimen Acak, Ruang Sampel, dan Kejadian">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Eksperimen Acak, Ruang Sampel, dan Kejadian</span></span>
+      <a href="./week6.html" class="pagination-link" aria-label="Teorema Bayes dan Aplikasinya">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Teorema Bayes dan Aplikasinya</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./week5.html" class="pagination-link" aria-label="Kombinatorika Dalam Kalkulasi Peluang Diskret">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Kombinatorika Dalam Kalkulasi Peluang Diskret</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

@@ -14,10 +14,11 @@ book:
     - week4.qmd
     - week5.qmd
     - week6.qmd
+    - week7_nocalculus.qmd
 
 format:
   html:
-    theme: zephyr
-    css: styles.css
+#    theme: zephyr
+#    css: styles.css
     toc: true
     code-link: true
