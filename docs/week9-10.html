@@ -1,0 +1,2367 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>8&nbsp; Distribusi Probabilitas – Statistika dan Probabilitas</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./week7_nocalculus.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-ffd282cb318059e0bcb130885a47f5dc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script><script src="site_libs/kePrint-0.0.1/kePrint.js"></script><link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+</head>
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week9-10.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Distribusi Probabilitas</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Statistika dan Probabilitas</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pengantar</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Understanding the World with Data</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Statistika Deskriptif</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Eksperimen Acak, Ruang Sampel, dan Kejadian</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Eksperimen Acak, Ruang Sampel, dan Kejadian - Latihan Soal</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Kombinatorika Dalam Kalkulasi Peluang Diskret</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Teorema Bayes dan Aplikasinya</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week7_nocalculus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Peubah Acak, Ekspektasi, dan Variansi</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week9-10.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Distribusi Probabilitas</span></span></a>
+  </div>
+</li>
+    </ul>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+<li>
+<a href="#pengantar-random-variables" id="toc-pengantar-random-variables" class="nav-link active" data-scroll-target="#pengantar-random-variables"><span class="header-section-number">8.1</span> Pengantar: Random Variables</a>
+  <ul class="collapse">
+<li><a href="#apa-itu-random-variable" id="toc-apa-itu-random-variable" class="nav-link" data-scroll-target="#apa-itu-random-variable"><span class="header-section-number">8.1.1</span> Apa itu Random Variable?</a></li>
+  </ul>
+</li>
+  <li><a href="#discrete-vs-continuous" id="toc-discrete-vs-continuous" class="nav-link" data-scroll-target="#discrete-vs-continuous"><span class="header-section-number">8.2</span> Discrete vs Continuous</a></li>
+  <li>
+<a href="#discrete-distributions" id="toc-discrete-distributions" class="nav-link" data-scroll-target="#discrete-distributions"><span class="header-section-number">8.3</span> Discrete Distributions</a>
+  <ul class="collapse">
+<li><a href="#bernoulli-distribution" id="toc-bernoulli-distribution" class="nav-link" data-scroll-target="#bernoulli-distribution"><span class="header-section-number">8.3.1</span> Bernoulli Distribution</a></li>
+  <li><a href="#binomial-distribution" id="toc-binomial-distribution" class="nav-link" data-scroll-target="#binomial-distribution"><span class="header-section-number">8.3.2</span> Binomial Distribution</a></li>
+  <li><a href="#poisson-distribution" id="toc-poisson-distribution" class="nav-link" data-scroll-target="#poisson-distribution"><span class="header-section-number">8.3.3</span> Poisson Distribution</a></li>
+  <li><a href="#geometric-distribution" id="toc-geometric-distribution" class="nav-link" data-scroll-target="#geometric-distribution"><span class="header-section-number">8.3.4</span> Geometric Distribution</a></li>
+  <li><a href="#negative-binomial-distribution" id="toc-negative-binomial-distribution" class="nav-link" data-scroll-target="#negative-binomial-distribution"><span class="header-section-number">8.3.5</span> Negative Binomial Distribution</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#continuous-distributions" id="toc-continuous-distributions" class="nav-link" data-scroll-target="#continuous-distributions"><span class="header-section-number">8.4</span> Continuous Distributions</a>
+  <ul class="collapse">
+<li><a href="#uniform-distribution" id="toc-uniform-distribution" class="nav-link" data-scroll-target="#uniform-distribution"><span class="header-section-number">8.4.1</span> Uniform Distribution</a></li>
+  <li><a href="#exponential-distribution" id="toc-exponential-distribution" class="nav-link" data-scroll-target="#exponential-distribution"><span class="header-section-number">8.4.2</span> Exponential Distribution</a></li>
+  <li><a href="#normal-gaussian-distribution" id="toc-normal-gaussian-distribution" class="nav-link" data-scroll-target="#normal-gaussian-distribution"><span class="header-section-number">8.4.3</span> Normal (Gaussian) Distribution</a></li>
+  <li><a href="#student-t-distribution" id="toc-student-t-distribution" class="nav-link" data-scroll-target="#student-t-distribution"><span class="header-section-number">8.4.4</span> Student T Distribution</a></li>
+  <li><a href="#chi-squared-distribution" id="toc-chi-squared-distribution" class="nav-link" data-scroll-target="#chi-squared-distribution"><span class="header-section-number">8.4.5</span> Chi-Squared Distribution</a></li>
+  <li><a href="#f-distribution" id="toc-f-distribution" class="nav-link" data-scroll-target="#f-distribution"><span class="header-section-number">8.4.6</span> F Distribution</a></li>
+  <li><a href="#gamma-distribution" id="toc-gamma-distribution" class="nav-link" data-scroll-target="#gamma-distribution"><span class="header-section-number">8.4.7</span> Gamma Distribution</a></li>
+  <li><a href="#beta-distribution" id="toc-beta-distribution" class="nav-link" data-scroll-target="#beta-distribution"><span class="header-section-number">8.4.8</span> Beta Distribution</a></li>
+  <li><a href="#central-limit-theorem-clt" id="toc-central-limit-theorem-clt" class="nav-link" data-scroll-target="#central-limit-theorem-clt"><span class="header-section-number">8.4.9</span> Central Limit Theorem (CLT)</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#perbandingan-distribusi" id="toc-perbandingan-distribusi" class="nav-link" data-scroll-target="#perbandingan-distribusi"><span class="header-section-number">8.5</span> Perbandingan Distribusi</a>
+  <ul class="collapse">
+<li><a href="#decision-tree-memilih-distribusi-yang-tepat" id="toc-decision-tree-memilih-distribusi-yang-tepat" class="nav-link" data-scroll-target="#decision-tree-memilih-distribusi-yang-tepat"><span class="header-section-number">8.5.1</span> Decision Tree: Memilih Distribusi yang Tepat</a></li>
+  <li><a href="#visual-comparison-shape-comparison" id="toc-visual-comparison-shape-comparison" class="nav-link" data-scroll-target="#visual-comparison-shape-comparison"><span class="header-section-number">8.5.2</span> Visual Comparison: Shape Comparison</a></li>
+  </ul>
+</li>
+  <li><a href="#summary-key-takeaways" id="toc-summary-key-takeaways" class="nav-link" data-scroll-target="#summary-key-takeaways"><span class="header-section-number">8.6</span> Summary &amp; Key Takeaways</a></li>
+  <li><a href="#referensi-pembelajaran-lanjut" id="toc-referensi-pembelajaran-lanjut" class="nav-link" data-scroll-target="#referensi-pembelajaran-lanjut"><span class="header-section-number">8.7</span> Referensi &amp; Pembelajaran Lanjut</a></li>
+  </ul></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title">
+<span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Distribusi Probabilitas</span>
+</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header><p>Playground: https://seeing-theory.brown.edu/</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+🎯 Tujuan Pembelajaran
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Setelah mempelajari bab ini, Anda akan dapat:</p>
+<ul>
+<li>Membedakan distribusi diskrit dan kontinu</li>
+<li>Memahami karakteristik setiap distribusi (mean, variance, shape)</li>
+<li>Menerapkan distribusi yang tepat untuk berbagai kasus nyata</li>
+<li>Menghitung probabilitas menggunakan fungsi distribusi</li>
+<li>Memahami Central Limit Theorem dan aplikasinya</li>
+</ul>
+</div>
+</div>
+<section id="pengantar-random-variables" class="level2" data-number="8.1"><h2 data-number="8.1" class="anchored" data-anchor-id="pengantar-random-variables">
+<span class="header-section-number">8.1</span> Pengantar: Random Variables</h2>
+<section id="apa-itu-random-variable" class="level3" data-number="8.1.1"><h3 data-number="8.1.1" class="anchored" data-anchor-id="apa-itu-random-variable">
+<span class="header-section-number">8.1.1</span> Apa itu Random Variable?</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+💡 Definisi Intuitif
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Random Variable</strong> adalah fungsi yang memetakan hasil dari eksperimen random ke angka real.</p>
+<p><strong>Contoh sederhana:</strong></p>
+<ul>
+<li>Lempar koin: H → 1, T → 0</li>
+<li>Lempar dadu: {⚀,⚁,⚂,⚃,⚄,⚅} → {1,2,3,4,5,6}</li>
+<li>Tinggi mahasiswa: Seseorang → tinggi dalam cm</li>
+</ul>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="week9-10_files/figure-html/random-variable-concept-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section></section><section id="discrete-vs-continuous" class="level2" data-number="8.2"><h2 data-number="8.2" class="anchored" data-anchor-id="discrete-vs-continuous">
+<span class="header-section-number">8.2</span> Discrete vs Continuous</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist">
+<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Discrete</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Continuous</a></li>
+</ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p><strong>Discrete Random Variable</strong> hanya dapat mengambil nilai yang <strong>countable</strong> (dapat dihitung).</p>
+<p><strong>Karakteristik:</strong></p>
+<ul>
+<li>Nilai: bilangan bulat atau himpunan finite/countable</li>
+<li>Contoh: Jumlah mata dadu, jumlah pelanggan, jumlah email</li>
+</ul>
+<p><strong>Represented by:</strong> Probability Mass Function (PMF)</p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p><strong>Continuous Random Variable</strong> dapat mengambil nilai <strong>uncountable</strong> (tak terhitung) dalam suatu interval.</p>
+<p><strong>Karakteristik:</strong></p>
+<ul>
+<li>Nilai: bilangan real dalam interval</li>
+<li>P(X = x) = 0 untuk nilai spesifik x</li>
+<li>Contoh: Tinggi, berat, waktu, temperatur</li>
+</ul>
+<p><strong>Represented by:</strong> Probability Density Function (PDF)</p>
+</div>
+</div>
+</div>
+<hr></section><section id="discrete-distributions" class="level2" data-number="8.3"><h2 data-number="8.3" class="anchored" data-anchor-id="discrete-distributions">
+<span class="header-section-number">8.3</span> Discrete Distributions</h2>
+<section id="bernoulli-distribution" class="level3" data-number="8.3.1"><h3 data-number="8.3.1" class="anchored" data-anchor-id="bernoulli-distribution">
+<span class="header-section-number">8.3.1</span> Bernoulli Distribution</h3>
+<p><strong>Distribusi Bernoulli</strong> adalah distribusi probabilitas paling fundamental - ini adalah “building block” untuk banyak distribusi lainnya. Bayangkan situasi paling sederhana: sebuah eksperimen yang <strong>hanya punya 2 kemungkinan hasil</strong>.</p>
+<p><strong>Contoh dalam Kehidupan Sehari-hari:</strong></p>
+<ul>
+<li>🪙 <strong>Melempar koin:</strong> Keluar kepala (sukses) atau ekor (gagal)</li>
+<li>🏥 <strong>Tes medis:</strong> Hasil positif atau negatif</li>
+<li>🏀 <strong>Free throw basket:</strong> Masuk atau meleset</li>
+<li>📧 <strong>Email marketing:</strong> Pelanggan klik atau tidak klik</li>
+<li>🔧 <strong>Quality control:</strong> Produk cacat atau tidak cacat</li>
+<li>🎯 <strong>Online ads:</strong> User klik iklan atau tidak</li>
+</ul>
+<p>Setiap situasi ini dapat dimodelkan sebagai <strong>satu percobaan Bernoulli</strong> dengan probabilitas sukses <span class="math inline">\(p\)</span>.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+📖 Definisi Formal
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Notation:</strong> <span class="math inline">\(X \sim \text{Bernoulli}(p)\)</span></p>
+<p><strong>PMF:</strong> <span class="math display">\[P(X = x) = \begin{cases}
+p &amp; \text{if } x = 1 \text{ (success)}\\
+1-p &amp; \text{if } x = 0 \text{ (failure)}
+\end{cases}\]</span></p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li>
+<span class="math inline">\(p\)</span> : probabilitas success (nilai antara 0 dan 1)</li>
+</ul>
+<p><strong>Properties:</strong></p>
+<ul>
+<li>
+<span class="math inline">\(E(X) = p\)</span> → Rata-rata outcome</li>
+<li>
+<span class="math inline">\(\text{Var}(X) = p(1-p)\)</span> → Variance maksimum saat <span class="math inline">\(p=0.5\)</span> (situasi paling uncertain)</li>
+</ul>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="week9-10_files/figure-html/bernoulli-distribution-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+🌟 Studi Kasus: Email Marketing Campaign
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sebuah perusahaan mengirim email promosi. Dari data historis, <strong>12% pelanggan membuka dan mengklik link</strong> (p = 0.12).</p>
+<p><strong>Pertanyaan:</strong> Jika kita mengirim email ke satu pelanggan random, berapa probabilitas:</p>
+<ul>
+<li>Pelanggan akan klik? → P(X=1) = 0.12 = <strong>12%</strong>
+</li>
+<li>Pelanggan tidak akan klik? → P(X=0) = 0.88 = <strong>88%</strong>
+</li>
+</ul>
+<p><strong>Insight:</strong> Variance = 0.12 × 0.88 = 0.1056, menunjukkan ada uncertainty yang cukup besar dalam prediksi individual behavior.</p>
+<p><strong>Aplikasi Praktis:</strong></p>
+<ul>
+<li>
+<strong>A/B Testing:</strong> Membandingkan dua versi iklan (mana yang lebih tinggi p-nya?)</li>
+<li>
+<strong>Medical Diagnosis:</strong> Sensitivity dan specificity dari tes adalah parameter Bernoulli</li>
+<li>
+<strong>Quality Control:</strong> Setiap produk pass/fail inspection</li>
+</ul>
+</div>
+</div>
+<hr></section><section id="binomial-distribution" class="level3" data-number="8.3.2"><h3 data-number="8.3.2" class="anchored" data-anchor-id="binomial-distribution">
+<span class="header-section-number">8.3.2</span> Binomial Distribution</h3>
+<p><strong>Distribusi Binomial</strong> adalah <strong>generalisasi</strong> dari Bernoulli: bagaimana jika kita <strong>mengulang eksperimen Bernoulli berkali-kali</strong> secara independen? Berapa banyak sukses yang kita harapkan dari n percobaan?</p>
+<p><strong>Intuisi Sederhana:</strong></p>
+<p>Bayangkan Anda melempar koin 10 kali. Berapa kemungkinan dapat <strong>tepat 7 kali kepala</strong>? Atau <strong>minimal 8 kali kepala</strong>? Inilah yang dijawab oleh Binomial Distribution.</p>
+<p><strong>Contoh Dunia Nyata:</strong></p>
+<ul>
+<li>📞 <strong>Call Center:</strong> Dari 50 panggilan, berapa yang akan berakhir dengan penjualan (jika conversion rate 15%)?</li>
+<li>💉 <strong>Vaccine Efficacy:</strong> Dari 1000 orang divaksin, berapa yang tetap terinfeksi (jika efektivitas 95%)?</li>
+<li>🎯 <strong>Free Throws:</strong> Pemain basket dengan 80% free throw accuracy, dari 15 attempts berapa yang masuk?</li>
+<li>🎰 <strong>Casino:</strong> Dari 100 spin roulette, berapa kali pemain menang (probability per spin = 1/38)?</li>
+<li>📦 <strong>Shipping:</strong> Dari 200 paket, berapa yang rusak (jika historical damage rate 2%)?</li>
+</ul>
+<p><strong>Syarat Menggunakan Binomial:</strong></p>
+<ol type="1">
+<li>✅ <strong>Fixed number of trials</strong> (n diketahui)</li>
+<li>✅ <strong>Two outcomes</strong> per trial (success/failure)</li>
+<li>✅ <strong>Independent trials</strong> (hasil satu trial tidak mempengaruhi lainnya)</li>
+<li>✅ <strong>Constant probability</strong> (p sama untuk setiap trial)</li>
+</ol>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+📖 Definisi Formal
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Binomial Distribution</strong> adalah distribusi untuk jumlah <strong>successes</strong> dalam <strong>n</strong> percobaan Bernoulli yang independen.</p>
+<p><strong>Notation:</strong> <span class="math inline">\(X \sim \text{Binomial}(n, p)\)</span> atau <span class="math inline">\(X \sim B(n,p)\)</span></p>
+<p><strong>PMF:</strong> <span class="math display">\[P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}\]</span></p>
+<p>dimana <span class="math inline">\(\binom{n}{k} = \frac{n!}{k!(n-k)!}\)</span></p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li>
+<span class="math inline">\(n\)</span> : jumlah trials</li>
+<li>
+<span class="math inline">\(p\)</span> : probabilitas success per trial</li>
+</ul>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><span class="math inline">\(E(X) = np\)</span></li>
+<li><span class="math inline">\(\text{Var}(X) = np(1-p)\)</span></li>
+</ul>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="week9-10_files/figure-html/binomial-distribution-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+🔑 Key Insights
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p><strong>Symmetry:</strong> Distribusi simetris ketika p = 0.5</p></li>
+<li>
+<p><strong>Skewness:</strong></p>
+<ul>
+<li>p &lt; 0.5 → right-skewed (ekor kanan)</li>
+<li>p &gt; 0.5 → left-skewed (ekor kiri)</li>
+</ul>
+</li>
+<li><p><strong>Convergence:</strong> Saat n besar, Binomial → Normal (Central Limit Theorem)</p></li>
+</ol>
+</div>
+</div>
+<section id="contoh-perhitungan" class="level4" data-number="8.3.2.1"><h4 data-number="8.3.2.1" class="anchored" data-anchor-id="contoh-perhitungan">
+<span class="header-section-number">8.3.2.1</span> Contoh Perhitungan</h4>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+💼 Kasus: Quality Control
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sebuah pabrik memproduksi komponen dengan <strong>defect rate 5%</strong>. Jika kita sample <strong>20 komponen</strong>, berapa probabilitas:</p>
+<ol type="a">
+<li><strong>Tepat 2 defective?</strong></li>
+<li><strong>Paling banyak 1 defective?</strong></li>
+<li><strong>Lebih dari 3 defective?</strong></li>
+</ol>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="week9-10_files/figure-html/binomial-example-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+📝 Solusi Detail
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>a) P(X = 2):</strong></p>
+<p><span class="math display">\[P(X = 2) = \binom{20}{2} (0.05)^2 (0.95)^{18} = 0.1887\]</span></p>
+<p><strong>b) P(X ≤ 1):</strong></p>
+<p><span class="math display">\[P(X \leq 1) = P(X=0) + P(X=1) = 0.7358\]</span></p>
+<p><strong>c) P(X &gt; 3):</strong></p>
+<p><span class="math display">\[P(X &gt; 3) = 1 - P(X \leq 3) = 0.0159\]</span></p>
+</div>
+</div>
+</div>
+<hr></section></section><section id="poisson-distribution" class="level3" data-number="8.3.3"><h3 data-number="8.3.3" class="anchored" data-anchor-id="poisson-distribution">
+<span class="header-section-number">8.3.3</span> Poisson Distribution</h3>
+<p><strong>Distribusi Poisson</strong> adalah distribusi untuk <strong>menghitung jumlah events</strong> yang terjadi dalam <strong>interval waktu atau ruang tertentu</strong>, ketika events terjadi secara acak tapi dengan <strong>rata-rata rate yang konstan</strong>.</p>
+<p><strong>Karakteristik Kunci Poisson:</strong> - Events terjadi <strong>independen</strong> satu sama lain - Events terjadi dengan <strong>rate konstan</strong> λ (lambda) - <strong>Tidak ada upper limit</strong> untuk jumlah events - Events <strong>jarang terjadi</strong> (probability per unit kecil)</p>
+<p><strong>Contoh Situasi Poisson dalam Kehidupan:</strong></p>
+<ol type="1">
+<li>📞 <strong>Call Center:</strong> Jumlah panggilan masuk per jam (misal rata-rata 12 calls/jam)</li>
+<li>🚗 <strong>Traffic:</strong> Jumlah mobil lewat di intersection per menit</li>
+<li>📧 <strong>Email:</strong> Jumlah email spam diterima per hari</li>
+<li>🏥 <strong>Emergency Room:</strong> Jumlah pasien datang ke ER per shift</li>
+<li>🌟 <strong>Astronomi:</strong> Jumlah meteor terlihat per jam saat meteor shower</li>
+<li>🐛 <strong>Quality Control:</strong> Jumlah defect pada kain per meter persegi</li>
+<li>☢️ <strong>Radioactive Decay:</strong> Jumlah partikel emitted per detik</li>
+<li>🌐 <strong>Website:</strong> Jumlah visitors ke website per menit</li>
+<li>⚡ <strong>Infrastructure:</strong> Jumlah power outage per bulan di suatu area</li>
+<li>📚 <strong>Typo Detection:</strong> Jumlah typo per halaman dalam buku</li>
+</ol>
+<p><strong>Mengapa Poisson Berbeda dari Binomial?</strong></p>
+<table class="caption-top table">
+<thead><tr class="header">
+<th>Aspek</th>
+<th>Binomial</th>
+<th>Poisson</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Jumlah trials</td>
+<td>Fixed (n diketahui)</td>
+<td>Infinite/unknown</td>
+</tr>
+<tr class="even">
+<td>Focus</td>
+<td># successes dalam n trials</td>
+<td># events dalam interval</td>
+</tr>
+<tr class="odd">
+<td>Parameter</td>
+<td>n dan p</td>
+<td>λ (rate)</td>
+</tr>
+<tr class="even">
+<td>Best for</td>
+<td>When n small, p moderate</td>
+<td>When n large, p small</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Hubungan dengan Binomial:</strong></p>
+<p>Poisson adalah <strong>limiting case</strong> dari Binomial ketika:</p>
+<ul>
+<li>
+<span class="math inline">\(n \to \infty\)</span> (jumlah trials sangat besar)</li>
+<li>
+<span class="math inline">\(p \to 0\)</span> (probability per trial sangat kecil)</li>
+<li>
+<span class="math inline">\(np = \lambda\)</span> (tetap konstan)</li>
+</ul>
+<p>Contoh: Probability menang lotre dalam 1 draw sangat kecil (p ≈ 0), tapi opportunities (n) sangat banyak → model dengan Poisson!</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+📖 Definisi Formal
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Poisson Distribution</strong> memodelkan jumlah <strong>events</strong> yang terjadi dalam interval waktu/ruang tertentu, ketika events terjadi dengan <strong>rate konstan</strong> dan <strong>independen</strong>.</p>
+<p><strong>Notation:</strong> <span class="math inline">\(X \sim \text{Poisson}(\lambda)\)</span> atau <span class="math inline">\(X \sim \text{Pois}(\lambda)\)</span></p>
+<p><strong>PMF:</strong> <span class="math display">\[P(X = k) = \frac{e^{-\lambda} \lambda^k}{k!}, \quad k = 0, 1, 2, \ldots\]</span></p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li>
+<span class="math inline">\(\lambda\)</span> : rata-rata jumlah events per interval (rate parameter)</li>
+</ul>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><span class="math inline">\(E(X) = \lambda\)</span></li>
+<li>
+<span class="math inline">\(\text{Var}(X) = \lambda\)</span> ← <strong>Mean = Variance!</strong>
+</li>
+</ul>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="week9-10_files/figure-html/poisson-distribution-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+🔑 Key Insights
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p><strong>Rare Events:</strong> Cocok untuk events yang jarang terjadi</p></li>
+<li><p><strong>Equal Mean-Variance:</strong> Ciri khas Poisson</p></li>
+<li><p><strong>Approximation:</strong> Ketika n besar dan p kecil, Binomial(n,p) ≈ Poisson(λ=np)</p></li>
+<li>
+<p><strong>Shape:</strong></p>
+<ul>
+<li>λ kecil → right-skewed</li>
+<li>λ besar → mendekati simetris (Normal)</li>
+</ul>
+</li>
+</ol>
+</div>
+</div>
+<section id="aplikasi-nyata" class="level4" data-number="8.3.3.1"><h4 data-number="8.3.3.1" class="anchored" data-anchor-id="aplikasi-nyata">
+<span class="header-section-number">8.3.3.1</span> Aplikasi Nyata</h4>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="week9-10_files/figure-html/poisson-applications-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+💼 Kasus: Call Center
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sebuah call center menerima rata-rata <strong>λ = 5 calls per menit</strong>. Berapa probabilitas:</p>
+<ol type="a">
+<li>Tidak ada call dalam 1 menit berikutnya?</li>
+<li>Tepat 3 calls dalam 1 menit?</li>
+<li>Lebih dari 8 calls dalam 1 menit?</li>
+</ol>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="week9-10_files/figure-html/poisson-example-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<hr></section></section><section id="geometric-distribution" class="level3" data-number="8.3.4"><h3 data-number="8.3.4" class="anchored" data-anchor-id="geometric-distribution">
+<span class="header-section-number">8.3.4</span> Geometric Distribution</h3>
+<p><strong>Distribusi Geometric</strong> menjawab pertanyaan: <strong>“Berapa lama kita harus menunggu sampai sukses pertama?”</strong></p>
+<p>Berbeda dengan Binomial yang menghitung jumlah sukses dalam n trials fixed, Geometric fokus pada <strong>jumlah trials yang dibutuhkan</strong> sampai mendapat sukses pertama.</p>
+<p><strong>Bayangkan Situasi Ini:</strong></p>
+<ul>
+<li>🎯 <strong>Memanah:</strong> Anda terus memanah sampai kena bullseye pertama kali. Berapa kali attempts yang diperlukan?</li>
+<li>🎰 <strong>Casino Gambler:</strong> Main slot machine terus sampai menang pertama. Berapa kali spin sebelum jackpot?</li>
+<li>🔍 <strong>Job Hunting:</strong> Kirim aplikasi kerja sampai diterima pertama kali. Berapa aplikasi yang dikirim?</li>
+<li>📞 <strong>Cold Calling:</strong> Sales person telepon calon customer sampai ada yang tertarik. Berapa calls dibutuhkan?</li>
+<li>🎣 <strong>Fishing:</strong> Melempar pancing sampai dapat ikan pertama. Berapa kali lempar?</li>
+<li>🏀 <strong>Basketball Practice:</strong> Latihan three-point shot sampai masuk pertama. Berapa attempts?</li>
+<li>🎮 <strong>Gaming:</strong> Main level game sampai lulus pertama kali. Berapa attempts?</li>
+</ul>
+<p><strong>Karakteristik Geometric:</strong></p>
+<ul>
+<li>Trials <strong>independen</strong> dan <strong>identik</strong>
+</li>
+<li>Setiap trial punya <strong>probability sukses p</strong> yang sama</li>
+<li>Kita <strong>berhenti setelah sukses pertama</strong>
+</li>
+<li>Focus: <strong>WAKTU TUNGGU</strong> (waiting time) sampai event</li>
+</ul>
+<p><strong>Memoryless Property - Konsep Unik!</strong></p>
+<p>Geometric punya property istimewa: <strong>“past doesn’t matter”</strong></p>
+<p><span class="math inline">\(P(X &gt; n+m | X &gt; n) = P(X &gt; m)\)</span></p>
+<p><strong>Artinya:</strong> Jika Anda sudah gagal n kali, probability butuh m trials lagi <strong>sama saja</strong> dengan probability butuh m trials dari awal!</p>
+<p><strong>Analogi:</strong> Seperti melempar koin - tidak peduli sudah berapa kali gagal, probability sukses di next trial tetap sama (p).</p>
+<p><strong>Contoh Memoryless:</strong> - Seorang gambler sudah kalah 10 kali di roulette. Apakah peluang menang di spin ke-11 lebih besar? <strong>TIDAK!</strong> Tetap 1/38. - Anda sudah kirim 5 job applications tanpa respons. Apakah application ke-6 punya peluang lebih besar? <strong>TIDAK!</strong> Tetap sama (asumsi independent).</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+📖 Definisi Formal
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Geometric Distribution</strong> memodelkan jumlah <strong>trials</strong> hingga mendapat <strong>first success</strong> dalam sequential Bernoulli trials.</p>
+<p><strong>Notation:</strong> <span class="math inline">\(X \sim \text{Geometric}(p)\)</span> atau <span class="math inline">\(X \sim \text{Geom}(p)\)</span></p>
+<p><strong>PMF:</strong> <span class="math display">\[P(X = k) = (1-p)^{k-1} p, \quad k = 1, 2, 3, \ldots\]</span></p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li>
+<span class="math inline">\(p\)</span> : probabilitas success per trial</li>
+</ul>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><span class="math inline">\(E(X) = \frac{1}{p}\)</span></li>
+<li><span class="math inline">\(\text{Var}(X) = \frac{1-p}{p^2}\)</span></li>
+<li>
+<strong>Memoryless Property:</strong> <span class="math inline">\(P(X &gt; n+m | X &gt; n) = P(X &gt; m)\)</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="week9-10_files/figure-html/geometric-distribution-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+🎰 Contoh: Casino Gambler
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Seorang gambler bermain roulette dengan peluang menang <strong>p = 1/38 ≈ 0.026</strong>.</p>
+<p><strong>Pertanyaan:</strong> Berapa expected number of games hingga menang pertama?</p>
+<p><strong>Jawaban:</strong> <span class="math inline">\(E(X) = \frac{1}{p} = \frac{1}{1/38} = 38\)</span> games</p>
+<p>Artinya rata-rata butuh <strong>38 kali bermain</strong> untuk menang pertama kali!</p>
+</div>
+</div>
+<hr></section><section id="negative-binomial-distribution" class="level3" data-number="8.3.5"><h3 data-number="8.3.5" class="anchored" data-anchor-id="negative-binomial-distribution">
+<span class="header-section-number">8.3.5</span> Negative Binomial Distribution</h3>
+<p><strong>Distribusi Negative Binomial</strong> adalah generalisasi dari Geometric Distribution. Jika Geometric bertanya “berapa trials sampai <strong>1 sukses</strong>?”, maka Negative Binomial bertanya “berapa trials sampai mendapat <strong>r sukses</strong>?”</p>
+<p><strong>Intuisi:</strong></p>
+<p>Bayangkan Anda main basketball dan ingin masuk <strong>5 three-point shots</strong>. Berapa banyak attempts yang Anda perlukan? Inilah yang dijawab Negative Binomial.</p>
+<p><strong>Contoh Situasi Nyata:</strong></p>
+<ol type="1">
+<li>🎯 <strong>Sales:</strong> Berapa cold calls dibutuhkan sampai closing <strong>10 deals</strong>?</li>
+<li>🎰 <strong>Casino:</strong> Berapa kali bermain sampai menang <strong>3 kali</strong>?</li>
+<li>🔬 <strong>Lab Experiments:</strong> Berapa experiments sampai dapat <strong>r successful results</strong>?</li>
+<li>🎣 <strong>Fishing:</strong> Berapa kali lempar pancing sampai dapat <strong>5 ikan</strong>?</li>
+<li>📞 <strong>Recruitment:</strong> Berapa interviews sampai hire <strong>r qualified candidates</strong>?</li>
+<li>🏀 <strong>Sports:</strong> Berapa free throw attempts sampai masuk <strong>10 shots</strong>?</li>
+<li>🎲 <strong>Gaming:</strong> Berapa attempts sampai beat boss <strong>3 times</strong>?</li>
+</ol>
+<p><strong>Perbedaan dengan Geometric:</strong></p>
+<ul>
+<li>
+<strong>Geometric:</strong> Waiting time sampai <strong>1st success</strong> (r=1)</li>
+<li>
+<strong>Negative Binomial:</strong> Waiting time sampai <strong>r-th success</strong> (r ≥ 1)</li>
+</ul>
+<p><strong>Dua Parameterisasi:</strong></p>
+<p>Ada 2 cara mendefinisikan Negative Binomial:</p>
+<ol type="1">
+<li>
+<strong>Jumlah failures</strong> sebelum r successes</li>
+<li>
+<strong>Jumlah total trials</strong> sampai r successes</li>
+</ol>
+<p>(Kita gunakan yang kedua - lebih intuitif)</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+📖 Definisi Formal
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Notation:</strong> <span class="math inline">\(X \sim \text{NegBinom}(r, p)\)</span></p>
+<p><strong>PMF:</strong> <span class="math display">\[P(X = k) = \binom{k-1}{r-1} p^r (1-p)^{k-r}, \quad k = r, r+1, r+2, \ldots\]</span></p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li>
+<span class="math inline">\(r\)</span> : jumlah successes yang diinginkan (positive integer)</li>
+<li>
+<span class="math inline">\(p\)</span> : probabilitas success per trial</li>
+</ul>
+<p><strong>Properties:</strong></p>
+<ul>
+<li>
+<span class="math inline">\(E(X) = \frac{r}{p}\)</span> → Expected total trials</li>
+<li><span class="math inline">\(\text{Var}(X) = \frac{r(1-p)}{p^2}\)</span></li>
+<li>When r=1, reduces to Geometric distribution</li>
+</ul>
+</div>
+</div>
+<p><strong>Hubungan dengan Poisson:</strong></p>
+<p>Negative Binomial sering digunakan sebagai <strong>alternative to Poisson</strong> ketika data menunjukkan <strong>overdispersion</strong> (variance &gt; mean).</p>
+<ul>
+<li>Poisson: Var(X) = λ</li>
+<li>Negative Binomial: Var(X) &gt; E(X) (lebih fleksibel)</li>
+</ul>
+<p><strong>Aplikasi Praktis:</strong></p>
+<ul>
+<li>
+<strong>Count data</strong> dengan extra variability</li>
+<li>
+<strong>Ecology:</strong> Jumlah spesies dalam area (clustering behavior)</li>
+<li>
+<strong>Epidemiology:</strong> Disease transmission dengan heterogeneity</li>
+<li>
+<strong>Marketing:</strong> Customer purchase frequency</li>
+</ul>
+<hr></section></section><section id="continuous-distributions" class="level2" data-number="8.4"><h2 data-number="8.4" class="anchored" data-anchor-id="continuous-distributions">
+<span class="header-section-number">8.4</span> Continuous Distributions</h2>
+<section id="uniform-distribution" class="level3" data-number="8.4.1"><h3 data-number="8.4.1" class="anchored" data-anchor-id="uniform-distribution">
+<span class="header-section-number">8.4.1</span> Uniform Distribution</h3>
+<p><strong>Distribusi Uniform</strong> adalah distribusi continuous paling sederhana: <strong>semua nilai dalam interval [a,b] memiliki probabilitas yang sama</strong>. Ini seperti “fair chance” untuk semua angka dalam range tertentu.</p>
+<p><strong>Intuisi Visual:</strong></p>
+<p>Bayangkan sebuah papan datar horizontal - tidak ada bagian yang lebih tinggi atau rendah. Setiap titik di papan itu punya “ketinggian” (density) yang sama. Inilah Uniform Distribution!</p>
+<p><strong>Kapan Terjadi Uniform Distribution?</strong></p>
+<ol type="1">
+<li>🎲 <strong>Random Number Generator:</strong> Computer generate angka random antara 0 dan 1 → U(0,1)</li>
+<li>🚌 <strong>Waiting Time:</strong> Anda tiba di bus stop random, bus datang setiap 10 menit → Waktu tunggu ~ U(0,10)</li>
+<li>⏰ <strong>Meeting Time:</strong> Meeting dijadwalkan antara 2-3pm, Anda datang random time → Arrival time ~ U(2,3)</li>
+<li>🎯 <strong>Dart Board:</strong> Melempar dart ke papan square (horizontal position) → Position ~ U(0, width)</li>
+<li>📐 <strong>Rounding Errors:</strong> Computer rounding error dalam calculation → Error ~ U(-0.5, 0.5)</li>
+<li>🔢 <strong>Sampling:</strong> Pilih nilai random dari interval untuk Monte Carlo simulation</li>
+</ol>
+<p><strong>Karakteristik Khusus:</strong> - <strong>Flat</strong> PDF (tidak ada peak) - Probabilitas <strong>proporsional dengan length</strong> interval - P(X dalam [c,d]) = (d-c)/(b-a) - Setiap interval <strong>dengan panjang sama</strong> punya probabilitas sama</p>
+<p><strong>Penggunaan Praktis:</strong></p>
+<p>Uniform sering digunakan sebagai <strong>prior distribution</strong> dalam Bayesian statistics ketika kita <strong>tidak punya informasi</strong> tentang parameter - semua nilai equally likely.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+📖 Definisi Formal
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Uniform Distribution</strong> adalah distribusi dimana <strong>semua nilai dalam interval [a,b] equally likely</strong>.</p>
+<p><strong>Notation:</strong> <span class="math inline">\(X \sim \text{Uniform}(a, b)\)</span> atau <span class="math inline">\(X \sim U(a,b)\)</span></p>
+<p><strong>PDF:</strong></p>
+<p><span class="math display">\[f(x) = \begin{cases}
+\frac{1}{b-a} &amp; \text{if } a \leq x \leq b \\
+0 &amp; \text{otherwise}
+\end{cases}\]</span></p>
+<p><strong>CDF:</strong></p>
+<p><span class="math display">\[F(x) = \begin{cases}
+0 &amp; \text{if } x &lt; a \\
+\frac{x-a}{b-a} &amp; \text{if } a \leq x \leq b \\
+1 &amp; \text{if } x &gt; b
+\end{cases}\]</span></p>
+<p><strong>Properties:</strong></p>
+<ul>
+<li>
+<span class="math inline">\(E(X) = \frac{a+b}{2}\)</span> (midpoint)</li>
+<li><span class="math inline">\(\text{Var}(X) = \frac{(b-a)^2}{12}\)</span></li>
+</ul>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="week9-10_files/figure-html/uniform-distribution-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+🎲 Aplikasi
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>
+<strong>Random Number Generator:</strong> Basis untuk generate random numbers</li>
+<li>
+<strong>Arrival Times:</strong> Ketika arrival dalam interval uniform</li>
+<li>
+<strong>Round-off Errors:</strong> Error pembulatan often uniform</li>
+<li>
+<strong>Monte Carlo Simulation:</strong> Sampling dari U(0,1)</li>
+</ol>
+</div>
+</div>
+<hr></section><section id="exponential-distribution" class="level3" data-number="8.4.2"><h3 data-number="8.4.2" class="anchored" data-anchor-id="exponential-distribution">
+<span class="header-section-number">8.4.2</span> Exponential Distribution</h3>
+<p><strong>Distribusi Exponential</strong> adalah <strong>continuous analog</strong> dari Geometric Distribution. Ini memodelkan <strong>waktu tunggu</strong> sampai event pertama terjadi dalam <strong>Poisson process</strong>.</p>
+<p><strong>Perbedaan Geometric vs Exponential:</strong> - <strong>Geometric:</strong> Discrete waiting time (trials ke-1, ke-2, ke-3, …) - <strong>Exponential:</strong> Continuous waiting time (0.5 detik, 2.3 menit, 5.7 jam, …)</p>
+<p><strong>Situasi Nyata Exponential:</strong></p>
+<ol type="1">
+<li>⏱️ <strong>Customer Service:</strong> Waktu antara kedatangan customer di toko</li>
+<li>📞 <strong>Call Center:</strong> Waktu antara incoming calls</li>
+<li>⚡ <strong>Component Failure:</strong> Lifetime sebuah electronic component sampai rusak</li>
+<li>🚗 <strong>Traffic:</strong> Waktu antara mobil yang lewat di jalan tol</li>
+<li>🌊 <strong>Earthquake:</strong> Waktu antara earthquake events di suatu region</li>
+<li>💡 <strong>Light Bulb:</strong> Lifetime lampu LED sampai mati</li>
+<li>📡 <strong>Network:</strong> Waktu antara packet arrivals di router</li>
+<li>☢️ <strong>Radioactive:</strong> Waktu antara radioactive decay events</li>
+<li>🏥 <strong>Medical:</strong> Waktu remission (bebas gejala) sebelum relapse</li>
+<li>🌧️ <strong>Weather:</strong> Waktu antara hujan storms</li>
+</ol>
+<p><strong>Hubungan Erat: Poisson ↔︎ Exponential</strong></p>
+<p>Ini adalah <strong>dua sisi dari koin yang sama</strong>:</p>
+<ul>
+<li>
+<strong>Poisson:</strong> Jumlah events dalam fixed time interval</li>
+<li>
+<strong>Exponential:</strong> Time interval antara consecutive events</li>
+</ul>
+<p><strong>Contoh Konkret:</strong> - Jika calls datang dengan rate <strong>λ = 5 per menit</strong> (Poisson) - Maka waktu ANTAR calls mengikuti <strong>Exp(5)</strong> dengan rata-rata <strong>1/5 = 0.2 menit = 12 detik</strong></p>
+<p><strong>Memoryless Property - Sama seperti Geometric!</strong></p>
+<p><span class="math inline">\(P(X &gt; s+t | X &gt; s) = P(X &gt; t)\)</span></p>
+<p><strong>Artinya:</strong> Jika sebuah component sudah bertahan s jam, probability bertahan t jam lagi <strong>tidak bergantung</strong> pada history!</p>
+<p><strong>Contoh Memoryless:</strong> - Lightbulb sudah menyala 1000 jam. Berapa probability menyala 100 jam lagi? - <strong>Sama saja</strong> dengan probability lightbulb baru menyala 100 jam! - (Catatan: Ini asumsi teoretis - real lightbulbs might degrade over time)</p>
+<p><strong>Mengapa Ini Penting?</strong></p>
+<p>Memoryless property membuat Exponential sangat berguna untuk model <strong>random arrival processes</strong> dan <strong>component reliability</strong> dalam engineering.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+📖 Definisi Formal
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Exponential Distribution</strong> memodelkan <strong>waiting time</strong> hingga event pertama terjadi dalam Poisson process.</p>
+<p><strong>Notation:</strong> <span class="math inline">\(X \sim \text{Exponential}(\lambda)\)</span> atau <span class="math inline">\(X \sim \text{Exp}(\lambda)\)</span></p>
+<p><strong>PDF:</strong></p>
+<p><span class="math display">\[f(x) = \begin{cases}
+\lambda e^{-\lambda x} &amp; \text{if } x \geq 0 \\
+0 &amp; \text{if } x &lt; 0
+\end{cases}\]</span></p>
+<p><strong>CDF:</strong></p>
+<p><span class="math display">\[F(x) = 1 - e^{-\lambda x}, \quad x \geq 0\]</span></p>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><span class="math inline">\(E(X) = \frac{1}{\lambda}\)</span></li>
+<li><span class="math inline">\(\text{Var}(X) = \frac{1}{\lambda^2}\)</span></li>
+<li>
+<strong>Memoryless:</strong> Seperti Geometric (continuous analog)</li>
+</ul>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="week9-10_files/figure-html/exponential-distribution-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+🔗 Hubungan dengan Poisson
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Exponential ↔︎ Poisson:</strong></p>
+<ul>
+<li>Jika jumlah events mengikuti <strong>Poisson(λ)</strong> per unit time</li>
+<li>Maka waiting time antar events mengikuti <strong>Exponential(λ)</strong>
+</li>
+</ul>
+<p><strong>Contoh:</strong></p>
+<ul>
+<li>Calls datang dengan rate λ=5 per menit (Poisson)</li>
+<li>Time between calls ~ Exp(5), mean = 1/5 = 0.2 menit = 12 detik</li>
+</ul>
+</div>
+</div>
+<section id="aplikasi-praktis" class="level4" data-number="8.4.2.1"><h4 data-number="8.4.2.1" class="anchored" data-anchor-id="aplikasi-praktis">
+<span class="header-section-number">8.4.2.1</span> Aplikasi Praktis</h4>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="week9-10_files/figure-html/exponential-application-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<hr></section></section><section id="normal-gaussian-distribution" class="level3" data-number="8.4.3"><h3 data-number="8.4.3" class="anchored" data-anchor-id="normal-gaussian-distribution">
+<span class="header-section-number">8.4.3</span> Normal (Gaussian) Distribution</h3>
+<p><strong>Distribusi Normal</strong> adalah <strong>“the king of distributions”</strong> - distribusi paling penting dalam statistika! Ini muncul <strong>di mana-mana</strong> dalam fenomena alam dan sosial.</p>
+<p><strong>Mengapa Normal Begitu Penting?</strong></p>
+<ol type="1">
+<li>
+<strong>Central Limit Theorem:</strong> Rata-rata dari banyak random variables → Normal (dijelaskan nanti)</li>
+<li>
+<strong>Natural Phenomena:</strong> Banyak hal di alam mengikuti Normal</li>
+<li>
+<strong>Mathematical Convenience:</strong> Mudah untuk analisis matematika</li>
+<li>
+<strong>Foundation:</strong> Dasar untuk banyak metode statistik (t-test, ANOVA, regression)</li>
+</ol>
+<p><strong>Fenomena Dunia Nyata yang Mengikuti Normal:</strong></p>
+<ol type="1">
+<li>📏 <strong>Human Measurements:</strong>
+<ul>
+<li>Tinggi badan orang dewasa (mean ≈ 170cm, σ ≈ 10cm)</li>
+<li>Berat badan dalam populasi tertentu</li>
+<li>IQ scores (mean = 100, σ = 15)</li>
+<li>Blood pressure readings</li>
+</ul>
+</li>
+<li>📊 <strong>Measurement Errors:</strong>
+<ul>
+<li>Scientific instrument readings</li>
+<li>Survey response errors</li>
+<li>Laboratory measurement errors</li>
+</ul>
+</li>
+<li>🎯 <strong>Performance Metrics:</strong>
+<ul>
+<li>Exam scores (jika well-designed dan large sample)</li>
+<li>Reaction times dalam experiments</li>
+<li>Athletic performance (dengan conditioning)</li>
+</ul>
+</li>
+<li>🏭 <strong>Manufacturing:</strong>
+<ul>
+<li>Diameter baut yang diproduksi mesin</li>
+<li>Berat produk packaged</li>
+<li>Chemical concentration dalam mixture</li>
+</ul>
+</li>
+<li>💰 <strong>Financial (dengan caveats):</strong>
+<ul>
+<li>Stock returns (approximation - in reality, fat tails exist)</li>
+<li>Pricing errors</li>
+<li>Residuals dalam financial models</li>
+</ul>
+</li>
+<li>🌡️ <strong>Environmental:</strong>
+<ul>
+<li>Temperature fluctuations around mean</li>
+<li>Rainfall amounts (dengan transformation)</li>
+<li>Pollution levels</li>
+</ul>
+</li>
+</ol>
+<p><strong>Karakteristik Bell Curve:</strong></p>
+<ul>
+<li>
+<strong>Symmetric</strong> around mean μ</li>
+<li>
+<strong>Unimodal</strong> (satu peak di center)</li>
+<li>Mean = Median = Mode (semua di tengah)</li>
+<li>
+<strong>68-95-99.7 Rule</strong> (Empirical Rule)</li>
+<li>Tails <strong>extend to infinity</strong> (tapi probability sangat kecil di extremes)</li>
+</ul>
+<p><strong>Parameters dan Interpretasi:</strong></p>
+<ul>
+<li>
+<strong>μ (mu):</strong> Location parameter - menggeser curve ke kiri/kanan</li>
+<li>
+<strong>σ (sigma):</strong> Scale parameter - mengontrol spread/variability
+<ul>
+<li>σ kecil → narrow, tall curve (data concentrated)</li>
+<li>σ besar → wide, flat curve (data spread out)</li>
+</ul>
+</li>
+</ul>
+<p><strong>Kapan TIDAK Menggunakan Normal?</strong></p>
+<p>⚠️ Normal tidak cocok untuk:</p>
+<ul>
+<li>Data dengan <strong>skewness</strong> berat (income, wealth)</li>
+<li>Data dengan <strong>outliers</strong> ekstrem (stock market crashes)</li>
+<li>
+<strong>Bounded</strong> data (proportions 0-1, counts)</li>
+<li>
+<strong>Discrete</strong> outcomes</li>
+<li>
+<strong>Fat tails</strong> (extreme events more common than Normal predicts)</li>
+</ul>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+📖 Definisi Formal
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Normal Distribution</strong> adalah distribusi paling penting dalam statistik, dengan <strong>bell-shaped curve</strong> yang simetris.</p>
+<p><strong>Notation:</strong> <span class="math inline">\(X \sim \text{Normal}(\mu, \sigma^2)\)</span> atau <span class="math inline">\(X \sim N(\mu, \sigma^2)\)</span></p>
+<p><strong>PDF:</strong></p>
+<p><span class="math display">\[f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)\]</span></p>
+<p><strong>Properties:</strong></p>
+<ul>
+<li>
+<span class="math inline">\(E(X) = \mu\)</span> (location parameter)</li>
+<li>
+<span class="math inline">\(\text{Var}(X) = \sigma^2\)</span> (scale parameter)</li>
+<li>Symmetric around μ</li>
+<li>Bell-shaped curve</li>
+</ul>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="week9-10_files/figure-html/normal-distribution-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+🎯 68-95-99.7 Rule (Empirical Rule)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Untuk distribusi Normal:</p>
+<ul>
+<li>
+<strong>68.3%</strong> data berada dalam <strong>±1σ</strong> dari mean</li>
+<li>
+<strong>95.4%</strong> data berada dalam <strong>±2σ</strong> dari mean</li>
+<li>
+<strong>99.7%</strong> data berada dalam <strong>±3σ</strong> dari mean</li>
+</ul>
+<p><strong>Aplikasi praktis:</strong> Deteksi outliers - data di luar ±3σ sangat rare!</p>
+</div>
+</div>
+<section id="standard-normal-z-scores" class="level4" data-number="8.4.3.1"><h4 data-number="8.4.3.1" class="anchored" data-anchor-id="standard-normal-z-scores">
+<span class="header-section-number">8.4.3.1</span> Standard Normal &amp; Z-Scores</h4>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+📊 Standard Normal: N(0,1)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Standardization (Z-score transformation):</strong></p>
+<p><span class="math display">\[Z = \frac{X - \mu}{\sigma} \sim N(0,1)\]</span></p>
+<p><strong>Interpretasi:</strong> Z-score memberitahu berapa standard deviations suatu nilai dari mean.</p>
+<p><strong>Contoh:</strong></p>
+<ul>
+<li>Z = 1.5 → nilai 1.5 SD di atas mean</li>
+<li>Z = -2.0 → nilai 2.0 SD di bawah mean</li>
+</ul>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="week9-10_files/figure-html/zscore-transformation-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="aplikasi-quality-control" class="level4" data-number="8.4.3.2"><h4 data-number="8.4.3.2" class="anchored" data-anchor-id="aplikasi-quality-control">
+<span class="header-section-number">8.4.3.2</span> Aplikasi: Quality Control</h4>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="week9-10_files/figure-html/normal-application-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<hr></section></section><section id="student-t-distribution" class="level3" data-number="8.4.4"><h3 data-number="8.4.4" class="anchored" data-anchor-id="student-t-distribution">
+<span class="header-section-number">8.4.4</span> Student T Distribution</h3>
+<p><strong>Distribusi Student T</strong> (atau t-distribution) adalah distribusi yang sangat penting dalam <strong>inferential statistics</strong>, terutama ketika bekerja dengan <strong>small samples</strong> dan <strong>unknown population variance</strong>.</p>
+<p><strong>Sejarah Menarik:</strong></p>
+<p>Distribusi ini ditemukan oleh <strong>William Sealy Gosset</strong> (1908) yang bekerja di Guinness Brewery. Dia publish dengan pseudonym “Student” karena company policy, makanya namanya “Student’s t”.</p>
+<p><strong>Kapan Menggunakan T Distribution?</strong></p>
+<p>T distribution digunakan ketika:</p>
+<ul>
+<li>
+<strong>Small sample size</strong> (n &lt; 30)</li>
+<li>
+<strong>Population standard deviation σ unknown</strong> (harus estimate dari sample)</li>
+<li>
+<strong>Hypothesis testing</strong> dan <strong>confidence intervals</strong> untuk means</li>
+<li>Data assumed <strong>normally distributed</strong> (atau approximately normal)</li>
+</ul>
+<p><strong>Karakteristik T Distribution:</strong></p>
+<ul>
+<li>
+<strong>Shape:</strong> Bell-shaped seperti Normal, tapi dengan <strong>heavier tails</strong> (fat tails)</li>
+<li>
+<strong>Symmetric</strong> around 0</li>
+<li>
+<strong>One parameter:</strong> degrees of freedom (df = n - 1)</li>
+<li>Ketika df → ∞, T → Normal(0,1)</li>
+</ul>
+<p><strong>Perbedaan T vs Normal:</strong></p>
+<table class="caption-top table">
+<thead><tr class="header">
+<th>Aspek</th>
+<th>Normal Z</th>
+<th>Student T</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Use when</td>
+<td>σ known, large n</td>
+<td>σ unknown, small n</td>
+</tr>
+<tr class="even">
+<td>Tails</td>
+<td>Thinner</td>
+<td>Heavier (more conservative)</td>
+</tr>
+<tr class="odd">
+<td>Parameters</td>
+<td>μ, σ</td>
+<td>df (degrees of freedom)</td>
+</tr>
+<tr class="even">
+<td>Shape</td>
+<td>Fixed</td>
+<td>Changes with df</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+📖 Definisi Formal
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Notation:</strong> <span class="math inline">\(T \sim t(\nu)\)</span> where <span class="math inline">\(\nu\)</span> = degrees of freedom</p>
+<p><strong>PDF:</strong> <span class="math display">\[f(t) = \frac{\Gamma(\frac{\nu+1}{2})}{\sqrt{\nu\pi}\,\Gamma(\frac{\nu}{2})} \left(1 + \frac{t^2}{\nu}\right)^{-\frac{\nu+1}{2}}\]</span></p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li>
+<span class="math inline">\(\nu\)</span> (nu): degrees of freedom, typically <span class="math inline">\(\nu = n-1\)</span>
+</li>
+</ul>
+<p><strong>Properties:</strong></p>
+<ul>
+<li>
+<span class="math inline">\(E(T) = 0\)</span> for <span class="math inline">\(\nu &gt; 1\)</span>
+</li>
+<li>
+<span class="math inline">\(\text{Var}(T) = \frac{\nu}{\nu-2}\)</span> for <span class="math inline">\(\nu &gt; 2\)</span>
+</li>
+<li>As <span class="math inline">\(\nu \to \infty\)</span>, <span class="math inline">\(t(\nu) \to N(0,1)\)</span>
+</li>
+</ul>
+</div>
+</div>
+<p><strong>Aplikasi Praktis:</strong></p>
+<ol type="1">
+<li>
+<strong>One-sample t-test:</strong> Testing if population mean = hypothesized value</li>
+<li>
+<strong>Two-sample t-test:</strong> Comparing means between two groups</li>
+<li>
+<strong>Paired t-test:</strong> Before-after comparisons</li>
+<li>
+<strong>Confidence Intervals:</strong> For population mean with unknown σ</li>
+<li>
+<strong>Regression:</strong> Testing significance of coefficients</li>
+</ol>
+<p><strong>Contoh Penggunaan:</strong></p>
+<p>Anda ingin test apakah rata-rata tinggi mahasiswa = 170cm, tapi hanya punya sample 15 orang. Gunakan t-test, bukan z-test!</p>
+<hr></section><section id="chi-squared-distribution" class="level3" data-number="8.4.5"><h3 data-number="8.4.5" class="anchored" data-anchor-id="chi-squared-distribution">
+<span class="header-section-number">8.4.5</span> Chi-Squared Distribution</h3>
+<p><strong>Distribusi Chi-Squared (χ²)</strong> adalah distribusi untuk <strong>sum of squared standard normal variables</strong>. Ini fundamental dalam statistical testing, terutama untuk <strong>variance</strong> dan <strong>goodness of fit</strong>.</p>
+<p><strong>Konstruksi:</strong></p>
+<p>Jika <span class="math inline">\(Z_1, Z_2, \ldots, Z_k \sim N(0,1)\)</span> independent, maka: <span class="math display">\[\chi^2 = Z_1^2 + Z_2^2 + \cdots + Z_k^2 \sim \chi^2(k)\]</span></p>
+<p><strong>Kapan Menggunakan Chi-Squared?</strong></p>
+<ol type="1">
+<li>
+<strong>Testing variance:</strong> Apakah sample variance berbeda dari hypothesized value?</li>
+<li>
+<strong>Goodness of fit test:</strong> Apakah data fit dengan distribusi tertentu?</li>
+<li>
+<strong>Test of independence:</strong> Apakah dua categorical variables independent?</li>
+<li>
+<strong>Homogeneity test:</strong> Apakah beberapa proportions sama?</li>
+</ol>
+<p><strong>Karakteristik:</strong></p>
+<ul>
+<li>
+<strong>Right-skewed</strong> (positive skew)</li>
+<li>
+<strong>Support:</strong> x ≥ 0 (hanya positive values)</li>
+<li>
+<strong>One parameter:</strong> df (degrees of freedom)</li>
+<li>Ketika df besar, mendekati Normal</li>
+</ul>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+📖 Definisi Formal
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Notation:</strong> <span class="math inline">\(X \sim \chi^2(k)\)</span> where k = degrees of freedom</p>
+<p><strong>PDF:</strong> <span class="math display">\[f(x) = \frac{1}{2^{k/2}\Gamma(k/2)} x^{k/2-1} e^{-x/2}, \quad x &gt; 0\]</span></p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li>
+<span class="math inline">\(k\)</span>: degrees of freedom (positive integer)</li>
+</ul>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><span class="math inline">\(E(X) = k\)</span></li>
+<li><span class="math inline">\(\text{Var}(X) = 2k\)</span></li>
+<li>Additive: If <span class="math inline">\(X_1 \sim \chi^2(k_1)\)</span> and <span class="math inline">\(X_2 \sim \chi^2(k_2)\)</span> independent, then <span class="math inline">\(X_1 + X_2 \sim \chi^2(k_1+k_2)\)</span>
+</li>
+</ul>
+</div>
+</div>
+<p><strong>Aplikasi Praktis:</strong></p>
+<ol type="1">
+<li>
+<strong>Chi-square test of independence:</strong> Hubungan gender dan preference</li>
+<li>
+<strong>Chi-square goodness of fit:</strong> Apakah dice fair?</li>
+<li>
+<strong>Variance testing:</strong> Quality control - checking consistency</li>
+<li>
+<strong>Categorical data analysis:</strong> Contingency tables</li>
+</ol>
+<p><strong>Contoh:</strong> Test apakah hasil dice roll fair (setiap angka 1-6 equally likely).</p>
+<hr></section><section id="f-distribution" class="level3" data-number="8.4.6"><h3 data-number="8.4.6" class="anchored" data-anchor-id="f-distribution">
+<span class="header-section-number">8.4.6</span> F Distribution</h3>
+<p><strong>Distribusi F</strong> (Fisher distribution) digunakan untuk <strong>comparing variances</strong> antara dua groups. Ini adalah ratio dari dua chi-squared distributions.</p>
+<p><strong>Konstruksi:</strong></p>
+<p><span class="math display">\[F = \frac{U_1/d_1}{U_2/d_2}\]</span></p>
+<p>dimana <span class="math inline">\(U_1 \sim \chi^2(d_1)\)</span> dan <span class="math inline">\(U_2 \sim \chi^2(d_2)\)</span> independent.</p>
+<p><strong>Kapan Menggunakan F Distribution?</strong></p>
+<ol type="1">
+<li>
+<strong>ANOVA (Analysis of Variance):</strong> Comparing means across ≥3 groups</li>
+<li>
+<strong>F-test for equality of variances:</strong> Apakah dua populations punya variance sama?</li>
+<li>
+<strong>Regression analysis:</strong> Testing overall model significance</li>
+<li>
+<strong>Comparing nested models:</strong> Model selection</li>
+</ol>
+<p><strong>Karakteristik:</strong></p>
+<ul>
+<li><strong>Right-skewed</strong></li>
+<li>
+<strong>Support:</strong> F ≥ 0</li>
+<li>
+<strong>Two parameters:</strong> <span class="math inline">\(d_1\)</span> (numerator df) dan <span class="math inline">\(d_2\)</span> (denominator df)</li>
+<li><strong>Not symmetric</strong></li>
+</ul>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+📖 Definisi Formal
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Notation:</strong> <span class="math inline">\(F \sim F(d_1, d_2)\)</span></p>
+<p><strong>PDF:</strong> <span class="math display">\[f(x) = \frac{\sqrt{\frac{(d_1 x)^{d_1} d_2^{d_2}}{(d_1 x + d_2)^{d_1+d_2}}}}{x \, B(d_1/2, d_2/2)}, \quad x &gt; 0\]</span></p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li>
+<span class="math inline">\(d_1\)</span>: numerator degrees of freedom</li>
+<li>
+<span class="math inline">\(d_2\)</span>: denominator degrees of freedom</li>
+</ul>
+<p><strong>Properties:</strong></p>
+<ul>
+<li>
+<span class="math inline">\(E(F) = \frac{d_2}{d_2-2}\)</span> for <span class="math inline">\(d_2 &gt; 2\)</span>
+</li>
+<li>No simple formula for variance</li>
+</ul>
+</div>
+</div>
+<p><strong>Aplikasi Praktis:</strong></p>
+<ol type="1">
+<li>
+<strong>ANOVA:</strong> Comparing teaching methods (3+ groups)</li>
+<li>
+<strong>Regression:</strong> Testing if model is better than intercept-only</li>
+<li>
+<strong>Quality Control:</strong> Comparing variability between machines</li>
+<li>
+<strong>Finance:</strong> Testing equality of volatilities</li>
+</ol>
+<p><strong>Contoh:</strong> ANOVA untuk membandingkan effectiveness 3 different training programs.</p>
+<hr></section><section id="gamma-distribution" class="level3" data-number="8.4.7"><h3 data-number="8.4.7" class="anchored" data-anchor-id="gamma-distribution">
+<span class="header-section-number">8.4.7</span> Gamma Distribution</h3>
+<p><strong>Distribusi Gamma</strong> adalah <strong>flexible family</strong> dari distribusi continuous yang sangat berguna untuk modeling <strong>waiting times</strong> dan <strong>skewed positive data</strong>.</p>
+<p><strong>Generalisasi:</strong></p>
+<p>Gamma adalah <strong>generalisasi dari Exponential</strong>:</p>
+<ul>
+<li>Exponential: Waiting time sampai <strong>1st event</strong>
+</li>
+<li>Gamma: Waiting time sampai <strong>k-th event</strong> dalam Poisson process</li>
+</ul>
+<p><strong>Karakteristik:</strong></p>
+<ul>
+<li>
+<strong>Support:</strong> x &gt; 0 (hanya positive values)</li>
+<li>
+<strong>Two parameters:</strong> shape (k atau α) dan scale (θ) atau rate (β)</li>
+<li>
+<strong>Flexible shapes:</strong> Bisa right-skewed, symmetric (jika k besar), atau exponential (k=1)</li>
+</ul>
+<p><strong>Hubungan dengan Distribusi Lain:</strong></p>
+<ul>
+<li>Gamma(1, β) = Exponential(β)</li>
+<li>Gamma(k/2, 2) = Chi-squared(k)</li>
+<li>Sum of k independent Exp(β) = Gamma(k, β)</li>
+</ul>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+📖 Definisi Formal
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Notation:</strong> <span class="math inline">\(X \sim \text{Gamma}(\alpha, \beta)\)</span></p>
+<p>(Note: Ada 2 parameterisasi - shape-rate dan shape-scale)</p>
+<p><strong>PDF (shape-rate):</strong> <span class="math display">\[f(x) = \frac{\beta^\alpha}{\Gamma(\alpha)} x^{\alpha-1} e^{-\beta x}, \quad x &gt; 0\]</span></p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li>
+<span class="math inline">\(\alpha\)</span> (alpha): shape parameter (α &gt; 0)</li>
+<li>
+<span class="math inline">\(\beta\)</span> (beta): rate parameter (β &gt; 0)</li>
+</ul>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><span class="math inline">\(E(X) = \frac{\alpha}{\beta}\)</span></li>
+<li><span class="math inline">\(\text{Var}(X) = \frac{\alpha}{\beta^2}\)</span></li>
+</ul>
+</div>
+</div>
+<p><strong>Aplikasi Praktis:</strong></p>
+<ol type="1">
+<li>
+<strong>Queueing theory:</strong> Total waiting time untuk k customers</li>
+<li>
+<strong>Reliability:</strong> Time until k-th failure</li>
+<li>
+<strong>Insurance:</strong> Aggregate claim amounts</li>
+<li>
+<strong>Rainfall:</strong> Total rainfall amounts (positively skewed)</li>
+<li>
+<strong>Finance:</strong> Modeling stock price changes</li>
+<li>
+<strong>Survival analysis:</strong> Time to event data</li>
+</ol>
+<p><strong>Contoh:</strong> Modeling total time sampai 5 customer arrive di bank.</p>
+<hr></section><section id="beta-distribution" class="level3" data-number="8.4.8"><h3 data-number="8.4.8" class="anchored" data-anchor-id="beta-distribution">
+<span class="header-section-number">8.4.8</span> Beta Distribution</h3>
+<p><strong>Distribusi Beta</strong> adalah distribusi untuk <strong>probabilities and proportions</strong> - nilai yang <strong>bounded antara 0 dan 1</strong>. Ini sangat berguna untuk Bayesian statistics.</p>
+<p><strong>Karakteristik Unik:</strong></p>
+<ul>
+<li>
+<strong>Support:</strong> 0 ≤ x ≤ 1 (bounded!)</li>
+<li>
+<strong>Two parameters:</strong> α dan β (both &gt; 0)</li>
+<li>
+<strong>Extremely flexible shapes:</strong>
+<ul>
+<li>U-shaped</li>
+<li>Bell-shaped</li>
+<li>Uniform</li>
+<li>J-shaped</li>
+<li>Reverse J-shaped</li>
+</ul>
+</li>
+</ul>
+<p><strong>Interpretasi Parameters:</strong></p>
+<p>Parameter α dan β bisa diinterpret sebagai:</p>
+<ul>
+<li>
+<strong>α - 1:</strong> jumlah “successes”</li>
+<li>
+<strong>β - 1:</strong> jumlah “failures”</li>
+</ul>
+<p>Semakin besar α dan β, semakin <strong>concentrated</strong> distribusi.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+📖 Definisi Formal
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Notation:</strong> <span class="math inline">\(X \sim \text{Beta}(\alpha, \beta)\)</span></p>
+<p><strong>PDF:</strong> <span class="math display">\[f(x) = \frac{x^{\alpha-1}(1-x)^{\beta-1}}{B(\alpha,\beta)}, \quad 0 \leq x \leq 1\]</span></p>
+<p>dimana <span class="math inline">\(B(\alpha,\beta) = \frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha+\beta)}\)</span> adalah Beta function.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li>
+<span class="math inline">\(\alpha\)</span> (alpha): shape parameter (α &gt; 0)</li>
+<li>
+<span class="math inline">\(\beta\)</span> (beta): shape parameter (β &gt; 0)</li>
+</ul>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><span class="math inline">\(E(X) = \frac{\alpha}{\alpha+\beta}\)</span></li>
+<li><span class="math inline">\(\text{Var}(X) = \frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}\)</span></li>
+<li>Mode: <span class="math inline">\(\frac{\alpha-1}{\alpha+\beta-2}\)</span> for α,β &gt; 1</li>
+</ul>
+</div>
+</div>
+<p><strong>Special Cases:</strong></p>
+<ul>
+<li>Beta(1,1) = Uniform(0,1)</li>
+<li>Beta(α,β) symmetric when α = β</li>
+<li>Beta(0.5, 0.5) = U-shaped (Jeffreys prior)</li>
+</ul>
+<p><strong>Aplikasi Praktis:</strong></p>
+<ol type="1">
+<li>
+<strong>Bayesian Statistics:</strong> Prior dan posterior untuk probabilities</li>
+<li>
+<strong>Project Management:</strong> Modeling task completion percentages (PERT)</li>
+<li>
+<strong>Quality Control:</strong> Proportion of defective items</li>
+<li>
+<strong>Marketing:</strong> Click-through rates, conversion rates</li>
+<li>
+<strong>Sports Analytics:</strong> Batting averages, shooting percentages</li>
+<li>
+<strong>Genetics:</strong> Allele frequencies</li>
+<li>
+<strong>Finance:</strong> Recovery rates on defaulted loans</li>
+</ol>
+<p><strong>Contoh:</strong></p>
+<p>Anda observed 8 successes dan 2 failures. Beta(9, 3) menjadi posterior distribution untuk true success probability p.</p>
+<hr></section><section id="central-limit-theorem-clt" class="level3" data-number="8.4.9"><h3 data-number="8.4.9" class="anchored" data-anchor-id="central-limit-theorem-clt">
+<span class="header-section-number">8.4.9</span> Central Limit Theorem (CLT)</h3>
+<p><strong>Central Limit Theorem</strong> adalah salah satu teorema paling powerful dalam statistik. Teorema ini menjelaskan <strong>mengapa Normal Distribution begitu sering muncul</strong>.</p>
+<p><strong>Pernyataan Sederhana:</strong></p>
+<blockquote class="blockquote">
+<p>“Jika Anda mengambil rata-rata dari <strong>banyak</strong> random variables (apapun distribusinya), rata-rata tersebut akan <strong>mendekati Normal Distribution</strong>.”</p>
+</blockquote>
+<p><strong>Implikasi Praktis:</strong></p>
+<ol type="1">
+<li>
+<strong>Sample Means:</strong> Rata-rata sample akan Normal, even if population bukan Normal</li>
+<li>
+<strong>Large n:</strong> Semakin besar sample size, semakin mendekati Normal</li>
+<li>
+<strong>Any Distribution:</strong> Berlaku untuk distribusi apapun (asal punya mean &amp; variance)</li>
+</ol>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+🌟 Teorema Formal
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Jika <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> adalah i.i.d. random variables dengan mean <span class="math inline">\(\mu\)</span> dan variance <span class="math inline">\(\sigma^2\)</span>, maka:</p>
+<p><span class="math display">\[\bar{X} = \frac{1}{n}\sum_{i=1}^n X_i \xrightarrow{d} N\left(\mu, \frac{\sigma^2}{n}\right) \text{ as } n \to \infty\]</span></p>
+<p><strong>Atau dalam bentuk standardized:</strong> <span class="math display">\[\frac{\bar{X} - \mu}{\sigma/\sqrt{n}} \xrightarrow{d} N(0, 1)\]</span></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="week9-10_files/figure-html/clt-demonstration-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+🔑 Key Takeaways CLT
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>
+<strong>Universal:</strong> Berlaku untuk SEMUA distribusi (dengan finite mean &amp; variance)</li>
+<li>
+<strong>Rule of Thumb:</strong> n ≥ 30 biasanya cukup untuk approximation yang baik</li>
+<li>
+<strong>Power:</strong> Memungkinkan inference dan hypothesis testing tanpa tahu distribusi population!</li>
+<li>
+<strong>Foundation:</strong> Dasar untuk confidence intervals, t-tests, dan banyak metode statistik</li>
+</ol>
+</div>
+</div>
+<p><strong>Aplikasi Praktis CLT:</strong> - Survey sampling: Sample mean mendekati population mean - Quality control: Average measurements dari batch - A/B testing: Comparing means between groups - Financial analysis: Portfolio returns</p>
+<hr></section></section><section id="perbandingan-distribusi" class="level2" data-number="8.5"><h2 data-number="8.5" class="anchored" data-anchor-id="perbandingan-distribusi">
+<span class="header-section-number">8.5</span> Perbandingan Distribusi</h2>
+<section id="decision-tree-memilih-distribusi-yang-tepat" class="level3" data-number="8.5.1"><h3 data-number="8.5.1" class="anchored" data-anchor-id="decision-tree-memilih-distribusi-yang-tepat">
+<span class="header-section-number">8.5.1</span> Decision Tree: Memilih Distribusi yang Tepat</h3>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-striped table-hover table-condensed caption-top table-sm small" data-quarto-postprocess="true">
+<caption>Summary of Probability Distributions</caption>
+<thead><tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold; color: white !important; background-color: rgba(42, 157, 143, 255) !important;">Distribution</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(42, 157, 143, 255) !important;">Type</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold; color: white !important; background-color: rgba(42, 157, 143, 255) !important;">Use_Case</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(42, 157, 143, 255) !important;">Parameters</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(42, 157, 143, 255) !important;">Mean</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(42, 157, 143, 255) !important;">Support</th>
+</tr></thead>
+<tbody>
+<tr class="odd" data-grouplength="5">
+<td colspan="6" style="background-color: #E63946; color: #fff"><strong>Discrete Distributions</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; background-color: rgba(240, 248, 255, 255) !important; font-weight: bold; color: rgba(38, 70, 83, 255) !important; padding-left: 2em;" data-indentlevel="1">Bernoulli</td>
+<td style="text-align: center; background-color: rgba(240, 248, 255, 255) !important; font-weight: bold;">Discrete</td>
+<td style="text-align: left; background-color: rgba(240, 248, 255, 255) !important;">Single trial, 2 outcomes</td>
+<td style="text-align: center; background-color: rgba(240, 248, 255, 255) !important;">p</td>
+<td style="text-align: center; background-color: rgba(240, 248, 255, 255) !important;">p</td>
+<td style="text-align: center; background-color: rgba(240, 248, 255, 255) !important;">0, 1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; background-color: rgba(240, 248, 255, 255) !important; font-weight: bold; color: rgba(38, 70, 83, 255) !important; padding-left: 2em;" data-indentlevel="1">Binomial</td>
+<td style="text-align: center; background-color: rgba(240, 248, 255, 255) !important; font-weight: bold;">Discrete</td>
+<td style="text-align: left; background-color: rgba(240, 248, 255, 255) !important;"># successes in n trials</td>
+<td style="text-align: center; background-color: rgba(240, 248, 255, 255) !important;">n, p</td>
+<td style="text-align: center; background-color: rgba(240, 248, 255, 255) !important;">np</td>
+<td style="text-align: center; background-color: rgba(240, 248, 255, 255) !important;">0 to n</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; background-color: rgba(240, 248, 255, 255) !important; font-weight: bold; color: rgba(38, 70, 83, 255) !important; padding-left: 2em;" data-indentlevel="1">Geometric</td>
+<td style="text-align: center; background-color: rgba(240, 248, 255, 255) !important; font-weight: bold;">Discrete</td>
+<td style="text-align: left; background-color: rgba(240, 248, 255, 255) !important;"># trials until 1st success</td>
+<td style="text-align: center; background-color: rgba(240, 248, 255, 255) !important;">p</td>
+<td style="text-align: center; background-color: rgba(240, 248, 255, 255) !important;">1/p</td>
+<td style="text-align: center; background-color: rgba(240, 248, 255, 255) !important;">1, 2, 3...</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; background-color: rgba(240, 248, 255, 255) !important; font-weight: bold; color: rgba(38, 70, 83, 255) !important; padding-left: 2em;" data-indentlevel="1">Poisson</td>
+<td style="text-align: center; background-color: rgba(240, 248, 255, 255) !important; font-weight: bold;">Discrete</td>
+<td style="text-align: left; background-color: rgba(240, 248, 255, 255) !important;"># events in fixed interval</td>
+<td style="text-align: center; background-color: rgba(240, 248, 255, 255) !important;">λ</td>
+<td style="text-align: center; background-color: rgba(240, 248, 255, 255) !important;">λ</td>
+<td style="text-align: center; background-color: rgba(240, 248, 255, 255) !important;">0, 1, 2...</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; background-color: rgba(240, 248, 255, 255) !important; font-weight: bold; color: rgba(38, 70, 83, 255) !important; padding-left: 2em;" data-indentlevel="1">Negative Binomial</td>
+<td style="text-align: center; background-color: rgba(240, 248, 255, 255) !important; font-weight: bold;">Discrete</td>
+<td style="text-align: left; background-color: rgba(240, 248, 255, 255) !important;"># trials until r-th success</td>
+<td style="text-align: center; background-color: rgba(240, 248, 255, 255) !important;">r, p</td>
+<td style="text-align: center; background-color: rgba(240, 248, 255, 255) !important;">r/p</td>
+<td style="text-align: center; background-color: rgba(240, 248, 255, 255) !important;">r, r+1...</td>
+</tr>
+<tr class="odd" data-grouplength="8">
+<td colspan="6" style="background-color: #118AB2; color: #fff"><strong>Continuous Distributions</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; background-color: rgba(255, 248, 220, 255) !important; font-weight: bold; color: rgba(38, 70, 83, 255) !important; padding-left: 2em;" data-indentlevel="1">Uniform</td>
+<td style="text-align: center; background-color: rgba(255, 248, 220, 255) !important; font-weight: bold;">Continuous</td>
+<td style="text-align: left; background-color: rgba(255, 248, 220, 255) !important;">All values equally likely</td>
+<td style="text-align: center; background-color: rgba(255, 248, 220, 255) !important;">a, b</td>
+<td style="text-align: center; background-color: rgba(255, 248, 220, 255) !important;">(a+b)/2</td>
+<td style="text-align: center; background-color: rgba(255, 248, 220, 255) !important;">[a, b]</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; background-color: rgba(255, 248, 220, 255) !important; font-weight: bold; color: rgba(38, 70, 83, 255) !important; padding-left: 2em;" data-indentlevel="1">Exponential</td>
+<td style="text-align: center; background-color: rgba(255, 248, 220, 255) !important; font-weight: bold;">Continuous</td>
+<td style="text-align: left; background-color: rgba(255, 248, 220, 255) !important;">Waiting time for events</td>
+<td style="text-align: center; background-color: rgba(255, 248, 220, 255) !important;">λ</td>
+<td style="text-align: center; background-color: rgba(255, 248, 220, 255) !important;">1/λ</td>
+<td style="text-align: center; background-color: rgba(255, 248, 220, 255) !important;">x ≥ 0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; background-color: rgba(255, 248, 220, 255) !important; font-weight: bold; color: rgba(38, 70, 83, 255) !important; padding-left: 2em;" data-indentlevel="1">Normal</td>
+<td style="text-align: center; background-color: rgba(255, 248, 220, 255) !important; font-weight: bold;">Continuous</td>
+<td style="text-align: left; background-color: rgba(255, 248, 220, 255) !important;">Natural phenomena, averages</td>
+<td style="text-align: center; background-color: rgba(255, 248, 220, 255) !important;">μ, σ²</td>
+<td style="text-align: center; background-color: rgba(255, 248, 220, 255) !important;">μ</td>
+<td style="text-align: center; background-color: rgba(255, 248, 220, 255) !important;">(-∞, ∞)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; background-color: rgba(255, 248, 220, 255) !important; font-weight: bold; color: rgba(38, 70, 83, 255) !important; padding-left: 2em;" data-indentlevel="1">Student T</td>
+<td style="text-align: center; background-color: rgba(255, 248, 220, 255) !important; font-weight: bold;">Continuous</td>
+<td style="text-align: left; background-color: rgba(255, 248, 220, 255) !important;">Small samples, unknown σ</td>
+<td style="text-align: center; background-color: rgba(255, 248, 220, 255) !important;">df</td>
+<td style="text-align: center; background-color: rgba(255, 248, 220, 255) !important;">0</td>
+<td style="text-align: center; background-color: rgba(255, 248, 220, 255) !important;">(-∞, ∞)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; background-color: rgba(255, 248, 220, 255) !important; font-weight: bold; color: rgba(38, 70, 83, 255) !important; padding-left: 2em;" data-indentlevel="1">Chi-Squared</td>
+<td style="text-align: center; background-color: rgba(255, 248, 220, 255) !important; font-weight: bold;">Continuous</td>
+<td style="text-align: left; background-color: rgba(255, 248, 220, 255) !important;">Variance tests, goodness of fit</td>
+<td style="text-align: center; background-color: rgba(255, 248, 220, 255) !important;">df</td>
+<td style="text-align: center; background-color: rgba(255, 248, 220, 255) !important;">df</td>
+<td style="text-align: center; background-color: rgba(255, 248, 220, 255) !important;">x &gt; 0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; background-color: rgba(255, 248, 220, 255) !important; font-weight: bold; color: rgba(38, 70, 83, 255) !important; padding-left: 2em;" data-indentlevel="1">F</td>
+<td style="text-align: center; background-color: rgba(255, 248, 220, 255) !important; font-weight: bold;">Continuous</td>
+<td style="text-align: left; background-color: rgba(255, 248, 220, 255) !important;">Comparing variances, ANOVA</td>
+<td style="text-align: center; background-color: rgba(255, 248, 220, 255) !important;">df₁, df₂</td>
+<td style="text-align: center; background-color: rgba(255, 248, 220, 255) !important;">df₂/(df₂-2)</td>
+<td style="text-align: center; background-color: rgba(255, 248, 220, 255) !important;">x &gt; 0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; background-color: rgba(255, 248, 220, 255) !important; font-weight: bold; color: rgba(38, 70, 83, 255) !important; padding-left: 2em;" data-indentlevel="1">Gamma</td>
+<td style="text-align: center; background-color: rgba(255, 248, 220, 255) !important; font-weight: bold;">Continuous</td>
+<td style="text-align: left; background-color: rgba(255, 248, 220, 255) !important;">Waiting time for k events</td>
+<td style="text-align: center; background-color: rgba(255, 248, 220, 255) !important;">α, β</td>
+<td style="text-align: center; background-color: rgba(255, 248, 220, 255) !important;">α/β</td>
+<td style="text-align: center; background-color: rgba(255, 248, 220, 255) !important;">x &gt; 0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; background-color: rgba(255, 248, 220, 255) !important; font-weight: bold; color: rgba(38, 70, 83, 255) !important; padding-left: 2em;" data-indentlevel="1">Beta</td>
+<td style="text-align: center; background-color: rgba(255, 248, 220, 255) !important; font-weight: bold;">Continuous</td>
+<td style="text-align: left; background-color: rgba(255, 248, 220, 255) !important;">Probabilities and proportions</td>
+<td style="text-align: center; background-color: rgba(255, 248, 220, 255) !important;">α, β</td>
+<td style="text-align: center; background-color: rgba(255, 248, 220, 255) !important;">α/(α+β)</td>
+<td style="text-align: center; background-color: rgba(255, 248, 220, 255) !important;">[0, 1]</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section><section id="visual-comparison-shape-comparison" class="level3" data-number="8.5.2"><h3 data-number="8.5.2" class="anchored" data-anchor-id="visual-comparison-shape-comparison">
+<span class="header-section-number">8.5.2</span> Visual Comparison: Shape Comparison</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="week9-10_files/figure-html/shape-comparison-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<hr></section></section><section id="summary-key-takeaways" class="level2" data-number="8.6"><h2 data-number="8.6" class="anchored" data-anchor-id="summary-key-takeaways">
+<span class="header-section-number">8.6</span> Summary &amp; Key Takeaways</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+📚 Ringkasan Materi
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<section id="discrete-distributions-1" class="level3" data-number="8.6.1"><h3 data-number="8.6.1" class="anchored" data-anchor-id="discrete-distributions-1">
+<span class="header-section-number">8.6.1</span> Discrete Distributions</h3>
+<ol type="1">
+<li>
+<strong>Bernoulli:</strong> Single trial dengan 2 outcomes</li>
+<li>
+<strong>Binomial:</strong> # successes dalam n independent trials</li>
+<li>
+<strong>Geometric:</strong> # trials sampai 1st success (memoryless)</li>
+<li>
+<strong>Poisson:</strong> # events dalam fixed interval (rare events)</li>
+<li>
+<strong>Negative Binomial:</strong> # trials sampai r-th success</li>
+</ol></section><section id="continuous-distributions-1" class="level3" data-number="8.6.2"><h3 data-number="8.6.2" class="anchored" data-anchor-id="continuous-distributions-1">
+<span class="header-section-number">8.6.2</span> Continuous Distributions</h3>
+<ol type="1">
+<li>
+<strong>Uniform:</strong> All values equally likely dalam [a,b]</li>
+<li>
+<strong>Exponential:</strong> Waiting time untuk next event (memoryless)</li>
+<li>
+<strong>Normal:</strong> The king - bell curve, CLT foundation</li>
+<li>
+<strong>Student T:</strong> Small samples, unknown σ, hypothesis testing</li>
+<li>
+<strong>Chi-Squared:</strong> Variance tests, goodness of fit</li>
+<li>
+<strong>F:</strong> Comparing variances, ANOVA</li>
+<li>
+<strong>Gamma:</strong> Waiting time untuk k-th event, flexible skewness</li>
+<li>
+<strong>Beta:</strong> Probabilities and proportions [0,1], Bayesian priors</li>
+</ol></section><section id="universal-principles" class="level3" data-number="8.6.3"><h3 data-number="8.6.3" class="anchored" data-anchor-id="universal-principles">
+<span class="header-section-number">8.6.3</span> Universal Principles</h3>
+<ul>
+<li>
+<strong>Choose distribution based on:</strong> Data type, process characteristics, theoretical justification</li>
+<li>
+<strong>Central Limit Theorem:</strong> Sample means → Normal (regardless of population)</li>
+<li>
+<strong>Parameters matter:</strong> Location (μ), scale (σ), rate (λ), shape (α, β)</li>
+<li>
+<strong>Support matters:</strong> Discrete vs continuous, bounded vs unbounded</li>
+</ul></section>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+🎯 Praktik Terbaik
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>
+<strong>Understand the process</strong> generating data first</li>
+<li>
+<strong>Check assumptions</strong> before applying distributions</li>
+<li>
+<strong>Validate with data</strong> - theory vs reality</li>
+<li>
+<strong>Use CLT wisely</strong> - know its limitations</li>
+<li>
+<strong>Visualize always</strong> - plots reveal insights</li>
+</ol>
+</div>
+</div>
+<hr></section><section id="referensi-pembelajaran-lanjut" class="level2" data-number="8.7"><h2 data-number="8.7" class="anchored" data-anchor-id="referensi-pembelajaran-lanjut">
+<span class="header-section-number">8.7</span> Referensi &amp; Pembelajaran Lanjut</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+📖 Sumber Belajar
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Buku:</strong></p>
+<ul>
+<li>Seeing Theory by Devlin, Guo, Kunin, Xiang</li>
+<li>“Introduction to Probability” by Bertsekas &amp; Tsitsiklis</li>
+<li>“All of Statistics” by Larry Wasserman</li>
+</ul>
+<p><strong>Online Resources:</strong></p>
+<ul>
+<li>
+<a href="https://seeing-theory.brown.edu/">Seeing Theory Website</a> - Interactive visualizations</li>
+<li><a href="https://www.khanacademy.org/math/statistics-probability">Khan Academy Statistics</a></li>
+<li><a href="https://www.youtube.com/c/joshstarmer">StatQuest YouTube Channel</a></li>
+</ul>
+<p><strong>Practice:</strong></p>
+<ul>
+<li>Simulate distributions in R/Python</li>
+<li>Work through real datasets</li>
+<li>Join Kaggle competitions</li>
+</ul>
+</div>
+</div>
+<hr>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+💭 Final Thoughts
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<blockquote class="blockquote">
+<p>“The world is an uncertain place. Probability distributions help us quantify and reason about that uncertainty in a principled way.”</p>
+</blockquote>
+<p>Memahami distribusi probabilitas bukan hanya tentang rumus dan grafik - ini tentang <strong>cara berpikir</strong> dalam menghadapi ketidakpastian dan membuat keputusan berdasarkan data.</p>
+<p><strong>Next steps:</strong></p>
+<ul>
+<li>Apply distributions to YOUR data</li>
+<li>Experiment with simulations</li>
+<li>Understand assumptions and limitations</li>
+<li>Keep learning - statistics is a journey, not a destination!</li>
+</ul>
+</div>
+</div>
+<hr>
+<div style="text-align: center; padding: 20px; background-color: #f0f0f0; border-radius: 10px; margin-top: 30px;">
+<p><strong>🎓 Selamat Belajar! Keep Exploring Probability!</strong></p>
+<p><em>Dibuat dengan ❤️ menggunakan Quarto</em></p>
+</div>
+
+
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="./week7_nocalculus.html" class="pagination-link" aria-label="Peubah Acak, Ekspektasi, dan Variansi">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Peubah Acak, Ekspektasi, dan Variansi</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Made with love and <a href="https://quarto.org/">Quarto</a> by <a href="https://derisiswara.art/">Deri Siswara</a> - <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+</body></html>

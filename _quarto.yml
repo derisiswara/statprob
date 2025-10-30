@@ -15,6 +15,7 @@ book:
     - week5.qmd
     - week6.qmd
     - week7_nocalculus.qmd
+    - week9-10.qmd
 
 format:
   html:

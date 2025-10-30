@@ -1,0 +1,2215 @@
+---
+format: html
+execute: 
+  echo: false
+  warning: false
+  error: false
+  message: false
+  cache: false
+---
+
+# Distribusi Probabilitas
+
+Playground: https://seeing-theory.brown.edu/
+
+```{r setup}
+#| include: false
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(gridExtra)
+library(scales)
+library(patchwork)
+
+# Set theme untuk semua plot
+theme_set(theme_minimal(base_size = 13) +
+  theme(
+    plot.title = element_text(face = "bold", size = 16, hjust = 0.5),
+    plot.subtitle = element_text(size = 11, color = "gray40", hjust = 0.5),
+    axis.title = element_text(face = "bold"),
+    legend.position = "top",
+    panel.grid.minor = element_blank(),
+    panel.border = element_rect(fill = NA, color = "gray80")
+  ))
+
+# Color palette
+colors_discrete <- c("#E63946", "#F77F00", "#06A77D", "#118AB2", "#073B4C")
+colors_continuous <- c("#264653", "#2A9D8F", "#E76F51", "#F4A261", "#E9C46A")
+```
+
+::: {.callout-note icon=false}
+## 🎯 Tujuan Pembelajaran
+
+Setelah mempelajari bab ini, Anda akan dapat:
+
+- Membedakan distribusi diskrit dan kontinu
+- Memahami karakteristik setiap distribusi (mean, variance, shape)
+- Menerapkan distribusi yang tepat untuk berbagai kasus nyata
+- Menghitung probabilitas menggunakan fungsi distribusi
+- Memahami Central Limit Theorem dan aplikasinya
+:::
+
+## Pengantar: Random Variables
+
+### Apa itu Random Variable?
+
+::: {.callout-tip}
+## 💡 Definisi Intuitif
+
+**Random Variable** adalah fungsi yang memetakan hasil dari eksperimen random ke angka real.
+
+**Contoh sederhana:**
+
+- Lempar koin: H → 1, T → 0
+- Lempar dadu: {⚀,⚁,⚂,⚃,⚄,⚅} → {1,2,3,4,5,6}
+- Tinggi mahasiswa: Seseorang → tinggi dalam cm
+:::
+
+```{r random-variable-concept}
+#| fig-height: 4
+set.seed(42)
+
+# Contoh mapping
+outcomes <- c("H", "T", "H", "H", "T", "H", "T", "T", "H", "H")
+values <- ifelse(outcomes == "H", 1, 0)
+
+df <- data.frame(
+  trial = 1:10,
+  outcome = outcomes,
+  value = values
+)
+
+p1 <- ggplot(df, aes(x = trial, y = outcome, color = outcome)) +
+  geom_point(size = 8, alpha = 0.7) +
+  scale_color_manual(values = c("H" = "#06A77D", "T" = "#E63946")) +
+  labs(title = "Sample Space: {H, T}", 
+       x = "Trial", y = "Outcome") +
+  theme(legend.position = "none")
+
+p2 <- ggplot(df, aes(x = trial, y = value, fill = outcome)) +
+  geom_col(alpha = 0.7) +
+  scale_fill_manual(values = c("H" = "#06A77D", "T" = "#E63946")) +
+  labs(title = "Random Variable X: {0, 1}", 
+       x = "Trial", y = "X Value") +
+  theme(legend.position = "none")
+
+p1 + p2 + 
+  plot_annotation(
+    title = "Random Variable: Mapping Outcomes ke Angka",
+    theme = theme(plot.title = element_text(face = "bold", size = 14, hjust = 0.5))
+  )
+```
+
+## Discrete vs Continuous
+
+::: {.panel-tabset}
+
+### Discrete
+
+**Discrete Random Variable** hanya dapat mengambil nilai yang **countable** (dapat dihitung).
+
+**Karakteristik:**
+
+- Nilai: bilangan bulat atau himpunan finite/countable
+- Contoh: Jumlah mata dadu, jumlah pelanggan, jumlah email
+
+**Represented by:** Probability Mass Function (PMF)
+
+### Continuous
+
+**Continuous Random Variable** dapat mengambil nilai **uncountable** (tak terhitung) dalam suatu interval.
+
+**Karakteristik:**
+
+- Nilai: bilangan real dalam interval
+- P(X = x) = 0 untuk nilai spesifik x
+- Contoh: Tinggi, berat, waktu, temperatur
+
+**Represented by:** Probability Density Function (PDF)
+
+:::
+
+---
+
+## Discrete Distributions
+
+### Bernoulli Distribution
+
+**Distribusi Bernoulli** adalah distribusi probabilitas paling fundamental - ini adalah "building block" untuk banyak distribusi lainnya. Bayangkan situasi paling sederhana: sebuah eksperimen yang **hanya punya 2 kemungkinan hasil**.
+
+**Contoh dalam Kehidupan Sehari-hari:**
+
+- 🪙 **Melempar koin:** Keluar kepala (sukses) atau ekor (gagal)
+- 🏥 **Tes medis:** Hasil positif atau negatif
+- 🏀 **Free throw basket:** Masuk atau meleset
+- 📧 **Email marketing:** Pelanggan klik atau tidak klik
+- 🔧 **Quality control:** Produk cacat atau tidak cacat
+- 🎯 **Online ads:** User klik iklan atau tidak
+
+Setiap situasi ini dapat dimodelkan sebagai **satu percobaan Bernoulli** dengan probabilitas sukses $p$.
+
+::: {.callout-note icon=false}
+## 📖 Definisi Formal
+
+**Notation:** $X \sim \text{Bernoulli}(p)$
+
+**PMF:**
+$$P(X = x) = \begin{cases} 
+p & \text{if } x = 1 \text{ (success)}\\
+1-p & \text{if } x = 0 \text{ (failure)}
+\end{cases}$$
+
+**Parameters:**
+
+- $p$ : probabilitas success (nilai antara 0 dan 1)
+
+**Properties:**
+
+- $E(X) = p$ → Rata-rata outcome
+- $\text{Var}(X) = p(1-p)$ → Variance maksimum saat $p=0.5$ (situasi paling uncertain)
+:::
+
+```{r bernoulli-distribution}
+#| fig-height: 5
+
+p_values <- c(0.3, 0.5, 0.7)
+
+bernoulli_data <- expand.grid(
+  x = c(0, 1),
+  p = p_values
+) %>%
+  mutate(
+    probability = ifelse(x == 1, p, 1-p),
+    p_label = paste0("p = ", p)
+  )
+
+p1 <- ggplot(bernoulli_data, aes(x = factor(x), y = probability, fill = p_label)) +
+  geom_col(position = position_dodge(0.8), width = 0.7, alpha = 0.8) +
+  geom_text(aes(label = sprintf("%.2f", probability)),
+            position = position_dodge(0.8), vjust = -0.5, fontface = "bold") +
+  scale_fill_manual(values = colors_discrete[1:3]) +
+  labs(title = "Bernoulli Distribution PMF",
+       x = "X (0 = Failure, 1 = Success)", 
+       y = "Probability",
+       fill = "Parameter") +
+  theme(legend.position = "top")
+
+# Variance plot
+variance_data <- data.frame(
+  p = seq(0, 1, 0.01)
+) %>%
+  mutate(variance = p * (1 - p))
+
+p2 <- ggplot(variance_data, aes(x = p, y = variance)) +
+  geom_line(color = "#E63946", size = 1.5) +
+  geom_point(data = data.frame(p = 0.5, variance = 0.25), 
+             size = 4, color = "#E63946") +
+  annotate("text", x = 0.5, y = 0.26, 
+           label = "Maximum variance\nat p = 0.5", 
+           fontface = "bold", vjust = -0.5) +
+  labs(title = "Variance vs Parameter p",
+       x = "p (Probability of Success)",
+       y = "Var(X) = p(1-p)")
+
+p1 / p2
+```
+
+::: {.callout-tip}
+## 🌟 Studi Kasus: Email Marketing Campaign
+
+Sebuah perusahaan mengirim email promosi. Dari data historis, **12% pelanggan membuka dan mengklik link** (p = 0.12).
+
+**Pertanyaan:** Jika kita mengirim email ke satu pelanggan random, berapa probabilitas:
+
+- Pelanggan akan klik? → P(X=1) = 0.12 = **12%**
+- Pelanggan tidak akan klik? → P(X=0) = 0.88 = **88%**
+
+**Insight:** Variance = 0.12 × 0.88 = 0.1056, menunjukkan ada uncertainty yang cukup besar dalam prediksi individual behavior.
+
+**Aplikasi Praktis:**
+
+- **A/B Testing:** Membandingkan dua versi iklan (mana yang lebih tinggi p-nya?)
+- **Medical Diagnosis:** Sensitivity dan specificity dari tes adalah parameter Bernoulli
+- **Quality Control:** Setiap produk pass/fail inspection
+:::
+
+---
+
+### Binomial Distribution
+
+**Distribusi Binomial** adalah **generalisasi** dari Bernoulli: bagaimana jika kita **mengulang eksperimen Bernoulli berkali-kali** secara independen? Berapa banyak sukses yang kita harapkan dari n percobaan?
+
+**Intuisi Sederhana:**
+
+Bayangkan Anda melempar koin 10 kali. Berapa kemungkinan dapat **tepat 7 kali kepala**? Atau **minimal 8 kali kepala**? Inilah yang dijawab oleh Binomial Distribution.
+
+**Contoh Dunia Nyata:**
+
+- 📞 **Call Center:** Dari 50 panggilan, berapa yang akan berakhir dengan penjualan (jika conversion rate 15%)?
+- 💉 **Vaccine Efficacy:** Dari 1000 orang divaksin, berapa yang tetap terinfeksi (jika efektivitas 95%)?
+- 🎯 **Free Throws:** Pemain basket dengan 80% free throw accuracy, dari 15 attempts berapa yang masuk?
+- 🎰 **Casino:** Dari 100 spin roulette, berapa kali pemain menang (probability per spin = 1/38)?
+- 📦 **Shipping:** Dari 200 paket, berapa yang rusak (jika historical damage rate 2%)?
+
+**Syarat Menggunakan Binomial:**
+
+1. ✅ **Fixed number of trials** (n diketahui)
+2. ✅ **Two outcomes** per trial (success/failure)
+3. ✅ **Independent trials** (hasil satu trial tidak mempengaruhi lainnya)
+4. ✅ **Constant probability** (p sama untuk setiap trial)
+
+::: {.callout-note icon=false}
+## 📖 Definisi Formal
+
+**Binomial Distribution** adalah distribusi untuk jumlah **successes** dalam **n** percobaan Bernoulli yang independen.
+
+**Notation:** $X \sim \text{Binomial}(n, p)$ atau $X \sim B(n,p)$
+
+**PMF:**
+$$P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}$$
+
+dimana $\binom{n}{k} = \frac{n!}{k!(n-k)!}$
+
+**Parameters:**
+
+- $n$ : jumlah trials
+- $p$ : probabilitas success per trial
+
+**Properties:**
+
+- $E(X) = np$
+- $\text{Var}(X) = np(1-p)$
+:::
+
+```{r binomial-distribution}
+#| fig-height: 8
+
+n <- 20
+
+# Plot 1: Different p values
+p_vals <- c(0.3, 0.5, 0.7)
+binomial_data1 <- expand.grid(
+  k = 0:n,
+  p = p_vals
+) %>%
+  mutate(
+    probability = dbinom(k, n, p),
+    p_label = paste0("p = ", p),
+    expected = n * p
+  )
+
+plot1 <- ggplot(binomial_data1, aes(x = k, y = probability, fill = p_label)) +
+  geom_col(position = "identity", alpha = 0.7) +
+  geom_vline(data = binomial_data1 %>% distinct(p_label, expected),
+             aes(xintercept = expected, color = p_label),
+             linetype = "dashed", size = 1) +
+  scale_fill_manual(values = colors_discrete[1:3]) +
+  scale_color_manual(values = colors_discrete[1:3]) +
+  facet_wrap(~p_label, ncol = 1) +
+  labs(title = "Binomial Distribution: Efek Parameter p (n = 20)",
+       subtitle = "Garis putus-putus menunjukkan E(X) = np",
+       x = "Jumlah Successes (k)",
+       y = "Probability") +
+  theme(legend.position = "none")
+
+# Plot 2: Different n values  
+p_fixed <- 0.5
+n_vals <- c(10, 30, 50)
+binomial_data2 <- expand.grid(
+  k = 0:max(n_vals),
+  n = n_vals
+) %>%
+  filter(k <= n) %>%
+  mutate(
+    probability = dbinom(k, n, p_fixed),
+    n_label = paste0("n = ", n),
+    expected = n * p_fixed
+  )
+
+plot2 <- ggplot(binomial_data2, aes(x = k, y = probability, color = n_label)) +
+  geom_line(size = 1) +
+  geom_point(size = 2, alpha = 0.6) +
+  geom_vline(data = binomial_data2 %>% distinct(n_label, expected),
+             aes(xintercept = expected, color = n_label),
+             linetype = "dashed", size = 1) +
+  scale_color_manual(values = colors_discrete[c(1,3,5)]) +
+  labs(title = "Binomial Distribution: Efek Parameter n (p = 0.5)",
+       subtitle = "Semakin besar n, distribusi semakin 'smooth' dan mendekati Normal",
+       x = "Jumlah Successes (k)",
+       y = "Probability",
+       color = "Parameter") +
+  theme(legend.position = "top")
+
+plot1 / plot2
+```
+
+::: {.callout-important}
+## 🔑 Key Insights
+
+1. **Symmetry:** Distribusi simetris ketika p = 0.5
+2. **Skewness:**
+
+   - p < 0.5 → right-skewed (ekor kanan)
+   - p > 0.5 → left-skewed (ekor kiri)
+3. **Convergence:** Saat n besar, Binomial → Normal (Central Limit Theorem)
+:::
+
+#### Contoh Perhitungan
+
+::: {.callout-tip}
+## 💼 Kasus: Quality Control
+
+Sebuah pabrik memproduksi komponen dengan **defect rate 5%**. Jika kita sample **20 komponen**, berapa probabilitas:
+
+a) **Tepat 2 defective?**
+b) **Paling banyak 1 defective?**
+c) **Lebih dari 3 defective?**
+:::
+
+```{r binomial-example}
+n <- 20
+p <- 0.05
+
+# Calculations
+prob_exactly_2 <- dbinom(2, n, p)
+prob_at_most_1 <- pbinom(1, n, p)
+prob_more_than_3 <- 1 - pbinom(3, n, p)
+
+# Visualization
+k_range <- 0:10
+probs <- dbinom(k_range, n, p)
+
+example_data <- data.frame(
+  k = k_range,
+  probability = probs
+)
+
+example_data$category <- dplyr::case_when(
+  example_data$k == 2 ~ "Exactly 2",
+  example_data$k <= 1 ~ "At most 1",
+  example_data$k > 3 ~ "More than 3",
+  TRUE ~ "Other"
+)
+
+ggplot(example_data, aes(x = k, y = probability, fill = category)) +
+  geom_col(alpha = 0.8) +
+  scale_fill_manual(
+    values = c("Exactly 2" = "#E63946",
+               "At most 1" = "#06A77D",
+               "More than 3" = "#F77F00",
+               "Other" = "gray70"),
+    breaks = c("Exactly 2", "At most 1", "More than 3")
+  ) +
+  geom_text(data = example_data %>% filter(probability > 0.01),
+            aes(label = sprintf("%.3f", probability)),
+            vjust = -0.5, size = 3) +
+  labs(
+    title = "Quality Control: Binomial(n=20, p=0.05)",
+    subtitle = sprintf(
+      "P(X=2) = %.3f | P(X≤1) = %.3f | P(X>3) = %.3f",
+      prob_exactly_2, prob_at_most_1, prob_more_than_3
+    ),
+    x = "Jumlah Defective Components",
+    y = "Probability",
+    fill = "Category"
+  ) +
+  theme(legend.position = "bottom")
+```
+
+::: {.callout-note collapse="true"}
+## 📝 Solusi Detail
+
+**a) P(X = 2):**
+
+$$P(X = 2) = \binom{20}{2} (0.05)^2 (0.95)^{18} = `r sprintf("%.4f", prob_exactly_2)`$$
+
+**b) P(X ≤ 1):**
+
+$$P(X \leq 1) = P(X=0) + P(X=1) = `r sprintf("%.4f", prob_at_most_1)`$$
+
+**c) P(X > 3):**
+
+$$P(X > 3) = 1 - P(X \leq 3) = `r sprintf("%.4f", prob_more_than_3)`$$
+:::
+
+---
+
+### Poisson Distribution
+
+**Distribusi Poisson** adalah distribusi untuk **menghitung jumlah events** yang terjadi dalam **interval waktu atau ruang tertentu**, ketika events terjadi secara acak tapi dengan **rata-rata rate yang konstan**.
+
+**Karakteristik Kunci Poisson:**
+- Events terjadi **independen** satu sama lain
+- Events terjadi dengan **rate konstan** λ (lambda)
+- **Tidak ada upper limit** untuk jumlah events
+- Events **jarang terjadi** (probability per unit kecil)
+
+**Contoh Situasi Poisson dalam Kehidupan:**
+
+1. 📞 **Call Center:** Jumlah panggilan masuk per jam (misal rata-rata 12 calls/jam)
+2. 🚗 **Traffic:** Jumlah mobil lewat di intersection per menit
+3. 📧 **Email:** Jumlah email spam diterima per hari
+4. 🏥 **Emergency Room:** Jumlah pasien datang ke ER per shift
+5. 🌟 **Astronomi:** Jumlah meteor terlihat per jam saat meteor shower
+6. 🐛 **Quality Control:** Jumlah defect pada kain per meter persegi
+7. ☢️ **Radioactive Decay:** Jumlah partikel emitted per detik
+8. 🌐 **Website:** Jumlah visitors ke website per menit
+9. ⚡ **Infrastructure:** Jumlah power outage per bulan di suatu area
+10. 📚 **Typo Detection:** Jumlah typo per halaman dalam buku
+
+**Mengapa Poisson Berbeda dari Binomial?**
+
+| Aspek | Binomial | Poisson |
+|-------|----------|---------|
+| Jumlah trials | Fixed (n diketahui) | Infinite/unknown |
+| Focus | # successes dalam n trials | # events dalam interval |
+| Parameter | n dan p | λ (rate) |
+| Best for | When n small, p moderate | When n large, p small |
+
+**Hubungan dengan Binomial:**
+
+Poisson adalah **limiting case** dari Binomial ketika:
+
+- $n \to \infty$ (jumlah trials sangat besar)
+- $p \to 0$ (probability per trial sangat kecil)
+- $np = \lambda$ (tetap konstan)
+
+Contoh: Probability menang lotre dalam 1 draw sangat kecil (p ≈ 0), tapi opportunities (n) sangat banyak → model dengan Poisson!
+
+::: {.callout-note icon=false}
+## 📖 Definisi Formal
+
+**Poisson Distribution** memodelkan jumlah **events** yang terjadi dalam interval waktu/ruang tertentu, ketika events terjadi dengan **rate konstan** dan **independen**.
+
+**Notation:** $X \sim \text{Poisson}(\lambda)$ atau $X \sim \text{Pois}(\lambda)$
+
+**PMF:**
+$$P(X = k) = \frac{e^{-\lambda} \lambda^k}{k!}, \quad k = 0, 1, 2, \ldots$$
+
+**Parameters:**
+
+- $\lambda$ : rata-rata jumlah events per interval (rate parameter)
+
+**Properties:**
+
+- $E(X) = \lambda$
+- $\text{Var}(X) = \lambda$ ← **Mean = Variance!**
+:::
+
+```{r poisson-distribution}
+#| fig-height: 8
+
+# Plot 1: Different lambda values
+lambda_vals <- c(1, 4, 10)
+k_max <- 25
+
+poisson_data <- expand.grid(
+  k = 0:k_max,
+  lambda = lambda_vals
+) %>%
+  mutate(
+    probability = dpois(k, lambda),
+    lambda_label = paste0("λ = ", lambda)
+  )
+
+plot1 <- ggplot(poisson_data, aes(x = k, y = probability, color = lambda_label)) +
+  geom_line(size = 1.2) +
+  geom_point(size = 2.5, alpha = 0.7) +
+  geom_vline(data = data.frame(lambda = lambda_vals, 
+                                lambda_label = paste0("λ = ", lambda_vals)),
+             aes(xintercept = lambda, color = lambda_label),
+             linetype = "dashed", size = 1) +
+  scale_color_manual(values = colors_discrete[c(1,3,5)]) +
+  labs(
+    title = "Poisson Distribution: Efek Parameter λ",
+    subtitle = "Garis putus-putus menunjukkan E(X) = λ",
+    x = "Jumlah Events (k)",
+    y = "Probability",
+    color = "Parameter"
+  ) +
+  theme(legend.position = "top")
+
+# Plot 2: Mean-Variance relationship
+lambda_range <- seq(0.5, 20, 0.5)
+mv_data <- data.frame(
+  lambda = lambda_range,
+  mean = lambda_range,
+  variance = lambda_range
+) %>%
+  pivot_longer(cols = c(mean, variance), 
+               names_to = "statistic", 
+               values_to = "value")
+
+plot2 <- ggplot(mv_data, aes(x = lambda, y = value)) +
+  geom_line(aes(color = statistic), size = 1.5) +
+  geom_abline(slope = 1, intercept = 0, linetype = "dashed", 
+              color = "gray50", size = 0.8) +
+  scale_color_manual(values = c("mean" = "#06A77D", "variance" = "#E63946"),
+                     labels = c("E(X)", "Var(X)")) +
+  annotate("text", x = 15, y = 16, 
+           label = "Mean = Variance\n(45° line)", 
+           fontface = "italic", color = "gray30") +
+  labs(
+    title = "Poisson: Property Unik Mean = Variance",
+    x = "Parameter λ",
+    y = "Value",
+    color = NULL
+  ) +
+  theme(legend.position = "top")
+
+plot1 / plot2
+```
+
+::: {.callout-important}
+## 🔑 Key Insights
+
+1. **Rare Events:** Cocok untuk events yang jarang terjadi
+2. **Equal Mean-Variance:** Ciri khas Poisson
+3. **Approximation:** Ketika n besar dan p kecil, Binomial(n,p) ≈ Poisson(λ=np)
+4. **Shape:**
+
+   - λ kecil → right-skewed
+   - λ besar → mendekati simetris (Normal)
+:::
+
+#### Aplikasi Nyata
+
+```{r poisson-applications}
+#| fig-height: 6
+
+# Simulasi 4 aplikasi berbeda
+set.seed(123)
+
+applications <- list(
+  list(name = "Customer Arrivals", lambda = 3, unit = "per hour"),
+  list(name = "Website Crashes", lambda = 0.5, unit = "per week"),
+  list(name = "Emails Received", lambda = 15, unit = "per day"),
+  list(name = "Typos in Book", lambda = 2, unit = "per page")
+)
+
+app_data <- lapply(applications, function(app) {
+  k_range <- 0:qpois(0.99, app$lambda)
+  data.frame(
+    k = k_range,
+    probability = dpois(k_range, app$lambda),
+    application = paste0(app$name, "\n(λ=", app$lambda, " ", app$unit, ")")
+  )
+}) %>% bind_rows()
+
+ggplot(app_data, aes(x = k, y = probability, fill = application)) +
+  geom_col(alpha = 0.8, show.legend = FALSE) +
+  facet_wrap(~application, scales = "free", ncol = 2) +
+  scale_fill_manual(values = rep(colors_discrete, length.out = 4)) +
+  labs(
+    title = "Poisson Distribution: Berbagai Aplikasi Nyata",
+    x = "Jumlah Events",
+    y = "Probability"
+  )
+```
+
+::: {.callout-tip}
+## 💼 Kasus: Call Center
+
+Sebuah call center menerima rata-rata **λ = 5 calls per menit**. Berapa probabilitas:
+
+a) Tidak ada call dalam 1 menit berikutnya?
+b) Tepat 3 calls dalam 1 menit?
+c) Lebih dari 8 calls dalam 1 menit?
+:::
+
+```{r poisson-example}
+lambda <- 5
+
+prob_zero <- dpois(0, lambda)
+prob_three <- dpois(3, lambda)
+prob_more_8 <- 1 - ppois(8, lambda)
+
+k_range <- 0:15
+example_data <- data.frame(
+  k = k_range,
+  probability = dpois(k_range, lambda)
+)
+
+example_data$category <- dplyr::case_when(
+  example_data$k == 0 ~ "Zero calls",
+  example_data$k == 3 ~ "Exactly 3",
+  example_data$k > 8 ~ "More than 8",
+  TRUE ~ "Other"
+)
+
+ggplot(example_data, aes(x = k, y = probability, fill = category)) +
+  geom_col(alpha = 0.8) +
+  scale_fill_manual(
+    values = c("Zero calls" = "#E63946",
+               "Exactly 3" = "#06A77D",
+               "More than 8" = "#F77F00",
+               "Other" = "gray70"),
+    breaks = c("Zero calls", "Exactly 3", "More than 8")
+  ) +
+  geom_text(data = example_data %>% filter(probability > 0.01),
+            aes(label = sprintf("%.3f", probability)),
+            vjust = -0.5, size = 3) +
+  labs(
+    title = "Call Center: Poisson(λ=5)",
+    subtitle = sprintf(
+      "P(X=0) = %.4f | P(X=3) = %.4f | P(X>8) = %.4f",
+      prob_zero, prob_three, prob_more_8
+    ),
+    x = "Jumlah Calls per Minute",
+    y = "Probability",
+    fill = NULL
+  ) +
+  theme(legend.position = "bottom")
+```
+
+---
+
+### Geometric Distribution
+
+**Distribusi Geometric** menjawab pertanyaan: **"Berapa lama kita harus menunggu sampai sukses pertama?"** 
+
+Berbeda dengan Binomial yang menghitung jumlah sukses dalam n trials fixed, Geometric fokus pada **jumlah trials yang dibutuhkan** sampai mendapat sukses pertama.
+
+**Bayangkan Situasi Ini:**
+
+- 🎯 **Memanah:** Anda terus memanah sampai kena bullseye pertama kali. Berapa kali attempts yang diperlukan?
+- 🎰 **Casino Gambler:** Main slot machine terus sampai menang pertama. Berapa kali spin sebelum jackpot?
+- 🔍 **Job Hunting:** Kirim aplikasi kerja sampai diterima pertama kali. Berapa aplikasi yang dikirim?
+- 📞 **Cold Calling:** Sales person telepon calon customer sampai ada yang tertarik. Berapa calls dibutuhkan?
+- 🎣 **Fishing:** Melempar pancing sampai dapat ikan pertama. Berapa kali lempar?
+- 🏀 **Basketball Practice:** Latihan three-point shot sampai masuk pertama. Berapa attempts?
+- 🎮 **Gaming:** Main level game sampai lulus pertama kali. Berapa attempts?
+
+**Karakteristik Geometric:**
+
+- Trials **independen** dan **identik**
+- Setiap trial punya **probability sukses p** yang sama
+- Kita **berhenti setelah sukses pertama**
+- Focus: **WAKTU TUNGGU** (waiting time) sampai event
+
+**Memoryless Property - Konsep Unik!**
+
+Geometric punya property istimewa: **"past doesn't matter"**
+
+$P(X > n+m | X > n) = P(X > m)$
+
+**Artinya:** Jika Anda sudah gagal n kali, probability butuh m trials lagi **sama saja** dengan probability butuh m trials dari awal! 
+
+**Analogi:** Seperti melempar koin - tidak peduli sudah berapa kali gagal, probability sukses di next trial tetap sama (p).
+
+**Contoh Memoryless:**
+- Seorang gambler sudah kalah 10 kali di roulette. Apakah peluang menang di spin ke-11 lebih besar? **TIDAK!** Tetap 1/38.
+- Anda sudah kirim 5 job applications tanpa respons. Apakah application ke-6 punya peluang lebih besar? **TIDAK!** Tetap sama (asumsi independent).
+
+::: {.callout-note icon=false}
+## 📖 Definisi Formal
+
+**Geometric Distribution** memodelkan jumlah **trials** hingga mendapat **first success** dalam sequential Bernoulli trials.
+
+**Notation:** $X \sim \text{Geometric}(p)$ atau $X \sim \text{Geom}(p)$
+
+**PMF:**
+$$P(X = k) = (1-p)^{k-1} p, \quad k = 1, 2, 3, \ldots$$
+
+**Parameters:**
+
+- $p$ : probabilitas success per trial
+
+**Properties:**
+
+- $E(X) = \frac{1}{p}$
+- $\text{Var}(X) = \frac{1-p}{p^2}$
+- **Memoryless Property:** $P(X > n+m | X > n) = P(X > m)$
+:::
+
+```{r geometric-distribution}
+#| fig-height: 7
+
+p_vals <- c(0.2, 0.5, 0.8)
+k_max <- 15
+
+geom_data <- expand.grid(
+  k = 1:k_max,
+  p = p_vals
+) %>%
+  mutate(
+    probability = dgeom(k-1, p),  # R uses different parameterization
+    p_label = paste0("p = ", p),
+    expected = 1/p
+  )
+
+plot1 <- ggplot(geom_data, aes(x = k, y = probability, color = p_label)) +
+  geom_line(size = 1.2) +
+  geom_point(size = 2.5, alpha = 0.7) +
+  geom_vline(data = geom_data %>% distinct(p_label, expected),
+             aes(xintercept = expected, color = p_label),
+             linetype = "dashed", size = 1) +
+  scale_color_manual(values = colors_discrete[1:3]) +
+  labs(
+    title = "Geometric Distribution: Waiting Time to First Success",
+    subtitle = "Garis putus-putus menunjukkan E(X) = 1/p",
+    x = "Jumlah Trials hingga First Success (k)",
+    y = "Probability",
+    color = "Parameter"
+  ) +
+  theme(legend.position = "top")
+
+# Memoryless property visualization
+set.seed(42)
+n_sims <- 10000
+p <- 0.3
+
+# Simulate waiting times
+wait_times <- rgeom(n_sims, p) + 1
+
+# Those that wait more than 5
+conditioned <- wait_times[wait_times > 5] - 5
+
+plot2_data <- data.frame(
+  wait = 1:20,
+  unconditional = dgeom(0:19, p),
+  conditional = c(dgeom(0:19, p), rep(0, 0))
+)
+
+plot2 <- ggplot(plot2_data, aes(x = wait, y = unconditional)) +
+  geom_col(aes(fill = "Unconditional"), alpha = 0.7, width = 0.7) +
+  geom_col(aes(y = conditional, fill = "Conditional (given X>5)"), 
+           alpha = 0.7, width = 0.7) +
+  scale_fill_manual(values = c("Unconditional" = "#06A77D",
+                                "Conditional (given X>5)" = "#E63946")) +
+  labs(
+    title = "Memoryless Property of Geometric Distribution",
+    subtitle = "P(X > n+m | X > n) = P(X > m) - Past doesn't matter!",
+    x = "Additional Trials Needed",
+    y = "Probability",
+    fill = NULL
+  ) +
+  theme(legend.position = "top")
+
+plot1 / plot2
+```
+
+::: {.callout-tip}
+## 🎰 Contoh: Casino Gambler
+
+Seorang gambler bermain roulette dengan peluang menang **p = 1/38 ≈ 0.026**. 
+
+**Pertanyaan:** Berapa expected number of games hingga menang pertama?
+
+**Jawaban:** $E(X) = \frac{1}{p} = \frac{1}{1/38} = 38$ games
+
+Artinya rata-rata butuh **38 kali bermain** untuk menang pertama kali!
+:::
+
+---
+
+### Negative Binomial Distribution
+
+**Distribusi Negative Binomial** adalah generalisasi dari Geometric Distribution. Jika Geometric bertanya "berapa trials sampai **1 sukses**?", maka Negative Binomial bertanya "berapa trials sampai mendapat **r sukses**?"
+
+**Intuisi:**
+
+Bayangkan Anda main basketball dan ingin masuk **5 three-point shots**. Berapa banyak attempts yang Anda perlukan? Inilah yang dijawab Negative Binomial.
+
+**Contoh Situasi Nyata:**
+
+1. 🎯 **Sales:** Berapa cold calls dibutuhkan sampai closing **10 deals**?
+2. 🎰 **Casino:** Berapa kali bermain sampai menang **3 kali**?
+3. 🔬 **Lab Experiments:** Berapa experiments sampai dapat **r successful results**?
+4. 🎣 **Fishing:** Berapa kali lempar pancing sampai dapat **5 ikan**?
+5. 📞 **Recruitment:** Berapa interviews sampai hire **r qualified candidates**?
+6. 🏀 **Sports:** Berapa free throw attempts sampai masuk **10 shots**?
+7. 🎲 **Gaming:** Berapa attempts sampai beat boss **3 times**?
+
+**Perbedaan dengan Geometric:**
+
+- **Geometric:** Waiting time sampai **1st success** (r=1)
+- **Negative Binomial:** Waiting time sampai **r-th success** (r ≥ 1)
+
+**Dua Parameterisasi:**
+
+Ada 2 cara mendefinisikan Negative Binomial:
+
+1. **Jumlah failures** sebelum r successes
+2. **Jumlah total trials** sampai r successes
+
+(Kita gunakan yang kedua - lebih intuitif)
+
+::: {.callout-note icon=false}
+## 📖 Definisi Formal
+
+**Notation:** $X \sim \text{NegBinom}(r, p)$
+
+**PMF:**
+$$P(X = k) = \binom{k-1}{r-1} p^r (1-p)^{k-r}, \quad k = r, r+1, r+2, \ldots$$
+
+**Parameters:**
+
+- $r$ : jumlah successes yang diinginkan (positive integer)
+- $p$ : probabilitas success per trial
+
+**Properties:**
+
+- $E(X) = \frac{r}{p}$ → Expected total trials
+- $\text{Var}(X) = \frac{r(1-p)}{p^2}$
+- When r=1, reduces to Geometric distribution
+:::
+
+**Hubungan dengan Poisson:**
+
+Negative Binomial sering digunakan sebagai **alternative to Poisson** ketika data menunjukkan **overdispersion** (variance > mean). 
+
+- Poisson: Var(X) = λ
+- Negative Binomial: Var(X) > E(X) (lebih fleksibel)
+
+**Aplikasi Praktis:**
+
+- **Count data** dengan extra variability
+- **Ecology:** Jumlah spesies dalam area (clustering behavior)
+- **Epidemiology:** Disease transmission dengan heterogeneity
+- **Marketing:** Customer purchase frequency
+
+---
+
+## Continuous Distributions
+
+### Uniform Distribution
+
+**Distribusi Uniform** adalah distribusi continuous paling sederhana: **semua nilai dalam interval [a,b] memiliki probabilitas yang sama**. Ini seperti "fair chance" untuk semua angka dalam range tertentu.
+
+**Intuisi Visual:**
+
+Bayangkan sebuah papan datar horizontal - tidak ada bagian yang lebih tinggi atau rendah. Setiap titik di papan itu punya "ketinggian" (density) yang sama. Inilah Uniform Distribution!
+
+**Kapan Terjadi Uniform Distribution?**
+
+1. 🎲 **Random Number Generator:** Computer generate angka random antara 0 dan 1 → U(0,1)
+2. 🚌 **Waiting Time:** Anda tiba di bus stop random, bus datang setiap 10 menit → Waktu tunggu ~ U(0,10)
+3. ⏰ **Meeting Time:** Meeting dijadwalkan antara 2-3pm, Anda datang random time → Arrival time ~ U(2,3)
+4. 🎯 **Dart Board:** Melempar dart ke papan square (horizontal position) → Position ~ U(0, width)
+5. 📐 **Rounding Errors:** Computer rounding error dalam calculation → Error ~ U(-0.5, 0.5)
+6. 🔢 **Sampling:** Pilih nilai random dari interval untuk Monte Carlo simulation
+
+**Karakteristik Khusus:**
+- **Flat** PDF (tidak ada peak)
+- Probabilitas **proporsional dengan length** interval
+- P(X dalam [c,d]) = (d-c)/(b-a)
+- Setiap interval **dengan panjang sama** punya probabilitas sama
+
+**Penggunaan Praktis:**
+
+Uniform sering digunakan sebagai **prior distribution** dalam Bayesian statistics ketika kita **tidak punya informasi** tentang parameter - semua nilai equally likely.
+
+::: {.callout-note icon=false}
+## 📖 Definisi Formal
+
+**Uniform Distribution** adalah distribusi dimana **semua nilai dalam interval [a,b] equally likely**.
+
+**Notation:** $X \sim \text{Uniform}(a, b)$ atau $X \sim U(a,b)$
+
+**PDF:**
+
+$$f(x) = \begin{cases} 
+\frac{1}{b-a} & \text{if } a \leq x \leq b \\
+0 & \text{otherwise}
+\end{cases}$$
+
+**CDF:**
+
+$$F(x) = \begin{cases} 
+0 & \text{if } x < a \\
+\frac{x-a}{b-a} & \text{if } a \leq x \leq b \\
+1 & \text{if } x > b
+\end{cases}$$
+
+**Properties:**
+
+- $E(X) = \frac{a+b}{2}$ (midpoint)
+- $\text{Var}(X) = \frac{(b-a)^2}{12}$
+:::
+
+```{r uniform-distribution}
+#| fig-height: 8
+
+# Different uniform distributions
+uniform_params <- list(
+  list(a = 0, b = 1, label = "U(0,1) - Standard"),
+  list(a = -2, b = 2, label = "U(-2,2)"),
+  list(a = 5, b = 10, label = "U(5,10)")
+)
+
+# PDF plots
+pdf_data <- lapply(uniform_params, function(params) {
+  x <- seq(params$a - 1, params$b + 1, length.out = 200)
+  data.frame(
+    x = x,
+    density = dunif(x, params$a, params$b),
+    distribution = params$label,
+    mean = (params$a + params$b) / 2
+  )
+}) %>% bind_rows()
+
+plot1 <- ggplot(pdf_data, aes(x = x, y = density, color = distribution)) +
+  geom_line(size = 1.5) +
+  geom_vline(data = pdf_data %>% distinct(distribution, mean),
+             aes(xintercept = mean, color = distribution),
+             linetype = "dashed", size = 0.8) +
+  scale_color_manual(values = colors_discrete[1:3]) +
+  labs(
+    title = "Uniform Distribution: PDF",
+    subtitle = "Constant density dalam interval [a,b]",
+    x = "x",
+    y = "Density f(x)",
+    color = NULL
+  ) +
+  theme(legend.position = "top")
+
+# CDF plots
+cdf_data <- lapply(uniform_params, function(params) {
+  x <- seq(params$a - 1, params$b + 1, length.out = 200)
+  data.frame(
+    x = x,
+    probability = punif(x, params$a, params$b),
+    distribution = params$label
+  )
+}) %>% bind_rows()
+
+plot2 <- ggplot(cdf_data, aes(x = x, y = probability, color = distribution)) +
+  geom_line(size = 1.5) +
+  scale_color_manual(values = colors_discrete[1:3]) +
+  labs(
+    title = "Uniform Distribution: CDF",
+    subtitle = "Linear increase dari 0 ke 1",
+    x = "x",
+    y = "Cumulative Probability F(x)",
+    color = NULL
+  ) +
+  theme(legend.position = "top")
+
+plot1 / plot2
+```
+
+::: {.callout-tip}
+## 🎲 Aplikasi
+
+1. **Random Number Generator:** Basis untuk generate random numbers
+2. **Arrival Times:** Ketika arrival dalam interval uniform
+3. **Round-off Errors:** Error pembulatan often uniform
+4. **Monte Carlo Simulation:** Sampling dari U(0,1)
+:::
+
+---
+
+### Exponential Distribution
+
+**Distribusi Exponential** adalah **continuous analog** dari Geometric Distribution. Ini memodelkan **waktu tunggu** sampai event pertama terjadi dalam **Poisson process**.
+
+**Perbedaan Geometric vs Exponential:**
+- **Geometric:** Discrete waiting time (trials ke-1, ke-2, ke-3, ...)
+- **Exponential:** Continuous waiting time (0.5 detik, 2.3 menit, 5.7 jam, ...)
+
+**Situasi Nyata Exponential:**
+
+1. ⏱️ **Customer Service:** Waktu antara kedatangan customer di toko
+2. 📞 **Call Center:** Waktu antara incoming calls
+3. ⚡ **Component Failure:** Lifetime sebuah electronic component sampai rusak
+4. 🚗 **Traffic:** Waktu antara mobil yang lewat di jalan tol
+5. 🌊 **Earthquake:** Waktu antara earthquake events di suatu region
+6. 💡 **Light Bulb:** Lifetime lampu LED sampai mati
+7. 📡 **Network:** Waktu antara packet arrivals di router
+8. ☢️ **Radioactive:** Waktu antara radioactive decay events
+9. 🏥 **Medical:** Waktu remission (bebas gejala) sebelum relapse
+10. 🌧️ **Weather:** Waktu antara hujan storms
+
+**Hubungan Erat: Poisson ↔ Exponential**
+
+Ini adalah **dua sisi dari koin yang sama**:
+
+- **Poisson:** Jumlah events dalam fixed time interval
+- **Exponential:** Time interval antara consecutive events
+
+**Contoh Konkret:**
+- Jika calls datang dengan rate **λ = 5 per menit** (Poisson)
+- Maka waktu ANTAR calls mengikuti **Exp(5)** dengan rata-rata **1/5 = 0.2 menit = 12 detik**
+
+**Memoryless Property - Sama seperti Geometric!**
+
+$P(X > s+t | X > s) = P(X > t)$
+
+**Artinya:** Jika sebuah component sudah bertahan s jam, probability bertahan t jam lagi **tidak bergantung** pada history!
+
+**Contoh Memoryless:**
+- Lightbulb sudah menyala 1000 jam. Berapa probability menyala 100 jam lagi?
+- **Sama saja** dengan probability lightbulb baru menyala 100 jam!
+- (Catatan: Ini asumsi teoretis - real lightbulbs might degrade over time)
+
+**Mengapa Ini Penting?**
+
+Memoryless property membuat Exponential sangat berguna untuk model **random arrival processes** dan **component reliability** dalam engineering.
+
+::: {.callout-note icon=false}
+## 📖 Definisi Formal
+
+**Exponential Distribution** memodelkan **waiting time** hingga event pertama terjadi dalam Poisson process.
+
+**Notation:** $X \sim \text{Exponential}(\lambda)$ atau $X \sim \text{Exp}(\lambda)$
+
+**PDF:**
+
+$$f(x) = \begin{cases} 
+\lambda e^{-\lambda x} & \text{if } x \geq 0 \\
+0 & \text{if } x < 0
+\end{cases}$$
+
+**CDF:**
+
+$$F(x) = 1 - e^{-\lambda x}, \quad x \geq 0$$
+
+**Properties:**
+
+- $E(X) = \frac{1}{\lambda}$
+- $\text{Var}(X) = \frac{1}{\lambda^2}$
+- **Memoryless:** Seperti Geometric (continuous analog)
+:::
+
+```{r exponential-distribution}
+#| fig-height: 10
+
+lambda_vals <- c(0.5, 1, 2)
+x_range <- seq(0, 8, length.out = 300)
+
+# PDF
+pdf_data <- expand.grid(
+  x = x_range,
+  lambda = lambda_vals
+) %>%
+  mutate(
+    density = dexp(x, lambda),
+    lambda_label = paste0("λ = ", lambda),
+    mean = 1/lambda
+  )
+
+plot1 <- ggplot(pdf_data, aes(x = x, y = density, color = lambda_label)) +
+  geom_line(size = 1.5) +
+  geom_vline(data = pdf_data %>% distinct(lambda_label, mean),
+             aes(xintercept = mean, color = lambda_label),
+             linetype = "dashed", size = 0.8) +
+  scale_color_manual(values = colors_discrete[1:3]) +
+  labs(
+    title = "Exponential Distribution: PDF",
+    subtitle = "Garis putus-putus menunjukkan E(X) = 1/λ",
+    x = "Waiting Time (x)",
+    y = "Density f(x)",
+    color = "Parameter"
+  ) +
+  theme(legend.position = "top")
+
+# CDF
+cdf_data <- expand.grid(
+  x = x_range,
+  lambda = lambda_vals
+) %>%
+  mutate(
+    probability = pexp(x, lambda),
+    lambda_label = paste0("λ = ", lambda)
+  )
+
+plot2 <- ggplot(cdf_data, aes(x = x, y = probability, color = lambda_label)) +
+  geom_line(size = 1.5) +
+  scale_color_manual(values = colors_discrete[1:3]) +
+  labs(
+    title = "Exponential Distribution: CDF",
+    subtitle = "F(x) = 1 - e^(-λx) - Exponential growth to 1",
+    x = "Waiting Time (x)",
+    y = "Cumulative Probability F(x)",
+    color = "Parameter"
+  ) +
+  theme(legend.position = "top")
+
+# Memoryless property
+set.seed(42)
+lambda <- 1
+n_sims <- 10000
+
+# Generate exponential random variables
+wait_times <- rexp(n_sims, lambda)
+
+# Conditional waiting times
+conditioned <- wait_times[wait_times > 2] - 2
+
+mem_data <- data.frame(
+  x = x_range,
+  unconditional = dexp(x_range, lambda),
+  conditional = dexp(x_range, lambda)  # Same! Memoryless
+)
+
+plot3 <- ggplot(mem_data, aes(x = x)) +
+  geom_line(aes(y = unconditional, color = "Original"), size = 1.5) +
+  geom_line(aes(y = conditional, color = "Conditional (given X>2)"), 
+            size = 1.5, linetype = "dashed") +
+  scale_color_manual(values = c("Original" = "#06A77D",
+                                 "Conditional (given X>2)" = "#E63946")) +
+  annotate("text", x = 4, y = 0.8,
+           label = "Both curves identical!\nMemoryless property",
+           fontface = "bold", size = 4) +
+  labs(
+    title = "Memoryless Property of Exponential",
+    subtitle = "P(X > s+t | X > s) = P(X > t) - Past waiting time doesn't matter!",
+    x = "Additional Waiting Time",
+    y = "Density",
+    color = NULL
+  ) +
+  theme(legend.position = "top")
+
+plot1 / plot2 / plot3
+```
+
+::: {.callout-important}
+## 🔗 Hubungan dengan Poisson
+
+**Exponential ↔ Poisson:**
+
+- Jika jumlah events mengikuti **Poisson(λ)** per unit time
+- Maka waiting time antar events mengikuti **Exponential(λ)**
+
+**Contoh:**
+
+- Calls datang dengan rate λ=5 per menit (Poisson)
+- Time between calls ~ Exp(5), mean = 1/5 = 0.2 menit = 12 detik
+:::
+
+#### Aplikasi Praktis
+
+```{r exponential-application}
+#| fig-height: 5
+
+# Real-world scenario: Server response time
+lambda_server <- 2  # Average 2 responses per second
+mean_response <- 1/lambda_server
+
+x <- seq(0, 3, length.out = 300)
+response_data <- data.frame(
+  x = x,
+  density = dexp(x, lambda_server)
+)
+
+# Calculate probabilities
+prob_under_0.5 <- pexp(0.5, lambda_server)
+prob_over_1 <- 1 - pexp(1, lambda_server)
+
+ggplot(response_data, aes(x = x, y = density)) +
+  geom_line(size = 1.5, color = "#2A9D8F") +
+  geom_area(data = response_data %>% filter(x <= 0.5),
+            fill = "#06A77D", alpha = 0.3) +
+  geom_area(data = response_data %>% filter(x >= 1),
+            fill = "#E63946", alpha = 0.3) +
+  geom_vline(xintercept = mean_response, linetype = "dashed", 
+             size = 1, color = "blue") +
+  annotate("text", x = 0.25, y = 1.2, 
+           label = sprintf("P(X ≤ 0.5s) = %.2f%%", prob_under_0.5*100),
+           fontface = "bold", color = "#06A77D") +
+  annotate("text", x = 1.5, y = 0.4, 
+           label = sprintf("P(X > 1s) = %.2f%%", prob_over_1*100),
+           fontface = "bold", color = "#E63946") +
+  annotate("text", x = mean_response, y = 1.8, 
+           label = sprintf("Mean = %.2fs", mean_response),
+           vjust = -0.5, fontface = "bold", color = "blue") +
+  labs(
+    title = "Server Response Time: Exp(λ=2 per second)",
+    subtitle = "Modeling waiting time for server response",
+    x = "Response Time (seconds)",
+    y = "Density"
+  )
+```
+
+---
+
+### Normal (Gaussian) Distribution
+
+**Distribusi Normal** adalah **"the king of distributions"** - distribusi paling penting dalam statistika! Ini muncul **di mana-mana** dalam fenomena alam dan sosial.
+
+**Mengapa Normal Begitu Penting?**
+
+1. **Central Limit Theorem:** Rata-rata dari banyak random variables → Normal (dijelaskan nanti)
+2. **Natural Phenomena:** Banyak hal di alam mengikuti Normal
+3. **Mathematical Convenience:** Mudah untuk analisis matematika
+4. **Foundation:** Dasar untuk banyak metode statistik (t-test, ANOVA, regression)
+
+**Fenomena Dunia Nyata yang Mengikuti Normal:**
+
+1. 📏 **Human Measurements:**
+   - Tinggi badan orang dewasa (mean ≈ 170cm, σ ≈ 10cm)
+   - Berat badan dalam populasi tertentu
+   - IQ scores (mean = 100, σ = 15)
+   - Blood pressure readings
+
+2. 📊 **Measurement Errors:**
+   - Scientific instrument readings
+   - Survey response errors
+   - Laboratory measurement errors
+
+3. 🎯 **Performance Metrics:**
+   - Exam scores (jika well-designed dan large sample)
+   - Reaction times dalam experiments
+   - Athletic performance (dengan conditioning)
+
+4. 🏭 **Manufacturing:**
+   - Diameter baut yang diproduksi mesin
+   - Berat produk packaged
+   - Chemical concentration dalam mixture
+
+5. 💰 **Financial (dengan caveats):**
+   - Stock returns (approximation - in reality, fat tails exist)
+   - Pricing errors
+   - Residuals dalam financial models
+
+6. 🌡️ **Environmental:**
+   - Temperature fluctuations around mean
+   - Rainfall amounts (dengan transformation)
+   - Pollution levels
+
+**Karakteristik Bell Curve:**
+
+- **Symmetric** around mean μ
+- **Unimodal** (satu peak di center)
+- Mean = Median = Mode (semua di tengah)
+- **68-95-99.7 Rule** (Empirical Rule)
+- Tails **extend to infinity** (tapi probability sangat kecil di extremes)
+
+**Parameters dan Interpretasi:**
+
+- **μ (mu):** Location parameter - menggeser curve ke kiri/kanan
+- **σ (sigma):** Scale parameter - mengontrol spread/variability
+  - σ kecil → narrow, tall curve (data concentrated)
+  - σ besar → wide, flat curve (data spread out)
+
+**Kapan TIDAK Menggunakan Normal?**
+
+⚠️ Normal tidak cocok untuk:
+
+- Data dengan **skewness** berat (income, wealth)
+- Data dengan **outliers** ekstrem (stock market crashes)
+- **Bounded** data (proportions 0-1, counts)
+- **Discrete** outcomes
+- **Fat tails** (extreme events more common than Normal predicts)
+
+::: {.callout-note icon=false}
+## 📖 Definisi Formal
+
+**Normal Distribution** adalah distribusi paling penting dalam statistik, dengan **bell-shaped curve** yang simetris.
+
+**Notation:** $X \sim \text{Normal}(\mu, \sigma^2)$ atau $X \sim N(\mu, \sigma^2)$
+
+**PDF:**
+
+$$f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)$$
+
+**Properties:**
+
+- $E(X) = \mu$ (location parameter)
+- $\text{Var}(X) = \sigma^2$ (scale parameter)
+- Symmetric around μ
+- Bell-shaped curve
+:::
+
+```{r normal-distribution}
+#| fig-height: 10
+
+x_range <- seq(-8, 8, length.out = 500)
+
+# Effect of μ (mean)
+mu_vals <- c(-2, 0, 2)
+sigma_fixed <- 1
+
+plot1_data <- expand.grid(
+  x = x_range,
+  mu = mu_vals
+) %>%
+  mutate(
+    density = dnorm(x, mu, sigma_fixed),
+    mu_label = paste0("μ = ", mu, ", σ = ", sigma_fixed)
+  )
+
+plot1 <- ggplot(plot1_data, aes(x = x, y = density, color = mu_label)) +
+  geom_line(size = 1.5) +
+  geom_vline(data = data.frame(mu = mu_vals, 
+                                mu_label = paste0("μ = ", mu_vals, ", σ = ", sigma_fixed)),
+             aes(xintercept = mu, color = mu_label),
+             linetype = "dashed", size = 0.8) +
+  scale_color_manual(values = colors_discrete[1:3]) +
+  labs(
+    title = "Normal Distribution: Efek Parameter μ (Mean)",
+    subtitle = "μ menggeser distribusi secara horizontal (location parameter)",
+    x = "x",
+    y = "Density f(x)",
+    color = "Parameters"
+  ) +
+  theme(legend.position = "top")
+
+# Effect of σ (standard deviation)
+mu_fixed <- 0
+sigma_vals <- c(0.5, 1, 2)
+
+plot2_data <- expand.grid(
+  x = x_range,
+  sigma = sigma_vals
+) %>%
+  mutate(
+    density = dnorm(x, mu_fixed, sigma),
+    sigma_label = paste0("μ = ", mu_fixed, ", σ = ", sigma)
+  )
+
+plot2 <- ggplot(plot2_data, aes(x = x, y = density, color = sigma_label)) +
+  geom_line(size = 1.5) +
+  geom_vline(xintercept = mu_fixed, linetype = "dashed", 
+             size = 0.8, color = "gray30") +
+  scale_color_manual(values = colors_discrete[c(1,3,5)]) +
+  labs(
+    title = "Normal Distribution: Efek Parameter σ (Standard Deviation)",
+    subtitle = "σ mengontrol spread/dispersion distribusi (scale parameter)",
+    x = "x",
+    y = "Density f(x)",
+    color = "Parameters"
+  ) +
+  theme(legend.position = "top")
+
+# Standard Normal and 68-95-99.7 rule
+z <- seq(-4, 4, length.out = 500)
+std_normal_data <- data.frame(
+  z = z,
+  density = dnorm(z, 0, 1)
+)
+
+plot3 <- ggplot(std_normal_data, aes(x = z, y = density)) +
+  geom_line(size = 1.5, color = "#2A9D8F") +
+  # 68%
+  geom_area(data = std_normal_data %>% filter(z >= -1 & z <= 1),
+            fill = "#06A77D", alpha = 0.3) +
+  # 95%
+  geom_area(data = std_normal_data %>% filter(z >= -2 & z <= 2),
+            fill = "#F4A261", alpha = 0.2) +
+  # 99.7%
+  geom_area(data = std_normal_data %>% filter(z >= -3 & z <= 3),
+            fill = "#E76F51", alpha = 0.1) +
+  geom_vline(xintercept = c(-3, -2, -1, 0, 1, 2, 3),
+             linetype = "dashed", color = "gray40", size = 0.5) +
+  annotate("text", x = 0, y = 0.2, 
+           label = "68.3%", fontface = "bold", size = 5) +
+  annotate("text", x = 0, y = 0.1, 
+           label = "95.4%", fontface = "bold", size = 5) +
+  annotate("text", x = 0, y = 0.05, 
+           label = "99.7%", fontface = "bold", size = 5) +
+  annotate("text", x = c(-1, 1), y = 0.43, 
+           label = "±1σ", fontface = "bold") +
+  annotate("text", x = c(-2, 2), y = 0.43, 
+           label = "±2σ", fontface = "bold") +
+  annotate("text", x = c(-3, 3), y = 0.43, 
+           label = "±3σ", fontface = "bold") +
+  labs(
+    title = "Standard Normal Distribution: 68-95-99.7 Rule",
+    subtitle = "Empirical Rule untuk memahami sebaran data",
+    x = "z (Standard Deviations from Mean)",
+    y = "Density"
+  )
+
+plot1 / plot2 / plot3
+```
+
+::: {.callout-important}
+## 🎯 68-95-99.7 Rule (Empirical Rule)
+
+Untuk distribusi Normal:
+
+- **68.3%** data berada dalam **±1σ** dari mean
+- **95.4%** data berada dalam **±2σ** dari mean
+- **99.7%** data berada dalam **±3σ** dari mean
+
+**Aplikasi praktis:** Deteksi outliers - data di luar ±3σ sangat rare!
+:::
+
+#### Standard Normal & Z-Scores
+
+::: {.callout-tip}
+## 📊 Standard Normal: N(0,1)
+
+**Standardization (Z-score transformation):**
+
+$$Z = \frac{X - \mu}{\sigma} \sim N(0,1)$$
+
+**Interpretasi:** Z-score memberitahu berapa standard deviations suatu nilai dari mean.
+
+**Contoh:**
+
+- Z = 1.5 → nilai 1.5 SD di atas mean
+- Z = -2.0 → nilai 2.0 SD di bawah mean
+:::
+
+```{r zscore-transformation}
+#| fig-height: 5
+
+# Example: IQ scores ~ N(100, 15²)
+mu_iq <- 100
+sigma_iq <- 15
+
+x_iq <- seq(40, 160, length.out = 500)
+iq_data <- data.frame(
+  x = x_iq,
+  density = dnorm(x_iq, mu_iq, sigma_iq),
+  z = (x_iq - mu_iq) / sigma_iq
+)
+
+# Highlight specific IQ scores
+specific_scores <- data.frame(
+  iq = c(85, 100, 115, 130),
+  z = (c(85, 100, 115, 130) - mu_iq) / sigma_iq
+)
+specific_scores$density <- dnorm(specific_scores$iq, mu_iq, sigma_iq)
+specific_scores$label <- sprintf("IQ=%d\n(Z=%.1f)", 
+                                  specific_scores$iq, 
+                                  specific_scores$z)
+
+ggplot(iq_data, aes(x = x, y = density)) +
+  geom_line(size = 1.5, color = "#2A9D8F") +
+  geom_vline(xintercept = specific_scores$iq,
+             linetype = "dashed", color = colors_discrete[1:4]) +
+  geom_point(data = specific_scores,
+             aes(x = iq, y = density),
+             size = 4, color = colors_discrete[1:4]) +
+  geom_text(data = specific_scores,
+            aes(x = iq, y = density, label = label),
+            vjust = -1, fontface = "bold", size = 3.5,
+            color = colors_discrete[1:4]) +
+  scale_x_continuous(
+    "IQ Score",
+    sec.axis = sec_axis(~ (. - mu_iq)/sigma_iq, name = "Z-Score")
+  ) +
+  labs(
+    title = "IQ Scores: Normal(100, 15²) dengan Z-Score Transformation",
+    subtitle = "Z-score menunjukkan posisi relatif terhadap mean dalam unit standard deviation",
+    y = "Density"
+  )
+```
+
+#### Aplikasi: Quality Control
+
+```{r normal-application}
+#| fig-height: 6
+
+# Manufacturing: bolt diameter ~ N(10mm, 0.1²)
+mu_bolt <- 10
+sigma_bolt <- 0.1
+
+# Specifications: 9.8mm to 10.2mm acceptable
+lower_spec <- 9.8
+upper_spec <- 10.2
+
+x_bolt <- seq(9.5, 10.5, length.out = 500)
+bolt_data <- data.frame(
+  x = x_bolt,
+  density = dnorm(x_bolt, mu_bolt, sigma_bolt)
+)
+
+# Calculate probabilities
+prob_acceptable <- pnorm(upper_spec, mu_bolt, sigma_bolt) - 
+                   pnorm(lower_spec, mu_bolt, sigma_bolt)
+prob_defect <- 1 - prob_acceptable
+
+p1 <- ggplot(bolt_data, aes(x = x, y = density)) +
+  geom_line(size = 1.5, color = "#2A9D8F") +
+  geom_area(data = bolt_data %>% filter(x >= lower_spec & x <= upper_spec),
+            fill = "#06A77D", alpha = 0.5) +
+  geom_area(data = bolt_data %>% filter(x < lower_spec | x > upper_spec),
+            fill = "#E63946", alpha = 0.5) +
+  geom_vline(xintercept = c(lower_spec, upper_spec),
+             linetype = "dashed", size = 1, color = "blue") +
+  annotate("text", x = mu_bolt, y = 2, 
+           label = sprintf("Acceptable\n%.2f%%", prob_acceptable*100),
+           fontface = "bold", color = "#06A77D", size = 5) +
+  annotate("text", x = 9.65, y = 1, 
+           label = sprintf("Defect\n%.2f%%", (1-prob_acceptable)*100/2),
+           fontface = "bold", color = "#E63946", size = 4) +
+  labs(
+    title = "Quality Control: Bolt Diameter Distribution",
+    subtitle = sprintf("Specification limits: [%.1f, %.1f] mm", lower_spec, upper_spec),
+    x = "Diameter (mm)",
+    y = "Density"
+  )
+
+# Process capability
+z_lower <- (lower_spec - mu_bolt) / sigma_bolt
+z_upper <- (upper_spec - mu_bolt) / sigma_bolt
+
+capability_data <- data.frame(
+  Metric = c("Lower Spec Limit", "Target (Mean)", "Upper Spec Limit",
+             "Z-score (Lower)", "Z-score (Upper)", "Defect Rate"),
+  Value = c(sprintf("%.1f mm", lower_spec),
+            sprintf("%.1f mm", mu_bolt),
+            sprintf("%.1f mm", upper_spec),
+            sprintf("%.2f σ", abs(z_lower)),
+            sprintf("%.2f σ", z_upper),
+            sprintf("%.2f%%", prob_defect*100))
+)
+
+p2 <- ggplot(capability_data, aes(x = Metric, y = 1, label = Value)) +
+  geom_text(size = 5, fontface = "bold") +
+  coord_flip() +
+  theme_void() +
+  labs(title = "Process Capability Metrics")
+
+p1 + p2 + plot_layout(widths = c(2, 1))
+```
+
+---
+
+### Student T Distribution
+
+**Distribusi Student T** (atau t-distribution) adalah distribusi yang sangat penting dalam **inferential statistics**, terutama ketika bekerja dengan **small samples** dan **unknown population variance**.
+
+**Sejarah Menarik:**
+
+Distribusi ini ditemukan oleh **William Sealy Gosset** (1908) yang bekerja di Guinness Brewery. Dia publish dengan pseudonym "Student" karena company policy, makanya namanya "Student's t".
+
+**Kapan Menggunakan T Distribution?**
+
+T distribution digunakan ketika:
+
+- **Small sample size** (n < 30)
+- **Population standard deviation σ unknown** (harus estimate dari sample)
+- **Hypothesis testing** dan **confidence intervals** untuk means
+- Data assumed **normally distributed** (atau approximately normal)
+
+**Karakteristik T Distribution:**
+
+- **Shape:** Bell-shaped seperti Normal, tapi dengan **heavier tails** (fat tails)
+- **Symmetric** around 0
+- **One parameter:** degrees of freedom (df = n - 1)
+- Ketika df → ∞, T → Normal(0,1)
+
+**Perbedaan T vs Normal:**
+
+| Aspek | Normal Z | Student T |
+|-------|----------|-----------|
+| Use when | σ known, large n | σ unknown, small n |
+| Tails | Thinner | Heavier (more conservative) |
+| Parameters | μ, σ | df (degrees of freedom) |
+| Shape | Fixed | Changes with df |
+
+::: {.callout-note icon=false}
+## 📖 Definisi Formal
+
+**Notation:** $T \sim t(\nu)$ where $\nu$ = degrees of freedom
+
+**PDF:**
+$$f(t) = \frac{\Gamma(\frac{\nu+1}{2})}{\sqrt{\nu\pi}\,\Gamma(\frac{\nu}{2})} \left(1 + \frac{t^2}{\nu}\right)^{-\frac{\nu+1}{2}}$$
+
+**Parameters:**
+
+- $\nu$ (nu): degrees of freedom, typically $\nu = n-1$
+
+**Properties:**
+
+- $E(T) = 0$ for $\nu > 1$
+- $\text{Var}(T) = \frac{\nu}{\nu-2}$ for $\nu > 2$
+- As $\nu \to \infty$, $t(\nu) \to N(0,1)$
+:::
+
+**Aplikasi Praktis:**
+
+1. **One-sample t-test:** Testing if population mean = hypothesized value
+2. **Two-sample t-test:** Comparing means between two groups
+3. **Paired t-test:** Before-after comparisons
+4. **Confidence Intervals:** For population mean with unknown σ
+5. **Regression:** Testing significance of coefficients
+
+**Contoh Penggunaan:**
+
+Anda ingin test apakah rata-rata tinggi mahasiswa = 170cm, tapi hanya punya sample 15 orang. Gunakan t-test, bukan z-test!
+
+---
+
+### Chi-Squared Distribution
+
+**Distribusi Chi-Squared (χ²)** adalah distribusi untuk **sum of squared standard normal variables**. Ini fundamental dalam statistical testing, terutama untuk **variance** dan **goodness of fit**.
+
+**Konstruksi:**
+
+Jika $Z_1, Z_2, \ldots, Z_k \sim N(0,1)$ independent, maka:
+$$\chi^2 = Z_1^2 + Z_2^2 + \cdots + Z_k^2 \sim \chi^2(k)$$
+
+**Kapan Menggunakan Chi-Squared?**
+
+1. **Testing variance:** Apakah sample variance berbeda dari hypothesized value?
+2. **Goodness of fit test:** Apakah data fit dengan distribusi tertentu?
+3. **Test of independence:** Apakah dua categorical variables independent?
+4. **Homogeneity test:** Apakah beberapa proportions sama?
+
+**Karakteristik:**
+
+- **Right-skewed** (positive skew)
+- **Support:** x ≥ 0 (hanya positive values)
+- **One parameter:** df (degrees of freedom)
+- Ketika df besar, mendekati Normal
+
+::: {.callout-note icon=false}
+## 📖 Definisi Formal
+
+**Notation:** $X \sim \chi^2(k)$ where k = degrees of freedom
+
+**PDF:**
+$$f(x) = \frac{1}{2^{k/2}\Gamma(k/2)} x^{k/2-1} e^{-x/2}, \quad x > 0$$
+
+**Parameters:**
+
+- $k$: degrees of freedom (positive integer)
+
+**Properties:**
+
+- $E(X) = k$
+- $\text{Var}(X) = 2k$
+- Additive: If $X_1 \sim \chi^2(k_1)$ and $X_2 \sim \chi^2(k_2)$ independent, then $X_1 + X_2 \sim \chi^2(k_1+k_2)$
+:::
+
+**Aplikasi Praktis:**
+
+1. **Chi-square test of independence:** Hubungan gender dan preference
+2. **Chi-square goodness of fit:** Apakah dice fair?
+3. **Variance testing:** Quality control - checking consistency
+4. **Categorical data analysis:** Contingency tables
+
+**Contoh:** Test apakah hasil dice roll fair (setiap angka 1-6 equally likely).
+
+---
+
+### F Distribution
+
+**Distribusi F** (Fisher distribution) digunakan untuk **comparing variances** antara dua groups. Ini adalah ratio dari dua chi-squared distributions.
+
+**Konstruksi:**
+
+$$F = \frac{U_1/d_1}{U_2/d_2}$$
+
+dimana $U_1 \sim \chi^2(d_1)$ dan $U_2 \sim \chi^2(d_2)$ independent.
+
+**Kapan Menggunakan F Distribution?**
+
+1. **ANOVA (Analysis of Variance):** Comparing means across ≥3 groups
+2. **F-test for equality of variances:** Apakah dua populations punya variance sama?
+3. **Regression analysis:** Testing overall model significance
+4. **Comparing nested models:** Model selection
+
+**Karakteristik:**
+
+- **Right-skewed** 
+- **Support:** F ≥ 0
+- **Two parameters:** $d_1$ (numerator df) dan $d_2$ (denominator df)
+- **Not symmetric**
+
+::: {.callout-note icon=false}
+## 📖 Definisi Formal
+
+**Notation:** $F \sim F(d_1, d_2)$
+
+**PDF:**
+$$f(x) = \frac{\sqrt{\frac{(d_1 x)^{d_1} d_2^{d_2}}{(d_1 x + d_2)^{d_1+d_2}}}}{x \, B(d_1/2, d_2/2)}, \quad x > 0$$
+
+**Parameters:**
+
+- $d_1$: numerator degrees of freedom
+- $d_2$: denominator degrees of freedom
+
+**Properties:**
+
+- $E(F) = \frac{d_2}{d_2-2}$ for $d_2 > 2$
+- No simple formula for variance
+:::
+
+**Aplikasi Praktis:**
+
+1. **ANOVA:** Comparing teaching methods (3+ groups)
+2. **Regression:** Testing if model is better than intercept-only
+3. **Quality Control:** Comparing variability between machines
+4. **Finance:** Testing equality of volatilities
+
+**Contoh:** ANOVA untuk membandingkan effectiveness 3 different training programs.
+
+---
+
+### Gamma Distribution
+
+**Distribusi Gamma** adalah **flexible family** dari distribusi continuous yang sangat berguna untuk modeling **waiting times** dan **skewed positive data**.
+
+**Generalisasi:**
+
+Gamma adalah **generalisasi dari Exponential**:
+
+- Exponential: Waiting time sampai **1st event**
+- Gamma: Waiting time sampai **k-th event** dalam Poisson process
+
+**Karakteristik:**
+
+- **Support:** x > 0 (hanya positive values)
+- **Two parameters:** shape (k atau α) dan scale (θ) atau rate (β)
+- **Flexible shapes:** Bisa right-skewed, symmetric (jika k besar), atau exponential (k=1)
+
+**Hubungan dengan Distribusi Lain:**
+
+- Gamma(1, β) = Exponential(β)
+- Gamma(k/2, 2) = Chi-squared(k)
+- Sum of k independent Exp(β) = Gamma(k, β)
+
+::: {.callout-note icon=false}
+## 📖 Definisi Formal
+
+**Notation:** $X \sim \text{Gamma}(\alpha, \beta)$ 
+
+(Note: Ada 2 parameterisasi - shape-rate dan shape-scale)
+
+**PDF (shape-rate):**
+$$f(x) = \frac{\beta^\alpha}{\Gamma(\alpha)} x^{\alpha-1} e^{-\beta x}, \quad x > 0$$
+
+**Parameters:**
+
+- $\alpha$ (alpha): shape parameter (α > 0)
+- $\beta$ (beta): rate parameter (β > 0)
+
+**Properties:**
+
+- $E(X) = \frac{\alpha}{\beta}$
+- $\text{Var}(X) = \frac{\alpha}{\beta^2}$
+:::
+
+**Aplikasi Praktis:**
+
+1. **Queueing theory:** Total waiting time untuk k customers
+2. **Reliability:** Time until k-th failure
+3. **Insurance:** Aggregate claim amounts
+4. **Rainfall:** Total rainfall amounts (positively skewed)
+5. **Finance:** Modeling stock price changes
+6. **Survival analysis:** Time to event data
+
+**Contoh:** Modeling total time sampai 5 customer arrive di bank.
+
+---
+
+### Beta Distribution
+
+**Distribusi Beta** adalah distribusi untuk **probabilities and proportions** - nilai yang **bounded antara 0 dan 1**. Ini sangat berguna untuk Bayesian statistics.
+
+**Karakteristik Unik:**
+
+- **Support:** 0 ≤ x ≤ 1 (bounded!)
+- **Two parameters:** α dan β (both > 0)
+- **Extremely flexible shapes:** 
+  - U-shaped
+  - Bell-shaped
+  - Uniform
+  - J-shaped
+  - Reverse J-shaped
+
+**Interpretasi Parameters:**
+
+Parameter α dan β bisa diinterpret sebagai:
+
+- **α - 1:** jumlah "successes"
+- **β - 1:** jumlah "failures"
+
+Semakin besar α dan β, semakin **concentrated** distribusi.
+
+::: {.callout-note icon=false}
+## 📖 Definisi Formal
+
+**Notation:** $X \sim \text{Beta}(\alpha, \beta)$
+
+**PDF:**
+$$f(x) = \frac{x^{\alpha-1}(1-x)^{\beta-1}}{B(\alpha,\beta)}, \quad 0 \leq x \leq 1$$
+
+dimana $B(\alpha,\beta) = \frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha+\beta)}$ adalah Beta function.
+
+**Parameters:**
+
+- $\alpha$ (alpha): shape parameter (α > 0)
+- $\beta$ (beta): shape parameter (β > 0)
+
+**Properties:**
+
+- $E(X) = \frac{\alpha}{\alpha+\beta}$
+- $\text{Var}(X) = \frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}$
+- Mode: $\frac{\alpha-1}{\alpha+\beta-2}$ for α,β > 1
+:::
+
+**Special Cases:**
+
+- Beta(1,1) = Uniform(0,1)
+- Beta(α,β) symmetric when α = β
+- Beta(0.5, 0.5) = U-shaped (Jeffreys prior)
+
+**Aplikasi Praktis:**
+
+1. **Bayesian Statistics:** Prior dan posterior untuk probabilities
+2. **Project Management:** Modeling task completion percentages (PERT)
+3. **Quality Control:** Proportion of defective items
+4. **Marketing:** Click-through rates, conversion rates
+5. **Sports Analytics:** Batting averages, shooting percentages
+6. **Genetics:** Allele frequencies
+7. **Finance:** Recovery rates on defaulted loans
+
+**Contoh:** 
+
+Anda observed 8 successes dan 2 failures. Beta(9, 3) menjadi posterior distribution untuk true success probability p.
+
+---
+
+### Central Limit Theorem (CLT)
+
+**Central Limit Theorem** adalah salah satu teorema paling powerful dalam statistik. Teorema ini menjelaskan **mengapa Normal Distribution begitu sering muncul**.
+
+**Pernyataan Sederhana:**
+
+> "Jika Anda mengambil rata-rata dari **banyak** random variables (apapun distribusinya), rata-rata tersebut akan **mendekati Normal Distribution**."
+
+**Implikasi Praktis:**
+
+1. **Sample Means:** Rata-rata sample akan Normal, even if population bukan Normal
+2. **Large n:** Semakin besar sample size, semakin mendekati Normal
+3. **Any Distribution:** Berlaku untuk distribusi apapun (asal punya mean & variance)
+
+::: {.callout-note icon=false}
+## 🌟 Teorema Formal
+
+Jika $X_1, X_2, \ldots, X_n$ adalah i.i.d. random variables dengan mean $\mu$ dan variance $\sigma^2$, maka:
+
+$$\bar{X} = \frac{1}{n}\sum_{i=1}^n X_i \xrightarrow{d} N\left(\mu, \frac{\sigma^2}{n}\right) \text{ as } n \to \infty$$
+
+**Atau dalam bentuk standardized:**
+$$\frac{\bar{X} - \mu}{\sigma/\sqrt{n}} \xrightarrow{d} N(0, 1)$$
+:::
+
+```{r clt-demonstration}
+#| fig-height: 8
+
+set.seed(123)
+
+# Function to demonstrate CLT
+demonstrate_clt <- function(rdist, n, n_samples = 10000, dist_name, ...) {
+  sample_means <- replicate(n_samples, mean(rdist(n, ...)))
+  
+  data.frame(
+    sample_mean = sample_means,
+    n = n,
+    dist = dist_name
+  )
+}
+
+# Different sample sizes
+n_vals <- c(5, 30)
+
+# Population distributions to test CLT
+distributions <- list(
+  list(name = "Uniform(0,1)", 
+       rfunc = runif, 
+       params = list(min=0, max=1),
+       true_mean = 0.5,
+       true_sd = sqrt(1/12)),
+  
+  list(name = "Exponential(λ=1)", 
+       rfunc = rexp,
+       params = list(rate=1),
+       true_mean = 1,
+       true_sd = 1)
+)
+
+# Generate data for each distribution and sample size
+clt_results <- lapply(distributions, function(dist) {
+  do.call(rbind, lapply(n_vals, function(n) {
+    do.call(demonstrate_clt,
+            c(list(rdist = dist$rfunc, n = n, dist_name = dist$name),
+              dist$params))
+  }))
+}) %>% bind_rows()
+
+# For each distribution, get true parameters
+dist_params <- data.frame(
+  dist = sapply(distributions, function(d) d$name),
+  true_mean = sapply(distributions, function(d) d$true_mean),
+  true_sd = sapply(distributions, function(d) d$true_sd),
+  stringsAsFactors = FALSE
+)
+
+# Join with true parameters
+clt_results <- clt_results %>%
+  left_join(dist_params, by = "dist") %>%
+  mutate(n_label = paste0("n = ", n))
+
+# Create theoretical density curves
+x_range_data <- expand.grid(
+  dist = unique(clt_results$dist),
+  n = n_vals,
+  stringsAsFactors = FALSE
+) %>%
+  left_join(dist_params, by = "dist") %>%
+  rowwise() %>%
+  mutate(
+    se = true_sd / sqrt(n),
+    x_range = list(seq(true_mean - 4*se, true_mean + 4*se, length.out = 100)),
+    n_label = paste0("n = ", n)
+  ) %>%
+  unnest(x_range) %>%
+  mutate(theoretical_density = dnorm(x_range, true_mean, se))
+
+ggplot(clt_results, aes(x = sample_mean)) +
+  geom_histogram(aes(y = ..density.., fill = dist), 
+                 bins = 40, alpha = 0.6, color = "white") +
+  geom_line(data = x_range_data,
+            aes(x = x_range, y = theoretical_density),
+            color = "red", size = 1.2) +
+  geom_vline(aes(xintercept = true_mean),
+             linetype = "dashed", color = "blue", size = 0.8) +
+  facet_grid(dist ~ n_label, scales = "free") +
+  scale_fill_manual(values = colors_discrete) +
+  labs(
+    title = "Central Limit Theorem: Sample Means → Normal",
+    subtitle = "Garis merah = Theoretical Normal | Notice: Sample means lebih Normal dengan n lebih besar!",
+    x = "Sample Mean",
+    y = "Density",
+    fill = "Population"
+  ) +
+  theme(
+    legend.position = "right",
+    strip.text = element_text(face = "bold")
+  )
+```
+
+::: {.callout-important}
+## 🔑 Key Takeaways CLT
+
+1. **Universal:** Berlaku untuk SEMUA distribusi (dengan finite mean & variance)
+2. **Rule of Thumb:** n ≥ 30 biasanya cukup untuk approximation yang baik
+3. **Power:** Memungkinkan inference dan hypothesis testing tanpa tahu distribusi population!
+4. **Foundation:** Dasar untuk confidence intervals, t-tests, dan banyak metode statistik
+:::
+
+**Aplikasi Praktis CLT:**
+- Survey sampling: Sample mean mendekati population mean
+- Quality control: Average measurements dari batch
+- A/B testing: Comparing means between groups
+- Financial analysis: Portfolio returns
+
+---
+
+## Perbandingan Distribusi
+
+### Decision Tree: Memilih Distribusi yang Tepat
+
+```{r distribution-comparison}
+#| fig-height: 10
+
+# Comparison table
+comparison_data <- data.frame(
+  Distribution = c("Bernoulli", "Binomial", "Geometric", "Poisson", "Negative Binomial",
+                   "Uniform", "Exponential", "Normal", "Student T", "Chi-Squared", 
+                   "F", "Gamma", "Beta"),
+  Type = c("Discrete", "Discrete", "Discrete", "Discrete", "Discrete",
+           "Continuous", "Continuous", "Continuous", "Continuous", "Continuous",
+           "Continuous", "Continuous", "Continuous"),
+  Use_Case = c(
+    "Single trial, 2 outcomes",
+    "# successes in n trials",
+    "# trials until 1st success",
+    "# events in fixed interval",
+    "# trials until r-th success",
+    "All values equally likely",
+    "Waiting time for events",
+    "Natural phenomena, averages",
+    "Small samples, unknown σ",
+    "Variance tests, goodness of fit",
+    "Comparing variances, ANOVA",
+    "Waiting time for k events",
+    "Probabilities and proportions"
+  ),
+  Parameters = c("p", "n, p", "p", "λ", "r, p", 
+                 "a, b", "λ", "μ, σ²", "df", "df",
+                 "df₁, df₂", "α, β", "α, β"),
+  Mean = c("p", "np", "1/p", "λ", "r/p",
+           "(a+b)/2", "1/λ", "μ", "0", "df",
+           "df₂/(df₂-2)", "α/β", "α/(α+β)"),
+  Support = c("0, 1", "0 to n", "1, 2, 3...", "0, 1, 2...", "r, r+1...",
+              "[a, b]", "x ≥ 0", "(-∞, ∞)", "(-∞, ∞)", "x > 0",
+              "x > 0", "x > 0", "[0, 1]"),
+  stringsAsFactors = FALSE
+)
+
+# Create visual comparison
+library(knitr)
+library(kableExtra)
+
+kable(comparison_data, 
+      caption = "Summary of Probability Distributions",
+      align = c("l", "c", "l", "c", "c", "c")) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"),
+                full_width = FALSE,
+                font_size = 11) %>%
+  row_spec(0, bold = TRUE, color = "white", background = "#2A9D8F") %>%
+  row_spec(1:5, background = "#F0F8FF") %>%
+  row_spec(6:13, background = "#FFF8DC") %>%
+  column_spec(1, bold = TRUE, color = "#264653") %>%
+  column_spec(2, bold = TRUE) %>%
+  pack_rows("Discrete Distributions", 1, 5, label_row_css = "background-color: #E63946; color: #fff;") %>%
+  pack_rows("Continuous Distributions", 6, 13, label_row_css = "background-color: #118AB2; color: #fff;")
+```
+
+### Visual Comparison: Shape Comparison
+
+```{r shape-comparison}
+#| fig-height: 10
+
+# Discrete distributions
+discrete_data <- rbind(
+  data.frame(x = 0:20, 
+             prob = dbinom(0:20, 20, 0.5),
+             dist = "Binomial(20, 0.5)"),
+  data.frame(x = 0:20,
+             prob = dpois(0:20, 5),
+             dist = "Poisson(5)"),
+  data.frame(x = 1:20,
+             prob = dgeom(0:19, 0.3),
+             dist = "Geometric(0.3)")
+)
+
+plot_discrete <- ggplot(discrete_data, aes(x = x, y = prob, fill = dist)) +
+  geom_col(alpha = 0.7) +
+  facet_wrap(~dist, scales = "free_y", ncol = 1) +
+  scale_fill_manual(values = colors_discrete[1:3]) +
+  labs(
+    title = "Discrete Distributions: Shape Comparison",
+    x = "Value",
+    y = "Probability"
+  ) +
+  theme(legend.position = "none",
+        strip.text = element_text(face = "bold"))
+
+# Continuous distributions
+x_cont <- seq(-5, 15, length.out = 500)
+
+continuous_data <- rbind(
+  data.frame(x = x_cont,
+             density = dunif(x_cont, 0, 10),
+             dist = "Uniform(0, 10)"),
+  data.frame(x = x_cont,
+             density = dexp(x_cont, 1),
+             dist = "Exponential(1)"),
+  data.frame(x = x_cont,
+             density = dnorm(x_cont, 5, 2),
+             dist = "Normal(5, 4)")
+)
+
+plot_continuous <- ggplot(continuous_data, aes(x = x, y = density, color = dist)) +
+  geom_line(size = 1.5) +
+  facet_wrap(~dist, scales = "free_y", ncol = 1) +
+  scale_color_manual(values = colors_continuous[1:3]) +
+  labs(
+    title = "Continuous Distributions: Shape Comparison",
+    x = "Value",
+    y = "Density"
+  ) +
+  theme(legend.position = "none",
+        strip.text = element_text(face = "bold"))
+
+plot_discrete + plot_continuous
+```
+
+---
+
+## Summary & Key Takeaways
+
+::: {.callout-note icon=false}
+## 📚 Ringkasan Materi
+
+### Discrete Distributions
+
+1. **Bernoulli:** Single trial dengan 2 outcomes
+2. **Binomial:** # successes dalam n independent trials
+3. **Geometric:** # trials sampai 1st success (memoryless)
+4. **Poisson:** # events dalam fixed interval (rare events)
+5. **Negative Binomial:** # trials sampai r-th success
+
+### Continuous Distributions
+
+1. **Uniform:** All values equally likely dalam [a,b]
+2. **Exponential:** Waiting time untuk next event (memoryless)
+3. **Normal:** The king - bell curve, CLT foundation
+4. **Student T:** Small samples, unknown σ, hypothesis testing
+5. **Chi-Squared:** Variance tests, goodness of fit
+6. **F:** Comparing variances, ANOVA
+7. **Gamma:** Waiting time untuk k-th event, flexible skewness
+8. **Beta:** Probabilities and proportions [0,1], Bayesian priors
+
+### Universal Principles
+
+- **Choose distribution based on:** Data type, process characteristics, theoretical justification
+- **Central Limit Theorem:** Sample means → Normal (regardless of population)
+- **Parameters matter:** Location (μ), scale (σ), rate (λ), shape (α, β)
+- **Support matters:** Discrete vs continuous, bounded vs unbounded
+:::
+
+::: {.callout-tip}
+## 🎯 Praktik Terbaik
+
+1. **Understand the process** generating data first
+2. **Check assumptions** before applying distributions
+3. **Validate with data** - theory vs reality
+4. **Use CLT wisely** - know its limitations
+5. **Visualize always** - plots reveal insights
+:::
+
+---
+
+## Referensi & Pembelajaran Lanjut
+
+::: {.callout-note}
+## 📖 Sumber Belajar
+
+**Buku:**
+
+- Seeing Theory by Devlin, Guo, Kunin, Xiang
+- "Introduction to Probability" by Bertsekas & Tsitsiklis
+- "All of Statistics" by Larry Wasserman
+
+**Online Resources:**
+
+- [Seeing Theory Website](https://seeing-theory.brown.edu/) - Interactive visualizations
+- [Khan Academy Statistics](https://www.khanacademy.org/math/statistics-probability)
+- [StatQuest YouTube Channel](https://www.youtube.com/c/joshstarmer)
+
+**Practice:**
+
+- Simulate distributions in R/Python
+- Work through real datasets
+- Join Kaggle competitions
+:::
+
+---
+
+::: {.callout-important}
+## 💭 Final Thoughts
+
+> "The world is an uncertain place. Probability distributions help us quantify and reason about that uncertainty in a principled way."
+
+Memahami distribusi probabilitas bukan hanya tentang rumus dan grafik - ini tentang **cara berpikir** dalam menghadapi ketidakpastian dan membuat keputusan berdasarkan data.
+
+**Next steps:**
+
+- Apply distributions to YOUR data
+- Experiment with simulations
+- Understand assumptions and limitations
+- Keep learning - statistics is a journey, not a destination!
+:::
+
+---
+
+<div style="text-align: center; padding: 20px; background-color: #f0f0f0; border-radius: 10px; margin-top: 30px;">
+
+**🎓 Selamat Belajar! Keep Exploring Probability!**
+
+*Dibuat dengan ❤️ menggunakan Quarto*
+
+</div>
